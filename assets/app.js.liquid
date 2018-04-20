@@ -1365,7 +1365,7 @@ $(function() {
   });
 
   {% if settings.cart_action == 'ajax' %}
-    $('body').on('submit', '.product_form', function(e) {
+    $('body').on('submit', '.product_form:not(.custom-subscription-form)', function(e) {
       e.preventDefault();
       var $addToCartForm = $(this);
       var $addToCartBtn = $addToCartForm.find('.add_to_cart');
@@ -1416,8 +1416,100 @@ $(function() {
 
 });
 
+optionChanged = function(evt){
+  var input = evt.target;
+  var form = input.form;
+  var option_elements;
 
+  if(input.tagName.toLowerCase === 'select'){
+    option_elements = form.querySelectorAll('.variant-option');
+  }
+  else{
+    option_elements = form.querySelectorAll('.variant-option:checked');
+  }
+  var options = [];
+  for(var i=0; i<option_elements.length; i++){
+    options.push(option_elements[i].value);
+  }
+
+  var product = form.product || ( form.product = new Shopify.Product(JSON.parse( form.querySelector('script.product-json').innerHTML ) ));
+  var variant = product.getVariant(options);
+
+  var variantIdField = form.id;
+  var submitButtons = form.querySelectorAll('[type=submit]');
+  if(variant && variant.id){
+    variantIdField.value = variant.id;
+    for(var b=0; b<submitButtons.length; b++){
+      submitButtons[b].disabled = false;
+    }
+  } else {
+    variantIdField.value = '';
+    for(var b=0; b<submitButtons.length; b++){
+      submitButtons[b].disabled = true;
+    }
+  }
+
+  toggleOptions(product, options, form);
+  selectCallback(variant, {product:product, variantIdField:variantIdField, form:form });
+  window.BOLD && BOLD.helpers && BOLD.helpers.triggerEvent && BOLD.helpers.triggerEvent('BMS.input.changed', {variant:variant, form:form, product:product, field:input}, evt );
+};
+toggleOptions = function(product, selections, form){
+
+  var option1 = form['product-option-group-1'];
+  var option2 = form['product-option-group-2'];
+  var option3 = form['product-option-group-3'];
+
+  //Assume choices are in descending order of importance
+  var selections_array = [];
+  option1 && selections_array.push(option1.value);
+
+  //Never disable option 1's values - use that selection to disable choices further down
+  option2 && selections_array.push(option2.value);
+  if(option2 && selections_array[0]){
+    for(var r=0; r<option2.length; r++){
+      var radio_btn = option2[r];
+      var radio_value = radio_btn.value;
+
+      var matching_variant = false;
+      //Find a variant that matches both the first selection and has this value
+      for(var v=0; v<product.variants.length; v++){
+        var variant = product.variants[v];
+        if(variant.option1 == selections_array[0] && variant.option2 == radio_value){
+          matching_variant = true;
+          break;
+        }
+      }
+      radio_btn.disabled = !matching_variant;
+      radio_btn.disabled && (radio_btn.checked = false);
+    }
+
+    //Lather-rinse-repeat for option 3
+    //Probably should've generalized this for n-dimensions, but Shopify only has a max of 3
+    option3 && selections_array.push(option3.value);
+    if(option3 && (selections_array[0] || selections_array[1])){
+      for(var r=0; r<option3.length; r++){
+        var radio_btn = option3[r];
+        var radio_value = radio_btn.value;
+
+        var matching_variant = false;
+        //Find a variant that matches both the first two selections and has this value
+        for(var v=0; v<product.variants.length; v++){
+          var variant = product.variants[v];
+          if( (!selections_array[0] || variant.option1 == selections_array[0]) && (!selections_array[1] || variant.option2 == selections_array[1]) && variant.option3 == radio_value){
+            matching_variant = true;
+            break;
+          }
+        }
+        radio_btn.disabled = !matching_variant;
+        radio_btn.disabled && (radio_btn.checked = false);
+      }
+    }
+
+  }
+
+};
 selectCallback = function(variant, selector) {
+  window.BOLD && BOLD.common && BOLD.common.eventEmitter.emit('BOLD_COMMON_variant_changed', {variant:variant, selector:selector});
   var $product = $('.product-' + selector.product.id);
   var $notify_form = $('.notify-form-' + selector.product.id);
   var $productForm = $('form.product_form', $product);

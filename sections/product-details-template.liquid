@@ -1,3 +1,5 @@
+
+
 <div class="container main content main-wrapper">
   <div class="sixteen columns">
     <div class="clearfix breadcrumb">
@@ -13,6 +15,8 @@
       {% include "product-breadcrumb" %}
     </div>
   </div>
+
+
 
   <div class="sixteen columns">
     <div class="product-{{ product.id }}">
@@ -105,7 +109,6 @@
         {% if section.settings.display_collections or section.settings.display_tags or section.settings.display_type %}
          <hr />
         {% endif %}
-
         <div class="meta">
           {% if section.settings.display_social_buttons %}
             {% include "social-buttons" with "product" %}
@@ -168,6 +171,8 @@
     {% endif %}
     </div>
 
+
+
     {% if section.settings.related_products_position == "above" %}
       {% if section.settings.display_related_products %}
         {% capture limit %}{{ section.settings.products_per_row | plus: 1 }}{% endcapture %}
@@ -198,7 +203,7 @@
             {% assign skip_product = product %}
             {% assign products = collections[col].products %}
             {% assign products_per_row = section.settings.products_per_row %}
-            {% include 'product-loop' %}
+            {% include 'product-loop-related' %}
           {% endif %}
         {% endif %}
       {% endif %}
@@ -206,7 +211,15 @@
 
   </div>
 
-<div class="product-details">
+{% comment %} end of first main {% endcomment %}
+</div> 
+
+{% include 'sock_specs' %}
+
+{% comment %} start of second main {% endcomment %}
+<div class="container main content main-wrapper">
+
+{% comment %} <div class="product-details">
   {% for block in section.blocks %}
     {% if block.type == 'rich_text_and_image' %}
       <div class="twelve columns offset-by-two center" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
@@ -373,11 +386,13 @@
     {% endif %}
 
   {% endfor %}
-</div>
+</div> {% endcomment %}
+
 
 {% if section.settings.related_products_position == "below" %}
   {% if section.settings.display_related_products %}
     {% capture limit %}{{ section.settings.products_per_row | plus: 1 }}{% endcapture %}
+
 
     {% if collection and collection.all_products_count > 1 %}
       {% assign col = collection.handle %}
@@ -399,18 +414,19 @@
     {% if col and collections[col].all_products_count > 0 %}
       {% if collections[col].all_products_count != 1 or collections[col].products.first.id != product.id %}
         <br class="clear" />
-        <h4 class="title center">{{ 'products.product.related_items' | t }}</h4>
-        <div class="feature_divider"></div>
+        {% comment %} <h4 class="title center">{{ 'products.product.related_items' | t }}</h4> {% endcomment %}
+        <h4 class="title center rp_h4">Customers Also Like</h4>     
+        {% comment %} <div class="feature_divider"></div> {% endcomment %}
 
         {% assign skip_product = product %}
         {% assign products = collections[col].products %}
-        {% assign products_per_row = section.settings.products_per_row %}
-        {% include 'product-loop' %}
+        {% assign products_per_row = limit %}
+        {% include 'product-loop-related' %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endif %}
-</div>
+
 
 <style>
   {% if section.settings.set_product_height %}
@@ -521,7 +537,7 @@
       "id": "products_per_row",
       "label": "Related products per row",
       "min": 2,
-      "max": 4,
+      "max": 5,
       "step": 1,
       "default": 3
     },

@@ -29,7 +29,7 @@ This file can be re-written at any time.
     {% endif %}
 
     <!-- font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="styleshee" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     {% include 'social-meta-info' %}
 
@@ -51,7 +51,8 @@ This file can be re-written at any time.
 
     <!-- bold custom styleshee -->
     {{ 'bms-styles.css' | asset_url | stylesheet_tag }}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    {% comment %} <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet"> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,600i,700,700i|Open+Sans+Condensed:300,700" rel="stylesheet">
 
     {% if settings.favicon != nil %}
       <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
@@ -74,9 +75,21 @@ This file can be re-written at any time.
     <![endif]-->
 
     {{ content_for_header }}{% include 'bold-checkout-loader' %}
+
+
 {%- include 'bold-common' -%}
 {%- include 'bold-product' with product, hide_action: 'header' -%}
 {%- include 'bold-ro-init' -%}
+
+{%- if product -%}
+<script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
+<script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>
+{%- endif -%}
+
+{{ 'bms-custom-styles.scss.css' | asset_url | stylesheet_tag }}
+
+<!-- YOTPO -->
+<script type="text/javascript" src="//staticw2.yotpo.com/###APP_KEY###/widget.js" async></script>
 
     <noscript>
       <style>
@@ -121,26 +134,36 @@ This file can be re-written at any time.
       </style>
     </noscript>
 
-  
-  {% include 'shogun-head' %}
+    {% include 'shogun-head' %}
+    
+    {% if template contains "index" %}
+    <style>
+      /** header bar **/
+      div.header_bar {
+          background: rgba(255,255,255,1);
+      }
 
-  {% if template contains "index" %}
-  <style>
-    /** header bar **/
-    div.header_bar {
-        background: rgba(255,255,255,1);
-    }
+      div.header_bar::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          top: 0;
+          height: 3px;
+          background: linear-gradient(rgba(230,230,230,1), rgba(255,255,255,1));
+      }
+      div.header_bar::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          height: 4px;
+          background: linear-gradient(rgba(255,255,255,1), rgba(230,230,230,1));
+      }
+    </style>
+    {% endif %}
 
-    div.header_bar::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        top: 0;
-        height: 3px;
-        background: linear-gradient(rgba(230,230,230,1), rgba(255,255,255,1));
-    }
-  </style>
-  {% endif %}
+    {{ 'lity.css' | asset_url | stylesheet_tag }}
+    {{ 'lity.js' | asset_url | script_tag }}
 
   
 </head>

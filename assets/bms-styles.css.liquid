@@ -4,7 +4,7 @@
 
 /** SECTION 1 **/
 #section1 {
-    background: url({{ 'watermelon_socks.jpg' | file_img_url: 'master' }}) no-repeat;
+    {% comment %} background: url({{ 'watermelon_socks.jpg' | file_img_url: 'master' }}) no-repeat; {% endcomment %}
     background-size: cover;
     position: relative;
     top: 0;
@@ -13,6 +13,7 @@
     text-align: center;
     height: 91vh;
     max-height: 91vh;
+    background-repeat: no-repeat;
 }
 
 .section1_content {
@@ -41,7 +42,7 @@
 }
 
 .section1_links {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .section1_links button {
@@ -65,11 +66,11 @@
     border-radius: 2px;
 }
 
-#section1 p.section1_video {
+#section1 span.section1_video {
     font-size: 1em;
     color: #fff;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: text-bottom;
     margin-top: 10px;
 }
 
@@ -247,14 +248,14 @@ a.play_video_link {
 .section3_content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
 }
 .section3_content > div {
-    margin: auto;
     background: #fff;
     padding: 30px;
     width: 200px;
+    margin-bottom: 15px; 
 }
 .section3_content p {
     font-size: 14px;
@@ -481,4 +482,18 @@ a.play_video_link {
     .featured_flex img {
         height: 14px;
     }
+}
+
+/** BUTTON HOVERS **/
+button.join_btn:hover, button.gift_btn:hover, button.do_this_thing:hover,
+.letsgetcustom button:hover {
+    color: #00d9f7 !important;
+    background-color: #fff;
+}
+li.join-now a:hover {
+    background: #eee !important;
+}
+.play_video_link:hover, .section1_video:hover, 
+.playImg:hover + span.section1_video {
+    color: #00d9f7 !important;
 }
