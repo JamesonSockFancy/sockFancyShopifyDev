@@ -1,0 +1,205 @@
+<section id="section1" style="background-image:url({{ section.settings.hero_image | img_url: 'master' }});">
+    <div class="section1_content">
+        <div class="container">
+            <div class="section1_header">
+                <h1>AWESOME SOCKS<br>DELIVERED MONTHLY</h1>
+                <p>Free Shipping Worldwide. Cancel Anytime.</p>
+            </div>
+            
+            <div class="section1_links">
+                <button class="join_btn" onclick="location.href='/products/sock-subscription';">JOIN NOW</button>
+                <button class="gift_btn" onclick="location.href='/products/sock-subscription?is_gift';">GIVE A GIFT</button>
+            </div>
+
+            <a data-lity href="https://youtu.be/k42rx2AJJb8"><img src="{{ 'play-circle.svg' | asset_url }}" width="17" height="auto" class="playImg" /><span class="section1_video">WATCH THE VIDEO</span></a>
+            {% comment %} <iframe width="560" height="315" src="https://www.youtube.com/embed/k42rx2AJJb8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> {% endcomment %}
+        </div>
+    </div>
+</section>
+
+<div class="section1_bottom_banner">
+    <div class="container">
+        <div class="flex_container">
+            <div id="shipping">
+                <img src="{{ 'airplane.png' | asset_img_url: '50x50' }}"><span class="free_shipping">FREE SHIPPING<br>WORLDWIDE</span>
+            </div>
+            <div id="exchange">
+                <img src="{{ 'exchange_logo.png' | asset_img_url: '50x50' }}"><span class="exchange">EXCHANGE OR<br>CANCEL ANYTIME</span>
+            </div>
+            <div id="satisfaction">
+                <img src="{{ 'satisfaction.png' | asset_img_url: '50x50'}}"><span class="satisfaction">100% SATISFACTION<br>GUARANTEED</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="section2">
+    <div class="container">
+        <div class="section2_top_content">
+            <div class="section2_left_content">
+                <img src="{{ 'howitworks.jpg' | asset_img_url: '580x' }}" width="100%"/>
+            </div>
+            <div class="section2_right_content">
+                <h2>HOW IT WORKS</h2>
+                <p>Sock Fancy provids stylish folks like yourself with with a monthly sock subscription to a selection of unique, eye-catching socks. For just 11 bucks a month you not only get a pair of awesome socks delivered to your door, but all the comfort and cool that fresh socks can bring.</p>
+                <div class="section2_links">
+                    <button class="do_this_thing" onclick="location.href='/products/sock-subscription';">LET'S DO THIS THING!</button>
+                    <a data-lity href="https://youtu.be/k42rx2AJJb8" class="play_video_link">PLAY VIDEO</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="section2_bottom_content">
+            <div class="pickSubs">
+                <img src="{{ 'socks.png' | asset_img_url: 'master' }}" />
+                <h3>1. Pick Your Subscription</h3>
+                <p>
+                    Gift it or grab as sub for yourself. You can't go wrong either way.
+                </p>
+            </div>
+            <div class="customSubs">
+                <img src="{{ 'customize.png' | asset_img_url: 'master' }}" />
+                <h3>2. Customized to You</h3>
+                <p>Pick your sock size, sub length and checkout. leave the rest to us!
+                </p>
+            </div>
+            <div class="unwrapSubs">
+                <img src="{{ 'unwrap.png' | asset_img_url: 'master' }}" />
+                <h3>3. Unwrap Awesome Monthly</h3>
+                <p>Kick back and watch your sockgame transform form dull to dashing</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="section3">
+    <div class="container">
+        <h2>SUBSCRIPTION PLANS</h2>
+        <div class="section3_content">
+            <div class="monthlySub">
+                <span>Monthly<br><strong>Subscription</strong></span>
+                <hr>
+                <img src="{{ 'Full-Shot-2016_no_bg_low.png' | asset_img_url: 'master' }}" />
+                <div class="section3_desc">
+                    <p><strong>FREE SHIPPING</strong></p>
+                    <p><strong>Cancel Anytime.</strong></p>
+                    <p>Swap Pairs Anytime.</p>
+                    <p>Ships Monthly.</p>
+                </div>
+                <hr style="margin-bottom: 35px;">
+                <p class="savings"><span class="savingValue">$11</span> /mo</p>
+                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription';">Choose</button>
+            </div>
+            
+            <div class="giftSub">
+                <span>Gift<br><strong>Subscription</strong></span>
+                <hr>
+                <img src="{{ 'Holiday-Product.png' | asset_img_url: 'master' }}" />
+                <div class="section3_desc">
+                    <p>FREE SHIPPING</p>
+                    <p>Prepaid or Monthly Plans.</p>
+                    <p>Satisfaction Guaranteed.</p>
+                    <p>Ships Monthly.</p>
+                </div>
+                <hr>
+                <p class="savings">Starting at<br><span class="savingValue">$33</span> /mo</p>
+                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription?is_gift';">Choose</button>
+            </div>
+            
+            <div class="sixPackSub">
+                <span>6-Pack<br><strong>Sock Box</strong></span>
+                <hr>
+                <img src="{{ 'Full-Shot-2016_no_bg_6pk_b.png' | asset_img_url: 'master' }}" />
+                <div class="section3_desc">
+                    <p>FREE SHIPPING</p>
+                    <p>Prepaid or Monthly Plans.</p>
+                    <p>Satisfaction Guaranteed.</p>
+                    <p>Ships Monthly.</p>
+                </div>
+                <hr>
+                <p class="savings">Starting at<br><span class="savingValue">$57</span> /mo</p>
+                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription?variant=6572878659611';">Choose</button>
+            </div>
+            
+            <div class="bulkSub">
+                <span>Bulk<br><strong>Subscription</strong></span>
+                <hr>
+                <img src="{{ 'bulkSubscription.png' | asset_img_url: 'master' }}" style="padding-top: 43px; padding-bottom: 14px;" />
+                <div class="section3_desc">
+                    <p>PERFECT FOR:</p>
+                    <p>Corporate Gifts.</p>
+                    <p>Holiday &amp; Seasonal Gifts.</p>
+                    <p>Teams, Families &amp; More.</p>
+                </div>
+                <hr style="margin-bottom: 35px;">
+                <p class="savings">up to <span class="savingValue">35%</span> off</p>
+                <button class="chooseSub" type="submit" onclick="location.href='/pages/bulk-subscriptions';">Choose</button>
+            </div>
+        </div>
+        <div class="section3_footer">
+            <p>* Pricing reflects starting price for each subscription. Other options are available.</p>
+        </div>
+    </div>
+</section>
+
+<section id="section4">
+    <div class="section4_outer_container">
+        <div class="container">
+            <div class="section4_content">
+                <h2>LOOKING FOR CUSTOM SOCKS?</h2>
+                <p>Looking to promote your startup, team or organization? Join hundreds of happy companies and step up your swag game with a custom sock. We make it super easy (and affordable!) to customize the prefect pair to help your crew stand out and get a leg up on the competition.</p>
+                <div class="letsgetcustom">
+                    <button type="submit">LET'S GET CUSTOM!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="section5">
+    <div id="insta-feed"></div>
+    {% comment %} <div class="flextslider">
+        <ul class="slides">
+            <li>
+                <img src="{{ 'Instagram_Shop.jpg' | asset_img_url: 'master'}}">
+            </li>
+        </ul>
+    </div> {% endcomment %}
+</section>
+
+<section id="featured_in">
+    <div class="container">
+        <div class="featured_flex">
+            <div class="mashable">
+                <img src="{{ 'Mashable.png' | asset_img_url: 'x49' }}"/>
+            </div>
+
+            <div class="cnn">
+                <img src="{{ 'CNN.png' | asset_img_url: 'x49' }}"/>
+            </div>
+            
+            <div class="buzzfeed">
+                <img src="{{ 'BuzzFeed.png' | asset_img_url: 'x49' }}"/>
+            </div>
+            
+            <div class="inc">
+                <img src="{{ 'Inc.png' | asset_img_url: 'x49' }}"/>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hero Image",
+    "class": "section1",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "hero_image",
+            "label": "hero_image"
+        }
+    ]
+}
+{% endschema %}

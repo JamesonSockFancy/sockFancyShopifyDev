@@ -1,0 +1,12 @@
+<div class="subscription-summary">
+  <header>
+    <h3>{{ 'bold.recurring_orders.summary_header_html' | t }}</h3>
+  </header>
+  <p class="subscription-summary-text"></p>
+  {% if cart.item_count > 0 %}
+  <p class="prepaid_subscription_alert">{{ 'bold.recurring_orders.prepaid_subscription_will_cause_cart_clear_html' | t: count: cart.item_count }}</p>
+  {% endif %}
+</div>
+<button type="submit" class="custom-subscription-submit">
+  <span class="custom-subscription-submit-text">{{ 'bold.recurring_orders.add_to_cart_html' | t }}</span>
+</button>

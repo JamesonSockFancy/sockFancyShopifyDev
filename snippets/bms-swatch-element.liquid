@@ -1,0 +1,5 @@
+<input type="radio" id="{{ input_id }}" class="{% if for_variant %}variant-option{% endif %} {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="{{ input_name }}" value="{{ value }}" {% if default_checked %}checked{% endif %} />
+<label for="{{ input_id }}" class="swatch-label swatch-{{ option.name | default: option }}">
+  <span class="swatch-label-title">{{ title | default: value }}</span>
+  {% include 'sockfancy-swatch-subtitle-lookup', option:option, value:value %}
+</label>

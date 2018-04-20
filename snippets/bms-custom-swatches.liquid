@@ -1,0 +1,26 @@
+<script type="application/json" class="product-json" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">
+{{- product | json -}}
+</script>
+{%-include 'bms-ro-group-id-output'-%}
+<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+{%-for option in product.options_with_values-%}
+{%-assign input_name =  'product-option-group-' | append: forloop.index -%}
+<header>
+  <h3 class="option-title">{{ option.name }}</h3>
+</header>
+<div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="{{ option.values.size }}">
+  {%-if product.selected_variant-%}
+    {%-assign pre_select = true-%}
+  {%-endif-%}
+  {%-for value in option.values-%}
+  {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
+  {%-if pre_select and option.selected_value == value-%}
+    {%-assign is_checked = true-%}
+  {%-else-%}
+    {%-assign is_checked = false-%}
+  {%-endif-%}
+
+  {%-include 'bms-swatch-element', option:option, value:value, input_id: input_id, default_checked: is_checked-%}
+  {%-endfor-%}
+</div>
+{%-endfor-%}

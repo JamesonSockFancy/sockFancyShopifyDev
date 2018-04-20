@@ -1,0 +1,229 @@
+<style>
+    .footer .container {
+      display: grid;
+      grid-gap: 15px;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+    }
+
+    .footer .container ul.footer_menu li {
+      display: block;
+    }
+    .footer .container ul.footer_menu li a {
+      font-weight: normal;
+    }
+    .footer .newsletter form input.contact_email {
+      max-width: 275px;
+    }
+    .belowFooter {
+      text-align: center;
+      font-size: 0.9em;
+    }
+    .shopLinks ul li a,
+    .usefulLinks ul li a {
+      font-size: 0.9em;
+    }
+    @media screen and (max-width: 768px) {
+      .footer .container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        grid-gap: initial;
+        grid-template-columns: initial;
+        margin: 0 auto;
+      }
+      .footer .newsletter form input.contact_email {
+        max-width: 100%;
+      }
+      .footer .newsletterSignup {
+        margin: auto;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      .footer .container {
+        justify-content: space-between;
+      }
+      .footer .container > div {
+        margin-bottom: 20px;
+      }
+    }
+</style>
+
+<div class="footer">
+  <div class="container">
+
+    <div class="socialIcons">
+      {% if section.settings.footer_social_icons %}
+        <h6>{{ 'layout.general.social' | t }}</h6>
+        <div class="js-social-icons">
+          {% include 'social-icons' %}
+        </div>
+      {% endif %}
+      {% if section.settings.footer_content_left != blank %}
+        {{ section.settings.footer_content_left }}
+      {% endif %}
+    </div>
+
+    <div class="shopLinks">
+        {% if section.settings.footer_linklist_1 != blank %}
+        <h3>SHOP</h3>
+        <ul class="footer_menu">
+            {% for link in linklists[section.settings.footer_linklist_1].links %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+                {% for sub_link in link.links %}
+                    <li>
+                        <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                    </li>
+                    {% for sub_sub_link in sub_link.links %}
+                        <li>
+                            <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                        </li>
+                    {% endfor %}
+                {% endfor %}            
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <div class="usefulLinks">
+
+        {% if section.settings.footer_linklist_2 != blank %}
+        <h3>USEFUL STUFF</h3>
+        <ul class="footer_menu">
+            {% for link in linklists[section.settings.footer_linklist_2].links %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+            {% for sub_link in link.links %}
+                <li>
+                <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                </li>
+                {% for sub_sub_link in sub_link.links %}
+                <li>
+                    <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                </li>
+                {% endfor %}
+            {% endfor %}            
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <div class="newsletterSignup">
+      <h3>JOIN THE FAM</h3>
+      {% if section.settings.footer_newsletter %}
+        <p>{{ 'general.newsletter_form.description' | t }}</p>
+        {% include 'newsletter' %}
+      {% endif %}
+
+      {% if section.settings.footer_content_right != blank %}
+        {{ section.settings.footer_content_right }}
+      {% endif %}
+
+      {{ section.settings.custom_html }}
+
+      <p class="credits">
+        &copy; {{ "now" | date: "%Y" }} {{ shop.name | link_to: '/' }}.
+        {{ section.settings.copyright_text | escape }}<br />
+        {% if section.settings.display_designed_by == true %}
+          {{ 'layout.general.designer_credits_html' | t }}
+        {% endif %}
+
+        {% comment %} {{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }} {% endcomment %}
+      </p>
+
+      {% if section.settings.display_payment_methods %}
+        <div class="payment_methods">
+          {% for type in shop.enabled_payment_types %}
+            <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <hr>
+  <div class="belowFooter">
+    <span>2018 Sock Fancy, LLC All Rights Reserved - 
+      <a class="privacyPolicy">Privacy Policy</a>
+      <span>|</span>
+      <a class="termsOfService">Terms of Service</a>
+      <span>|</span>
+      <a class="cancellationPolicy">Cancellation Policy</a>
+    </span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer-v2",
+  "class": "footer-template-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_linklist_1",
+      "label": "Shop",
+      "info": "This menu won't show dropdown items"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist_2",
+      "label": "Useful Stuff",
+      "info": "This menu won't show dropdown items"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_social_icons",
+      "label": "Show social media icons",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_designed_by",
+      "label": "Show theme designer credits",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_content_left",
+      "label": "Left column text"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_content_right",
+      "label": "Right column text"
+    },
+    {
+      "type": "header",
+      "content": "Scripts"
+    },
+    {
+      "type": "html",
+      "id": "custom_html",
+      "label": "Custom HTML"
+    } 
+  ]
+}
+{% endschema %}

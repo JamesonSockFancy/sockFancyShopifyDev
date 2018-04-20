@@ -1,0 +1,8 @@
+development:
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "12289638503"
+  store: sockfancyapp.myshopify.com
+production: 
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "8057946139"
+  store: sockfancyapp.myshopify.com

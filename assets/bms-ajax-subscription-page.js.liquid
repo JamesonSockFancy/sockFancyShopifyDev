@@ -1,0 +1,52 @@
+function SubscriptionProduct(bold_product_json){
+  for(var key in bold_product_json){
+    if(key === 'variants'){
+      continue;
+    }
+    this[key] = bold_product_json[key];
+  }
+
+  this.variants = [];
+  for(var v=0; v<bold_product_json.variants.length; v++){
+    var variant = bold_product_json.variants[v];
+    this.variants.push(new SubscriptionVariant(variant));
+  }
+  return this;
+}
+
+SubscriptionProduct.prototype = Object.create(Shopify.Product.prototype,{
+
+});
+SubscriptionProduct.prototype.constructor = SubscriptionProduct;
+
+
+
+function SubscriptionVariant(variant, base_product){
+  for(var key in variant){
+    this[key] = variant[key];
+  }
+  this.getProduct = function(){
+    return base_product;
+  }
+
+  if(this.ro_lookup && BOLD.bms_ro_loader && BOLD.bms_ro_loader.loaded_group_data[this.ro_lookup.group_id] ){
+    this.saveGroupData(BOLD.bms_ro_loader.loaded_group_data[this.ro_lookup.group_id]);
+  } else {
+    BOLD.common.eventEmitter.on('BOLD_MS.ro_loader.group_data_loaded', this.saveGroupData);
+  }
+
+  return this;
+}
+
+SubscriptionVariant.prototype = {
+  matches:function matches(options){
+    //Expects an ID or an array of selected options. Shopify products currently can only have 1-3 options
+    return this.id === parseInt(options) || (this.options[0] === options[0] && (!this.options[1] || this.options[1] === options[1]) && (!this.options[2] || this.options[2] === options[2]));
+  },
+  saveGroupData:function(group_data, force_save){
+    if(force_save || (this.recurring_group_id && this.recurring_group_id == group_data.group_id)){
+      this.recurring_group_data = group_data;
+    }
+  }
+}
+SubscriptionVariant.prototype.constructor = SubscriptionVariant;

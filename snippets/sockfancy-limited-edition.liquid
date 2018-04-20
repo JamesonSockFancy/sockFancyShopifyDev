@@ -1,0 +1,15 @@
+<header class="has-toggle">
+  <h3 class="option-title">{{ 'bold.recurring_orders.limited_edition_title_html' | t }}</h3>
+  <input class="text-toggle" type="checkbox" id="limited-edition-text-toggle" />
+  <label for="limited-edition-text-toggle" class="toggle">
+    <span class="expanded-text-trigger">{{ 'bold.recurring_orders.limited_edition_expand_html' | t }}</span>
+  </label>
+  <p class="expanded-text-body">{{ 'bold.recurring_orders.limited_edition_description_html' | t }} <label for="limited-edition-text-toggle" class="text-toggle-collapse">{{ 'bold.recurring_orders.limited_edition_collapse_html' | t }}</label></p>
+</header>
+
+<div class="swatch-wrapper swatch-{{ 'limited edition' | handle }}" data-option="{{ option.name }}">
+  {% assign yes_text = 'bold.recurring_orders.limited_edition_yes' | t %}
+  {% assign no_text = 'bold.recurring_orders.limited_edition_no' | t %}
+  {% include 'bms-swatch-element', input_name:'properties[Limited Edition Socks?]', option:'limited-edition', value:yes_text, input_id: 'limited-edition-yes', default_checked: true %}
+  {% include 'bms-swatch-element', input_name:'properties[Limited Edition Socks?]', option:'limited-edition', value:no_text, input_id: 'limited-edition-no' %}
+</div>

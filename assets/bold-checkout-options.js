@@ -1,0 +1,2 @@
+window.BOLD = window.BOLD || {};
+window.BOLD.checkout_features_defaults=[{"name":"checkout-always-on","require":true},{"name":"Recurring Orders","require":true,"id":"b065901c-bf09-11e7-b98f-42010afe0607"}]

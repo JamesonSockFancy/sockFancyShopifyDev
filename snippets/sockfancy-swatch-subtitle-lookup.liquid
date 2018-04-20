@@ -1,0 +1,46 @@
+{%- comment -%}
+  This file receives the following values: option (liquid object), value
+{%- endcomment -%}
+{%- assign lowercase_option_name = option.name | default: option | downcase -%}
+{%- assign lowercase_value = value | downcase -%}
+{%- assign subtitle = false -%}
+{%- case lowercase_option_name -%}
+ {%- when 'size' -%}
+   {%- case lowercase_value -%}
+     {%- when 'mens' -%}
+       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mens' | t -%}
+     {%- when 'men' -%}
+       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mens' | t -%}
+    {%- when 'womens' -%}
+       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_womens' | t -%}
+    {%- when 'women' -%}
+       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_womens' | t -%}
+    {%- when 'his & hers' -%}
+       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mixed' | t -%}
+    {%- endcase -%}
+
+  {%- when 'quantity' -%}
+    {%- comment -%} Assume that #of pairs is the only option that affects price for this product {%- endcomment -%}
+    {%- assign months = false -%}
+    {%- if variant -%}
+      {%- assign monthly_price = variant.price -%}
+    {%- else if product -%}
+      {%- for variant in product.variants -%}
+        {%- if variant.option1 == value or variant.option2 == value or variant.option3 == value -%}
+          {%- assign monthly_price = variant.price -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- assign subtitle = monthly_price | money_without_trailing_zeros | append: '/month' -%}
+
+  {%- when 'duration' -%}
+    {%- if value contains '12' -%}
+      {%- assign subtitle =  'bold.recurring_orders.subtitle_for_12_month_prepaid' | t -%}
+    {%- endif -%}
+
+{%- endcase -%}
+
+{%- if subtitle -%}
+<span class="swatch-subtitle">{{ subtitle }}</span>
+{%- endif -%}

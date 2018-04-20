@@ -1,0 +1,1 @@
+<script type="application/json" class="recurring-orders-json" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">{"variant_ids":{{ product.variants | map: 'id' | json }},"group_ids":{{ product.variants | map: 'metafields' | map: 'bold_rp' | map: 'rp_group_id' | json }} }</script>

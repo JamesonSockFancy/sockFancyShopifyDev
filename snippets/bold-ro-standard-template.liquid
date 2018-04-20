@@ -1,0 +1,121 @@
+{%- capture ro_template -%}{% raw %}
+
+<div class="bold-ro__product bold-ro__product-id-{{product_id}}">
+    <div class="bold-ro__recurring-title">
+        {{#translate}}auto_replenish_product{{/translate}}
+    </div>
+
+    {{^subscription_only}}
+        {{> oneTimePurchase}}
+    {{/subscription_only}}
+
+    <div class="mooo bold-ro__radio-div bold-ro__recurring-div {{#subscription_checked}}bold-ro__bold-active{{/subscription_checked}} bold-ro__sub">
+        <label class="bold-ro__recurring-lbl">
+        {{#recurring_mode.mixed}}
+            <input value="2" name="bold-ro__selector_radio_button" data-bold-recurring
+                class="bold-ro__mixed-radio-btn bold-ro__subscribe-radio-btn"
+                {{^subscription_only}}type="radio"{{/subscription_only}}
+                {{#subscription_only}}type="hidden"{{/subscription_only}}
+                {{#subscription_checked}}checked=""{{/subscription_checked}}>
+        {{/recurring_mode.mixed}}
+        {{#recurring_mode.single_product}}
+            <input value="1" name="bold-ro__selector_radio_button" data-bold-recurring
+                class="bold-ro__recurring-radio-btn bold-ro__subscribe-radio-btn"
+                {{^subscription_only}}type="radio"{{/subscription_only}}
+                {{#subscription_only}}type="hidden"{{/subscription_only}}
+                {{#subscription_checked}}checked=""{{/subscription_checked}}>
+        {{/recurring_mode.single_product}}
+
+        <span class="bold-ro__recurring-text {{#subscription_only}}bold-ro__subscription-only{{/subscription_only}}">
+            {{#conversion}}
+                {{#merge_conversion_discount_percent}}
+                  {{#translate}}{{conversion.type_translation}}{{/translate}}
+                {{/merge_conversion_discount_percent}}
+            {{/conversion}}
+
+            {{#standard}}
+                {{^is_prepaid_only}}
+                    {{#translate}}widget_repenish{{/translate}}{{#merge_initial_discount}}{{#translate}}{{standard.type_translation}}{{/translate}}{{/merge_initial_discount}} {{#standard.secondary_type_translation}}{{#merge_secondary_discount}}{{#translate}}{{standard.secondary_type_translation}}{{/translate}}{{/merge_secondary_discount}}{{/standard.secondary_type_translation}}
+                {{/is_prepaid_only}}
+                {{#is_prepaid_only}}
+                    {{#merge_prepaid}}{{#translate}}prepay_for_your_subscription{{/translate}}<span class="bold-ro__prepaid-discount-text">{{#translate}}discount{{/translate}}</span>{{/merge_prepaid}}
+                {{/is_prepaid_only}}
+            {{/standard}}
+        </span>
+        </label>
+        {{#details_tooltip.location.inline}}{{#details_tooltip.enabled}}<span class="bold-ro__see-details"><a href="javascript:;" class="bold-ro__detail-tooltip">{{#translate}}see_details{{/translate}}</a></span>{{/details_tooltip.enabled}}{{/details_tooltip.location.inline}}
+
+        <div class="bold-ro__frequency-div">
+            <div class="bold-ro__frequency-label">
+                {{#conversion}}
+                    {{> convertibleTable}}
+                {{/conversion}}
+
+                {{^has_billing_plan}}
+                    {{^fixed_interval}}
+                        {{#frequency_too_large}}
+                            {{> customFrequencyInterval}}
+                        {{/frequency_too_large}}
+                        {{^frequency_too_large}}
+                            {{#conversion}}
+                                {{> selectableFrequencyInterval}}
+                            {{/conversion}}
+                            {{^conversion}}
+                                {{> standardFrequencyInterval}}
+                            {{/conversion}}
+                        {{/frequency_too_large}}
+                    {{/fixed_interval}}
+
+                    {{#fixed_interval}}
+                        
+                        <span class="bold-ro__fixed-frequency-text" {{^subscription_checked}} style="display:none;" {{/subscription_checked}}>Get this pair today then a new pair of Men’s socks for only <span class="ro_discount_price"></span>/month. Pause or cancel anytime. <span id="more_info_trigger" class="blue">Learn more.</span>
+                        
+                        {{> fixedFrequencyInterval}}
+                    {{/fixed_interval}}
+                {{/has_billing_plan}}
+
+                <input name="group_id" class="bold-ro__group-id" type="hidden" value="{{group_id}}"/>
+                <input type="hidden" class="bold-ro__discounted-price" value="{{discount_price}}"/>
+                <input type="hidden" class="bold-ro__discount-percentage" value="{{group_discount}}"/>
+                <input type="hidden" class="bold-ro__unformatted-price" value="{{unformatted_discount_price}}"/>
+                <input type="hidden" name="{{csrf_token_name}}" value="{{csrf_token}}"/>
+
+                <input type="hidden" name="quantities[]" value="">
+                <input type="hidden" name="product_id[]" value="">
+                <input type="hidden" name="variant_id[]" value="">
+                <input type="hidden" name="note" value="">
+
+                {{#secondary_discount}}
+                    {{> secondaryDiscount }}
+                {{/secondary_discount}}
+
+                {{#has_billing_plan}}
+                    {{#fixed_interval}}
+                        {{> fixedFrequencyInterval}}
+                    {{/fixed_interval}}
+                    {{^fixed_interval}}
+                        {{#frequency_type}}
+                            <input type="hidden" name="frequency_type" class="bold-ro__frequency-type" value="{{frequency_type_id}}">
+                            <input name="frequency_type_text" class="bold-ro__frequency-type-text" type="hidden" value="{{#translate}}{{frequency_type_translation}}{{/translate}}">
+                        {{/frequency_type}}
+                    {{/fixed_interval}}
+                    {{> billingPlan}}
+                {{/has_billing_plan}}
+
+                {{#limited_subscription}}
+                    {{> limitedLength}}
+                {{/limited_subscription}}
+
+                {{#prepaid}}
+                    {{> prepaid}}
+                {{/prepaid}}
+            </div>
+        </div>
+    </div>
+    {{#details_tooltip.location.bottom}}{{#details_tooltip.enabled}}<span class="bold-ro__see-details"><a href="javascript:;" class="bold-ro__detail-tooltip">{{#translate}}see_details{{/translate}}</a></span>{{/details_tooltip.enabled}}{{/details_tooltip.location.bottom}}
+</div>
+
+{% endraw %}{%- endcapture -%}
+{{ ro_template | strip | strip_newlines | json }}
+
+                        {% comment %} <span class="bold-ro__fixed-frequency-text" {{^subscription_checked}} style="display:none;" {{/subscription_checked}}>{{#translate}}order_will_ship_every{{/translate}} {{#merge_interval_number}}[interval_number]{{/merge_interval_number}} {{#merge_interval}}[interval]{{/merge_interval}}</span> {% endcomment %}
