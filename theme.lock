@@ -435,10 +435,10 @@ snippets/sockfancy-limited-edition.liquid:
   development: 2018-04-18T13:00:52-04:00   043cc32af617da190ae0dd2cc2ab3c31
   production: 2018-04-13T14:00:38-04:00   043cc32af617da190ae0dd2cc2ab3c31
 snippets/sockfancy-satisfaction-guarantee.liquid:
-  development: 2018-04-23T12:28:43-04:00   d77259ff1f30afe0c1f18c02387b4778
+  development: 2018-04-23T12:35:55-04:00   58cd368a1afe91c7ecf2da5a22490e88
   production: 2018-04-20T14:04:26-04:00   d77259ff1f30afe0c1f18c02387b4778
 snippets/sockfancy-shipping-blurb.liquid:
-  development: 2018-04-23T12:28:44-04:00   c47d4239df2907a102c7f78c20047519
+  development: 2018-04-23T12:35:54-04:00   586f7fca039d025a5456a1f825a97f01
   production: 2018-04-20T14:04:36-04:00   c47d4239df2907a102c7f78c20047519
 snippets/sockfancy-subscription-yotpo-reviews.liquid:
   development: 2018-04-18T13:00:51-04:00   261cafea61771145d877a0884f2484f2
