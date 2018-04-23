@@ -447,7 +447,7 @@ snippets/sockfancy-swatch-subtitle-lookup.liquid:
   development: 2018-04-18T13:00:58-04:00   4ede78eef15ee42dce81df76f3f653e9
   production: 2018-04-13T14:01:27-04:00   4ede78eef15ee42dce81df76f3f653e9
 snippets/sockfancy-tech-specs.liquid:
-  development: 2018-04-18T13:00:55-04:00   0f36eb8608659e67dba2e5bf4b9b77e1
+  development: 2018-04-23T12:56:19-04:00   c1e7074fec9dd8215bc42f0a4a093b76
   production: 2018-04-13T14:00:50-04:00   0f36eb8608659e67dba2e5bf4b9b77e1
 snippets/sockfancy-what-we-are-made-of.liquid:
   development: 2018-04-18T13:00:56-04:00   ec02f5fcd10e3e4b54dfc9fdbfa1a52e
