@@ -513,7 +513,10 @@ $mobile-cutoff:480px;
       padding-top:1em;
       padding-bottom:1em;
       margin-bottom:0.5em;
-      border:1px solid black;
+      {% comment %} border:1px solid black; {% endcomment %}
+      -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+      -moz-box-shadow:    3px 3px 5px 6px #ccc;  
+       box-shadow:         3px 3px 5px 6px #ccc;  
       flex-grow: 1;
       background:white;
       color:black;
