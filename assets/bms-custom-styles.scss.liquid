@@ -726,8 +726,19 @@ button.custom-subscription-submit:disabled{
 @media only screen and (max-width: 780px) {
    .subscription-wrapper.content {
   padding-top: 0px;
-  header>ul {
+  }
+  .subscription-description>header>ul {
     display: none;
   }
-}
+  .subscription-desciption>header>h3 {
+    display:none
+  }
+  .subscription-wrapper.custom-subscription>header.sticky {
+    padding-top: 0px;
+  }
+  .subscription-wrapper.custom-subscription.subscription-description {
+    min-height: 0px;
+  }
+
+
 }
