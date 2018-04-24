@@ -16,6 +16,8 @@
 
 </header>
 
+<input type="button"  onclick="toggleBulletList();" value="More Info">
+
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
   {% include 'bms-custom-swatches', for_variant: true %}
   {% include 'bms-custom-ro-widget' %}

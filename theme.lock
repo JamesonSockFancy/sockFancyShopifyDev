@@ -309,7 +309,7 @@ snippets/bms-custom-ro-widget.liquid:
   development: 2018-04-18T12:57:06-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
   production: 2018-04-13T14:01:24-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
 snippets/bms-custom-subscription-flow.liquid:
-  development: 2018-04-24T13:49:23-04:00   6430237e420b29d447dc9512ccedd1a6
+  development: 2018-04-24T14:02:49-04:00   a61dae4bad68f8f2c90a38c1917bbaff
   production: 2018-04-13T14:00:36-04:00   94dc7d09db0acef28c3fd2baf2f057f5
 snippets/bms-custom-subscription-summary-and-submit.liquid:
   development: 2018-04-18T12:57:11-04:00   fec0be53e3e73b124586c2aea847c6b4
