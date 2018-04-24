@@ -42,7 +42,7 @@ assets/bms-custom-ro-loader.js.liquid:
   development: 2018-04-18T13:00:48-04:00   0f01cdca34b4cde1609529470a4dc90b
   production: 2018-04-13T14:01:31-04:00   0f01cdca34b4cde1609529470a4dc90b
 assets/bms-custom-styles.scss.liquid:
-  development: 2018-04-24T12:38:55-04:00   e01f6b01ffe5bb180a18360a6e36b7ee
+  development: 2018-04-24T14:08:10-04:00   f584873362d7757c58496694b4f271c1
   production: 2018-04-13T14:00:41-04:00   315a504a17c2b102c25c1b0f7a97c45b
 assets/bms-styles.css.liquid:
   development: 2018-04-23T12:28:36-04:00   951048e644a1695baebeccea25953c54
@@ -309,7 +309,7 @@ snippets/bms-custom-ro-widget.liquid:
   development: 2018-04-18T12:57:06-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
   production: 2018-04-13T14:01:24-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
 snippets/bms-custom-subscription-flow.liquid:
-  development: 2018-04-24T14:04:17-04:00   1221107d10f38e83f1346cc5d14270bc
+  development: 2018-04-24T14:08:10-04:00   30deccae80d766b8698318014d9dfe62
   production: 2018-04-13T14:00:36-04:00   94dc7d09db0acef28c3fd2baf2f057f5
 snippets/bms-custom-subscription-summary-and-submit.liquid:
   development: 2018-04-18T12:57:11-04:00   fec0be53e3e73b124586c2aea847c6b4
