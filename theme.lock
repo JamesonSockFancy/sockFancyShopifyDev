@@ -279,7 +279,7 @@ sections/product-details-template.liquid:
   development: 2018-04-23T12:28:38-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
   production: 2018-04-20T14:04:05-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
 sections/product-template.liquid:
-  development: 2018-04-16T11:33:57-04:00   4cbe56322657f5e066ebcd704e354988
+  development: 2018-04-24T13:30:11-04:00   25dabf29e1eb304e341612e0fd5cdaec
   production: 2018-02-28T10:55:13-05:00   4cbe56322657f5e066ebcd704e354988
 sections/search-template.liquid:
   development: 2018-04-16T11:33:57-04:00   d3de24f6c2600ef154d6c93ab703513d
@@ -546,7 +546,7 @@ templates/product.details.liquid:
   development: 2018-04-23T12:28:42-04:00   01375adb58fb2322a1a6acdf251bf52e
   production: 2018-04-20T14:03:52-04:00   01375adb58fb2322a1a6acdf251bf52e
 templates/product.liquid:
-  development: 2018-04-24T13:26:14-04:00   8de837b56da8c72da6565fc9ca3fba99
+  development: 2018-04-24T13:30:11-04:00   61465838f0dec210a82810260447620d
   production: 2018-04-20T14:04:41-04:00   e4f2084b08761730ae2c86fa3d221112
 templates/product.shogun.custom.liquid:
   development: 2018-04-16T11:34:10-04:00   b86413170e83c14e3a6ba3638caff034
