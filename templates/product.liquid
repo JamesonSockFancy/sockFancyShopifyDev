@@ -9,3 +9,14 @@ data-name="{{ product.title | escape }}"
 data-url="{{ shop.url }}{{ product.url }}" 
 data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
 data-description="{{ product.description | escape }}"></div>
+<script type="text/javascript">
+function toggleBulletList() {
+  console.log("toggle");
+    var x = document.getElementById("moreInfoList");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
