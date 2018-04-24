@@ -2,7 +2,7 @@
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
   <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
   <div class="mobile-info">
-  <button type="button"  onclick="toggleBulletList();">More Info</button>
+  <input type="button"  onclick="toggleBulletList();" value="More Info">
   </div>
   <div id="moreInfoList">
     <ul>
@@ -22,7 +22,7 @@
   {% include 'bms-custom-subscription-summary-and-submit' %}
 </form>
 
-<script>
+<script type="text/javascript">
 function toggleBulletList() {
   console.log("toggle");
     var x = document.getElementById("moreInfoList");
