@@ -1,7 +1,9 @@
 <header class="sticky">
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
   <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
-  <button type="button" class="mobile-info" onclick="toggleBulletList()">More Info</button>
+  <div class="mobile-info">
+  <button type="button"  onclick="toggleBulletList()">More Info</button>
+  </div>
   <div id="moreInfoList">
     <ul>
       <li itemprop="description">Free shipping anywhere in the world.</li>
