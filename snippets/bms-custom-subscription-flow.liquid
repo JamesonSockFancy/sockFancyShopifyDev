@@ -1,6 +1,7 @@
 <header class="sticky">
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
   <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
+  <button type="button" class="mobile-info" onclick="toggleBulletList()">More Info</button>
   <div id="moreInfoList">
     <ul>
       <li itemprop="description">Free shipping anywhere in the world.</li>
@@ -10,7 +11,7 @@
       <li itemprop="description">Adjust your subscription at any time.</li>
     </ul>
   </div>
-  <button type="button" class="mobile-info" onclick="toggleBulletList()">More Info</button>
+
 </header>
 
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
@@ -22,6 +23,11 @@
 <script type="text/javascript">
 function toggleBulletList() {
   console.log("toggle");
-  document.getElementById('moreInfoList').style.display = 'block';
+    var x = document.getElementById("moreInfoList");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 </script>
