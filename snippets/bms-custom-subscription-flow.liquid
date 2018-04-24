@@ -1,6 +1,7 @@
 <header class="sticky">
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
-  <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
+  <p id="moreInfoList">{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
+  <button class="mobile-info" onclick="toggleBulletList()">More Info</button>
 </header>
 
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
@@ -8,3 +9,9 @@
   {% include 'bms-custom-ro-widget' %}
   {% include 'bms-custom-subscription-summary-and-submit' %}
 </form>
+
+<script type="text/javascript">
+function toggleBulletList() {
+  document.getElementById('moreInfoList').style.display = 'block';
+}
+</script>
