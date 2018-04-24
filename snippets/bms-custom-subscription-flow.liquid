@@ -1,6 +1,15 @@
 <header class="sticky">
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
-  <p id="moreInfoList">{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
+  <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
+  <p id="moreInfoList">
+    <ul>
+      <li itemprop="description">Free shipping anywhere in the world.</li>
+      <li itemprop="description">Swap out any pair you’re not happy with.</li>
+      <li itemprop="description">70% combed cotton, 200 needle socks.</li>
+      <li itemprop="description">No commitment, cancel anytime.</li>
+      <li itemprop="description">Adjust your subscription at any time.</li>
+    </ul>
+  </p>
   <button class="mobile-info" onclick="toggleBulletList()">More Info</button>
 </header>
 
