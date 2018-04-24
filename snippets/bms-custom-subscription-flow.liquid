@@ -1,9 +1,7 @@
 <header class="sticky">
   <h2>{{ 'bold.recurring_orders.subscription_heading' | t }}</h2>
   <p>{{ 'bold.recurring_orders.subscription_subheading' | t }}</p>
-  <div class="mobile-info">
-  <input type="button"  onclick="toggleBulletList();" value="More Info">
-  </div>
+
   <div id="moreInfoList">
     <ul>
       <li itemprop="description">Free shipping anywhere in the world.</li>
@@ -16,7 +14,9 @@
 
 </header>
 
-<input type="button"  onclick="toggleBulletList();" value="More Info">
+  <div class="mobile-info">
+  <input type="button"  onclick="toggleBulletList();" value="More Info">
+  </div>
 
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
   {% include 'bms-custom-swatches', for_variant: true %}
