@@ -546,7 +546,7 @@ templates/product.details.liquid:
   development: 2018-04-23T12:28:42-04:00   01375adb58fb2322a1a6acdf251bf52e
   production: 2018-04-20T14:03:52-04:00   01375adb58fb2322a1a6acdf251bf52e
 templates/product.liquid:
-  development: 2018-04-24T13:30:11-04:00   61465838f0dec210a82810260447620d
+  development: 2018-04-25T13:23:37-04:00   eeacb3d51c509fd4eb7284556d840adc
   production: 2018-04-20T14:04:41-04:00   e4f2084b08761730ae2c86fa3d221112
 templates/product.shogun.custom.liquid:
   development: 2018-04-16T11:34:10-04:00   b86413170e83c14e3a6ba3638caff034
