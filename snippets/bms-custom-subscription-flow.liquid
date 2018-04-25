@@ -12,6 +12,9 @@
     </ul>
   </div>
 
+
+</header>
+
 <div class="yotpo bottomLine"
     data-appkey="Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB"
     data-domain="{{shop.permanent_domain | escape }}"
@@ -23,11 +26,10 @@
     data-description="{{ product.description | escape }}"
     data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
 </div>
-</header>
 
-  <div class="mobile-info">
+<div class="mobile-info">
   <a onclick="toggleBulletList();">More Info</a>
-  </div>
+</div>
 
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
   {% include 'bms-custom-swatches', for_variant: true %}

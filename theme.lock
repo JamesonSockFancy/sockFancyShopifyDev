@@ -309,7 +309,7 @@ snippets/bms-custom-ro-widget.liquid:
   development: 2018-04-18T12:57:06-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
   production: 2018-04-13T14:01:24-04:00   a3aa908e10ff0e4a57d0b707bfcff9f6
 snippets/bms-custom-subscription-flow.liquid:
-  development: 2018-04-24T14:27:54-04:00   28d0d94e638351bff7cd5792ddf371da
+  development: 2018-04-25T13:28:43-04:00   56e9f725a59c17a3107fe03d2d230148
   production: 2018-04-13T14:00:36-04:00   94dc7d09db0acef28c3fd2baf2f057f5
 snippets/bms-custom-subscription-summary-and-submit.liquid:
   development: 2018-04-18T12:57:11-04:00   fec0be53e3e73b124586c2aea847c6b4
@@ -546,7 +546,7 @@ templates/product.details.liquid:
   development: 2018-04-23T12:28:42-04:00   01375adb58fb2322a1a6acdf251bf52e
   production: 2018-04-20T14:03:52-04:00   01375adb58fb2322a1a6acdf251bf52e
 templates/product.liquid:
-  development: 2018-04-25T13:23:37-04:00   eeacb3d51c509fd4eb7284556d840adc
+  development: 2018-04-25T13:28:43-04:00   a07891d150cc7e5372e3ef6a46d09398
   production: 2018-04-20T14:04:41-04:00   e4f2084b08761730ae2c86fa3d221112
 templates/product.shogun.custom.liquid:
   development: 2018-04-16T11:34:10-04:00   b86413170e83c14e3a6ba3638caff034
