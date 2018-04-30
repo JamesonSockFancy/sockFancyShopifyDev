@@ -417,7 +417,11 @@
   "bold": {
     "recurring_orders": {
       "subscription_heading": "CUSTOMIZE YOUR SOCK SUBSCRIPTION",
+<<<<<<< HEAD
       "subscription_subheading": "One step closer to footwear heaven!",
+=======
+      "subscription_subheading": "One step close to footwear heaven!",
+>>>>>>> updatedLiveInit
       "sub_length_html": "Sub Length",
       "payment_option_html": "Payment Option",
       "payment_monthly_html": "Pay Monthly",
