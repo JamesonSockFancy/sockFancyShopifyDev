@@ -5,20 +5,6 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
   <head>
-      <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-      <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-5JCX7R');</script>
-        <!-- End Google Tag Manager -->
-        <script>
-           dataLayer = [] ;
-        </script>
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
@@ -36,7 +22,7 @@
     {% endif %}
 
     <!-- font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="styleshee" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     {% include 'social-meta-info' %}
 
@@ -58,7 +44,8 @@
 
     <!-- bold custom styleshee -->
     {{ 'bms-styles.css' | asset_url | stylesheet_tag }}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    {% comment %} <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet"> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,600i,700,700i|Open+Sans+Condensed:300,700" rel="stylesheet">
 
     {% if settings.favicon != nil %}
       <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
@@ -81,9 +68,21 @@
     <![endif]-->
 
     {{ content_for_header }}{% include 'bold-checkout-loader' %}
+
+
 {%- include 'bold-common' -%}
 {%- include 'bold-product' with product, hide_action: 'header' -%}
 {%- include 'bold-ro-init' -%}
+
+{%- if product -%}
+<script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
+<script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>
+{%- endif -%}
+
+{{ 'bms-custom-styles.scss.css' | asset_url | stylesheet_tag }}
+
+<!-- YOTPO -->
+<script type="text/javascript" src="//staticw2.yotpo.com/###APP_KEY###/widget.js" async></script>
 
     <noscript>
       <style>
@@ -128,26 +127,42 @@
       </style>
     </noscript>
 
-  
-  {% include 'shogun-head' %}
+    {% include 'shogun-head' %}
+    
+    <style>
+      /** header bar **/
+      div.header_bar {
+          background: rgba(255,255,255,1);
+      }
 
-  {% if template contains "index" %}
-  <style>
-    /** header bar **/
-    div.header_bar {
-        background: rgba(255,255,255,1);
-    }
+      {% if template == 'index' %}
+      div.header_bar::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          top: 0;
+          height: 3px;
+          background: linear-gradient(rgba(230,230,230,1), rgba(255,255,255,1));
+      }
+      {% endif %}
+      /*div.header_bar::after {*/
+          /*content: '';*/
+          /*position: absolute;*/
+          /*width: 100%;*/
+          /*bottom: 0;*/
+          /*height: 4px;*/
+          /*background: linear-gradient(rgba(255,255,255,1), rgba(230,230,230,1));*/
+      /*}*/
+      div.header_bar {
+        box-shadow: 0 0.15em 2em rgba(0,0,0,0.15);
+      }
+      li.sub-menu div.dropdown.animated {
+        animation-duration: .3s;
+      }
+    </style>
 
-    div.header_bar::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        top: 0;
-        height: 3px;
-        background: linear-gradient(rgba(230,230,230,1), rgba(255,255,255,1));
-    }
-  </style>
-  {% endif %}
+    {{ 'lity.css' | asset_url | stylesheet_tag }}
+    {{ 'lity.js' | asset_url | script_tag }}
 
   </head>
 
@@ -168,11 +183,6 @@
   {% endif %}
 
   <body class="{{ template | replace: '.', '-' | handle }} {% if feature_image %}feature_image{% endif %}">
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JCX7R"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-    
     <div id="content_wrapper">
       {% section 'header' %}
 
@@ -181,7 +191,9 @@
       </div>
 
       {% include 'cart-shipping-calculator' %}
-      {% section 'footer' %}
+
+      {% comment %} {% section 'footer' %} {% endcomment %}
+      {% section 'footer-v2' %}
 
       <div id="search" class="animated">
         <div class="container">
@@ -212,84 +224,5 @@
         <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
       {% endif %}
     {% endif %}
-  
-       <!-- Product Datalayer -->
-       {% if template.name == 'product' %}
-       <script>
-       let productDatalayer = {{ product | json }};
-       let prodCollections = {{ product.collections | json }};
-       $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/product_datalayer.js", 
-       function( data, textStatus, jqxhr ) {
-         console.log( "product datalayer" );
-         console.log( textStatus );
-         console.log( jqxhr.status );
-         console.log( "Load was performed." );});
-       </script>
-       {% endif %}
-         <!-- End Product Datalayer -->
-
-       
-     <!-- Cart Datalayer -->
-     {% if template.name == 'cart' %}
-     <script>
-     let cartDatalayer = {{ cart | json }};
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/cart_datalayer.js", 
-     function( data, textStatus, jqxhr ) {
-       console.log( "cart datalayer" );
-       console.log( textStatus );
-       console.log( jqxhr.status );
-       console.log( "Load was performed." );
-       });
-       </script>
-       {% endif %}
-     <!-- End Cart Datalayer -->
-
-      
-       <!-- Search Datalayer -->  
-       {%if search.performed%}    
-       <script>        
-       let searchTerms = '{{ search.terms }}';        
-       $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/search_datalayer.js", 
-       function( data, textStatus, jqxhr ) {          
-         console.log( "search datalayer" );           
-         console.log( textStatus );           
-         console.log( jqxhr.status );           
-         console.log( "Load was performed." );        
-         });    
-         </script>   
-         {%endif%}  
-       <!-- End Search Datalayer -->
-
-        
-     <!-- Add To Cart Datalayer -->
-     {% if template.name == 'product' %}
-     <script>
-     let atcProduct = {{ product | json }};    
-     let atcCollections = {{ product.collections | json }};    
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/add_to_cart_datalayer.js", 
-     function( data, textStatus, jqxhr ) {      console.log( "add to cart datalayer" );       
-      console.log( textStatus );       
-      console.log( jqxhr.status );      
-      console.log( "Load was performed." );});  
-     </script>  
-     {% endif %}  
-     <!-- End Add To Cart Datalayer -->
-
-      <!-- Collection Datalayer -->  
-     {% if template.name == 'collection' %}  
-     <script>  
-     let collectionDatalayer = {{ collection | json }};        
-     let collectionDatalayerId = '{{ collection.id }}';        
-     let collectionDatalayerTitle = '{{ collection.title }}';     
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/collection_datalayer.js", 
-     function( data, textStatus, jqxhr ) {      
-       console.log( "collection datalayer" );       
-       console.log( textStatus );       
-       console.log( jqxhr.status );       
-       console.log( "Load was performed." );});  
-     </script>  
-     {% endif %}  
-       <!-- End Collection Datalayer -->
-
-     </body>
+  </body>
 </html>

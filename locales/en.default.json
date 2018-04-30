@@ -7,6 +7,10 @@
       "tagged_html": "Tagged \"{{ tags }}\"",
       "page": "Page {{ page_number }}"
     },
+    "common": {
+      "yes": "Yes",
+      "no": "No"
+    },
     "404": {
       "title": "Page Not Found",
       "subtext": "We're sorry, but the page you requested could not be found.",
@@ -407,6 +411,53 @@
       "items_with_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
+      }
+    }
+  },
+  "bold": {
+    "recurring_orders": {
+      "subscription_heading": "CUSTOMIZE YOUR SOCK SUBSCRIPTION",
+      "subscription_subheading": "One step close to footwear heaven!",
+      "sub_length_html": "Sub Length",
+      "payment_option_html": "Payment Option",
+      "payment_monthly_html": "Pay Monthly",
+      "payment_upfront_html": "Pay up front",
+      "annual_subscription_subtitle": "(Includes 1 pair free!)",
+      "subscription_is_gift_html": "Is this subscription a gift?",
+      "gift_message_prompt_html": "Personalize your gift with a free message!",
+      "gift_message_placeholder_html": "ENTER YOUR MESSAGE HERE",
+      "gift_message_from_placeholder_html": "FROM",
+      "limited_edition_title_html": "Limited Edition Socks",
+      "limited_edition_yes": "Yes, I'm in",
+      "limited_edition_no": "No, just crew",
+      "limited_edition_expand_html": "What's this?",
+      "limited_edition_collapse_html": "Show less",
+      "limited_edition_description_html": "Occasionally we include limited edition socks in your subscription like no-shows, wool socks in the winter, knee-highs for the ladies, and so on. Sound good?",
+      "payment_title_html": "Payment Option",
+      "payment_prepaid_html": "Pay Up Front",
+      "subscription_duration_title_html": "Sub Length",
+      "subscription_duration_months_html": {
+        "zero": "Ongoing Monthly",
+        "one": "Ongoing Monthly",
+        "other": "{{ count }} Months"
+      },
+      "subtitle_for_mens": "(Sizes 8-14)",
+      "subtitle_for_womens": "(Sizes 5-10)",
+      "subtitle_for_mixed": "(A sub to share)",
+      "subtitle_for_12_month_prepaid": "Get 1 pair free!",
+      "add_to_cart_html": "Continue to Checkout",
+      "summary_please_make_a_selection_html": "Please select a style and a quantity",
+      "summary_header_html": "Your selection:",
+      "summary_money_format_html": "${{ amount }} (USD)",
+      "summary_prepaid_description_beginning_html": "",
+      "summary_prepaid_description_middle_html": " today, then $0\/month for ",
+      "summary_prepaid_description_end_html": " months.",
+      "summary_ongoing_description_beginning_html": "",
+      "summary_ongoing_description_middle_html": " today, then ",
+      "summary_ongoing_description_end_html": "\/month",
+      "prepaid_subscription_will_cause_cart_clear_html": {
+        "one": "NOTE: Prepaid and Gift subscriptions must be processed individually. By clicking checkout, the item already in your cart will be removed.",
+        "other": "NOTE: Prepaid and Gift subscriptions must be processed individually. By clicking checkout, the {{ count }} items already in your cart will be removed."
       }
     }
   }

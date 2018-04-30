@@ -1,1 +1,42 @@
+<div class="container main content main-wrapper subscription-wrapper product-{{ product.id }}">
+  <div class="custom-subscription custom-subscription-top">
+    <div class="container">
+      <div class="subscription-description">
+        <div class="subscription-image">
+          <img class="product-image" src="{{ product.featured_image | img_url: '745x' }}" alt="A few of the exciting designs that you could receive in your subscription">
+        </div>
+        {{ product.description }}
+      </div>
 
+      <div class="subscription-selections">
+        {% include 'bms-custom-subscription-flow' %}
+      </div>
+    </div>
+  </div>
+  <div class="container custom-subscription custom-subscription-bottom">
+    <div class="container">
+      <div class="subscription-info reviews">
+        {% include 'sockfancy-subscription-yotpo-reviews' %}
+      </div>
+
+      <div class="subscription-info promo-banner">
+        <div class="container">
+          <div class="satisfaction-guarantee">
+            {% include 'sockfancy-satisfaction-guarantee' %}
+          </div>
+          <div class="shipping-summary">
+            {% include 'sockfancy-shipping-blurb' %}
+          </div>
+        </div>
+      </div>
+
+      <div class="subscription-info composition">
+        {% if variation %}
+          {% include 'sockfancy-what-we-are-made-of' %}
+        {% else %}
+          {% include 'sockfancy-tech-specs' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -77,8 +77,12 @@
 
       {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
 {{ bold_ro_widget }}
+<div class="ro_widget"></div>
       <button type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ add_to_cart_label }}</span></button>
 <!-- bold-ro-liquid --><div class="bold_add_to_orders" style="display: inline-block;"></div><!-- bold-ro-liquid -->
+
+<p id="designed_text">Designed in Atlanta, Geo. <img src="https://cdn.shopify.com/s/files/1/0002/4179/5099/files/apple.png?10271699376252537313" /></p>
+
     </div>
   </form>
 {% endif %}

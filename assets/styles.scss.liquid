@@ -854,9 +854,12 @@ input[type="submit"].guest_button:hover {
 
 /* sub-level ul */
 .dropdown {
-  display: none;
+  display: block;
   position: absolute;
   margin-top: -100px;
+  opacity: 0;
+  transition: all 0s 1s;
+  transform:rotateY(-90deg);
 }
 .dropdown-wide {
   width: 500px;
@@ -898,7 +901,10 @@ input[type="submit"].guest_button:hover {
 
 /* show dropdown ul on hover */
 .menu li:hover > .dropdown {
-  display: block;
+  opacity: 1;
+  {% comment %} display: block; {% endcomment %}
+  transform: rotateY(0);
+  transition: opacity 1s;
 }
 
 select.currencies {
@@ -5738,5 +5744,4 @@ and (max-device-width : 1024px)  {
 .flex-control-thumbs li, .flex-control-thumbs li:first-child {
     margin: 13px 5% 0 0 !important;
 }
-
 
