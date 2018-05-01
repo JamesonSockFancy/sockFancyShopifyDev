@@ -15,6 +15,10 @@
 
 </header>
 
+<div class="mobile-info">
+  <a onclick="toggleBulletList();">More Info</a>
+</div>
+
 <div class="yotpo bottomLine"
     data-appkey="Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB"
     data-domain="{{shop.permanent_domain | escape }}"
@@ -25,10 +29,6 @@
     data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
     data-description="{{ product.description | escape }}"
     data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
-</div>
-
-<div class="mobile-info">
-  <a onclick="toggleBulletList();">More Info</a>
 </div>
 
 <form method="post" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
