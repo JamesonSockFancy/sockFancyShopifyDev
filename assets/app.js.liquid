@@ -1013,6 +1013,11 @@ var cart = {
   }
 
   function refreshCart(cart) {
+    if(window.BOLD && BOLD.common && BOLD.common.cartDoctor){
+      cart = BOLD.common.cartDoctor.fix(cart);
+    }
+
+
     $cartBtn = $(".cart-button span");
     if ($cartBtn && $cartBtn.length) {
       var value = $cartBtn.text() || '0';
@@ -1042,8 +1047,15 @@ var cart = {
 
           cart_items_html += '<div class="item_info">' + item.title;
 
+          if(item.Bold && item.Bold.frequency_num){
+            cart_items_html += '<div class="recurring-description">' + {{ 'bold.recurring_orders.cart_description_html' | t | json }} + (item.Bold.frequency_num > 1 ? item.Bold.frequency_num : '') + ' ' + item.Bold.frequency_type_text.toLowerCase() + '</div>'
+          }
+          if(item.Bold && item.Bold.total_recurrences > 0){
+            cart_items_html += '<div class="recurring-expiration">' + {{ 'bold.recurring_orders.cart_expiry_beginning_html' | t | json }} + item.Bold.total_recurrences + ' ' + item.Bold.frequency_type_text.toLowerCase() + (item.Bold.total_recurrences > 1 ? 's' : '') + {{ 'bold.recurring_orders.cart_expiry_end_html' | t | json }} + '</div>'
+          }
           if(item.properties) {
             $.each(item.properties, function(title, value) {
+              if(title == 'is_gift') return;
               if (value) {
                 cart_items_html += '<div class="line-item">' + title +': ' + value + '</div>';
               }
@@ -1085,6 +1097,7 @@ var cart = {
       }
     }
   }
+  $.getJSON('/cart.js', refreshCart);
 
 //Document ready
 $(function() {

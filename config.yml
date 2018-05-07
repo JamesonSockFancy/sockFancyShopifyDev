@@ -6,3 +6,7 @@ production:
   password: cc51317a6f5ad798883b40eb932781e8
   theme_id: "8057946139"
   store: sockfancyapp.myshopify.com
+boldDev:
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "8163524635"
+  store: sockfancyapp.myshopify.com

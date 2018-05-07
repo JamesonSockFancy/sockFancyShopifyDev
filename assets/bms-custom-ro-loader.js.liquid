@@ -106,6 +106,61 @@ BOLD.SwatchGroup.prototype = {
 
 BOLD.bms_ro_loader = {
   loaded_group_data: {},
+  applyQueryParameters:function(){
+    var paramObj = BOLD.helpers.getParsedQueryString();
+    var custom_recurring_forms = document.querySelectorAll('form.custom-subscription-form');
+
+    if(paramObj.is_gift){
+      var gift_btns = document.querySelectorAll('input[name="properties[is_gift]"]');
+      for(var b=0; b<gift_btns.length; b++){
+        gift_btns[b].checked = true;
+        BOLD.helpers.triggerChange(gift_btns[b]);
+      }
+    }
+
+    if(paramObj.first_selection){
+      for(var f=0; f<custom_recurring_forms.length; f++){
+        var form = custom_recurring_forms[f];
+        var first_id_field = document.createElement('input');
+        first_id_field.type = 'hidden';
+        first_id_field.name = 'properties[_ro_enterprise_first_pick]';
+        first_id_field.value = paramObj.first_selection;
+        form.appendChild(first_id_field);
+      }
+      if(paramObj.selection_handle){
+        BOLD.helpers.get('/products/' + paramObj.selection_handle + '.js', BOLD.bms_ro_loader.setFirstSelectionFields);
+      }
+    }
+
+  },
+  setFirstSelectionFields:function(product){
+    var paramObj = BOLD.helpers.getParsedQueryString();
+    var variant_id = parseInt(paramObj.first_selection);
+    var custom_recurring_forms = document.querySelectorAll('form.custom-subscription-form');
+
+    var variant = product.variants.filter(function(v){ return v.id == variant_id })[0];
+    if(!variant){
+      console.error('Could not find variant ID ' + variant_id + ' in product:', product);
+      return;
+    }
+
+    for(var f=0; f<custom_recurring_forms.length; f++){
+      var form = custom_recurring_forms[f];
+
+      var title_field = document.createElement('input');
+      title_field.type = 'hidden';
+      title_field.name = 'properties[_first_pick_name]';
+      title_field.value = product.title;
+      form.appendChild(title_field);
+
+      var image_field = document.createElement('input');
+      image_field.type = 'hidden';
+      image_field.name = 'properties[_first_pick_img]';
+      image_field.value = variant.featured_image && variant.featured_image.src ? variant.featured_image.src : product.featured_image;
+      form.appendChild(image_field);
+    }
+
+  },
   onVariantChange: function(evt){
     var variant = evt.variant;
     var selector = evt.selector;
@@ -181,7 +236,8 @@ BOLD.bms_ro_loader = {
 
 
     BOLD.bms_ro_loader.updateGroupId(form, current_variant, product)
-    BOLD.bms_ro_loader.ensureGiftIsPrepaid(form);
+    // BOLD.bms_ro_loader.ensureGiftIsPrepaid(form);
+    BOLD.bms_ro_loader.ensureGiftHasDuration(form);
     var prepaid_discount = BOLD.bms_ro_loader.updatePrepaidData(form, current_variant, product);
 
     var total_recurrences;
@@ -189,6 +245,22 @@ BOLD.bms_ro_loader = {
       total_recurrences = form['properties[total_recurrences]'].value;
     }
     BOLD.bms_ro_loader.updateSubscriptionSummary(form, current_variant, total_recurrences, prepaid_discount);
+    BOLD.bms_ro_loader.enableCheckoutButton(form);
+  },
+  verifyRequiredSelections:function(form){
+    if(!form.id || !form.id.value) {
+      return false;
+    }
+    if( (form['properties[is_gift]'].value == 'on' || form['properties[is_prepaid]'].value) && !form['properties[total_recurrences]'].value){
+      return false;
+    }
+    return true;
+  },
+  enableCheckoutButton:function(form){
+    var submit_buttons = form.querySelectorAll('[type="submit"]');
+    for(var s=0; s<submit_buttons.length; s++){
+      submit_buttons[s].disabled = !BOLD.bms_ro_loader.verifyRequiredSelections(form);
+    }
   },
   updateGroupId(form, current_variant, product){
     if(!current_variant || !form){
@@ -217,15 +289,27 @@ BOLD.bms_ro_loader = {
       is_prepaid_field.value = 'on';
       BOLD.helpers.triggerChange(is_prepaid_on_radio);
     }
-    //A gift subscription is always prepaid
-    is_prepaid_off_radio.disabled = is_gift_checkbox.checked;
+  },
+  ensureGiftHasDuration:function(form){
+    var is_gift_checkbox = form['properties[is_gift]'];
+    var gift_clone = form['is_gift_tracker'];
+    gift_clone.checked = is_gift_checkbox.checked;
+
+    var is_prepaid = form['properties[is_prepaid]'].value;
+    var duration = form['properties[total_recurrences]'];
+    var duration_clone = form['monthly_gift_recurrences'];
+    if(is_prepaid){
+      duration_clone.value = duration.value;
+    } else {
+      duration.value = duration_clone.value;
+    }
   },
   updateSubscriptionSummary:function(form, variant, recurrences, discount){
     var description_element = form.querySelector('.subscription-summary-text');
     if(!description_element){
       return;
     }
-    if(!variant){
+    if(!BOLD.bms_ro_loader.verifyRequiredSelections(form)){
       description_element.innerHTML = {{ 'bold.recurring_orders.summary_please_make_a_selection_html' | t | json }}
       return;
     }
@@ -238,6 +322,20 @@ BOLD.bms_ro_loader = {
       var formatted_price = Shopify.formatMoney(price, {{ 'bold.recurring_orders.summary_money_format_html' | t | json }} );
       description = {{ 'bold.recurring_orders.summary_ongoing_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_ongoing_description_middle_html' | t | json  }} + formatted_price + {{ 'bold.recurring_orders.summary_ongoing_description_end_html' | t | json }}
     }
+
+    if(form['properties[_first_pick_name]']){
+      var first_pick = form['properties[_first_pick_name]'].value;
+      first_pick && (description += {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + first_pick + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }});
+    }
+
+    if(form['is_gift'].checked){
+      description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
+    } else if(form['is_prepaid'].value) {
+      description += {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }};
+    } else {
+      description += {{ 'bold.recurring_orders.subscription_ongoing_html' | t | json }};
+    }
+  
     description_element.innerHTML = description;
   },
   updatePrepaidData:function(form, current_variant, product){
@@ -365,19 +463,28 @@ BOLD.bms_ro_loader = {
     evt.preventDefault();
     var form = evt.target;
 
+    if(!BOLD.bms_ro_loader.verifyRequiredSelections(form)){
+      return false;
+    }
+
     var formData = new FormData(form);
     var is_prepaid = formData.get('properties[is_prepaid]');
+    var is_gift = formData.get('properties[is_gift]');
 
     //If the subscription is not prepaid, remove prepaid-related properties
     if(!is_prepaid){
-      formData.delete('properties[is_gift]');
-      formData.delete('properties[total_recurrences]');
+      formData.delete('properties[is_prepaid]');
       formData.delete('properties[prepaid_length_id]');
+
+      //If it's a not a gift, clear total_recurrences
+      if(!is_gift){
+        formData.delete('properties[total_recurrences]');
+      }
     } else {
       formData.append('properties[_ro_single_product_recurring_item]', '1');
     }
     //If the subscription is not a gift, remove gift-related properties
-    if(!formData.get('properties[is_gift]')){
+    if(!is_gift){
       formData.delete('properties[From]');
       formData.delete('properties[Gift Message]');
     }
@@ -392,7 +499,6 @@ BOLD.bms_ro_loader = {
       //Otherwise, just submit straight to Cashier
       BOLD.helpers.post('/cart/add.js', formData, BOLD.bms_ro_loader.redirectToCashier, BOLD.bms_ro_loader.submitErrorRecovery);
     }
-
   },
   redirectToCashier:function(response){
     console.log(response);
@@ -547,6 +653,66 @@ BOLD.helpers.getCookie = function (c_name) {
   }
   return c_value;
 }
+
+BOLD.helpers.getParsedQueryString = function getParsedQueryString(force_refresh){
+  if(BOLD.queryStringObj && !force_refresh){
+    return BOLD.queryStringObj;
+  }
+  return (BOLD.queryStringObj = BOLD.helpers.parseQueryString());
+}
+
+BOLD.helpers.parseQueryString = function parseQueryString(str){
+  var qryObj = {};
+  var rawStr = decodeURIComponent(str && str[0]==='?' ? str.substr(1) : str || location.search.substr(1));
+  var params = rawStr.split('&');
+  for(var i=0; i<params.length; i++){
+    var key = params[i].split('=')[0];
+    var val = params[i].replace(key + '=', '');
+    var open, close;
+    if((open = key.indexOf('[')) < (close = key.indexOf(']'))){
+      var truename = key.split('[')[0];
+      if(open == (close-1)){
+        qryObj[truename] = qryObj[truename] || [];
+        qryObj[truename].push(val);
+      } else {
+        var prop = key.split('[')[1].split(']')[0];
+        qryObj[truename] = qryObj[truename] || {};
+        qryObj[truename][prop] = val;
+      }
+    } else {
+      qryObj[key] = val;
+    }
+  }
+  return qryObj;
+}
+BOLD.helpers.buildQueryString = function buildQueryString(obj){
+  if(!obj){
+    return '';
+  }
+  var queryString = '';
+  for(var key in obj){
+    if(!key){
+      continue;
+    }
+    queryString && (queryString += '&');
+    var val = obj[key];
+    queryString += val ? (typeof(val) !== 'object' ? (encodeURIComponent(key) + '=' + encodeURIComponent(val)) : BOLD.helpers.objToQueryString(key, val)) : key;
+  }
+  return '?' + queryString;
+}
+BOLD.helpers.objToQueryString = function objToQueryString(key, obj){
+  var str = '';
+  if(obj.length){
+    for(var i=0; i<obj.length; i++){
+      str += (i ? '&' : '') + encodeURIComponent(key) + '[]=' + encodeURIComponent(obj[i]);
+    }
+  } else {
+    for(var k in obj){
+      str += (str.length ? '&' : '') + encodeURIComponent(key) + '[' + encodeURIComponent(k) + ']=' + encodeURIComponent(obj[k]);
+    }
+  }
+  return str;
+}
 /* ***************************************************************************
    EVENT LISTENERS
 
@@ -558,11 +724,4 @@ BOLD.common.eventEmitter.on('BMS.input.changed', BOLD.bms_ro_loader.updateFormDa
 BOLD.bms_ro_loader.decorateRecurringFormsSubmit();
 BOLD.bms_ro_loader.decorateRecurringFormInputs(optionChanged);
 BOLD.bms_ro_loader.triggerChangeOnAllProductForms();
-
-if(document.location.search && document.location.search.indexOf('is_gift') > -1){
-  var gift_btns = document.querySelectorAll('input[name="properties[is_gift]"]');
-  for(var b=0; b<gift_btns.length; b++){
-    gift_btns[b].checked = true;
-    BOLD.helpers.triggerChange(gift_btns[b]);
-  }
-}
+BOLD.bms_ro_loader.applyQueryParameters();

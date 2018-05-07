@@ -456,9 +456,18 @@
       "summary_ongoing_description_middle_html": " today, then ",
       "summary_ongoing_description_end_html": "\/month",
       "prepaid_subscription_will_cause_cart_clear_html": {
-        "one": "NOTE: Prepaid and Gift subscriptions must be processed individually. By clicking checkout, the item already in your cart will be removed.",
-        "other": "NOTE: Prepaid and Gift subscriptions must be processed individually. By clicking checkout, the {{ count }} items already in your cart will be removed."
-      }
+        "one": "NOTE: Prepaid subscriptions must be processed individually. By clicking checkout, the item already in your cart will be removed.",
+        "other": "NOTE: Prepaid subscriptions must be processed individually. By clicking checkout, the {{ count }} items already in your cart will be removed."
+      },
+      "first_pick_beginning_html": "<br\/>Your first shipment will include the ",
+      "first_pick_end_html": " design",
+      "subscription_expires_html": "<br\/>Your subscription will end after the last shipment",
+      "subscription_auto_renews_html": "<br\/>Your subscription will automatically renew after the last shipment unless cancelled",
+      "subscription_ongoing_html": "<br\/>Your subscription will continue until cancelled",
+      "cart_description_html": "Delivered every",
+      "cart_expiry_beginning_html": " for ",
+      "cart_expiry_end_html": "",
+      "product_form_subscribe_html": "Subscribe"
     }
   }
 }

@@ -1,3 +1,20 @@
+{%- assign subscription_product = all_products[settings.bms_smart_subscription_product] -%}
+{%- for variant in subscription_product.variants -%}
+  {%- unless two_pair_sub_id -%}
+    {%- if variant.option1 == '2 Pairs' or variant.option2 == '2 Pairs' or variant.option3 == '2 Pairs' -%}
+      {%- assign two_pair_sub_id = variant.id -%}
+    {%- endif -%}
+  {%- endunless -%}
+  {%- unless six_pack_sub_id -%}
+    {%- if variant.option1 == '6 Pack' or variant.option2 == '6 Pack' or variant.option3 == '6 Pack' -%}
+      {%- assign six_pack_sub_id = variant.id -%}
+    {%- endif -%}
+  {%- endunless -%}
+  {%- if two_pair_sub_id and six_pack_sub_id -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
 <section id="section1" style="background-image:url({{ section.settings.hero_image | img_url: 'master' }});">
     <div class="section1_content">
         <div class="container">
@@ -5,14 +22,14 @@
                 <h1>AWESOME SOCKS<br>DELIVERED MONTHLY</h1>
                 <p>Free Shipping Worldwide. Cancel Anytime.</p>
             </div>
-            
+
             <div class="section1_links">
-                <button class="join_btn" onclick="location.href='/products/sock-subscription';">JOIN NOW</button>
-                <button class="gift_btn" onclick="location.href='/products/sock-subscription?is_gift';">GIVE A GIFT</button>
+                <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}">JOIN NOW</a>
+                <a class="gift_btn button" href="/products/{{ settings.bms_smart_subscription_product }}?is_gift">GIVE A GIFT</a>
             </div>
 
             <a data-lity href="https://youtu.be/k42rx2AJJb8"><img src="{{ 'play-circle.svg' | asset_url }}" width="17" height="auto" class="playImg" /><span class="section1_video">WATCH THE VIDEO</span></a>
-            {% comment %} <iframe width="560" height="315" src="https://www.youtube.com/embed/k42rx2AJJb8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> {% endcomment %}
+            {%- comment -%} <iframe width="560" height="315" src="https://www.youtube.com/embed/k42rx2AJJb8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> {%- endcomment -%}
         </div>
     </div>
 </section>
@@ -43,7 +60,7 @@
                 <h2>HOW IT WORKS</h2>
                 <p>Sock Fancy provids stylish folks like yourself with with a monthly sock subscription to a selection of unique, eye-catching socks. For just 11 bucks a month you not only get a pair of awesome socks delivered to your door, but all the comfort and cool that fresh socks can bring.</p>
                 <div class="section2_links">
-                    <button class="do_this_thing" onclick="location.href='/products/sock-subscription';">LET'S DO THIS THING!</button>
+                    <a class="do_this_thing button" href="/products/{{ settings.bms_smart_subscription_product }}">LET'S DO THIS THING!</a>
                     <a data-lity href="https://youtu.be/k42rx2AJJb8" class="play_video_link">PLAY VIDEO</a>
                 </div>
             </div>
@@ -88,9 +105,9 @@
                 </div>
                 <hr style="margin-bottom: 35px;">
                 <p class="savings"><span class="savingValue">$11</span> /mo</p>
-                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription';">Choose</button>
+                <a class="chooseSub button" type="submit" href="/products/{{ settings.bms_smart_subscription_product }}">Choose</a>
             </div>
-            
+
             <div class="giftSub">
                 <span>Gift<br><strong>Subscription</strong></span>
                 <hr>
@@ -103,9 +120,9 @@
                 </div>
                 <hr>
                 <p class="savings">Starting at<br><span class="savingValue">$33</span> /mo</p>
-                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription?is_gift';">Choose</button>
+                <a class="chooseSub button" type="submit" href="/products/{{ settings.bms_smart_subscription_product }}?is_gift">Choose</a>
             </div>
-            
+
             <div class="sixPackSub">
                 <span>6-Pack<br><strong>Sock Box</strong></span>
                 <hr>
@@ -118,9 +135,9 @@
                 </div>
                 <hr>
                 <p class="savings">Starting at<br><span class="savingValue">$57</span> /mo</p>
-                <button class="chooseSub" type="submit" onclick="location.href='/products/sock-subscription?variant=6572878659611';">Choose</button>
+                <a class="chooseSub button" type="submit" href="/products/{{ settings.bms_smart_subscription_product }}?variant={{ six_pack_sub_id }}">Choose</a>
             </div>
-            
+
             <div class="bulkSub">
                 <span>Bulk<br><strong>Subscription</strong></span>
                 <hr>
@@ -133,7 +150,7 @@
                 </div>
                 <hr style="margin-bottom: 35px;">
                 <p class="savings">up to <span class="savingValue">35%</span> off</p>
-                <button class="chooseSub" type="submit" onclick="location.href='/pages/bulk-subscriptions';">Choose</button>
+                <a class="chooseSub button" type="submit" href="/pages/ {{ settings.bulk_order_page }}">Choose</a>
             </div>
         </div>
         <div class="section3_footer">
@@ -149,7 +166,7 @@
                 <h2>LOOKING FOR CUSTOM SOCKS?</h2>
                 <p>Looking to promote your startup, team or organization? Join hundreds of happy companies and step up your swag game with a custom sock. We make it super easy (and affordable!) to customize the prefect pair to help your crew stand out and get a leg up on the competition.</p>
                 <div class="letsgetcustom">
-                    <button type="submit">LET'S GET CUSTOM!</button>
+                    <a href="/pages/{{ settings.custom_sock_page }}">LET'S GET CUSTOM!</a>
                 </div>
             </div>
         </div>
@@ -158,13 +175,13 @@
 
 <section id="section5">
     <div id="insta-feed"></div>
-    {% comment %} <div class="flextslider">
+    {%- comment -%} <div class="flextslider">
         <ul class="slides">
             <li>
                 <img src="{{ 'Instagram_Shop.jpg' | asset_img_url: 'master'}}">
             </li>
         </ul>
-    </div> {% endcomment %}
+    </div> {%- endcomment -%}
 </section>
 
 <section id="featured_in">
@@ -177,15 +194,15 @@
             <div class="cnn">
                 <img src="{{ 'CNN.png' | asset_img_url: 'x49' }}"/>
             </div>
-            
+
             <div class="buzzfeed">
                 <img src="{{ 'BuzzFeed.png' | asset_img_url: 'x49' }}"/>
             </div>
-            
+
             <div class="inc">
                 <img src="{{ 'Inc.png' | asset_img_url: 'x49' }}"/>
             </div>
-            
+
         </div>
     </div>
 </section>
