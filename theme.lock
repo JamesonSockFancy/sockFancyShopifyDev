@@ -325,7 +325,7 @@ sections/header.liquid:
   production: 2018-04-20T14:04:27-04:00   20fb6ee08f6e41b85e7a25edf8f41da4
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-05-07T12:58:28-04:00   1d7ab26fb174b5e2d3fb431231466142
+  development: 2018-05-07T17:04:35-04:00   cadc4d7aae0bdaab5868a0d7976f96a4
   production: 2018-04-13T14:00:52-04:00   f6556b0eda6095caa5ef0a4ea5946194
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
@@ -451,7 +451,7 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-05-07T12:58:28-04:00   bb837f78cabf714f9c342a7cbe9eca31
+  development: 2018-05-07T17:02:10-04:00   9459b9be5f314a72e85c4ec0700da98c
   production: 2018-04-27T15:13:12-04:00   f48e9a1d6349988d3d56e712bfe1e341
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
