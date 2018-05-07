@@ -5,6 +5,10 @@
 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
 {%-for option in product.options_with_values-%}
 {%-assign input_name =  'product-option-group-' | append: forloop.index -%}
+
+{%- if option.name == 'Limited Edition' -%}
+  {%- include 'sockfancy-limited-edition' with option -%}
+{%- else -%}
 <header>
   <h3 class="option-title">{{ option.name }}</h3>
 </header>
@@ -23,4 +27,5 @@
   {%-include 'bms-swatch-element', option:option, value:value, input_id: input_id, default_checked: is_checked-%}
   {%-endfor-%}
 </div>
+{%- endif -%}
 {%-endfor-%}

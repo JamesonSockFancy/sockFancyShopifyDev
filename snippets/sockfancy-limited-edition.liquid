@@ -10,6 +10,26 @@
 <div class="swatch-wrapper swatch-{{ 'limited edition' | handle }}" data-option="{{ option.name }}">
   {% assign yes_text = 'bold.recurring_orders.limited_edition_yes' | t %}
   {% assign no_text = 'bold.recurring_orders.limited_edition_no' | t %}
-  {% include 'bms-swatch-element', input_name:'properties[Limited Edition Socks?]', option:'limited-edition', value:yes_text, input_id: 'limited-edition-yes', default_checked: true %}
-  {% include 'bms-swatch-element', input_name:'properties[Limited Edition Socks?]', option:'limited-edition', value:no_text, input_id: 'limited-edition-no' %}
+
+  {%-if product.selected_variant-%}
+    {%-assign pre_select = true-%}
+  {%-endif-%}
+  {%-for value in option.values-%}
+  {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
+  {%-if pre_select and option.selected_value == value-%}
+    {%-assign is_checked = true-%}
+  {%-else-%}
+    {%-assign is_checked = false-%}
+  {%-endif-%}
+
+  {%- assign value_replace_check = value | downcase -%}
+  {%- if value_replace_check == 'true' or value_replace_check == 'on' or value_replace_check contains 'yes' or value_replace_check contains 'sure' or value_replace_check contains 'all' -%}
+    {%- assign custom_title = yes_text -%}
+  {% else %}
+    {%- assign custom_title = no_text -%}
+  {%- endif -%}
+
+  {%-include 'bms-swatch-element', title:custom_title, option:option, value:value, input_id: input_id, default_checked: is_checked -%}
+  {%-endfor-%}
+
 </div>

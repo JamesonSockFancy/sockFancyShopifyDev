@@ -523,6 +523,11 @@ $mobile-cutoff:480px;
       vertical-align: middle;
       font-size: inherit;
       transition: all 0.33s;
+      display:inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-wrap: wrap;
       @include normal_screens(){
         width:49%;
         max-width:49%;
@@ -783,3 +788,27 @@ button.custom-subscription-submit:disabled{
 .yotpo .yotpo-review .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-comment .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-question .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-onsite-upload .yotpo-header .yotpo-icon-profile .yotpo-user-letter {
   display: none;
 } 
+
+/* Special styles for displaying the pay-monthly gift durations */
+.monthly-gift-duration{
+  display: none;
+}
+
+#is_gift_tracker{
+  display:none;
+}
+#prepaid-no:checked{
+  &~#is_gift_tracker:checked{
+    &~.monthly-gift-duration{
+      width: 100%;
+      display:flex;
+    }
+    &~header.monthly-gift-duration{
+      margin-top: 0;
+      display: block;
+    }
+  }
+}
+.swatch-duration{
+  min-height:2.5em;
+}

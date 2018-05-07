@@ -1,0 +1,11 @@
+{%- assign subscription_handle = settings.bms_smart_subscription_product -%}
+{%- for tag in product.tags -%}
+  {%- if tag contains 'SUBSCRIPTION:' -%}
+    {%- assign subscription_handle = tag | split: ':' | last -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign subscription_product = all_products[subscription_handle] -%}
+
+<script type="application/json" class="product-json">{{ product | json }}</script>
+<script type="application/json" class="subscription-product-json">{{ subscription_product | json }}</script>

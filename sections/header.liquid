@@ -224,7 +224,7 @@
         {% if shop.customer_accounts_enabled %}
           {% unless customer %}
             <li class="join-now">
-              <a href="/products/sock-subscription" title="join now">SUBSCRIBE</a>
+              <a href="/products/{{ settings.bms_smart_subscription_product }}" title="join now">Subscribe</a>
             </li>
           {% endunless %}
           <li class="header-account">
@@ -290,7 +290,7 @@
               </div>
             </li>
           {% endif %}
-        {% endfor %}          
+        {% endfor %}
       </ul>
     </div>
 

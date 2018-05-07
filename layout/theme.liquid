@@ -75,6 +75,10 @@
 {%- include 'bold-product' with product, hide_action: 'header' -%}
 {%- include 'bold-ro-init' -%}
 
+{% if product %}
+{{ 'bms-product-to-subscription-product.js' | asset_url | script_tag }}
+{% endif %}
+
 {%- if product -%}
 <script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>

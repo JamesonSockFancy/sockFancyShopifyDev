@@ -1,0 +1,79 @@
+window.BOLD = window.BOLD || {};
+
+BOLD.bms_ro_swap = {
+  onOneTimeSelect:function(evt){
+    var form = evt.data.form;
+
+    var submit_buttons = form.querySelectorAll('[type="submit"]');
+    for(var s=0; s<submit_buttons.length; s++){
+      var button = submit_buttons[s];
+      button.innerHTML = button.regular_add || button.innerHTML;
+    }
+  },
+  onSubscriptionSelect:function(evt){
+    var form = evt.data.form;
+
+    var submit_buttons = form.querySelectorAll('[type="submit"]');
+    for(var s=0; s<submit_buttons.length; s++){
+      var button = submit_buttons[s];
+      button.regular_add = button.regular_add || button.innerHTML;
+      button.innerHTML = {{ 'bold.recurring_orders.product_form_subscribe_html' | t | json }};
+    }
+
+    var subscription_product = BOLD.bms_ro_swap.getSubscriptionJSON(form);
+    var base_product = BOLD.bms_ro_swap.getCurrentProduct(form);
+    //For now, assume base product has but a single variant
+    var base_variant = base_product.variants[0];
+    var subscription_variants = BOLD.bms_ro_swap.getSubscriptionVariants(subscription_product, base_product, base_variant);
+    BOLD.bms_ro_swap.setSubscriptionFields(form, subscription_variants, base_variant);
+
+  },
+  getSubscriptionVariants:function(sub_prod, base_prod, base_variant){
+    base_variant = base_variant || base_prod.variants[0];
+    var tags = (base_prod.tags || []).join('~~~~').toLowerCase.split('~~~~');
+    var type = (base_prod.type || '').toLowerCase();
+
+    var is_womens = (type.indexOf('women') > -1 || tags.indexOf('womens') > -1 ? true : false);
+    var is_crew = (type.indexOf('crew') > -1 || tags.indexOf('crew') > -1 ? true : false);
+    var is_unisex = (type.indexOf('unisex') > -1 || tags.indexOf('unisex') > -1 ? true : false);
+
+    // Assume the subscription product has dimensions in the following order with the following values:
+    //Option1: Size (Mens, Womens)
+    //Option2: Quantity (1 Pair, 2 Pairs, 6 Pack)
+    //Option3: Limited edition (Crew Only, All Styles)
+    return sub_prod.filter(function(variant){
+      var opt1 = variant.option1.toLowerCase();
+      var opt2 = variant.option2.toLowerCase();
+      var opt3 = variant.option3.toLowerCase();
+
+      return ( is_unisex? true : (is_womens ? opt1.indexOf('women') > -1 : opt1.indexOf('women') === -1 ) ) &&
+             ( opt2 === '1 pair') &&
+             ( is_crew ? opt3.indexOf('crew') > -1 : opt3.indexOf('crew') === -1);
+    })
+  },
+  setSubscriptionFields:function(form, sub_variants, base_variant){
+    
+  },
+  getSubscriptionJSON:function(form){
+    if(form.subscription_product){
+      return form.subscription_product
+    }
+    var element = form.querySelector('script.subscription-product-json');
+    if(!element){
+      return null
+    }
+    return form.subscription_product = JSON.parse(element.innerHTML);
+  },
+  getCurrentProduct:function(form){
+    if(form.product_json){
+      return form.product_json;
+    }
+    var element = form.querySelector('script.product-json');
+    if(!element){
+      return null
+    }
+    return form.product_json = JSON.parse(element.innerHTML);
+  }
+}
+BOLD.common.eventEmitter.on('BOLD_RECURRING_ORDERS_one_time_product_selected', BOLD.bms_ro_swap.onOneTimeSelect);
+BOLD.common.eventEmitter.on('BOLD_RECURRING_ORDERS_mixed_product_recurring', BOLD.bms_ro_swap.onSubscriptionSelect);

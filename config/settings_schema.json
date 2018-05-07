@@ -3338,5 +3338,26 @@
         "info": "Enter any additional class names that you would like to use to style the 'Complete Subscription' button."
       }
     ]
+  },
+  {
+    "name": "Custom Subscription Products by Bold Managed Services",
+    "settings": [
+      {
+        "id": "bms_smart_subscription_product",
+        "type": "product",
+        "label": "Select default Smart-Subscription product",
+        "info": "If you wish a product to point to a different smart-subscription product, create an additional smart-subscription product and tag the appropriate products using that product's handle. For example, if you create a subscription with the handle 'subscription-2', you would tag the products under that subscription with SUBSCRIPTION:subscription-2"
+      },
+      {
+        "id": "custom_sock_page",
+        "type": "page",
+        "label": "Select page for 'Custom Socks' for home page link"
+      },
+      {
+        "id": "bulk_order_page",
+        "type": "page",
+        "label": "Select page for 'Bulk Order' for home page link"
+      }
+    ]
   }
 ]

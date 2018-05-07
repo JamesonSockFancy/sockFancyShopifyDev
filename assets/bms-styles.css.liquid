@@ -45,11 +45,11 @@
     margin-bottom: 25px;
 }
 
-.section1_links button {
+.section1_links button, .section1_links a {
     width: 150px;
 }
 
-.section1_links button.join_btn {
+.section1_links .join_btn {
     color: #000;
     background-color: #fff;
     border: 2px solid #fff;
@@ -59,7 +59,7 @@
     padding: 13px 0;
 }
 
-.section1_links button.gift_btn {
+.section1_links .gift_btn {
     color: #fff;
     background-color: transparent;
     border: 2px solid #fff;
@@ -147,8 +147,9 @@
     left: 50%;
 }
 
-button.do_this_thing,
-#section4 button {
+a.do_this_thing, a.do_this_thing.button,
+#section4 button,
+#section4 a {
     background: #fff;
     color: #272727;
     box-shadow: 0 0 1px 1px rgba(150,150,150,0.3);
@@ -255,7 +256,7 @@ a.play_video_link {
     background: #fff;
     padding: 30px;
     width: 200px;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 .section3_content p {
     font-size: 14px;
@@ -280,7 +281,7 @@ a.play_video_link {
     font-size: 1.3em;
     font-weight: bold;
 }
-.chooseSub {
+a.chooseSub:not(:hover), a.chooseSub.button:not(:hover) {
     color: #fff;
     background-color: #272727;
 }
@@ -415,7 +416,7 @@ a.play_video_link {
         background: rgba(0,0,0,0.4);
         height: 100%;
     }
-    .section1_links button.join_btn {
+    .section1_links .join_btn {
         margin-right: 0;
         margin-bottom: 10px;
     }
@@ -423,7 +424,7 @@ a.play_video_link {
         margin-bottom: 10px;
     }
     .section1_bottom_banner #shipping,
-    .section1_bottom_banner #exchange, 
+    .section1_bottom_banner #exchange,
     .section1_bottom_banner #satisfaction {
         width: 100%;
         text-align: center;
@@ -455,7 +456,7 @@ a.play_video_link {
     #section3 {
         background-position-x: 60%;
     }
-    button.do_this_thing, #section4 button {
+    .do_this_thing, #section4 a {
         margin-right: 0;
         margin-bottom: 10px;
     }
@@ -485,15 +486,15 @@ a.play_video_link {
 }
 
 /** BUTTON HOVERS **/
-button.join_btn:hover, button.gift_btn:hover, button.do_this_thing:hover,
-.letsgetcustom button:hover {
+a.join_btn:hover, a.gift_btn:hover, a.do_this_thing:hover,
+.letsgetcustom button:hover, .letsgetcustom a:hover {
     color: #00d9f7 !important;
     background-color: #fff;
 }
 li.join-now a:hover {
     background: #eee !important;
 }
-.play_video_link:hover, .section1_video:hover, 
+.play_video_link:hover, .section1_video:hover,
 .playImg:hover + span.section1_video {
     color: #00d9f7 !important;
 }

@@ -12,8 +12,11 @@
       data-product="{%- include 'bold-product', output: 'json', escape: true -%}"
       {% if settings.limit_quantity or settings.display_inventory_left %}
         data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
-      {% endif %}      
+      {% endif %}
       data-product-id="{{ product.id }}">
+
+{% include 'bms-subscription-product-lookup-and-json' %}
+
     {% include 'size-chart-popup' %}
 
     {% if settings.display_inventory_left %}
