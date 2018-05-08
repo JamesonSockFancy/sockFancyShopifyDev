@@ -451,7 +451,7 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-05-07T17:12:46-04:00   19684e30dcd49d44f9075f566cd12ae2
+  development: 2018-05-07T17:40:54-04:00   a7ec7409dce6aa7ba0e825db7e134688
   production: 2018-04-27T15:13:12-04:00   f48e9a1d6349988d3d56e712bfe1e341
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
