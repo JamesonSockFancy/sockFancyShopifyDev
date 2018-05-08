@@ -76,6 +76,7 @@
           <li>
             {{ 'layout.customer.log_in' | t | customer_login_link }}
           </li>
+            <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}">SUBSCRIBE</a>
         {% endif %}
       {% endif %}
       {% if settings.show_multiple_currencies %}
@@ -84,7 +85,7 @@
         </li>
       {% endif %}
     </ul>
-    <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}">SUBSCRIBE</a>
+
   </div>
 
   <form action="/checkout" method="post" id="cart">
