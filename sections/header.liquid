@@ -77,16 +77,18 @@
             {{ 'layout.customer.log_in' | t | customer_login_link }}
           </li>
         {% endif %}
+    <div class="mobile-menu-buttons">
+      <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}" style="background-color: #2dafd9; color: #ffffff;">SUBSCRIBE</a>
+    </div>
       {% endif %}
+
       {% if settings.show_multiple_currencies %}
         <li class="currencies">
           {% include 'currencies-switcher' %}
         </li>
       {% endif %}
     </ul>
-    <div class="mobile-menu-buttons">
-      <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}" style="background-color: #2dafd9; color: #ffffff;">SUBSCRIBE</a>
-    </div>
+
   </div>
 
   <form action="/checkout" method="post" id="cart">
