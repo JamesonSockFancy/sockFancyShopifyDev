@@ -26,7 +26,6 @@
     {% endif %}
   </a>
   <a href="#cart" class="icon-cart cart-button right"><span>{{ cart.item_count }}</span></a>
-  <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}">SUBSCRIBE</a>
 </div>
 
 <div class="hidden">
@@ -85,6 +84,7 @@
         </li>
       {% endif %}
     </ul>
+    <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}">SUBSCRIBE</a>
   </div>
 
   <form action="/checkout" method="post" id="cart">
