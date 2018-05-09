@@ -77,8 +77,14 @@
 
         {% if customer %}
 
-            <a class="mangage-account-button-mobile" href="/account">Hi {{ customer.name }}, manage your account</a>
-
+        <a class="mangage-account-button-mobile" href="/account">
+          <p>
+            Hi {{ customer.name }},
+          </p>
+          <p style="color: #2dafd9">
+            manage your account
+          </p>
+        </a>
         {% else %}
 
         {% endif %}
