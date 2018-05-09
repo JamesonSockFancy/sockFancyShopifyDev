@@ -77,9 +77,9 @@
       <div class="mobile-menu-account"> 
         {% if customer %}
  
-          <div>
-           <a class="join_btn button" href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
-          </div>
+          <p>
+           <a href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
+          </p>
 
            {{ 'layout.customer.log_out' | t | customer_logout_link }}
 
