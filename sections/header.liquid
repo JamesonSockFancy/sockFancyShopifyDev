@@ -88,7 +88,20 @@
 
 <br>
       <div class="mobile-menu-buttons">
- 
+
+        {% if customer %}
+          
+          <a class="join_btn button" href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
+          
+          <a>
+            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </a>
+        {% else %}
+          <a>
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          </a>
+        {% endif %}
+          
           <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}" style="background-color: #2dafd9; color: #ffffff;">SUBSCRIBE</a>
 
       </div>
