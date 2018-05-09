@@ -91,15 +91,17 @@
 
         {% if customer %}
           
-          <a class="join_btn button" href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
-          
-          <a class="join_btn button">
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </a>
+          <div>
+            <a class="join_btn button" href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
+          </div>
+          <div>
+           {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </div>
+           
         {% else %}
-          <a class="join_btn button">
+          <div>
             {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </a>
+          </div>
         {% endif %}
       
       </div>
