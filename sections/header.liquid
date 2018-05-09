@@ -86,10 +86,10 @@
         </li>
       {% endif %}
     </ul>
+  </div>
     <div class="mobile-menu-buttons">
       <a class="join_btn button" href="/products/{{ settings.bms_smart_subscription_product }}" style="background-color: #2dafd9; color: #ffffff;">SUBSCRIBE</a>
     </div>
-  </div>
 
   <form action="/checkout" method="post" id="cart">
     <ul data-money-format="{{ shop.money_format }}" data-shop-currency="{{ shop.currency }}" data-shop-name="{{ shop.name | escape }}">
