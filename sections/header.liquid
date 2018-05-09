@@ -77,14 +77,14 @@
       <div class="mobile-menu-account"> 
         {% if customer %}
 
-            <button href="/account">Sup {{ customer.name }}, manage your account</button><br>
+            <a class="mangage-account-button-mobile" href="/account">Sup {{ customer.name }}, manage your account</button><br>
 
              {{ 'layout.customer.log_out' | t | customer_logout_link }}
 
         {% else %}
 
             {{ 'layout.customer.log_in' | t | customer_login_link }}
-        
+
         {% endif %}
       </div>
       {% endif %}
