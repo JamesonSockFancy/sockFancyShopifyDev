@@ -76,9 +76,10 @@
       {% if shop.customer_accounts_enabled %}
       <div class="mobile-menu-account"> 
         {% if customer %}
-
-            <a class="mangage-account-button-mobile" href="/account">Sup {{ customer.name }}, manage your account</button><br>
-
+            <li>
+              <a class="mangage-account-button-mobile" href="/account">Sup {{ customer.name }}, manage your account</button>
+            </li>
+            
              {{ 'layout.customer.log_out' | t | customer_logout_link }}
 
         {% else %}
