@@ -93,11 +93,11 @@
           
           <a class="join_btn button" href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
           
-          <a>
+          <a class="join_btn button">
             {{ 'layout.customer.log_out' | t | customer_logout_link }}
           </a>
         {% else %}
-          <a>
+          <a class="join_btn button">
             {{ 'layout.customer.log_in' | t | customer_login_link }}
           </a>
         {% endif %}
