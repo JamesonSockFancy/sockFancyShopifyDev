@@ -77,10 +77,9 @@
       <div class="mobile-menu-account"> 
         {% if customer %}
  
-          {% comment %} <div>
-           <a href="/account" style="background-color: #000000; color: #ffffff;">{{ customer.name }}</a>
-          </div> {% endcomment %}
-
+          
+           <a href="/account">Sup {{ customer.name }}, Wanna manage your account?</a>
+          
            {{ 'layout.customer.log_out' | t | customer_logout_link }}
 
         
