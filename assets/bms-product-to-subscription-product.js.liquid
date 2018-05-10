@@ -9,6 +9,9 @@ BOLD.bms_ro_swap = {
       var button = submit_buttons[s];
       button.innerHTML = button.regular_add || button.innerHTML;
     }
+    var base_product = BOLD.bms_ro_swap.getCurrentProduct(form);
+    var base_variant = base_product.variants[0];
+    BOLD.bms_ro_swap.setOneTimeFields(form, base_variant);
   },
   onSubscriptionSelect:function(evt){
     var form = evt.data.form;
@@ -25,12 +28,12 @@ BOLD.bms_ro_swap = {
     //For now, assume base product has but a single variant
     var base_variant = base_product.variants[0];
     var subscription_variants = BOLD.bms_ro_swap.getSubscriptionVariants(subscription_product, base_product, base_variant);
-    BOLD.bms_ro_swap.setSubscriptionFields(form, subscription_variants, base_variant);
+    BOLD.bms_ro_swap.setSubscriptionFields(form, subscription_variants, base_variant, base_product);
 
   },
   getSubscriptionVariants:function(sub_prod, base_prod, base_variant){
     base_variant = base_variant || base_prod.variants[0];
-    var tags = (base_prod.tags || []).join('~~~~').toLowerCase.split('~~~~');
+    var tags = (base_prod.tags || []).join('~~~~').toLowerCase().split('~~~~');
     var type = (base_prod.type || '').toLowerCase();
 
     var is_womens = (type.indexOf('women') > -1 || tags.indexOf('womens') > -1 ? true : false);
@@ -41,7 +44,7 @@ BOLD.bms_ro_swap = {
     //Option1: Size (Mens, Womens)
     //Option2: Quantity (1 Pair, 2 Pairs, 6 Pack)
     //Option3: Limited edition (Crew Only, All Styles)
-    return sub_prod.filter(function(variant){
+    return sub_prod.variants.filter(function(variant){
       var opt1 = variant.option1.toLowerCase();
       var opt2 = variant.option2.toLowerCase();
       var opt3 = variant.option3.toLowerCase();
@@ -51,8 +54,45 @@ BOLD.bms_ro_swap = {
              ( is_crew ? opt3.indexOf('crew') > -1 : opt3.indexOf('crew') === -1);
     })
   },
-  setSubscriptionFields:function(form, sub_variants, base_variant){
-    
+  setOneTimeFields:function(form, base_variant){
+    form.id.value = base_variant.id;
+    form['properties[_ro_enterprise_first_pick]'].value = '';
+    form['properties[_first_pick_name]'].value = '';
+    form['properties[_first_pick_img]'].value = '';
+  },
+  setSubscriptionFields:function(form, sub_variants, base_variant, base_product){
+    var variant_id = sub_variants[0].id
+    form.id.value = variant_id;
+    form['properties[_ro_enterprise_first_pick]'].value = base_variant.id;
+    form['properties[_first_pick_name]'].value = base_variant.name;
+    form['properties[_first_pick_img]'].value = base_variant.featured_image ? base_variant.featured_image.src : base_product.featured_image;
+    form['group_id'].value = BOLD.common.Shopify.variants[variant_id].group_id;
+
+
+    var sock_size_element = form.querySelector('.ro-sock-size');
+    if(sub_variants.length ===1){
+      sock_size_element.innerText = sub_variants[0].option1;
+    } else {
+      sock_size_element.innerHTML = '';
+      var size_select = document.createElement('select');
+      size_select.className = 'ro-sub-product-choice';
+      size_select.addEventListener('change', function(evt){
+        var value = evt.target.value;
+        var selected_variant = sub_variants.filter(function(v){ return v.option1 === value })[0];
+
+        form.id.value = selected_variant.id;
+      });
+
+      for(var v=0; v<sub_variants.length; v++){
+        var variant = sub_variants[v];
+        var opt = document.createElement('option');
+        v==0 && (opt.selected = true);
+        opt.value = opt.innerText = variant.option1;
+        size_select.appendChild(opt);
+      }
+      sock_size_element.appendChild(size_select);
+      size_select.dispatchEvent(new Event('change'), {view:window, bubbles:true, cancelable: false } )
+    }
   },
   getSubscriptionJSON:function(form){
     if(form.subscription_product){

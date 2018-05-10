@@ -514,9 +514,9 @@ $mobile-cutoff:480px;
       padding-bottom:1em;
       margin-bottom:0.5em;
       {% comment %} border:1px solid black; {% endcomment %}
-      -webkit-box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);  
-      -moz-box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);   
-       box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);  
+      -webkit-box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);
+      -moz-box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);
+       box-shadow: 0em .10em .25em .10em rgba(0,0,0,0.05);
       flex-grow: 1;
       background:white;
       color:black;
@@ -556,9 +556,9 @@ $mobile-cutoff:480px;
     &:checked+label{
       background:#2dafd9;
       color:white;
-      -webkit-box-shadow: none;  
-      -moz-box-shadow: none;  
-       box-shadow: none;  
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+       box-shadow: none;
 
     }
   }
@@ -670,6 +670,7 @@ input.slider-toggle{
     font-weight:bold;
     color:black;
     text-transform: uppercase;
+    position:relative;
   }
   &:after{
     content:' ';
@@ -787,7 +788,7 @@ button.custom-subscription-submit:disabled{
 
 .yotpo .yotpo-review .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-comment .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-question .yotpo-header .yotpo-icon-profile .yotpo-user-letter, .yotpo .yotpo-onsite-upload .yotpo-header .yotpo-icon-profile .yotpo-user-letter {
   display: none;
-} 
+}
 
 /* Special styles for displaying the pay-monthly gift durations */
 .monthly-gift-duration{
@@ -811,4 +812,31 @@ button.custom-subscription-submit:disabled{
 }
 .swatch-duration{
   min-height:2.5em;
+}
+
+select.ro-sub-product-choice{
+    display:inline-block;
+    max-width:6em;
+    color:#32bcfb;
+    background:transparent;
+    border:none;
+    text-decoration:underline;
+    padding-bottom:0;
+    margin-bottom:0;
+    margin-left:0.5em;
+}
+
+div.login-notification{
+  border: 3px solid darkgoldenrod;
+  border-radius: 8px;
+  background: lightgoldenrodyellow;
+  padding:1em 2em 0;
+  margin-bottom:1em;
+  &.login-notification-error{
+    background:mistyrose;
+    border-color:darkred;
+    &>p:nth-of-type(1){
+      font-weight:bold;
+    }
+  }
 }

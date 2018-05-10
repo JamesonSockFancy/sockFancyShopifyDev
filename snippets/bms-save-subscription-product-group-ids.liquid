@@ -1,0 +1,4 @@
+{% include 'bms-subscription-product-lookup-and-json' %}
+<script class='bms-save-subscription-ids'>
+  {%- for variant in subscription_product.variants -%}{%- assign csp_metafield_namespace = variant.id | prepend: "csp" -%}window.BOLD.common.Shopify.saveVariant({{ variant.id | json }}, { product_id: {{ product.id | json }}, product_handle: {{ product.handle | json }}, price: {{ variant.price | json }}, group_id: '{{variant.metafields.bold_rp.rp_group_id}}', csp_metafield: {{ product.metafields[csp_metafield_namespace] | json }}});{%- endfor -%}
+</script>

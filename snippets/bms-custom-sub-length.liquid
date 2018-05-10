@@ -11,14 +11,14 @@
 
   {%- if prepaid_sub -%}
   {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_3, value: '3', input_id: 'subscription-length-3-prepaid', default_checked: enable_default_checked -%}
-  {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_9, value: '6', input_id: 'subscription-length-6-prepaid' -%}
-  {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_6, value: '9', input_id: 'subscription-length-9-prepaid' -%}
+  {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_6, value: '6', input_id: 'subscription-length-6-prepaid' -%}
+  {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_9, value: '9', input_id: 'subscription-length-9-prepaid' -%}
   {%- include 'bms-swatch-element', input_name:'properties[total_recurrences]', option:'duration', title: monthly_title_12, value: '12', input_id: 'subscription-length-12-prepaid' -%}
 
   {%- else -%}
   {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_3, value: '3', input_id: 'subscription-length-3-gift', default_checked: enable_default_checked -%}
-  {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_9, value: '6', input_id: 'subscription-length-6-gift' -%}
-  {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_6, value: '9', input_id: 'subscription-length-9-gift' -%}
+  {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_6, value: '6', input_id: 'subscription-length-6-gift' -%}
+  {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_9, value: '9', input_id: 'subscription-length-9-gift' -%}
   {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_12, value: '12', input_id: 'subscription-length-12-gift' -%}
   {%- endif -%}
 </div>

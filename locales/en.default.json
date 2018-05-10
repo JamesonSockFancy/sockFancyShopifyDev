@@ -446,7 +446,7 @@
       "subtitle_for_mixed": "(A sub to share)",
       "subtitle_for_12_month_prepaid": "Get 1 pair free!",
       "add_to_cart_html": "Continue to Checkout",
-      "summary_please_make_a_selection_html": "Please select a style and a quantity",
+      "summary_please_make_a_selection_html": "Please select a style, quantity and payment option",
       "summary_header_html": "Your selection:",
       "summary_money_format_html": "${{ amount }} (USD)",
       "summary_prepaid_description_beginning_html": "",
@@ -467,7 +467,8 @@
       "cart_description_html": "Delivered every",
       "cart_expiry_beginning_html": " for ",
       "cart_expiry_end_html": "",
-      "product_form_subscribe_html": "Subscribe"
+      "product_form_subscribe_html": "Subscribe",
+      "login_prompt_html": "<p>Did you sign up for a subscription before May 11 2018? If so, we have upgraded our platform and you will need to create a <a href=\"\/account\/register\" title=\"Create new account\">new account<\/a>.<\/p> <p>If you need to make changes to an existing order or have any other questions, please <a href=\"\/pages\/contact-us\" title=\"Contact Us using our online form\">contact us<\/a> at <a href=\"mailto:info@sockfancy.com\" title=\"Contact us via email\">info@sockfancy.com<\/a><\/p>"
     }
   }
 }

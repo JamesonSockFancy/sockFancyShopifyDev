@@ -430,7 +430,7 @@
         cursor: pointer;
     }
 
- .description h4 { 
+ .description h4 {
      font-family: 'Montserrat';
      font-weight: bold;
          text-transform: capitalize;
@@ -452,8 +452,8 @@
         color: #666;
     }
 
-    [type="radio"]:checked~label:before,
-    [type="radio"]:not(:checked)~label:before {
+    [type="radio"]:checked~label:nth-of-type(1):before,
+    [type="radio"]:not(:checked)~label:nth-of-type(1):before {
         content: '';
         position: absolute;
         left: 0;
@@ -465,8 +465,8 @@
         background: #fff;
     }
 
-    [type="radio"]:checked~label:after,
-    [type="radio"]:not(:checked)~label:after {
+    [type="radio"]:checked~label:nth-of-type(1):after,
+    [type="radio"]:not(:checked)~label:nth-of-type(1):after {
         content: '';
         width: 14px;
         height: 14px;
@@ -479,13 +479,13 @@
         transition: all 0.2s ease;
     }
 
-    [type="radio"]:not(:checked)~label:after {
+    [type="radio"]:not(:checked)~label:nth-of-type(1):after {
         opacity: 0;
         -webkit-transform: scale(0);
         transform: scale(0);
     }
 
-    [type="radio"]:checked~label:after {
+    [type="radio"]:checked~label:nth-of-type(1):after {
         opacity: 1;
         -webkit-transform: scale(1);
         transform: scale(1);

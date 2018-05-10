@@ -77,6 +77,7 @@
 
 {% if product %}
 {{ 'bms-product-to-subscription-product.js' | asset_url | script_tag }}
+{% include 'bms-save-subscription-product-group-ids' %}
 {% endif %}
 
 {%- if product -%}
@@ -133,7 +134,7 @@
     </noscript>
 
     {% include 'shogun-head' %}
-    
+
     <style>
       /** header bar **/
       div.header_bar {

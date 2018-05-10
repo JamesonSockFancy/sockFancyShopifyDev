@@ -7,5 +7,10 @@
 {%- endfor -%}
 {%- assign subscription_product = all_products[subscription_handle] -%}
 
+{%- if output_form_fields -%}
 <script type="application/json" class="product-json">{{ product | json }}</script>
 <script type="application/json" class="subscription-product-json">{{ subscription_product | json }}</script>
+<input type="hidden" name="properties[_ro_enterprise_first_pick]" />
+<input type="hidden" name="properties[_first_pick_name]" />
+<input type="hidden" name="properties[_first_pick_img]" />
+{%- endif -%}

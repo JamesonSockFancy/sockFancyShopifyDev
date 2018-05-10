@@ -199,7 +199,7 @@ BOLD.bms_ro_loader = {
     else{
       featured_image = product.featured_image || '';
     };
-    console.log(featured_image);
+
     img_element.src = featured_image;
   },
   updateSubscriptionData:function(evt){
@@ -246,12 +246,41 @@ BOLD.bms_ro_loader = {
     }
     BOLD.bms_ro_loader.updateSubscriptionSummary(form, current_variant, total_recurrences, prepaid_discount);
     BOLD.bms_ro_loader.enableCheckoutButton(form);
+
+    var target = evt.target;
+    var target_name = ((target && target.name) || '').toLowerCase();
+
+    //Update the cart note if we changed a gift field
+    (target_name.indexOf('gift') > -1 || target_name.indexOf('from') > -1) && BOLD.bms_ro_loader.giftNoteToCartNote(form);
+  },
+  giftNoteToCartNote:function(form){
+    BOLD.helpers.get('/cart.js', function(cart){
+      var gift_delimiter = '--gift message--'
+      var current_note = cart.note || '';
+      var non_gift_note = (current_note.split(gift_delimiter)[0] || '').trim();
+      var is_gift = form['properties[is_gift]'].checked;
+
+      var gift_from = form['properties[From]'].value;
+      var gift_msg = form['properties[Gift Message]'].value;
+
+      var note;
+      if(is_gift){
+        note = non_gift_note + (non_gift_note ? '\n\n' : '') + gift_delimiter + '\n\n' + 'FROM: ' + gift_from + '\n\n' + gift_msg;
+      } else {
+        note = non_gift_note;
+      }
+
+      if(current_note !== note){
+        BOLD.helpers.post('/cart/update.js', {note:note});
+      }
+
+    })
   },
   verifyRequiredSelections:function(form){
     if(!form.id || !form.id.value) {
       return false;
     }
-    if( (form['properties[is_gift]'].value == 'on' || form['properties[is_prepaid]'].value) && !form['properties[total_recurrences]'].value){
+    if( (form['properties[is_gift]'].checked || form['properties[is_prepaid]'].value == 'on') && !form['properties[total_recurrences]'].value){
       return false;
     }
     return true;
@@ -314,6 +343,7 @@ BOLD.bms_ro_loader = {
       return;
     }
     var price = variant.price * (1-discount);
+
     var description = ''
     if(recurrences){
       var formatted_price =  Shopify.formatMoney(recurrences * price, {{ 'bold.recurring_orders.summary_money_format_html' | t | json }} );
@@ -328,14 +358,14 @@ BOLD.bms_ro_loader = {
       first_pick && (description += {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + first_pick + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }});
     }
 
-    if(form['is_gift'].checked){
+    if(form['properties[is_gift]'].checked){
       description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
-    } else if(form['is_prepaid'].value) {
+    } else if(form['properties[is_prepaid]'].value) {
       description += {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }};
     } else {
       description += {{ 'bold.recurring_orders.subscription_ongoing_html' | t | json }};
     }
-  
+
     description_element.innerHTML = description;
   },
   updatePrepaidData:function(form, current_variant, product){
@@ -354,7 +384,7 @@ BOLD.bms_ro_loader = {
         length_data = prepaid_data.lengths[l];
         if(length_data.length == prepaid_length_field.value){
           prepaid_id_field.value = length_data.id;
-          discount = current_variant.prepaid_discount = (length_data.discount || 0);
+          discount = current_variant.prepaid_discount = (length_data.discount || 0) * 0.01;
         }
       }
     } else {
@@ -384,7 +414,7 @@ BOLD.bms_ro_loader = {
     if(BOLD.bms_ro_loader.loaded_group_data[groupID]){
       BOLD.helpers.triggerEvent('BMS.ro_loader.group_data_loaded', {group_data:BOLD.bms_ro_loader.loaded_group_data[groupID], variant:variant, product:product });
     }
-    var url =  'https://ro.boldapps.net/api_public/group/' + groupID + '?access_all=1&shop_url=' + BOLD.common.Shopify.shop.permanent_domain;
+    var url =  'https://ro.boldapps.net/api_public/group/' + groupID + '?access_all=1&shop_url=' + BOLD.common.Shopify.shop.permanent_domain + '&_c=' + BOLD.common.cacheParams.recurring_orders;
     BOLD.helpers.get(url, function(group_data){
       BOLD.bms_ro_loader.loaded_group_data[group_data.group_id] = group_data;
       BOLD.helpers.triggerEvent('BMS.ro_loader.group_data_loaded', {group_data:BOLD.bms_ro_loader.loaded_group_data[groupID], variant:variant, product:product } );
@@ -501,7 +531,7 @@ BOLD.bms_ro_loader = {
     }
   },
   redirectToCashier:function(response){
-    console.log(response);
+
     var cashierForm = document.createElement('form');
     cashierForm.setAttribute('action', '/apps/checkout/begin-checkout?shop=' + Shopify.shop + '&' + googleAnalyticsGetParamString());
     cashierForm.setAttribute('method', 'post');

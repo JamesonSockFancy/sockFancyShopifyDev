@@ -1033,25 +1033,29 @@ var cart = {
         $.each(cart.items, function(index, item) {
           var line_id = index + 1;
           cart_items_html += '<li class="cart_item">' +
-            '<p class="mm-counter">' +
-              '<span class="icon-minus minus"></span>' +
-              '<input type="number" min="0" class="quantity" name="updates[]" id="updates_' + item.id + '" value="' + item.quantity +'"  data-line-id="' + line_id +'" readonly />' +
-              '<span class="icon-plus plus"></span>' +
-            '</p>' +
-            '<a href="' + item.url +'">';
+          '<p class="mm-counter">' +
+          '<span class="icon-minus minus"></span>' +
+          '<input type="number" min="0" class="quantity" name="updates[]" id="updates_' + item.id + '" value="' + item.quantity +'"  data-line-id="' + line_id +'" readonly />' +
+          '<span class="icon-plus plus"></span>' +
+          '</p>' +
+          '<a href="' + item.url +'">';
           if (item.image) {
             cart_items_html += '<div class="cart_image">' +
-                '<img src="' + item.image.replace(/(\.[^.]*)$/, "_medium$1").replace('http:', '') + '" alt="' + htmlEncode(item.title) + '" />' +
-              '</div>';
+            '<img src="' + item.image.replace(/(\.[^.]*)$/, "_medium$1").replace('http:', '') + '" alt="' + htmlEncode(item.title) + '" />' +
+            '</div>';
           }
 
           cart_items_html += '<div class="item_info">' + item.title;
 
           if(item.Bold && item.Bold.frequency_num){
-            cart_items_html += '<div class="recurring-description">' + {{ 'bold.recurring_orders.cart_description_html' | t | json }} + (item.Bold.frequency_num > 1 ? item.Bold.frequency_num : '') + ' ' + item.Bold.frequency_type_text.toLowerCase() + '</div>'
+            var freq = parseInt(item.Bold.frequency_num);
+            cart_items_html += '<div class="recurring-description">' + {{ 'bold.recurring_orders.cart_description_html' | t | json }} + (freq > 1 ? freq : '') + ' ' + (freq > 1 ? item.Bold.frequency_type_text.toLowerCase() : item.Bold.frequency_type_text.replace('(s)', '').toLowerCase()) + '</div>'
           }
           if(item.Bold && item.Bold.total_recurrences > 0){
             cart_items_html += '<div class="recurring-expiration">' + {{ 'bold.recurring_orders.cart_expiry_beginning_html' | t | json }} + item.Bold.total_recurrences + ' ' + item.Bold.frequency_type_text.toLowerCase() + (item.Bold.total_recurrences > 1 ? 's' : '') + {{ 'bold.recurring_orders.cart_expiry_end_html' | t | json }} + '</div>'
+          }
+          if(item.Bold && item.Bold.first_pick_name){
+            cart_items_html += '<div class="recurring-first-pick">' + {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + item.Bold.first_pick_name + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }} + '</div>';
           }
           if(item.properties) {
             $.each(item.properties, function(title, value) {
@@ -1063,8 +1067,9 @@ var cart = {
           }
 
           cart_items_html += '<div class="price"><span class="money">' + Shopify.formatMoney(item.price, $cart.data('money-format')) + '</span></div></div></a></li>';
-        });
 
+        });
+        
         cart_items_html += '<li class="mm-label">' +
             '<p class="mm-counter price"><span class="money">' + Shopify.formatMoney(cart.total_price, $cart.data('money-format')) + '</span></p>' +
             '<a href="/cart">' +
@@ -1382,6 +1387,9 @@ $(function() {
       e.preventDefault();
       var $addToCartForm = $(this);
       var $addToCartBtn = $addToCartForm.find('.add_to_cart');
+
+      var ro_discount_field = this['properties[_ro_discount_percentage]'];
+      ro_discount_field && (ro_discount_field.value = 0)
 
       $.ajax({
         url: '/cart/add.js',

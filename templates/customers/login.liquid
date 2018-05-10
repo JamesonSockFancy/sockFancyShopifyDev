@@ -4,13 +4,19 @@
     <div class="feature_divider"></div>
   </div>
 
-  <div class="clearfix" id="customer">  
+  <div class="clearfix" id="customer">
     <br class="clear" />
     <br class="clear" />
     <div class="six columns offset-by-five animated fadeInUp" id="login_form">
 
       {% form 'customer_login' %}
         {{ form.errors | default_errors }}
+
+        {% if settings.show_account_login_notification %}
+        <div class="login-notification {% if form.errors %}login-notification-error{% endif %}">
+          {{ 'bold.recurring_orders.login_prompt_html' | t }}
+        </div>
+        {% endif %}
 
         <label for="customer_email" class="login">{{ 'customer.login.email' | t }}</label>
         <input type="email" value="" name="customer[email]" id="customer_email" class="large" size="30"  autocorrect="off" autocapitalize="off" tabindex="1" />
@@ -43,10 +49,10 @@
         {% endform %}
       {% endif %}
     </div>
-      
+
       <div id="recover-password" style='display:none'>
         <div class="six columns offset-by-five animated fadeInUp">
-      
+
           <h4>{{ 'customer.recover_password.title' | t }}</h4>
 
           {% form 'recover_customer_password' %}
@@ -60,11 +66,11 @@
               <label for="email" class="large">{{ 'customer.recover_password.email' | t }}</label>
               <input type="email" value="" size="30" name="email" id="recover-email" class="large" autocorrect="off" autocapitalize="off" />
             </div>
-            
+
             <p>
               <em class="note">{{ 'customer.recover_password.subtext' | t }}</em>
             </p>
-            
+
             <div class="action_bottom">
               <input class="btn action_button" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
               <span class="note">{{ 'customer.recover_password.or' | t }} <a href="#" onclick="hideRecoverPasswordForm()">{{ 'customer.recover_password.cancel' | t }}</a></span>

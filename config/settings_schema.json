@@ -3357,6 +3357,13 @@
         "id": "bulk_order_page",
         "type": "page",
         "label": "Select page for 'Bulk Order' for home page link"
+      },
+      {
+        "id": "show_account_login_notification",
+        "type": "checkbox",
+        "label": "Show migration prompt on account login page?",
+        "default": true,
+        "info": "You can change the wording of the notification by editing your theme's language settings: "
       }
     ]
   }
