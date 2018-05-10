@@ -2,7 +2,7 @@
 
 <div class="container main content main-wrapper">
   <div class="sixteen columns">
-    <div class="clearfix breadcrumb">
+    {% comment %} <div class="clearfix breadcrumb">
       <div class="nav_arrows">
         {% if collection.previous_product %}
           <a href="{{ collection.previous_product }}" title="{{ 'products.general.previous_product_html' | t }}" class="ss-icon prev"><span class="icon-circle-left"></span></a>
@@ -13,7 +13,7 @@
         {% endif %}
       </div>
       {% include "product-breadcrumb" %}
-    </div>
+    </div> {% endcomment %}
   </div>
 
 
