@@ -370,7 +370,7 @@ sections/product-details-template.liquid:
   production: 2018-04-20T14:04:05-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
-  development: 2018-05-01T10:17:45-04:00   85d8c006cb11efcb7575743a367bba44
+  development: 2018-05-10T16:45:56-04:00   0a9a482f375a39e71b6b871064470746
   production: 2018-05-08T12:06:59-04:00   85d8c006cb11efcb7575743a367bba44
 sections/search-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   d3de24f6c2600ef154d6c93ab703513d
@@ -458,7 +458,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-05-10T16:37:06-04:00   dfb57f491b61d33155c77924cb05d9db
-  production: 2018-05-09T17:14:45-04:00   b7913c61cbee93155d5c3c085cad855e
+  production: 2018-05-10T16:37:07-04:00   152a36016e297d41833ac7d59a1afeb3
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122
