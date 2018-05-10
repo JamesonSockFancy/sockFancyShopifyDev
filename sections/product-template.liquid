@@ -1,7 +1,7 @@
 {%- include 'bold-ro' -%}
 {%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
 <div class="container main content main-wrapper">
-  <div class="sixteen columns">
+  {% comment %} <div class="sixteen columns">
     <div class="clearfix breadcrumb">
       <div class="nav_arrows">
         {% if collection.previous_product %}
@@ -14,7 +14,7 @@
       </div>
       {% include "product-breadcrumb" %}
     </div>
-  </div>
+  </div> {% endcomment %}
 
   {% comment %}Check to see if sidebar should be enabled{% endcomment %}
   {% if section.blocks.size > 0 %}
