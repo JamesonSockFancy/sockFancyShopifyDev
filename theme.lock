@@ -63,7 +63,7 @@ assets/bms-product-to-subscription-product.js.liquid:
   production: 2018-05-09T16:16:28-04:00   2132d3ebe7c97413ca2a998f557cc92b
 assets/bms-styles.css.liquid:
   development: 2018-05-09T16:06:38-04:00   2c25bbc72d86de324320f7eccb62e855
-  production: 2018-05-09T16:16:33-04:00   c8feaa5287696df0d099dbb09e4051b2
+  production: 2018-05-10T12:20:49-04:00   2c25bbc72d86de324320f7eccb62e855
 assets/bold-checkout-options.js:
   boldDev: 2018-05-01T10:42:42-04:00   1cd192033fae68dbb310fbf280b80426
   development: 2018-04-18T13:00:48-04:00   1cd192033fae68dbb310fbf280b80426
@@ -209,7 +209,7 @@ assets/zendesk-embeddable.js:
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
   development: 2018-05-08T16:49:50-04:00   e0d5c50b236081d425497f6f432dd6b2
-  production: 2018-05-08T12:07:04-04:00   21ef573b3e3a4b50f44849f9f3110d7b
+  production: 2018-05-10T12:20:54-04:00   e0d5c50b236081d425497f6f432dd6b2
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
   development: 2018-05-07T12:58:33-04:00   90e03857c279527402ea167c484f0f6a
@@ -323,7 +323,7 @@ sections/gallery.liquid:
 sections/header.liquid:
   boldDev: 2018-05-02T13:42:00-04:00   c0c000b22a8f177ebe001bbb86ddf40f
   development: 2018-05-09T16:02:59-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
-  production: 2018-05-08T12:07:00-04:00   19cadbf710ec78c223d4f464a2579ace
+  production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
   development: 2018-05-08T12:02:47-04:00   37e9cfcfe0f54a79d0a988662df041d8
