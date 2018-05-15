@@ -85,12 +85,14 @@
           {% endif %}
 
           {% include 'pagination' with true %}
+          <br>
+          <a href=""><img src= "{{  'Refer-A-Friend.jpg' | asset_img_url: '580x' }}" alt="refer a friend banner"></a>
+
         </div>
       </div>
-      <div>
-        <a href=""><img src= "{{  'Refer-A-Friend.jpg' | asset_img_url: '580x' }}" alt="refer a friend banner"></a>
 
-      </div>
+
+
     </div>
   </div>
 {% endpaginate %}  

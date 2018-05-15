@@ -35,8 +35,8 @@ assets/Mashable.png:
   boldDev: 2018-05-01T11:08:55-04:00   516ee036f0c7394fadcb412da2ca7df2
   development: 2018-04-16T11:33:59-04:00   516ee036f0c7394fadcb412da2ca7df2
   production: 2018-03-29T11:06:47-04:00   516ee036f0c7394fadcb412da2ca7df2
-assets/Refer A Friend.jpg:
-  development: 2018-05-15T15:21:13-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
+assets/Refer-A-Friend.jpg:
+  development: 2018-05-15T15:30:50-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
 assets/airplane.png:
   boldDev: 2018-05-01T11:09:00-04:00   8769667b3c3fb8267bf3c4a47eed9512
   development: 2018-04-16T11:33:59-04:00   8769667b3c3fb8267bf3c4a47eed9512
@@ -641,7 +641,7 @@ templates/collection.sub-collections.liquid:
   production: 2018-02-27T12:53:13-05:00   f1a77a45fb9f72ebd76d90b7e648770d
 templates/customers/account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e10fda1bcda1b6623f1ae59fded32c99
-  development: 2018-05-15T15:21:14-04:00   f6b9308a5aab72cd66835b2c0c87b170
+  development: 2018-05-15T15:30:49-04:00   fa8d7b8f47a0aeb0a92ba1ae4f287f83
   production: 2018-02-28T10:55:14-05:00   e10fda1bcda1b6623f1ae59fded32c99
 templates/customers/activate_account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   63579e0acf06a1645e760f01b508bc7a
