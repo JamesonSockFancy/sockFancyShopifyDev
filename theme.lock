@@ -230,7 +230,7 @@ locales/de.json:
   production: 2018-03-29T11:03:07-04:00   c8755f2c8e0a8f63d43629ba51ecb660
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
-  development: 2018-05-15T14:42:45-04:00   02e9eb2575aff5f1ccc197c768be1786
+  development: 2018-05-15T14:57:08-04:00   54cfe243b3e0f3499dfe7091296cb983
   production: 2018-05-09T16:16:30-04:00   8e77949d9b0078c0690d9f2346be38e9
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -639,7 +639,7 @@ templates/collection.sub-collections.liquid:
   production: 2018-02-27T12:53:13-05:00   f1a77a45fb9f72ebd76d90b7e648770d
 templates/customers/account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e10fda1bcda1b6623f1ae59fded32c99
-  development: 2018-05-15T14:42:44-04:00   58c54b20c1a300bc2c53565bfa75eac7
+  development: 2018-05-15T14:57:07-04:00   10b532648ed5e1b80a01ce4a9c8734d9
   production: 2018-02-28T10:55:14-05:00   e10fda1bcda1b6623f1ae59fded32c99
 templates/customers/activate_account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   63579e0acf06a1645e760f01b508bc7a
