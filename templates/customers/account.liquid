@@ -9,13 +9,14 @@
       <div class="clearfix breadcrumb_text">
         <div class="left">
           <p>
-        Hi, <a href="/account" title="{{ 'layout.customer.my_account' | t }}">{{ customer.name }}</a>
+        <strong>Hi, <a href="/account" title="{{ 'layout.customer.my_account' | t }}"> {{ customer.name }}</a></strong>
           </p> 
+        </div>
         <div class="right">
           {{ 'layout.customer.log_out' | t | customer_logout_link }}
         </div>
         
-        </div>
+        
       </div>
     </div>
 
