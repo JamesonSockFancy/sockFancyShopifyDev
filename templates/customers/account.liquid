@@ -86,7 +86,7 @@
 
           {% include 'pagination' with true %}
           <br>
-          <a href=""><img src= "{{  'Refer-A-Friend.jpg' }}" alt="refer a friend banner"></a>
+          <a href=""><img src= "{{  'Refer-A-Friend.jpg' | asset_img_url: '1000x' }}" alt="refer a friend banner"></a>
 
         </div>
       </div>
