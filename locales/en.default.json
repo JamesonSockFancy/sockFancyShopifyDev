@@ -398,8 +398,8 @@
     },
     "customer": {
       "logged_in_as": "Logged in as",
-      "log_out": "Sign out",
-      "log_in": "Sign in",
+      "log_out": "SIGN OUT",
+      "log_in": "SIGN IN",
       "my_account": "My Account",
       "create_account": "Create an account"
     },
