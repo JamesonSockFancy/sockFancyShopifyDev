@@ -48,9 +48,13 @@
 
       <div class="twelve columns">
         <div id="customer_orders">
-        <a href="/tools/checkout/front_end/login" class="account-text-link">MANAGE SUBSCRIPTION</a>
-        <a href="/tools/checkout/front_end/login" class="account-text-link">ADD NEW SUBSCRIPTION</a>  
-          <h4>{{ 'customer.orders.title' | t }}</h4>
+          <div>
+            <a href="/tools/checkout/front_end/login" class="account-text-link">MANAGE SUBSCRIPTION</a>
+          </div>
+          <div>
+            <a href="/products/sock-subscription" class="account-text-link">ADD NEW SUBSCRIPTION</a>  
+          </div>
+          <h4 style="margin-top: 25px;">{{ 'customer.orders.title' | t }}</h4>
 
           {% if customer.orders.size != 0 %}
           <table width="100%">
