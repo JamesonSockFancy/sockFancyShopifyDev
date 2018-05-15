@@ -15,7 +15,7 @@
           <strong>Hi, <a href="/account" title="{{ 'layout.customer.my_account' | t }}"> {{ customer.name }}</a></strong>
         </p> 
         </div>
-        <div class="right">
+        <div class="account_right">
           {{ 'layout.customer.log_out' | t | customer_logout_link }}
         </div>
         
@@ -48,7 +48,8 @@
 
       <div class="twelve columns">
         <div id="customer_orders">
-        <a href="/tools/checkout/front_end/login" class="text-link">Manage Subscription</a>
+        <a href="/tools/checkout/front_end/login" class="account-text-link">MANAGE SUBSCRIPTION</a>
+        <a href="/tools/checkout/front_end/login" class="account-text-link">ADD NEW SUBSCRIPTION</a>  
           <h4>{{ 'customer.orders.title' | t }}</h4>
 
           {% if customer.orders.size != 0 %}
