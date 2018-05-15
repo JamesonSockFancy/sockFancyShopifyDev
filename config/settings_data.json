@@ -2200,7 +2200,7 @@
     "supported_currencies": "USD CAD AUD GBP EUR JPY",
     "default_currency": "USD",
     "search_option": "products",
-    "favicon": "",
+    "favicon": "shopify:\/\/shop_images\/favicon_d0fc83bb-174e-4a5c-8b0b-bca4549083fd.png",
     "slideshow_images_crop": true,
     "recurring-orders-loading": "Loading subscription info...",
     "recurring-orders-inherit-classes": false,
@@ -2208,6 +2208,7 @@
     "bms_smart_subscription_product": "sock-subscription",
     "custom_sock_page": "custom",
     "bulk_order_page": "bulk-subscriptions",
+    "show_account_login_notification": true,
     "checkout_header_image": "",
     "checkout_logo_image": "shopify:\/\/shop_images\/Logo_black_long.png",
     "checkout_logo_position": "left",
@@ -2849,7 +2850,7 @@
       "home-page": {
         "type": "home-page",
         "settings": {
-          "hero_image": "shopify:\/\/shop_images\/watermelon_socks.jpg"
+          "hero_image": "shopify:\/\/shop_images\/Header_new12.jpg"
         }
       },
       "footer-v2": {
@@ -2859,7 +2860,7 @@
           "footer_linklist_2": "footer-useful-stuff",
           "footer_newsletter": true,
           "footer_social_icons": true,
-          "copyright_text": " LLC",
+          "copyright_text": "LLC",
           "display_designed_by": false,
           "display_payment_methods": false,
           "footer_content_left": "<p>@sockfancy | #FeedYourFancy<\/p>",

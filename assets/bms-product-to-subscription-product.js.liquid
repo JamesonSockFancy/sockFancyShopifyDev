@@ -1,6 +1,9 @@
 window.BOLD = window.BOLD || {};
 
 BOLD.bms_ro_swap = {
+  onTemplateInit:function(evt){
+
+  },
   onOneTimeSelect:function(evt){
     var form = evt.data.form;
 
@@ -70,6 +73,9 @@ BOLD.bms_ro_swap = {
 
 
     var sock_size_element = form.querySelector('.ro-sock-size');
+    var select_wrapper = document.createElement('span');
+    select_wrapper.className = 'ro-sock-size__select-wrapper';
+
     if(sub_variants.length ===1){
       sock_size_element.innerText = sub_variants[0].option1;
     } else {
@@ -90,7 +96,8 @@ BOLD.bms_ro_swap = {
         opt.value = opt.innerText = variant.option1;
         size_select.appendChild(opt);
       }
-      sock_size_element.appendChild(size_select);
+      select_wrapper.appendChild(size_select);
+      sock_size_element.appendChild(select_wrapper);
       size_select.dispatchEvent(new Event('change'), {view:window, bubbles:true, cancelable: false } )
     }
   },

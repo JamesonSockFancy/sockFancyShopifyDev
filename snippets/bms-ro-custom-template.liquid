@@ -1,0 +1,18 @@
+{% if product %}
+ <script>
+ if(BOLD.bms_ro_swap){
+   var base_product = {{ product | json }};
+   var subscription_product = {{ subscription_product | json }};
+
+   for(var v=0; v<base_product.variants.length; v++){
+     var base_variant = base_product.variants[v];
+     var subscription_variant = BOLD.bms_ro_swap.getSubscriptionVariants(subscription_product, base_product, base_variant)[0];
+     BOLD.common.Shopify.variants[base_variant.id].group_id = BOLD.common.Shopify.variants[subscription_variant.id].group_id;
+     BOLD.common.Shopify.variants[base_variant.id].price = BOLD.common.Shopify.variants[subscription_variant.id].price;
+   }
+
+ }
+ BOLD.recurring_orders.setTemplate('standard', {% include 'bold-ro-standard-template' %}, true);
+ BOLD.common.eventEmitter.emit('BOLD_COMMON_variant_changed', {variant: {{ product.selected_or_first_available_variant | json }} })
+</script>
+{% endif %}

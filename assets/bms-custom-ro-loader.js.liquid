@@ -192,6 +192,13 @@ BOLD.bms_ro_loader = {
       console.warn('Could not find product image!');
       return;
     }
+    
+    if(!variant){
+      var form = document.querySelector('form.custom-subscription-form');
+      if(form){
+        variant = product.getVariant([form['product-option-group-1'].value || form['product-option-group-1'][0].value, form['product-option-group-2'].value, form['product-option-group-3'].value || form['product-option-group-3'][0].value])
+      }
+    }
     var featured_image = '';
     if(variant && variant.featured_image && variant.featured_image.src){
       featured_image = variant.featured_image.src.split('?')[0].replace('.png', '_600x.png').replace('.jpg', '_600x.jpg');

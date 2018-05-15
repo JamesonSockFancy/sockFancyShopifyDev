@@ -1057,6 +1057,15 @@ var cart = {
           if(item.Bold && item.Bold.first_pick_name){
             cart_items_html += '<div class="recurring-first-pick">' + {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + item.Bold.first_pick_name + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }} + '</div>';
           }
+          if(item.Bold && item.Bold._ro_discount_percentage){
+            var original_price = item.price;
+            var discounted_price = item.price * (100-parseFloat(item.Bold._ro_discount_percentage) ) * 0.01
+            item.price = discounted_price;
+
+            var original_line_price = item.line_price;
+            item.line_price = item.price * quantity;
+            cart.total_price -= (original_line_price - item.line_price);
+          }
           if(item.properties) {
             $.each(item.properties, function(title, value) {
               if(title == 'is_gift') return;
@@ -1069,7 +1078,7 @@ var cart = {
           cart_items_html += '<div class="price"><span class="money">' + Shopify.formatMoney(item.price, $cart.data('money-format')) + '</span></div></div></a></li>';
 
         });
-        
+
         cart_items_html += '<li class="mm-label">' +
             '<p class="mm-counter price"><span class="money">' + Shopify.formatMoney(cart.total_price, $cart.data('money-format')) + '</span></p>' +
             '<a href="/cart">' +
@@ -1389,7 +1398,7 @@ $(function() {
       var $addToCartBtn = $addToCartForm.find('.add_to_cart');
 
       var ro_discount_field = this['properties[_ro_discount_percentage]'];
-      ro_discount_field && (ro_discount_field.value = 0)
+      // ro_discount_field && (ro_discount_field.value = 0)
 
       $.ajax({
         url: '/cart/add.js',
