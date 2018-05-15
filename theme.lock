@@ -639,7 +639,7 @@ templates/collection.sub-collections.liquid:
   production: 2018-02-27T12:53:13-05:00   f1a77a45fb9f72ebd76d90b7e648770d
 templates/customers/account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e10fda1bcda1b6623f1ae59fded32c99
-  development: 2018-05-15T13:04:02-04:00   2f5277642089026841bce06865dd6e1b
+  development: 2018-05-15T13:07:47-04:00   a469ef42a3535fc8d35b558a75e90bd6
   production: 2018-02-28T10:55:14-05:00   e10fda1bcda1b6623f1ae59fded32c99
 templates/customers/activate_account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   63579e0acf06a1645e760f01b508bc7a
