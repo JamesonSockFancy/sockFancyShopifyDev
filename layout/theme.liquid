@@ -186,7 +186,7 @@
     {% assign feature_image = false %}
   {% endif %}
 
-  <body class="{{ template | replace: '.', '-' | handle }} {% if feature_image %}feature_image{% endif %}">
+  <body class="{{ template | replace: '.', '-' | handle }} {% if feature_image %}feature_image{% endif %}"> 
     <div id="content_wrapper">
       {% section 'header' %}
 
