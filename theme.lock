@@ -35,6 +35,8 @@ assets/Mashable.png:
   boldDev: 2018-05-01T11:08:55-04:00   516ee036f0c7394fadcb412da2ca7df2
   development: 2018-04-16T11:33:59-04:00   516ee036f0c7394fadcb412da2ca7df2
   production: 2018-03-29T11:06:47-04:00   516ee036f0c7394fadcb412da2ca7df2
+assets/Refer A Friend.jpg:
+  development: 2018-05-15T15:21:13-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
 assets/Refer-A-Friend.jpg:
   development: 2018-05-15T15:30:50-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
 assets/airplane.png:
@@ -462,7 +464,7 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-05-15T12:40:06-04:00   bf44c6fd1d99b7a70cffa453254a2538
+  development: 2018-05-16T13:13:06-04:00   e84885e94a00446d5ad8941690a3adf1
   production: 2018-05-14T15:09:16-04:00   ccb1cad923a8241f297b86a5f7bcafea
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
