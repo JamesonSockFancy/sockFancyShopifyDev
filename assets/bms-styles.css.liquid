@@ -610,9 +610,16 @@ p.account_refer img {
     content: "";
     display: table;
     clear: both;
+    width: 100%
 }
 
 .col-sm-4 {
     float: left;
-    width: 40%;
+    width: 50%;
 } 
+
+@media screen and (max-width: 600px) {
+    .col-sm-4{
+        width: 100%;
+    }
+}
