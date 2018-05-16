@@ -12,6 +12,7 @@ This file can be re-written at any time.
   
 <head>
   
+    <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
@@ -79,11 +80,14 @@ This file can be re-written at any time.
 
 {%- include 'bold-common' -%}
 {%- include 'bold-product' with product, hide_action: 'header' -%}
-{%- include 'bold-ro-init' -%}
 
-{%- if product -%}
+{% if product %}
+{{ 'bms-product-to-subscription-product.js' | asset_url | script_tag }}
+{% include 'bms-save-subscription-product-group-ids' %}
 <script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>
+{%- include 'bold-ro-init' -%}
+{%- include 'bms-ro-custom-template' -%}
 {%- endif -%}
 
 {{ 'bms-custom-styles.scss.css' | asset_url | stylesheet_tag }}
@@ -135,14 +139,14 @@ This file can be re-written at any time.
     </noscript>
 
     {% include 'shogun-head' %}
-    
-    {% if template contains "index" %}
+
     <style>
       /** header bar **/
       div.header_bar {
           background: rgba(255,255,255,1);
       }
 
+      {% if template == 'index' %}
       div.header_bar::before {
           content: '';
           position: absolute;
@@ -151,16 +155,22 @@ This file can be re-written at any time.
           height: 3px;
           background: linear-gradient(rgba(230,230,230,1), rgba(255,255,255,1));
       }
-      div.header_bar::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          bottom: 0;
-          height: 4px;
-          background: linear-gradient(rgba(255,255,255,1), rgba(230,230,230,1));
+      {% endif %}
+      /*div.header_bar::after {*/
+          /*content: '';*/
+          /*position: absolute;*/
+          /*width: 100%;*/
+          /*bottom: 0;*/
+          /*height: 4px;*/
+          /*background: linear-gradient(rgba(255,255,255,1), rgba(230,230,230,1));*/
+      /*}*/
+      div.header_bar {
+        box-shadow: 0 0.15em 2em rgba(0,0,0,0.15);
+      }
+      li.sub-menu div.dropdown.animated {
+        animation-duration: .3s;
       }
     </style>
-    {% endif %}
 
     {{ 'lity.css' | asset_url | stylesheet_tag }}
     {{ 'lity.js' | asset_url | script_tag }}

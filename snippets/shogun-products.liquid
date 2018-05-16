@@ -9,7 +9,9 @@ This file can be re-written at any time.
     window.__shgProducts = window.__shgProducts || {};
     {% for handle in handles %}
       {% assign currentProduct = all_products[handle] %}
-      window.__shgProducts["{{handle}}"] =  {% if currentProduct == blank %} null {% else %} {{currentProduct | json }} {% endif %};
+      {% if currentProduct != blank %}
+        window.__shgProducts["{{handle}}"] = {{currentProduct | json }};
+      {% endif %}
     {% endfor %}
   </script>
 {% endif %}
