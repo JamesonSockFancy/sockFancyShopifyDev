@@ -244,7 +244,7 @@ BOLD.bms_ro_loader = {
 
     BOLD.bms_ro_loader.updateGroupId(form, current_variant, product)
     // BOLD.bms_ro_loader.ensureGiftIsPrepaid(form);
-    BOLD.bms_ro_loader.ensureGiftHasDuration(form);
+    {% if settings.bms_ro_gift_requires_sub_length %}BOLD.bms_ro_loader.ensureGiftHasDuration(form);{% endif %}
     var prepaid_discount = BOLD.bms_ro_loader.updatePrepaidData(form, current_variant, product);
 
     var total_recurrences;
@@ -287,7 +287,7 @@ BOLD.bms_ro_loader = {
     if(!form.id || !form.id.value) {
       return false;
     }
-    if( (form['properties[is_gift]'].checked || form['properties[is_prepaid]'].value == 'on') && !form['properties[total_recurrences]'].value){
+    if( ({% if settings.bms_ro_gift_requires_sub_length%} form['properties[is_gift]'].checked || {% endif %} form['properties[is_prepaid]'].value == 'on') && !form['properties[total_recurrences]'].value){
       return false;
     }
     return true;
@@ -365,7 +365,7 @@ BOLD.bms_ro_loader = {
       first_pick && (description += {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + first_pick + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }});
     }
 
-    if(form['properties[is_gift]'].checked){
+    if(form['properties[is_gift]'].checked {% unless settings.bms_ro_gift_requires_sub_length %} && form['properties[is_prepaid]'].value {% endunless %} ){
       description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
     } else if(form['properties[is_prepaid]'].value) {
       description += {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }};
@@ -513,10 +513,14 @@ BOLD.bms_ro_loader = {
       formData.delete('properties[is_prepaid]');
       formData.delete('properties[prepaid_length_id]');
 
+      {% if settings.bms_ro_gift_requires_sub_length %}
       //If it's a not a gift, clear total_recurrences
       if(!is_gift){
         formData.delete('properties[total_recurrences]');
       }
+      {% else %}
+      formData.delete('properties[total_recurrences]');
+      {% endif %}
     } else {
       formData.append('properties[_ro_single_product_recurring_item]', '1');
     }

@@ -17,5 +17,5 @@
   {%- include 'bms-swatch-element', input_name:'properties[is_prepaid]', option:'prepaid', title: yes_text, value: 'on', input_id: 'prepaid-yes', toggle: true -%}
 
   {%- include 'bms-custom-sub-length', prepaid_sub: true -%}
-  {%- include 'bms-custom-sub-length', prepaid_sub: false -%}
+  {% if settings.bms_ro_gift_requires_sub_length %}{%- include 'bms-custom-sub-length', prepaid_sub: false -%}{% endif %}
 </div>

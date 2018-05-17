@@ -3349,6 +3349,11 @@
         "info": "If you wish a product to point to a different smart-subscription product, create an additional smart-subscription product and tag the appropriate products using that product's handle. For example, if you create a subscription with the handle 'subscription-2', you would tag the products under that subscription with SUBSCRIPTION:subscription-2"
       },
       {
+        "id": "bms_ro_gift_requires_sub_length",
+        "type": "checkbox",
+        "label": "Show a subscription duration for pay-per-month gifts?"
+      },
+      {
         "id": "bms_randomizer_buffer",
         "default": 2,
         "label": "Buffer products to skip when picking a random starting point",
