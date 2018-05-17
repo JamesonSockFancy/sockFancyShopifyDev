@@ -42,14 +42,14 @@
         <tbody>
 
           {% for line_item in order.line_items %}
-            {% if has_subscription and line_item.product.type != 'Monthly Subscription' %}
+            {% if has_subscription and line_item.product.type !== 'Monthly Subscription' %}
              {% continue %}
             {% endif %}
 
             {% if line_item.product.type == 'Monthly Subscription' %}
               {% assign has_subscription = true %}
             {% endif %}
-
+            
           <tr id="{{ line_item.id }}">
             <td>
               {{ line_item.title | link_to: line_item.product.url }}
