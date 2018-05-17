@@ -68,10 +68,10 @@ assets/bms-product-to-subscription-product.js.liquid:
   development: 2018-05-15T12:40:05-04:00   c5f8a371addf55aeac54d358a589c1b7
   production: 2018-05-11T17:14:39-04:00   c5f8a371addf55aeac54d358a589c1b7
 assets/bms-randomize-subscription-product.js.liquid:
-  production: 2018-05-17T10:09:27-04:00   57ab7ea5aea2394f7d41c72ff538e26b
+  production: 2018-05-17T16:31:54-04:00   e6b7aefed6e2113b9e1410d6142828c4
 assets/bms-styles.css.liquid:
   development: 2018-05-16T13:53:14-04:00   00361b1ebb34215a332216278689aca8
-  production: 2018-05-16T14:41:01-04:00   00361b1ebb34215a332216278689aca8
+  production: 2018-05-17T16:31:55-04:00   5bfa9c56d37bf4512007a1d383503e07
 assets/bold-checkout-options.js:
   boldDev: 2018-05-01T10:42:42-04:00   1cd192033fae68dbb310fbf280b80426
   development: 2018-04-18T13:00:48-04:00   1cd192033fae68dbb310fbf280b80426
@@ -228,7 +228,7 @@ layout/password.liquid:
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   development: 2018-05-16T15:38:04-04:00   b5a985fa3d1ca01c2fb16779ca8145e5
-  production: 2018-05-17T11:41:15-04:00   280d207c564bfc830f02df236a055461
+  production: 2018-05-17T16:31:56-04:00   89058d0c7d808720998914fe3157bdb2
 layout/theme.shogun.landing.liquid:
   development: 2018-05-16T16:57:15-04:00   90cfb014b443f1ff0806d42755f39a47
   production: 2018-05-17T10:09:41-04:00   bb356351819700d1af9718dd3762cc52
@@ -407,7 +407,7 @@ snippets/blog-sidebar.liquid:
 snippets/bms-custom-gift-subscription.liquid:
   boldDev: 2018-05-01T10:42:25-04:00   fe8cbada0ae775345d4f32ec407f0259
   development: 2018-04-18T13:00:53-04:00   fe8cbada0ae775345d4f32ec407f0259
-  production: 2018-05-17T10:09:41-04:00   655334fda37cb682d942b7650c5db4da
+  production: 2018-05-17T16:31:55-04:00   1dcaad6dc165e336c78b5cdaa96beeed
 snippets/bms-custom-ro-swatches.liquid:
   boldDev: 2018-05-01T12:29:29-04:00   6f96ef093fac2aabde9d83657d25ff6d
   development: 2018-05-10T16:44:18-04:00   6f96ef093fac2aabde9d83657d25ff6d
@@ -722,7 +722,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-05-16T16:57:14-04:00   dcaeef3e92b9bfcdc144baa17175f283
-  production: 2018-05-17T10:12:07-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
+  production: 2018-05-17T16:31:55-04:00   4e532a92e292d1a9dbbad69cfb070ec8
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
