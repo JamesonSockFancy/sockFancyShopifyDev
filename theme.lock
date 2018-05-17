@@ -59,7 +59,7 @@ assets/bms-ajax-subscription-page.js.liquid:
 assets/bms-custom-ro-loader.js.liquid:
   boldDev: 2018-05-02T12:38:09-04:00   fc31935c6d16e9d79d8c507e90104b71
   development: 2018-05-15T12:40:10-04:00   2712d1a388552c97ae7ccfa37337f9bb
-  production: 2018-05-14T15:56:17-04:00   2712d1a388552c97ae7ccfa37337f9bb
+  production: 2018-05-16T17:34:31-04:00   3d8de87e31c3e3a0985a0025411535d7
 assets/bms-custom-styles.scss.liquid:
   development: 2018-05-15T12:40:08-04:00   421e90ad7a6a07fcef5da22152c21291
   production: 2018-05-11T17:14:39-04:00   421e90ad7a6a07fcef5da22152c21291
@@ -67,6 +67,8 @@ assets/bms-product-to-subscription-product.js.liquid:
   boldDev: 2018-05-07T10:55:50-04:00   d727a05b1f7e558c4fbbaeb16681932b
   development: 2018-05-15T12:40:05-04:00   c5f8a371addf55aeac54d358a589c1b7
   production: 2018-05-11T17:14:39-04:00   c5f8a371addf55aeac54d358a589c1b7
+assets/bms-randomize-subscription-product.js.liquid:
+  production: 2018-05-16T17:12:52-04:00   57ab7ea5aea2394f7d41c72ff538e26b
 assets/bms-styles.css.liquid:
   development: 2018-05-16T13:53:14-04:00   00361b1ebb34215a332216278689aca8
   production: 2018-05-16T14:41:01-04:00   00361b1ebb34215a332216278689aca8
@@ -200,7 +202,7 @@ assets/soldout.png:
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
   development: 2018-05-07T12:58:31-04:00   2495d8487e7c94b7cf6e26f2da21a3b2
-  production: 2018-05-08T12:07:00-04:00   2495d8487e7c94b7cf6e26f2da21a3b2
+  production: 2018-05-16T15:16:43-04:00   2495d8487e7c94b7cf6e26f2da21a3b2
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
   development: 2018-04-16T11:34:06-04:00   667895fe7ca892079d200cb03d891232
@@ -219,14 +221,14 @@ config/settings_data.json:
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
   development: 2018-05-10T16:44:22-04:00   da8aa01fc1af205a70f5032415dd2b7f
-  production: 2018-05-09T16:16:24-04:00   da8aa01fc1af205a70f5032415dd2b7f
+  production: 2018-05-16T17:12:51-04:00   100c2f3bf3b8232d8695ec31a28dabb1
 layout/password.liquid:
   boldDev: 2018-03-29T09:58:18-04:00   cc50890197f3c5f704a1bb3681be7678
   development: 2018-04-16T11:34:06-04:00   cc50890197f3c5f704a1bb3681be7678
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   development: 2018-05-16T15:38:04-04:00   b5a985fa3d1ca01c2fb16779ca8145e5
-  production: 2018-05-11T17:14:40-04:00   1b41a60bc44246603db47fd9e3c4d992
+  production: 2018-05-16T15:46:13-04:00   2d43e8b89db975168dbcbfbba39cca72
 layout/theme.shogun.landing.liquid:
   development: 2018-05-16T16:57:15-04:00   90cfb014b443f1ff0806d42755f39a47
   production: 2018-05-16T14:03:04-04:00   90cfb014b443f1ff0806d42755f39a47
@@ -237,7 +239,7 @@ locales/de.json:
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
   development: 2018-05-15T14:57:08-04:00   54cfe243b3e0f3499dfe7091296cb983
-  production: 2018-05-16T14:41:01-04:00   54cfe243b3e0f3499dfe7091296cb983
+  production: 2018-05-16T16:26:05-04:00   b630230acdae57633b257282fa8ee304
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
   development: 2018-04-16T11:34:06-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -405,7 +407,7 @@ snippets/blog-sidebar.liquid:
 snippets/bms-custom-gift-subscription.liquid:
   boldDev: 2018-05-01T10:42:25-04:00   fe8cbada0ae775345d4f32ec407f0259
   development: 2018-04-18T13:00:53-04:00   fe8cbada0ae775345d4f32ec407f0259
-  production: 2018-04-13T14:00:50-04:00   fe8cbada0ae775345d4f32ec407f0259
+  production: 2018-05-16T17:30:31-04:00   655334fda37cb682d942b7650c5db4da
 snippets/bms-custom-ro-swatches.liquid:
   boldDev: 2018-05-01T12:29:29-04:00   6f96ef093fac2aabde9d83657d25ff6d
   development: 2018-05-10T16:44:18-04:00   6f96ef093fac2aabde9d83657d25ff6d
@@ -430,6 +432,8 @@ snippets/bms-custom-swatches.liquid:
   boldDev: 2018-05-01T10:45:54-04:00   efe54a96dd09c3d48877d6bc1fdf456f
   development: 2018-05-10T16:44:21-04:00   efe54a96dd09c3d48877d6bc1fdf456f
   production: 2018-05-09T16:16:30-04:00   efe54a96dd09c3d48877d6bc1fdf456f
+snippets/bms-randomize-subscription-product.liquid:
+  production: 2018-05-16T17:12:53-04:00   6c9c7bfdfd2ca031b4d32d72713aea57
 snippets/bms-ro-custom-template.liquid:
   development: 2018-05-15T12:40:07-04:00   9a357fc3e89fc442ae40d2182cbf458e
   production: 2018-05-11T17:14:40-04:00   9a357fc3e89fc442ae40d2182cbf458e
@@ -467,7 +471,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-05-16T15:06:22-04:00   e648dc7a6e1ee9aa311583b2f49c48cc
-  production: 2018-05-16T14:35:06-04:00   50cd1c2cfa635958d6bb93a58d593764
+  production: 2018-05-16T17:42:46-04:00   d98d27a37e79c033589656599d707ed8
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122
@@ -645,7 +649,7 @@ templates/collection.sub-collections.liquid:
   production: 2018-02-27T12:53:13-05:00   f1a77a45fb9f72ebd76d90b7e648770d
 templates/customers/account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e10fda1bcda1b6623f1ae59fded32c99
-  development: 2018-05-16T16:57:14-04:00   675aefd8b1349f80a75ac813a8058d5a
+  development: 2018-05-16T17:00:51-04:00   6f6f50c231de095c455d965930b7671a
   production: 2018-05-16T14:41:00-04:00   b0aac67ab0470fb6f3457566946cc7f8
 templates/customers/activate_account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   63579e0acf06a1645e760f01b508bc7a
@@ -662,7 +666,7 @@ templates/customers/login.liquid:
 templates/customers/order.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   7685510b988fb269c079e8642f5f2247
   development: 2018-04-16T11:34:09-04:00   7685510b988fb269c079e8642f5f2247
-  production: 2018-02-27T12:53:13-05:00   7685510b988fb269c079e8642f5f2247
+  production: 2018-05-16T17:27:00-04:00   f9ef7d029eb58a56c66978015287b2f5
 templates/customers/register.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   8788f89267b98acc41e358d9ed13b939
   development: 2018-04-16T11:34:09-04:00   8788f89267b98acc41e358d9ed13b939
@@ -718,7 +722,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-05-16T16:57:14-04:00   dcaeef3e92b9bfcdc144baa17175f283
-  production: 2018-05-16T14:03:04-04:00   dcaeef3e92b9bfcdc144baa17175f283
+  production: 2018-05-16T16:23:40-04:00   d375f4e26811abdf49fb7a836a509df7
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
@@ -754,7 +758,7 @@ templates/product.shogun.custom.liquid:
 templates/product.subscription.liquid:
   boldDev: 2018-04-05T12:05:41-04:00   4c84650a99df4e63f9206fbcedfb8eb3
   development: 2018-04-23T12:28:37-04:00   4c84650a99df4e63f9206fbcedfb8eb3
-  production: 2018-04-20T14:04:32-04:00   4c84650a99df4e63f9206fbcedfb8eb3
+  production: 2018-05-16T17:12:52-04:00   43a7f283b4b2a6520cb85cf6f6a0cb2d
 templates/search.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   d8bfdd344b4a35a7ba9c6efc1c870203
   development: 2018-04-16T11:34:10-04:00   d8bfdd344b4a35a7ba9c6efc1c870203

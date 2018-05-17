@@ -7,16 +7,16 @@
   <div class="sixteen columns breadcrumb">
     <div class="clearfix breadcrumb_text">
       <div class="center">
-        <a href="/account" title="{{ 'layout.customer.my_account' | t }}">{{ customer.name }}</a> 
+        <a href="/account" title="{{ 'layout.customer.my_account' | t }}">{{ customer.name }}</a>
         &nbsp; / &nbsp;
         {{ 'layout.customer.log_out' | t | customer_logout_link }}
       </div>
     </div>
   </div>
 
-  <div class="section clearfix">  
+  <div class="section clearfix">
     <div class="sixteen columns">
-    
+
       <h4>{{ 'customer.order.title' | t: name: order.name }}</h4>
 
       <p>{{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y %I:%M%p" }}</p>
@@ -40,7 +40,16 @@
           </tr>
         </thead>
         <tbody>
+
           {% for line_item in order.line_items %}
+            {% if has_subscription and line_item.product.type != 'Monthly Subscription' %}
+             {% continue %}
+            {% endif %}
+
+            {% if line_item.product.type == 'Monthly Subscription' %}
+              {% assign has_subscription = true %}
+            {% endif %}
+
           <tr id="{{ line_item.id }}">
             <td>
               {{ line_item.title | link_to: line_item.product.url }}

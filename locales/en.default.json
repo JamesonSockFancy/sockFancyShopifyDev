@@ -195,7 +195,7 @@
     "account": {
       "title": "My Account",
       "details": "Account Details",
-      "view_addresses": "VIEW / EDIT DEFAULT ADDRESSES",
+      "view_addresses": "VIEW \/ EDIT DEFAULT ADDRESSES",
       "return": "Return to Account Details"
     },
     "orders": {
@@ -425,9 +425,9 @@
       "annual_subscription_subtitle": "(Includes 1 pair free!)",
       "subscription_is_gift_html": "Is this subscription a gift?",
       "gift_message_prompt_html": "Personalize your gift with a free message!",
-      "gift_message_placeholder_html": "ENTER YOUR MESSAGE HERE",
-      "gift_message_from_placeholder_html": "FROM",
-      "limited_edition_title_html": "Limited Edition Socks",
+      "gift_message_placeholder_html": "ENTER YOUR MESSAGE HERE. (BE SURE TO INCLUDE WHO THE GIFT IS FROM!)",
+      "gift_message_to_placeholder_html": "TO",
+      "limited_edition_title_html": "Limited Edition Socks?",
       "limited_edition_yes": "Yes, I'm in",
       "limited_edition_no": "No, just crew",
       "limited_edition_expand_html": "What's this?",

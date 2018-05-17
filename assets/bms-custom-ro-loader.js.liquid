@@ -192,7 +192,7 @@ BOLD.bms_ro_loader = {
       console.warn('Could not find product image!');
       return;
     }
-    
+
     if(!variant){
       var form = document.querySelector('form.custom-subscription-form');
       if(form){
@@ -262,17 +262,17 @@ BOLD.bms_ro_loader = {
   },
   giftNoteToCartNote:function(form){
     BOLD.helpers.get('/cart.js', function(cart){
-      var gift_delimiter = '--gift message--'
+      var gift_delimiter = {% if settings.bms_enable_cart_notes %}'---GIFT MESSAGE---'{% else %}''{% endif %}
       var current_note = cart.note || '';
-      var non_gift_note = (current_note.split(gift_delimiter)[0] || '').trim();
+      var non_gift_note = {% if settings.bms_enable_cart_notes %}(current_note.split(gift_delimiter)[0] || '').trim(){% else %}''{% endif %};
       var is_gift = form['properties[is_gift]'].checked;
 
-      var gift_from = form['properties[From]'].value;
+      // var gift_from = form['properties[To]'].value;
       var gift_msg = form['properties[Gift Message]'].value;
 
       var note;
       if(is_gift){
-        note = non_gift_note + (non_gift_note ? '\n\n' : '') + gift_delimiter + '\n\n' + 'FROM: ' + gift_from + '\n\n' + gift_msg;
+        note = non_gift_note + (non_gift_note ? '\n\n' : '') + gift_delimiter + gift_msg;
       } else {
         note = non_gift_note;
       }
@@ -522,7 +522,7 @@ BOLD.bms_ro_loader = {
     }
     //If the subscription is not a gift, remove gift-related properties
     if(!is_gift){
-      formData.delete('properties[From]');
+      formData.delete('properties[To]');
       formData.delete('properties[Gift Message]');
     }
 

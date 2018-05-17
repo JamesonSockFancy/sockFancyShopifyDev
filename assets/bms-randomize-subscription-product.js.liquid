@@ -1,0 +1,229 @@
+
+window.BOLD = window.BOLD || {};
+/* ***************************************************************************
+   BMS: Load products in the subscription collections,
+        assign a random variant ID to the first shipment
+        Include a buffer so that if a customer gets booted to the beginning
+        of the line they will still get unique products
+*************************************************************************** */
+
+BOLD.BMS_Randomizer = function(form){
+  if(!form){
+    BOLD.debugMode && window.console && console.warn('RANDOMIZER: No form supplied');
+    return;
+  }
+  this.form = form;
+  this.init();
+}
+
+BOLD.BMS_Randomizer.prototype = {
+  init:function(){
+    /* Initialize key variables */
+    /* Hard-coding in the handle values for now */
+    this.collection_handles=[
+        'subscription-his-hers-limited-edition',
+        'subscription-his-hers-crew-only',
+        'subscription-mens-limited-edition',
+        'subscription-mens-crew-only',
+        'subscription-womens-limited-edition',
+        'subscription-womens-crew-only'
+      ]
+    this.product_pages = {  /* Key: Collection handle; Values: Array of product arrays with type & variant IDs */ }
+    this.product_lookup={ /* Key: Collection handle; Values: Array of products with type & variant IDs, a concatination of the above */ }
+    this.buffer= {{ settings.bms_randomizer_buffer | default: 3 | json }}
+    this.product_pagination = {{ settings.bms_randomizer_pagination | default: 30 }}
+    this.product_data_template = {{ settings.bms_randomizer_template | json }}
+
+    this.saveRandomIdField();
+
+    /* Get all the collections */
+    for(var c=0; c<this.collection_handles.length; c++){
+      this.getCollectionData(this.collection_handles[c]);
+    }
+    this.setupEventListeners();
+  },
+  getCollectionData:function(handle){
+    /* Given handle, get the count of products and, by association, the number of pages */
+    BOLD.helpers.get('/collections/' + handle + '.json', this.onCollectionDataLoaded.bind(this) )
+  },
+  getProducts:function(handle, page){
+    /* Given a handle and a page, make request for products */
+    var success_callback = function(response){this.onProductsLoaded(response, handle, page)}
+    if(this.product_data_template){
+      BOLD.helpers.get('/collections/' + handle + '?view=' + this.product_data_template + '&page=' + (page || 1), success_callback.bind(this) )
+    } else {
+      BOLD.helpers.get('/collections/' + handle + '/products.json?page=' + (page || 1), success_callback.bind(this));
+    }
+  },
+  makeRandomSelecton:function(){
+
+    var collection = this.determineSubscriptionCollection();
+    if(!collection){
+      return;
+    }
+
+    var qty = this.determineSelectedQuantity();
+    if(!qty){
+      return;
+    }
+
+    var hisAndHers = this.determineHisAndHers();
+    this.setRandomId(collection, qty, hisAndHers);
+  },
+  determineSubscriptionCollection:function(){
+    /* Assume the following possible values:
+        subscription-his-hers-limited-edition
+        subscription-his-hers-crew-only
+        subscription-mens-limited-edition
+        subscription-mens-crew-only
+        subscription-womens-limited-edition
+        subscription-womens-crew-only
+    */
+    var form = this.form;
+    /* For now, assume product options go: [Size, Quantity, Style] */
+    var collection_handle = 'subscription-'
+
+    //Hard-coding a few expectations: the size part is the lowercase 'size' value, and we only need to make 1 hard-coded replacement
+    var size = form['product-option-group-1'].value;
+    if(!size){
+      return null;
+    }
+    collection_handle += size.toLowerCase().replace(' & ', '-')
+
+    var type = form['product-option-group-1'].value;
+    if(!type){
+      return null;
+    }
+    collection_handle += (type.toLowerCase().indexOf('crew') > -1 ? '-crew-only' : '-limited-edition');
+    return collection_handle;
+  },
+  determineSelectedQuantity:function(){
+    var form = this.form;
+    /* For now, assume product options go: [Size, Quantity, Style] */
+    var qty_value = form['product-option-group-2'].value;
+
+    //Assume that the Quantity leads with a numeral so that we can parseInt to get the part we want
+    return parseInt(qty_value);
+  },
+  determineHisAndHers:function(){
+    var form = this.form;
+    /* For now, assume product options go: [Size, Quantity, Style] */
+    //Assume that the value we're looking for is 'his & hers' (case-insensitive)
+    var size = form['product-option-group-1'].value || '';
+    return size.toLowerCase() === 'his & hers'
+  },
+  setRandomId:function(collection, qty, hisAndHers, retries){
+    /* Given a collection handle, pick a random sock and set it.  Modify the buffer based on qty */
+    var product_list = this.product_lookup[collection];
+    var initial_offset = (this.buffer * qty) + Math.floor(this.buffer * (qty-1) * 0.5 );
+    var trailing_offset = (this.buffer * qty);
+
+    var starting_index = this.rollRandomNumber(initial_offset, product_list.length - trailing_offset);
+    if(hisAndHers && !this.selectionIsFiftyFifty(product_list, starting_index, qty) && (retries || 0) < 20 ){
+      return this.setRandomId(collection, qty, hisAndHers, (retries || 0) + 1);
+    }
+
+    var starting_id = this.getProductId(product_list[starting_index])
+    this.random_id_field.value = starting_id;
+    console.log('Begin on:', starting_id);
+    return starting_id;
+  },
+  rollRandomNumber:function(min,max){
+    var spread = max - min;
+    return Math.floor(Math.random() * spread) + min;
+  },
+  selectionIsFiftyFifty:function(product_list, starting_index, qty){
+    var his_count = 0;
+    var hers_count = 0;
+    var unisex_count = 0;
+
+    for(var p=starting_index; p<starting_index+qty; p++){
+      var product = product_list[p];
+      var type = product.product_type || product.type || '';
+
+      if(type.indexOf('women') > -1){
+        hers_count ++
+      } else if(type.indexOf('men') > -1){
+        his_count ++
+      } else {
+        unisex_count ++
+      }
+
+      //Unisex socks could count as either his or hers - adjust the threshold of how many of each are required appropriately
+      //Example: if 1 unisex 'wildcard' sock is in the mix for a 6-pack, the remaining products should be a 2-3 split (so both his and hers must be >= 2)
+      var threshold = Math.floor((qty - unisex_count) * 0.5)
+      console.log('Fitty-fitty:', (his_count >= threshold && hers_count >= threshold) );
+      return (his_count >= threshold && hers_count >= threshold)
+    }
+
+  },
+  getProductId:function(product){
+    //Allow either a full product variable with a single variant (so product.variants[0].id ) or a simplified object that contains variant id at the root
+    return (product.variants ? product.variants[0].id : product.variant_id || product.id)
+  },
+  saveRandomIdField:function(){
+    var form = this.form;
+    if(form['properties[_ro_enterprise_first_pick]']){
+      this.random_id_field = form['properties[_ro_enterprise_first_pick]']
+    } else {
+      var el = this.random_id_field = document.createElement('input');
+      el.type = 'hidden';
+      el.name = 'properties[_ro_enterprise_first_pick]';
+      form.appendChild(el);
+    }
+
+  },
+  generateProductArray:function(collection){
+    var prodArr =  [];
+    var pageArr = this.product_pages[collection];
+    for(var i=0; i<pageArr.length; i++){
+      if(!pageArr[i]){
+        continue;
+      }
+      prodArr = prodArr.concat(pageArr[i])
+    }
+    this.product_lookup[collection] = prodArr;
+  },
+  onCollectionDataLoaded:function(evt){
+    /* Initiate product grab once we know how many products we're talking about */
+    var collection = evt.collection;
+    if(!collection){
+      return;
+    }
+
+    var pages = Math.ceil(collection.products_count / this.product_pagination);
+    for(var p=0; p<pages; p++){
+      this.getProducts(collection.handle, (p+1))
+    }
+
+    BOLD.helpers.triggerEvent('BMS-Random.collection.loaded', evt)
+  },
+  onProductsLoaded:function(evt, collection, page){
+    /* Save all the variant IDs (in order!) to associate them with the right collection */
+    var pageObj = this.product_pages;
+    var pageArr = pageObj[collection] = (pageObj[collection] || [])
+    pageArr[page] = evt.products;
+    this.generateProductArray(collection);
+
+    BOLD.helpers.triggerEvent('BMS-Random.products.loaded', { products:evt.products, collection:collection, page:page})
+    this.makeRandomSelecton()
+  },
+  onInputChanged:function(evt){
+    /* Update the random selection */
+    setTimeout(this.makeRandomSelecton.bind(this), 100);
+  },
+  setupEventListeners:function(){
+    BOLD.common.eventEmitter.on('BMS.input.changed', this.onInputChanged, this);
+  }
+}
+
+BOLD.helpers.debounce = function debounce(debounced_function, wait, identifier){
+  var identifier = 'dbounce' + identifier + Math.random();
+  return function(){
+    var context = this, args = arguments
+    BOLD.debounceIDs = BOLD.debounceIDs || {};
+    clearTimeout(BOLD.debounceIDs[identifier+(this.id || this.name)]);
+    BOLD.debounceIDs[identifier+(this.id || this.name)] = setTimeout(function(){ debounced_function.apply(context, args); delete BOLD.debounceIDs[identifier+this.id]; }, wait)
+  }
+};
+var rndprd = new BOLD.BMS_Randomizer(document.querySelector('.custom-subscription-form'));

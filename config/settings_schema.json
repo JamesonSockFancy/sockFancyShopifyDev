@@ -3349,6 +3349,13 @@
         "info": "If you wish a product to point to a different smart-subscription product, create an additional smart-subscription product and tag the appropriate products using that product's handle. For example, if you create a subscription with the handle 'subscription-2', you would tag the products under that subscription with SUBSCRIPTION:subscription-2"
       },
       {
+        "id": "bms_randomizer_buffer",
+        "default": 2,
+        "label": "Buffer products to skip when picking a random starting point",
+        "info": "This will be automatically increased depending on the number of pairs selected.  Used as-is for single-pair, increased by 2.5x for 2-pair, increased by 9x for 6-pack",
+        "type": "number"
+      },
+      {
         "id": "custom_sock_page",
         "type": "page",
         "label": "Select page for 'Custom Socks' for home page link"
