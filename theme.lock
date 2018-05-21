@@ -319,7 +319,7 @@ sections/featured-text.liquid:
 sections/footer-v2.liquid:
   boldDev: 2018-05-01T10:43:05-04:00   ea28a47d7914e10066f9374b6e27d422
   development: 2018-04-18T13:00:49-04:00   ea28a47d7914e10066f9374b6e27d422
-  production: 2018-05-18T10:14:02-04:00   6b71cd3ed8330ff0b910bc9f1126af1b
+  production: 2018-05-21T10:09:22-04:00   d08e7af95473396eac5dfac44b3a04c8
 sections/footer.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   3fb8635c218fd172acc1d4fe69a32c04
   development: 2018-04-16T11:33:56-04:00   3fb8635c218fd172acc1d4fe69a32c04
