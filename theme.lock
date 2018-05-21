@@ -239,7 +239,7 @@ locales/de.json:
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
   development: 2018-05-15T14:57:08-04:00   54cfe243b3e0f3499dfe7091296cb983
-  production: 2018-05-18T17:29:27-04:00   c508d28683beff8a305053af05161248
+  production: 2018-05-21T11:39:32-04:00   52f85fef1314489280dcf953163ed297
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
   development: 2018-04-16T11:34:06-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -626,7 +626,7 @@ snippets/sockfancy-what-we-are-made-of.liquid:
 templates/404.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   5040934d0aa5b24027eb7ff635066789
   development: 2018-04-16T11:34:08-04:00   5040934d0aa5b24027eb7ff635066789
-  production: 2018-02-27T12:53:12-05:00   5040934d0aa5b24027eb7ff635066789
+  production: 2018-05-21T11:39:32-04:00   29decc13212502f67fc3b4c98d266ae7
 templates/article.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   5daa05ec94a09e61c83de1fdda71d460
   development: 2018-04-16T11:34:08-04:00   5daa05ec94a09e61c83de1fdda71d460
