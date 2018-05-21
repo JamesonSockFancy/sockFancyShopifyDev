@@ -462,7 +462,7 @@
       "first_pick_beginning_html": "<br\/>Your first shipment will include the ",
       "first_pick_end_html": " design",
       "subscription_expires_html": "<br\/>Your subscription will end after the last shipment",
-      "subscription_auto_renews_html": "<br\/>Your subscription will automatically renew after the last shipment unless cancelled",
+      "subscription_auto_renews_html": "<br\/>Your subscription will end after the last shipment",
       "subscription_ongoing_html": "<br\/>Your subscription will continue until cancelled",
       "cart_description_html": "Delivered every",
       "cart_expiry_beginning_html": " for ",

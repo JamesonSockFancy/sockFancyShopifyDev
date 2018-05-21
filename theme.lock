@@ -239,7 +239,7 @@ locales/de.json:
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
   development: 2018-05-15T14:57:08-04:00   54cfe243b3e0f3499dfe7091296cb983
-  production: 2018-05-21T11:39:32-04:00   52f85fef1314489280dcf953163ed297
+  production: 2018-05-21T12:28:47-04:00   2f0521f6900b4383ea1c522192d0471a
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
   development: 2018-04-16T11:34:06-04:00   575551d5e2a5fede3dbe5af58c308e72
