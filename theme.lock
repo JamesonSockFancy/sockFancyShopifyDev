@@ -59,7 +59,7 @@ assets/bms-ajax-subscription-page.js.liquid:
 assets/bms-custom-ro-loader.js.liquid:
   boldDev: 2018-05-02T12:38:09-04:00   fc31935c6d16e9d79d8c507e90104b71
   development: 2018-05-15T12:40:10-04:00   2712d1a388552c97ae7ccfa37337f9bb
-  production: 2018-05-17T10:48:03-04:00   65a01de68a6a6ee6bea8ec537c15f5eb
+  production: 2018-05-18T12:07:19-04:00   bdec3358fe82775d2dbe31939eddd3be
 assets/bms-custom-styles.scss.liquid:
   development: 2018-05-15T12:40:08-04:00   421e90ad7a6a07fcef5da22152c21291
   production: 2018-05-11T17:14:39-04:00   421e90ad7a6a07fcef5da22152c21291
@@ -239,7 +239,7 @@ locales/de.json:
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
   development: 2018-05-15T14:57:08-04:00   54cfe243b3e0f3499dfe7091296cb983
-  production: 2018-05-17T16:21:50-04:00   7cbcc310dc766c0d1ad8e40caf3b3c0e
+  production: 2018-05-18T17:29:27-04:00   c508d28683beff8a305053af05161248
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
   development: 2018-04-16T11:34:06-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -471,7 +471,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-05-16T15:06:22-04:00   e648dc7a6e1ee9aa311583b2f49c48cc
-  production: 2018-05-17T10:48:02-04:00   9f2ea6702aedb46394108a8324f3c193
+  production: 2018-05-18T14:05:54-04:00   31af9b9591b182a6efbc11c13559aad4
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122

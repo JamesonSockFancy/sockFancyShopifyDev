@@ -468,7 +468,7 @@
       "cart_expiry_beginning_html": " for ",
       "cart_expiry_end_html": "",
       "product_form_subscribe_html": "Subscribe",
-      "login_prompt_html": "<p>Did you sign up for a subscription before May 18 2018? If so, we have upgraded our platform and you will need to create a <a href=\"\/account\/register\" title=\"Create new account\">new account<\/a>.<\/p> <p>If you need to make changes to an existing order or have any other questions, please <a href=\"\/pages\/contact-us\" title=\"Contact Us using our online form\">contact us<\/a> at <a href=\"mailto:info@sockfancy.com\" title=\"Contact us via email\">info@sockfancy.com<\/a><\/p>"
+      "login_prompt_html": "<p>Good news! We've upgraded our site and will be announcing some cool new features very soon.<\/p>\n<p> All subscriptions created before <strong>May 18, 2018<\/strong>  will continue as normal. However, if you need to view or make changes to your existing subscription, <a href=\"https:\/\/oldsite.sockfancy.com\/my-account\/\" title=\"old site account page\" target=\"_blank\">click here<\/a>. <\/p>\n<p> If you'd like to create a new subscription, get started by creating a new account below. <\/p>\n<p> For any assistance, please email us at <a href=\"mailto:info@sockfancy.com\" title=\"Contact us via email\">info@sockfancy.com<\/a>. Thanks!"
     }
   }
 }

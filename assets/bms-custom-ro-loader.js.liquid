@@ -248,8 +248,9 @@ BOLD.bms_ro_loader = {
     var prepaid_discount = BOLD.bms_ro_loader.updatePrepaidData(form, current_variant, product);
 
     var total_recurrences;
-    if(form['properties[is_prepaid]'].value == 'on'){
-      total_recurrences = form['properties[total_recurrences]'].value;
+    var total_recurrences_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[total_recurrences]')
+    if(BOLD.helpers.ieRadioGroupFix(form,'properties[is_prepaid]').value == 'on'){
+      total_recurrences = total_recurrences_field.value;
     }
     BOLD.bms_ro_loader.updateSubscriptionSummary(form, current_variant, total_recurrences, prepaid_discount);
     BOLD.bms_ro_loader.enableCheckoutButton(form);
@@ -287,7 +288,8 @@ BOLD.bms_ro_loader = {
     if(!form.id || !form.id.value) {
       return false;
     }
-    if( ({% if settings.bms_ro_gift_requires_sub_length%} form['properties[is_gift]'].checked || {% endif %} form['properties[is_prepaid]'].value == 'on') && !form['properties[total_recurrences]'].value){
+    var total_recurrences_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[total_recurrences]')
+    if( ({% if settings.bms_ro_gift_requires_sub_length%} form['properties[is_gift]'].checked || {% endif %} form['properties[is_prepaid]'].value == 'on') && !total_recurrences_field.value){
       return false;
     }
     return true;
@@ -298,7 +300,7 @@ BOLD.bms_ro_loader = {
       submit_buttons[s].disabled = !BOLD.bms_ro_loader.verifyRequiredSelections(form);
     }
   },
-  updateGroupId(form, current_variant, product){
+  updateGroupId:function(form, current_variant, product){
     if(!current_variant || !form){
       return;
     }
@@ -318,6 +320,10 @@ BOLD.bms_ro_loader = {
   ensureGiftIsPrepaid:function(form){
     var is_gift_checkbox = form['properties[is_gift]'];
     var is_prepaid_field = form['properties[is_prepaid]'];
+    
+    if(typeof is_prepaid_field.value === 'undefined'){
+      is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    }
 
     var is_prepaid_off_radio = is_prepaid_field[0];
     var is_prepaid_on_radio  = is_prepaid_field[1];
@@ -331,9 +337,11 @@ BOLD.bms_ro_loader = {
     var gift_clone = form['is_gift_tracker'];
     gift_clone.checked = is_gift_checkbox.checked;
 
-    var is_prepaid = form['properties[is_prepaid]'].value;
-    var duration = form['properties[total_recurrences]'];
-    var duration_clone = form['monthly_gift_recurrences'];
+    var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    var is_prepaid = is_prepaid_field.value;
+    
+    var duration = BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
+    var duration_clone = BOLD.helpers.ieRadioGroupFix(form,'monthly_gift_recurrences');
     if(is_prepaid){
       duration_clone.value = duration.value;
     } else {
@@ -364,10 +372,13 @@ BOLD.bms_ro_loader = {
       var first_pick = form['properties[_first_pick_name]'].value;
       first_pick && (description += {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + first_pick + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }});
     }
+                     
+    var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    
 
     if(form['properties[is_gift]'].checked {% unless settings.bms_ro_gift_requires_sub_length %} && form['properties[is_prepaid]'].value {% endunless %} ){
       description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
-    } else if(form['properties[is_prepaid]'].value) {
+    } else if(is_prepaid_field.value) {
       description += {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }};
     } else {
       description += {{ 'bold.recurring_orders.subscription_ongoing_html' | t | json }};
@@ -382,11 +393,16 @@ BOLD.bms_ro_loader = {
     var prepaid_id_field = form['properties[prepaid_length_id]'];
     var is_prepaid, total_recurrences, discount = 0;
     var is_prepaid_field = form['properties[is_prepaid]']
+    
+    if(typeof is_prepaid_field.value === 'undefined'){
+      is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    }
+    
     if(is_prepaid_field.value == 'on' && current_variant.recurring_group_data){
       is_prepaid = true;
-      var prepaid_length_field = form['properties[total_recurrences]'];
+      var prepaid_length_field = BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
       var prepaid_data = current_variant.recurring_group_data.prepaid;
-      total_recurrences = form['properties[total_recurrences]'].value;
+      total_recurrences = BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]').value;
       for(var l=0; l<prepaid_data.lengths.length; l++){
         length_data = prepaid_data.lengths[l];
         if(length_data.length == prepaid_length_field.value){
@@ -496,40 +512,49 @@ BOLD.bms_ro_loader = {
       */
     return new BOLD.Swatch(group_name, selection.value, selection.checked, selection.label_title, selection.label_subtitle, onchange);
   },
-  recurringFormSubmit(evt){
+  recurringFormSubmit:function(evt){
     evt.preventDefault();
     var form = evt.target;
 
     if(!BOLD.bms_ro_loader.verifyRequiredSelections(form)){
       return false;
     }
-
-    var formData = new FormData(form);
-    var is_prepaid = formData.get('properties[is_prepaid]');
-    var is_gift = formData.get('properties[is_gift]');
-
+    
+    var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    var is_prepaid = is_prepaid_field.value;
+    var is_gift = form['properties[is_gift]'].value;
+    
+    
     //If the subscription is not prepaid, remove prepaid-related properties
     if(!is_prepaid){
-      formData.delete('properties[is_prepaid]');
-      formData.delete('properties[prepaid_length_id]');
+      form['properties[is_prepaid]'].value = '';
+      form['properties[prepaid_length_id]'].value = '';
 
       {% if settings.bms_ro_gift_requires_sub_length %}
       //If it's a not a gift, clear total_recurrences
       if(!is_gift){
-        formData.delete('properties[total_recurrences]');
+        BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]').value='';
       }
       {% else %}
-      formData.delete('properties[total_recurrences]');
+      BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
       {% endif %}
     } else {
-      formData.append('properties[_ro_single_product_recurring_item]', '1');
+      var single_recurring = document.createElement('input');
+      single_recurring.type = 'hidden';
+      single_recurring.name = 'properties[_ro_single_product_recurring_item]';
+      single_recurring.value = '1';
+      form.appendChild(single_recurring);
     }
     //If the subscription is not a gift, remove gift-related properties
     if(!is_gift){
-      formData.delete('properties[To]');
-      formData.delete('properties[Gift Message]');
+      form['properties[To]'].value = '';
+      form['properties[Gift Message]'].value = '';
     }
 
+
+    var formData = new FormData(form);
+    
+        
     //Submit and redirect to Cashier
     //If it's a prepaid subscription, empty cart first
     if(is_prepaid){
@@ -669,11 +694,15 @@ BOLD.helpers.triggerEvent = function(event_name,additional_data,original_event){
 };
 
 BOLD.helpers.triggerChange = function(domElement){
-  domElement.dispatchEvent(new Event('change', {
-    view: window,
-    bubbles: true,
-    cancelable: true
-  }) );
+  try{
+    domElement.dispatchEvent(new Event('change', {
+      view: window,
+      bubbles: true,
+      cancelable: true
+    }) );
+  } catch(err){
+    BOLD.debugMode && window.console && console.debug(domElement, err);
+  }
 }
 
 BOLD.helpers.getCookie = function (c_name) {
@@ -753,6 +782,14 @@ BOLD.helpers.objToQueryString = function objToQueryString(key, obj){
     }
   }
   return str;
+}
+
+BOLD.helpers.ieRadioGroupFix = function(form, groupName){
+    if(typeof form[groupName].value !== 'undefined'){
+      return form[groupName]
+    } else {
+      return form.querySelector('input[name="' + groupName + '"]:checked') || form[groupName][0] || form[groupName]
+    }
 }
 /* ***************************************************************************
    EVENT LISTENERS
