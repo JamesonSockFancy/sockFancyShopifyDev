@@ -12,7 +12,7 @@
 <header>
   <h3 class="option-title">{{ option.name }}</h3>
 </header>
-<div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="{{ option.values.size }}">
+<div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="{% if option.name == 'Size' %}2{% else %}{{ option.values.size }}{% endif %}">
   {%-if product.selected_variant-%}
     {%-assign pre_select = true-%}
   {%-endif-%}

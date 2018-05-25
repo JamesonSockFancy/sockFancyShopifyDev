@@ -49,6 +49,7 @@ $mobile-cutoff:480px;
     top:0px;
     &.custom-subscription-top{
       background:#f3f3f3;
+      padding-bottom:75px;
     }
     .subscription-description{
       width:50%;
@@ -94,7 +95,7 @@ $mobile-cutoff:480px;
         width:100%;
       }
       float:left;
-      min-height:150vh;
+      // min-height:150vh;
       background:#f3f3f3;
       header, header.sticky{
         background: linear-gradient(rgba(243, 243, 243, 1) 70%, rgba(243, 243, 243, 0));
@@ -857,4 +858,24 @@ span.ro-sock-size__select-wrapper{
 
 .bold-ro__prepaid-container{
   display:none;
+}
+
+.promo-confirmation, .promo-invalid {
+    border-radius:5px;
+    border:1px solid black;
+    overflow:hidden;
+    padding:1em;
+    margin:1em 0;
+    transition:all 0.75s;
+    opacity:0;
+}
+.promo-invalid{
+  background:#f0C0C0;
+  text-align:center;
+}
+.promo-offer-image{
+    float:left;
+    margin-right:1em;
+    border-radius:5px;
+    border:1px outset #2eafd9;
 }

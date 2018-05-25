@@ -86,6 +86,7 @@
 {% include 'bms-save-subscription-product-group-ids' %}
 <script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>
+{% if settings.bms_enable_promo_code %}<script src="{{ 'bms-free-gifts.js' | asset_url }}" type="text/javascript" defer></script>{% endif %}
 {%- include 'bold-ro-init' -%}
 {%- include 'bms-ro-custom-template' -%}
 {%- endif -%}
@@ -198,7 +199,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVXW33"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div id="content_wrapper">
       {% section 'header' %}
 

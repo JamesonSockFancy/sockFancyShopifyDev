@@ -3354,6 +3354,18 @@
         "label": "Show a subscription duration for pay-per-month gifts?"
       },
       {
+        "id": "bms_enable_promo_code",
+        "type": "checkbox",
+        "label": "Enable free-product promo code box?",
+        "info": "Promo codes are stored in a CSV file named 'free-gift-codes.csv' (Found in Shopify admin under Settings > Files) "
+      },
+      {
+        "id": "bold_ro_prepaid_expires",
+        "type": "checkbox",
+        "label": "Do prepaid subscriptions on the subscription expire?",
+        "default": true
+      },
+      {
         "id": "bms_randomizer_buffer",
         "default": 2,
         "label": "Buffer products to skip when picking a random starting point",

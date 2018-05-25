@@ -1,0 +1,16 @@
+<div class="subscription-page-existing-subscription-wrapper">
+  <header>
+    <h3 class="subscription_page_existing_sub_header_html">{{ 'bold.existing_subscription.subscription_page_existing_sub_header_html' | t }}</h3>
+  </header>
+
+  <p class="subscription_page_existing_sub_message_html">{{ 'bold.existing_subscription.subscription_page_existing_sub_message_html' | t }}</p>
+  <form class="direct-to-checkout" enctype="multipart/form-data" method="post" action="/cart">
+    <div class="existing_subscription_checkout_button">
+      <button class="custom-subscription-submit" name="checkout" type="submit">
+        <span class="custom-subscription-submit-text">{{ 'bold.existing_subscription.subscription_page_checkout_html' | t }}</span>
+      </button>
+    </div>
+  </form>
+  {% assign image_url = subscription_item.image | img_url: '600x' %}
+  <div class="subscription_page_after_checkout_html">{{ 'bold.existing_subscription.subscription_page_after_checkout_html' | t: subscription_image:image_url, subscription_title:subscription_item.title }}</div>
+</div>

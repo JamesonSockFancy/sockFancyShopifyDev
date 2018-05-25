@@ -320,7 +320,7 @@ BOLD.bms_ro_loader = {
   ensureGiftIsPrepaid:function(form){
     var is_gift_checkbox = form['properties[is_gift]'];
     var is_prepaid_field = form['properties[is_prepaid]'];
-    
+
     if(typeof is_prepaid_field.value === 'undefined'){
       is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
     }
@@ -339,7 +339,7 @@ BOLD.bms_ro_loader = {
 
     var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
     var is_prepaid = is_prepaid_field.value;
-    
+
     var duration = BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
     var duration_clone = BOLD.helpers.ieRadioGroupFix(form,'monthly_gift_recurrences');
     if(is_prepaid){
@@ -372,14 +372,14 @@ BOLD.bms_ro_loader = {
       var first_pick = form['properties[_first_pick_name]'].value;
       first_pick && (description += {{ 'bold.recurring_orders.first_pick_beginning_html' | t | json }} + first_pick + {{ 'bold.recurring_orders.first_pick_end_html' | t | json }});
     }
-                     
+
     var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
-    
+
 
     if(form['properties[is_gift]'].checked {% unless settings.bms_ro_gift_requires_sub_length %} && form['properties[is_prepaid]'].value {% endunless %} ){
       description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
     } else if(is_prepaid_field.value) {
-      description += {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }};
+      description += {% if settings.bold_ro_prepaid_expires %}{{ 'bold.recurring_orders.subscription_expires_html' | t | json }}{% else %}{{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }}{% endif %};
     } else {
       description += {{ 'bold.recurring_orders.subscription_ongoing_html' | t | json }};
     }
@@ -393,11 +393,11 @@ BOLD.bms_ro_loader = {
     var prepaid_id_field = form['properties[prepaid_length_id]'];
     var is_prepaid, total_recurrences, discount = 0;
     var is_prepaid_field = form['properties[is_prepaid]']
-    
+
     if(typeof is_prepaid_field.value === 'undefined'){
       is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
     }
-    
+
     if(is_prepaid_field.value == 'on' && current_variant.recurring_group_data){
       is_prepaid = true;
       var prepaid_length_field = BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
@@ -519,12 +519,12 @@ BOLD.bms_ro_loader = {
     if(!BOLD.bms_ro_loader.verifyRequiredSelections(form)){
       return false;
     }
-    
+
     var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
     var is_prepaid = is_prepaid_field.value;
-    var is_gift = form['properties[is_gift]'].value;
-    
-    
+    var is_gift = form['properties[is_gift]'].checked;
+
+
     //If the subscription is not prepaid, remove prepaid-related properties
     if(!is_prepaid){
       form['properties[is_prepaid]'].value = '';
@@ -547,14 +547,13 @@ BOLD.bms_ro_loader = {
     }
     //If the subscription is not a gift, remove gift-related properties
     if(!is_gift){
-      form['properties[To]'].value = '';
       form['properties[Gift Message]'].value = '';
     }
 
 
     var formData = new FormData(form);
-    
-        
+
+
     //Submit and redirect to Cashier
     //If it's a prepaid subscription, empty cart first
     if(is_prepaid){

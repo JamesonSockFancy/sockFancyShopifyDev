@@ -115,12 +115,19 @@ BOLD.BMS_Randomizer.prototype = {
   setRandomId:function(collection, qty, hisAndHers, retries){
     /* Given a collection handle, pick a random sock and set it.  Modify the buffer based on qty */
     var product_list = this.product_lookup[collection];
+    if(!product_list){
+      //Hasn't loaded yet, try again later
+      return setTimeout(function(){ this.setRandomId(collection, qty, hisAndHers, retries) }.bind(this), 750)
+    }
     var initial_offset = (this.buffer * qty) + Math.floor(this.buffer * (qty-1) * 0.5 );
     var trailing_offset = (this.buffer * qty);
 
     var starting_index = this.rollRandomNumber(initial_offset, product_list.length - trailing_offset);
     if(hisAndHers && !this.selectionIsFiftyFifty(product_list, starting_index, qty) && (retries || 0) < 20 ){
       return this.setRandomId(collection, qty, hisAndHers, (retries || 0) + 1);
+    }
+    if(starting_index >= product_list.length){
+      starting_index = Math.max(product_list.length - qty - 1,0)
     }
 
     var starting_id = this.getProductId(product_list[starting_index])

@@ -1,0 +1,10 @@
+{% assign recurring_item_check = cart.items | map: 'properties' | map: 'group_id' | uniq %}
+{% if recurring_item_check.size > 1 or recurring_item_check.first != blank %}
+  {% assign cart_includes_subscription = true %}
+  {% for item in cart.items %}
+    {% if item.properties.group_id %}
+      {% assign subscription_item = item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

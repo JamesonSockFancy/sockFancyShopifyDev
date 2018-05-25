@@ -19,6 +19,11 @@
 
           {% for item in cart.items %}
 {%- include 'bold-cart-item' with item -%}
+{% if item.properties._promo_code %}
+{% assign bold_cart_total_price = bold_cart_total_price | minus: bold_item_line_price %}
+{% assign bold_item_price = 0 %}
+{% assign bold_item_line_price = 0 %}
+{% endif %}
             <div class="five columns alpha">
               <a href="{{ item.url }}" title="{{ item.title | escape }}" class="cart_page_image">
                 <img  src="{{ item | img_url: '300x' }}"
@@ -55,9 +60,12 @@
               {% endunless %}
 
               {{ bold_recurring_desc }}
+              {% if item.properties._promo_code %}
+              <span class="promo-code-cart-prefix">Promo code: </span><span class="promo-code-cart-value">{{ item.properties._promo_code | upcase }}</span>
+              {% endif %}
 {% if item.properties %}
                 <p>
-                  
+
 {%- comment -%}
 {% for p in item.properties %}
                     {% unless p.last == blank %}

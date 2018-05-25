@@ -1031,6 +1031,13 @@ var cart = {
         $cart.append('<li class="empty_cart">{{ 'layout.general.empty_cart' | t }}</li>');
       } else {
         $.each(cart.items, function(index, item) {
+          //BMS: Expect line items with an applied promo_code to be discounted to $0 at Checkout
+          if(item.Bold && item.Bold.promo_code){
+            cart.total_price -= item.line_price;
+            item.price = item.line_price = 0;
+            item.properties = item.properties || {};
+            item.properties['Promo Code'] = item.Bold.promo_code
+          }
           var line_id = index + 1;
           cart_items_html += '<li class="cart_item">' +
           '<p class="mm-counter">' +

@@ -1,0 +1,202 @@
+window.BOLD = window.BOLD || {};
+
+BOLD.FreeGiftPromo = function(source_csv_name, form){
+  if(!form){
+    return null;
+  }
+  if(!(this instanceof BOLD.FreeGiftPromo)){
+    return new BOLD.FreeGiftPromo(source_csv_name, form)
+  }
+
+  this.src = source_csv_name;
+  this.form = form;
+  this.offers = {};
+  this.unique_handles = [];
+  this.updates = {};
+  var file_prefix = {{ '' | file_url | split: '?' | first | json }}
+  var file_suffix = {{ '' | file_url | split: '?' | last | prepend: '?' | json }}
+  BOLD.helpers.get(file_prefix + this.src + file_suffix, this.onFileLoaded.bind(this));
+  this.setupEventListeners()
+}
+
+BOLD.FreeGiftPromo.prototype = {
+  drawPromoBox:function(){
+    if(this.promo_input){
+      return;
+    }
+
+    var promo_box = this.promo_box = document.createElement('div');
+    promo_box.className = 'promo-code-wrapper';
+
+    var promo_header = document.createElement('header')
+    promo_box.appendChild(promo_header);
+
+    var promo_title = document.createElement('h3');
+    promo_title.className = 'option-title promo-title';
+    promo_title.innerText = {{ 'bold.recurring_orders.promo_offer_title_html' | t | json }};
+    promo_header.appendChild(promo_title);
+
+    var promo_input = this.promo_input = document.createElement('input');
+    promo_input.name = 'promo_code';
+    promo_input.type = 'text';
+    promo_input.className = 'promo-code-input'
+    promo_input.addEventListener('change', this.onCodeChanged.bind(this))
+    promo_input.setAttribute('placeholder', {{ 'bold.recurring_orders.promo_offer_placeholder' | t | json }});
+    promo_box.appendChild(promo_input);
+
+    var destination = this.form.querySelector('.promo-code-widget') || this.form;
+    destination.appendChild(promo_box);
+    this.getCurrentlyAppliedPromotionCode();
+  },
+  getCurrentlyAppliedPromotionCode:function(){
+    BOLD.helpers.get('/cart.js', this.onCartLoaded.bind(this));
+  },
+  onCodeChanged:function(evt){
+    var code = this.code = this.promo_input.value.toUpperCase();
+    var offer = this.offers[code]
+
+    this.promo_product = offer ? offer.variant_id : null
+    // this.builder_id = 'PROMO_CODE_' + code
+
+    this.clearPromotion();
+    if(!offer){
+      this.displayError();
+      return;
+    }
+    if(!offer.title){
+      setTimeout(function(){ this.onCodeChanged(evt) }.bind(this), 100)
+    }
+    var confirmation_wrapper = this.confirmation_wrapper = document.createElement('div');
+    confirmation_wrapper.className = 'promo-confirmation'
+
+    var offer_img = document.createElement('img');
+    offer_img.src = (offer.image || '').replace('.jpg', '_100x.jpg');
+    offer_img.className = 'promo-offer-image';
+    offer_img.setAttribute('alt', 'Picture of ' + offer.title);
+    confirmation_wrapper.appendChild(offer_img);
+
+    var offer_message = document.createElement('p');
+    offer_message.innerHTML = {{ 'bold.recurring_orders.promo_offer_message' | t | json }}
+    offer_message.className = 'promo-offer-message';
+    confirmation_wrapper.appendChild(offer_message);
+
+    var offer_product_text = document.createElement('span');
+    offer_product_text.innerText = offer.title;
+    offer_product_text.className = 'promo-offer-product-title';
+    confirmation_wrapper.appendChild(offer_product_text);
+
+    // var variant_props = document.createElement('input');
+    // variant_props.type = 'hidden'
+    // variant_props.name = 'properties[_boldVariantIds]'
+    // variant_props.value = this.promo_product
+    // confirmation_wrapper.appendChild(variant_props)
+    //
+    // var name_props = document.createElement('input');
+    // variant_props.type = 'hidden'
+    // variant_props.name = 'properties[_boldVariantNames]'
+    // variant_props.value = this.promo_title = offer.title
+    // confirmation_wrapper.appendChild(variant_props)
+    //
+    // var product_props = document.createElement('input');
+    // product_props.type = 'hidden'
+    // product_props.name = 'properties[_boldProductIds]'
+    // product_props.value = offer.product_id
+    // confirmation_wrapper.appendChild(product_props)
+    //
+    // var prod_onetime_props = document.createElement('input');
+    // prod_onetime_props.type = 'hidden'
+    // prod_onetime_props.name = 'properties[_boldProductOneTime]'
+    // prod_onetime_props.value = offer.variant_id
+    // confirmation_wrapper.appendChild(prod_onetime_props)
+    //
+    // var prod_onetime_props = document.createElement('input');
+    // prod_onetime_props.type = 'hidden'
+    // prod_onetime_props.name = 'properties[_boldProductOneTime]'
+    // prod_onetime_props.value = offer.variant_id
+    // confirmation_wrapper.appendChild(prod_onetime_props)
+    //
+    // var rec_onetime_props = document.createElement('input');
+    // rec_onetime_props.type = 'hidden'
+    // rec_onetime_props.name = 'properties[_boldRecurringOneTime]'
+    // rec_onetime_props.value = offer.variant_id
+    // confirmation_wrapper.appendChild(rec_onetime_props)
+    //
+    // var builder_props = document.createElement('input');
+    // builder_props.type = 'hidden'
+    // builder_props.name = 'properties[_boldBuilderId]'
+    // builder_props.value = this.builder_id;
+    // confirmation_wrapper.appendChild(builder_props)
+
+    this.promo_box.appendChild(confirmation_wrapper);
+    setTimeout(function(){this.confirmation_wrapper.style.opacity = 1}.bind(this), 100);
+  },
+  clearPromotion:function(){
+    this.confirmation_wrapper && this.confirmation_wrapper.parentElement && this.confirmation_wrapper.parentElement.removeChild(this.confirmation_wrapper);
+    this.error_wrapper && this.error_wrapper.parentElement && this.error_wrapper.parentElement.removeChild(this.error_wrapper);
+    BOLD.helpers.post('/cart/update.js', {updates:this.updates, attributes:{promo_code:''} }, this.addCurrentPromotion.bind(this))
+  },
+  addCurrentPromotion:function(){
+    if(this.promo_product && this.code /* && this.builder_id */){
+      BOLD.helpers.post('/cart/add.js', {id:this.promo_product, properties:{_promo_code:this.code} }, function(){
+        BOLD.helpers.post('/cart/update.js', {attributes:{promo_code:this.code}})
+      }.bind(this))
+    }
+  },
+  displayError:function(){
+    //Only print an error if there was a code entered
+    if(!this.code){
+      return;
+    }
+    this.error_wrapper = document.createElement('div');
+    this.error_wrapper.className = 'promo-invalid';
+    this.error_wrapper.innerHTML = {{ 'bold.recurring_orders.promo_offer_invalid_html' | t | json }}
+    this.promo_box.appendChild(this.error_wrapper)
+    setTimeout(function(){this.error_wrapper.style.opacity = 1}.bind(this), 100);
+  },
+  onFileLoaded:function(file){
+    //Expecting CSV file
+    this.offers = file.split('\n').reduce(function(acc, line, index){
+      if(index === 0){
+        return acc
+      }
+
+      var data = line.split(',');
+      var code = data[0].toUpperCase()
+      var handle = data[1];
+
+      index > 0 && code && handle && (acc[code] = { handle: handle })
+      handle && this.unique_handles.indexOf(handle) == -1 && this.unique_handles.push(handle);
+      return acc;
+    }.bind(this), {})
+
+    BOLD.helpers.triggerEvent('BMS.free-gift.ready')
+  },
+  onReady:function(evt){
+    for(var i=0; i<this.unique_handles.length; i++){
+      BOLD.helpers.get('/products/' + this.unique_handles[i] + '.js', this.onProductLoaded.bind(this) );
+    }
+  },
+  onCartLoaded:function(cart){
+    this.promo_input.value = (cart.attributes && cart.attributes.promo_code ? cart.attributes.promo_code : '')
+    BOLD.helpers.triggerChange(this.promo_input);
+  },
+  onProductLoaded:function(product){
+    for(var key in this.offers){
+      var offer = this.offers[key];
+      if(offer.handle == product.handle){
+        var offer_variant = product.variants[0];
+        offer.product_id = product.id;
+        offer.variant_id = offer_variant.id;
+        offer.title = offer_variant.name;
+        offer.image = offer_variant.featured_image ? offer_variant.featured_image.src : product.featured_image;
+        this.updates[offer_variant.id] = 0;
+      }
+    }
+    this.drawPromoBox()
+  },
+  setupEventListeners:function(){
+    BOLD.common.eventEmitter.on('BMS.free-gift.ready', this.onReady, this)
+  }
+}
+
+new BOLD.FreeGiftPromo('free-gift-codes.csv', document.forms['main-product-form'] || document.querySelector('form.product_form'))

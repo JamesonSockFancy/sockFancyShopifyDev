@@ -1,9 +1,10 @@
 {% if product.available %}
+  {% include 'bms-check-for-existing-subscription' %}
   {% assign variant = product.selected_or_first_available_variant %}
 
   <form action="/cart/add"
       method="post"
-      class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+      class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} {% if cart_includes_subscription %}no_ro_widget{% endif %}"
       id="product-form-{{ product.id }}{{ section.id }}{{ block.id }}"
       data-money-format="{{ shop.money_format }}"
       data-shop-currency="{{ shop.currency }}"
@@ -81,6 +82,10 @@
       {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
 {{ bold_ro_widget }}
 <div class="ro_widget"></div>
+{% if cart_includes_subscription %}
+  {% include 'bms-subscription-exists-product-page' %}
+{% endif %}
+{% include 'bms-promo-code-box' %}
       <button type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ add_to_cart_label }}</span></button>
 <!-- bold-ro-liquid --><div class="bold_add_to_orders" style="display: inline-block;"></div><!-- bold-ro-liquid -->
 
