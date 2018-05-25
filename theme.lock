@@ -219,7 +219,7 @@ assets/zendesk-embeddable.js:
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
   development: 2018-05-15T12:40:14-04:00   fac15e6f1594e514df1aa977c7fbf791
-  production: 2018-05-24T12:05:59-04:00   77b694d030e5cd330a41f392a06a2fad
+  production: 2018-05-25T10:02:48-04:00   5370776df5ccd87c45f724647ded13b7
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
   development: 2018-05-10T16:44:22-04:00   da8aa01fc1af205a70f5032415dd2b7f
