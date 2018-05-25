@@ -2207,7 +2207,7 @@
     "recurring-orders-additional-button-classes": "",
     "bms_smart_subscription_product": "sock-subscription",
     "bms_ro_gift_requires_sub_length": false,
-    "bms_enable_promo_code": true,
+    "bms_enable_promo_code": false,
     "bold_ro_prepaid_expires": true,
     "bms_randomizer_buffer": 2,
     "custom_sock_page": "custom",
