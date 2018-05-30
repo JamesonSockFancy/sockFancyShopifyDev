@@ -344,7 +344,7 @@
       "total": "Total",
       "item": "Item",
       "uploaded_file": "uploaded file",
-      "continue_browsing_html": "There are no items in your cart. <a href=\"\/collections\/all\">Continue Shopping &rarr;<\/a>",
+      "continue_browsing_html": "There are no items in your cart. <a href=\"\/products\/sock-subscription\">Continue Shopping &rarr;<\/a>",
       "continue_shopping_link_html": "Continue Shopping &rarr;",
       "excluding_tax_shipping": "Excluding tax & shipping",
       "orders_processed_in_currency_html": "Orders will be processed in {{ currency }}.",

@@ -232,7 +232,7 @@ layout/password.liquid:
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   development: 2018-05-25T15:43:09-04:00   49db5925b6482b24b17acf210f768a6a
-  production: 2018-05-24T12:02:38-04:00   49db5925b6482b24b17acf210f768a6a
+  production: 2018-05-30T12:39:45-04:00   92cd05c11d121f04ce0042fbdb8f6e58
 layout/theme.shogun.landing.liquid:
   development: 2018-05-25T15:43:04-04:00   bb356351819700d1af9718dd3762cc52
   production: 2018-05-17T10:09:41-04:00   bb356351819700d1af9718dd3762cc52
@@ -243,7 +243,7 @@ locales/de.json:
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
   development: 2018-05-25T15:43:04-04:00   b5305e09bb2b226e7f731bb299efca2d
-  production: 2018-05-29T14:43:30-04:00   5807fdae1a6ae0214970a4c30dbdebaa
+  production: 2018-05-30T12:39:44-04:00   9e8abe1ceef1630757a7b535e61cdad6
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
   development: 2018-04-16T11:34:06-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -488,7 +488,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-05-25T15:43:08-04:00   3de26be24361e2b68acbf274a6846526
-  production: 2018-05-22T10:29:08-04:00   9870b170e10e06b074034e500c940a7f
+  production: 2018-05-30T12:39:44-04:00   3de26be24361e2b68acbf274a6846526
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122
