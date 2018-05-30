@@ -168,6 +168,8 @@ assets/password-page-background.jpg:
   boldDev: 2018-03-22T11:49:36-04:00   7dd4dbe94233e457a64954cd75112db9
   development: 2018-04-16T11:34:04-04:00   7dd4dbe94233e457a64954cd75112db9
   production: 2018-02-27T12:53:09-05:00   7dd4dbe94233e457a64954cd75112db9
+assets/piggy.svg:
+  development: 2018-05-30T16:15:29-04:00   a6d6823ca4645d9cdb60f42a14409119
 assets/placeholder.svg:
   boldDev: 2018-03-22T11:49:36-04:00   6a411851f3481c054f16c35a0eb11f99
   development: 2018-04-16T11:34:04-04:00   6a411851f3481c054f16c35a0eb11f99
@@ -176,10 +178,14 @@ assets/play-circle.svg:
   boldDev: 2018-04-12T17:58:20-04:00   19a2299c3ad985dd12bf5656a2b6ca25
   development: 2018-04-16T11:34:04-04:00   19a2299c3ad985dd12bf5656a2b6ca25
   production: 2018-03-29T11:02:50-04:00   19a2299c3ad985dd12bf5656a2b6ca25
+assets/returns.svg:
+  development: 2018-05-30T16:15:27-04:00   db5b00014c20c0e7ad7eb517929bc527
 assets/satisfaction.png:
   boldDev: 2018-05-01T11:08:56-04:00   a90dde3a4b76d11fbbedcf4c687168b6
   development: 2018-04-16T11:34:04-04:00   a90dde3a4b76d11fbbedcf4c687168b6
   production: 2018-03-29T11:06:34-04:00   a90dde3a4b76d11fbbedcf4c687168b6
+assets/satisfaction.svg:
+  development: 2018-05-30T16:15:27-04:00   a6d6823ca4645d9cdb60f42a14409119
 assets/search.jpg:
   boldDev: 2018-03-22T11:49:36-04:00   fd6de5401d3a484cb514b941c7fd8157
   development: 2018-04-16T11:34:04-04:00   fd6de5401d3a484cb514b941c7fd8157
@@ -231,7 +237,7 @@ layout/password.liquid:
   development: 2018-04-16T11:34:06-04:00   cc50890197f3c5f704a1bb3681be7678
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
-  development: 2018-05-25T15:43:09-04:00   49db5925b6482b24b17acf210f768a6a
+  development: 2018-05-30T16:15:29-04:00   92cd05c11d121f04ce0042fbdb8f6e58
   production: 2018-05-30T12:39:45-04:00   92cd05c11d121f04ce0042fbdb8f6e58
 layout/theme.shogun.landing.liquid:
   development: 2018-05-25T15:43:04-04:00   bb356351819700d1af9718dd3762cc52
@@ -242,7 +248,7 @@ locales/de.json:
   production: 2018-03-29T11:03:07-04:00   c8755f2c8e0a8f63d43629ba51ecb660
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
-  development: 2018-05-25T15:43:04-04:00   b5305e09bb2b226e7f731bb299efca2d
+  development: 2018-05-30T16:15:28-04:00   0a8e46abd4c55447033af1535d6dd2b5
   production: 2018-05-30T13:08:41-04:00   0a8e46abd4c55447033af1535d6dd2b5
 locales/es.json:
   boldDev: 2018-04-12T16:22:01-04:00   575551d5e2a5fede3dbe5af58c308e72
@@ -378,7 +384,7 @@ sections/product-description-bottom-template.liquid:
   production: 2018-02-27T12:53:06-05:00   8e05b42a15f6a8287bcef519af14b162
 sections/product-details-template.liquid:
   boldDev: 2018-05-01T10:43:03-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
-  development: 2018-05-15T12:40:08-04:00   228a6f09ee70468e00c1c90c2df3aca9
+  development: 2018-05-30T16:15:28-04:00   59e2a5876a44b4b272f1e3813fed3425
   production: 2018-05-10T16:55:22-04:00   228a6f09ee70468e00c1c90c2df3aca9
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
@@ -463,7 +469,7 @@ snippets/bms-subscription-exists-product-page.liquid:
   production: 2018-05-24T12:02:41-04:00   281a3daf6b72a2b739362c22fdac2a9a
 snippets/bms-subscription-product-lookup-and-json.liquid:
   boldDev: 2018-05-07T10:19:30-04:00   d7b7e1eddffe9e12ed36f44f2a9e3c77
-  development: 2018-05-15T12:40:04-04:00   261c1996e24ff1cc1b5fd19feffea8a6
+  development: 2018-05-30T16:15:30-04:00   3c930261fa8207d7dc4cbba5ceb64081
   production: 2018-05-29T12:19:01-04:00   3c930261fa8207d7dc4cbba5ceb64081
 snippets/bms-swatch-element.liquid:
   boldDev: 2018-04-10T15:14:40-04:00   a78b597a678d3c25b2fdf1a1ec302453
