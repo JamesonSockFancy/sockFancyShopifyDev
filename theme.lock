@@ -211,7 +211,7 @@ assets/soldout.png:
   development: 2018-04-16T11:34:05-04:00   6a7697db19e17aae7568e216c2b365af
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
-  development: 2018-05-31T14:01:46-04:00   c5229579debe3d65039e40a32aa30eec
+  development: 2018-05-31T14:40:33-04:00   55754611f3411e29bde65af17b49ba9e
   production: 2018-05-21T17:15:00-04:00   7297be2687c0d6237f3b1de44ba68f80
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
@@ -384,7 +384,7 @@ sections/product-description-bottom-template.liquid:
   production: 2018-02-27T12:53:06-05:00   8e05b42a15f6a8287bcef519af14b162
 sections/product-details-template.liquid:
   boldDev: 2018-05-01T10:43:03-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
-  development: 2018-05-31T14:01:45-04:00   55e40e8e25bdf3adfd105779fa97f939
+  development: 2018-05-31T14:40:34-04:00   671c298a7e170b1d057d0c8ce536902e
   production: 2018-05-10T16:55:22-04:00   228a6f09ee70468e00c1c90c2df3aca9
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
