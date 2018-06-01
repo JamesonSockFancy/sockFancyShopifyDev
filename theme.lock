@@ -170,6 +170,8 @@ assets/password-page-background.jpg:
   production: 2018-02-27T12:53:09-05:00   7dd4dbe94233e457a64954cd75112db9
 assets/piggy.png:
   development: 2018-05-31T16:13:45-04:00   f3f44ad91fd8819f152ef2f4f5308c3c
+assets/piggy_2.png:
+  development: 2018-06-01T10:16:50-04:00   209e38cf38e40251a44d133399bd2d7f
 assets/placeholder.svg:
   boldDev: 2018-03-22T11:49:36-04:00   6a411851f3481c054f16c35a0eb11f99
   development: 2018-04-16T11:34:04-04:00   6a411851f3481c054f16c35a0eb11f99
@@ -384,7 +386,7 @@ sections/product-description-bottom-template.liquid:
   production: 2018-02-27T12:53:06-05:00   8e05b42a15f6a8287bcef519af14b162
 sections/product-details-template.liquid:
   boldDev: 2018-05-01T10:43:03-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
-  development: 2018-05-31T16:26:47-04:00   235cc72287f66fc1f3db239ffeeb8655
+  development: 2018-06-01T10:16:49-04:00   aa69f71e9cf3470083f38f6be5717e0b
   production: 2018-05-10T16:55:22-04:00   228a6f09ee70468e00c1c90c2df3aca9
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
