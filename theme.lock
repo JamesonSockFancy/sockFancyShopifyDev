@@ -170,8 +170,10 @@ assets/password-page-background.jpg:
   production: 2018-02-27T12:53:09-05:00   7dd4dbe94233e457a64954cd75112db9
 assets/piggy.png:
   development: 2018-05-31T16:13:45-04:00   f3f44ad91fd8819f152ef2f4f5308c3c
+  production: 2018-06-01T12:19:09-04:00   f3f44ad91fd8819f152ef2f4f5308c3c
 assets/piggy_2.png:
   development: 2018-06-01T10:16:50-04:00   209e38cf38e40251a44d133399bd2d7f
+  production: 2018-06-01T12:19:07-04:00   209e38cf38e40251a44d133399bd2d7f
 assets/placeholder.svg:
   boldDev: 2018-03-22T11:49:36-04:00   6a411851f3481c054f16c35a0eb11f99
   development: 2018-04-16T11:34:04-04:00   6a411851f3481c054f16c35a0eb11f99
@@ -182,12 +184,14 @@ assets/play-circle.svg:
   production: 2018-03-29T11:02:50-04:00   19a2299c3ad985dd12bf5656a2b6ca25
 assets/returns.svg:
   development: 2018-05-30T16:15:27-04:00   db5b00014c20c0e7ad7eb517929bc527
+  production: 2018-06-01T12:19:09-04:00   db5b00014c20c0e7ad7eb517929bc527
 assets/satisfaction.png:
   boldDev: 2018-05-01T11:08:56-04:00   a90dde3a4b76d11fbbedcf4c687168b6
   development: 2018-04-16T11:34:04-04:00   a90dde3a4b76d11fbbedcf4c687168b6
   production: 2018-03-29T11:06:34-04:00   a90dde3a4b76d11fbbedcf4c687168b6
 assets/satisfaction.svg:
   development: 2018-05-30T16:15:27-04:00   a6d6823ca4645d9cdb60f42a14409119
+  production: 2018-06-01T12:19:07-04:00   a6d6823ca4645d9cdb60f42a14409119
 assets/search.jpg:
   boldDev: 2018-03-22T11:49:36-04:00   fd6de5401d3a484cb514b941c7fd8157
   development: 2018-04-16T11:34:04-04:00   fd6de5401d3a484cb514b941c7fd8157
@@ -214,7 +218,7 @@ assets/soldout.png:
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
   development: 2018-06-01T12:15:25-04:00   bc8219c1323a730e8f5aa6320d8da2a7
-  production: 2018-05-21T17:15:00-04:00   7297be2687c0d6237f3b1de44ba68f80
+  production: 2018-06-01T12:19:09-04:00   bc8219c1323a730e8f5aa6320d8da2a7
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
   development: 2018-04-16T11:34:06-04:00   667895fe7ca892079d200cb03d891232
@@ -387,7 +391,7 @@ sections/product-description-bottom-template.liquid:
 sections/product-details-template.liquid:
   boldDev: 2018-05-01T10:43:03-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
   development: 2018-06-01T11:38:52-04:00   7a2ad9bf72e2648250e4e33efd2e8d8f
-  production: 2018-05-10T16:55:22-04:00   228a6f09ee70468e00c1c90c2df3aca9
+  production: 2018-06-01T12:19:09-04:00   7a2ad9bf72e2648250e4e33efd2e8d8f
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
   development: 2018-05-15T12:40:09-04:00   bd1c1c78e2302890bceaba3d7914b155
@@ -619,7 +623,7 @@ snippets/social-meta-info.liquid:
 snippets/sock_specs.liquid:
   boldDev: 2018-05-01T10:43:07-04:00   50a09f5b259920a90385c5249dc8788f
   development: 2018-06-01T11:00:01-04:00   937269eceffe8d8232de7e454a0205ae
-  production: 2018-05-11T17:14:43-04:00   61b09e746eb0bdc39a9f0e6c3ee4c881
+  production: 2018-06-01T12:19:06-04:00   937269eceffe8d8232de7e454a0205ae
 snippets/sockfancy-limited-edition.liquid:
   boldDev: 2018-05-07T10:52:31-04:00   4af71342a182f031e6e146af01cb9e39
   development: 2018-05-10T16:44:24-04:00   4af71342a182f031e6e146af01cb9e39
