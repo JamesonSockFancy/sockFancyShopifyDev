@@ -618,7 +618,7 @@ snippets/social-meta-info.liquid:
   production: 2018-02-27T12:53:12-05:00   5ca99bba81dd85bff6dce4159ba49106
 snippets/sock_specs.liquid:
   boldDev: 2018-05-01T10:43:07-04:00   50a09f5b259920a90385c5249dc8788f
-  development: 2018-05-15T12:40:10-04:00   61b09e746eb0bdc39a9f0e6c3ee4c881
+  development: 2018-06-01T11:00:01-04:00   937269eceffe8d8232de7e454a0205ae
   production: 2018-05-11T17:14:43-04:00   61b09e746eb0bdc39a9f0e6c3ee4c881
 snippets/sockfancy-limited-edition.liquid:
   boldDev: 2018-05-07T10:52:31-04:00   4af71342a182f031e6e146af01cb9e39
