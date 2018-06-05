@@ -21,6 +21,10 @@
 
       <p>{{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y %I:%M%p" }}</p>
 
+      <div>
+      <a href="/pages/printable-gift-receipt" title="Printable Gift Receipt">Printable Gift Receipt</a>
+      </div>
+
       {% if order.cancelled %}
         <div class="errors">
           {% assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" %}
