@@ -695,7 +695,7 @@ templates/customers/login.liquid:
 templates/customers/order.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   7685510b988fb269c079e8642f5f2247
   development: 2018-05-25T15:43:15-04:00   f9ef7d029eb58a56c66978015287b2f5
-  production: 2018-05-17T10:38:46-04:00   f9ef7d029eb58a56c66978015287b2f5
+  production: 2018-06-05T11:39:37-04:00   4daa8d538149c83463a6adcea73b1ec0
 templates/customers/register.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   8788f89267b98acc41e358d9ed13b939
   development: 2018-04-16T11:34:09-04:00   8788f89267b98acc41e358d9ed13b939
