@@ -775,11 +775,11 @@ templates/product.description-bottom.liquid:
 templates/product.details.liquid:
   boldDev: 2018-05-01T10:42:30-04:00   01375adb58fb2322a1a6acdf251bf52e
   development: 2018-04-23T12:28:42-04:00   01375adb58fb2322a1a6acdf251bf52e
-  production: 2018-06-07T16:30:44-04:00   e5d5eb0a8a80defe3c0af31b39e73394
+  production: 2018-06-07T16:36:44-04:00   01375adb58fb2322a1a6acdf251bf52e
 templates/product.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e4f2084b08761730ae2c86fa3d221112
   development: 2018-05-01T10:17:41-04:00   d7ccd0366d59d6e450dcfe1a0a51b1b9
-  production: 2018-05-08T12:06:58-04:00   d7ccd0366d59d6e450dcfe1a0a51b1b9
+  production: 2018-06-07T16:36:43-04:00   a303b55a92c10fe094c7f989a6c8f4c6
 templates/product.shogun.custom.liquid:
   boldDev: 2018-03-29T09:58:23-04:00   b86413170e83c14e3a6ba3638caff034
   development: 2018-04-16T11:34:10-04:00   b86413170e83c14e3a6ba3638caff034
