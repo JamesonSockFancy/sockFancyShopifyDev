@@ -149,10 +149,10 @@
           {% endif %}
 
           {% if cart.item_count > 0 and section.settings.display_continue_shopping %}
-            <p class="continue_shopping">
+            {% comment %} <p class="continue_shopping">
               <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}/collections/all{% endif %}">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
-            </p>
-          {% endif %}
+            </p> {% endcomment %}
+          {% endif %} 
         </div>
       </div>
     </form>
