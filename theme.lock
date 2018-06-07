@@ -711,7 +711,7 @@ templates/gift_card.liquid:
 templates/index.liquid:
   boldDev: 2018-05-01T10:42:38-04:00   fbfe1023243767406471e4aec280aa62
   development: 2018-04-23T12:28:41-04:00   fbfe1023243767406471e4aec280aa62
-  production: 2018-04-20T14:04:11-04:00   fbfe1023243767406471e4aec280aa62
+  production: 2018-06-07T16:30:44-04:00   0dbbc869d57235b09db142cafb9f6050
 templates/list-collections.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   6c951a94c4d7b8b9e36c0e655df45ed5
   development: 2018-04-16T11:34:09-04:00   6c951a94c4d7b8b9e36c0e655df45ed5
@@ -775,7 +775,7 @@ templates/product.description-bottom.liquid:
 templates/product.details.liquid:
   boldDev: 2018-05-01T10:42:30-04:00   01375adb58fb2322a1a6acdf251bf52e
   development: 2018-04-23T12:28:42-04:00   01375adb58fb2322a1a6acdf251bf52e
-  production: 2018-04-20T14:03:52-04:00   01375adb58fb2322a1a6acdf251bf52e
+  production: 2018-06-07T16:30:44-04:00   e5d5eb0a8a80defe3c0af31b39e73394
 templates/product.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e4f2084b08761730ae2c86fa3d221112
   development: 2018-05-01T10:17:41-04:00   d7ccd0366d59d6e450dcfe1a0a51b1b9
