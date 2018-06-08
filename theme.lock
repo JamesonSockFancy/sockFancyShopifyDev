@@ -287,7 +287,7 @@ sections/blog-template.liquid:
 sections/cart-template.liquid:
   boldDev: 2018-03-22T11:49:31-04:00   451801ba427420f23e153a7be95b86fe
   development: 2018-05-25T15:43:16-04:00   bea20a47ce51e56d8dd89a32765f3a9f
-  production: 2018-05-24T12:02:39-04:00   bea20a47ce51e56d8dd89a32765f3a9f
+  production: 2018-06-07T17:11:40-04:00   1fe26dbc10ff7c9624d4a3ae811280a4
 sections/collection-list.liquid:
   boldDev: 2018-03-22T11:49:31-04:00   50ac21c0f9101a5e2f4873a44431e8a1
   development: 2018-04-16T11:33:56-04:00   50ac21c0f9101a5e2f4873a44431e8a1
