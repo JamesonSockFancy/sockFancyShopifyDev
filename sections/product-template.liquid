@@ -181,6 +181,17 @@
       <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
     {% endif %}
     </div>
+    
+    {% if product.tags contains "america" %}
+    <ul>
+      {% for product in collections.america.products %}
+        <li>
+        <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+        <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
+        </li>  
+      {% endfor %}
+    </ul>
+    {% endif %}
 
 
     {% if section.settings.display_related_products %}
