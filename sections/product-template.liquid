@@ -182,22 +182,6 @@
     {% endif %}
     </div>
     
-    <div> <p>American Socks</p>
-    {% for tag in product.tags %}
-      {% if product.tags contains 'america' %}
-        <ul>
-          {% for product in collections.America.products %}
-            <li>
-              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
-              <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
-            </li>  
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endfor %}
-    </div>
-    
-
     {% if section.settings.display_related_products %}
       {% capture limit %}{{ section.settings.products_per_row | plus: 1 }}{% endcapture %}
 
