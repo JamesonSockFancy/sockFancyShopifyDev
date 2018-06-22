@@ -16,12 +16,12 @@
     </div> {% endcomment %}
   </div>
     
-    <div style="display: table; clear: both;"> 
+    <div class="america-socks-row"> 
       {% if product.tags contains 'america' %}
         
           {% for product in collections.America.products %}
             
-            <div style="float: left; width: 25%;">
+            <div class="america-col-4">
               <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
               <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
             </div>  
