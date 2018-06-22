@@ -213,10 +213,11 @@
 {% comment %} end of first main {% endcomment %}
       {% if product.tags contains 'america' %}
           <div class="america-socks-row"> 
+          <h3>Shop Our American Pride Collection</h3>
           {% for product in collections.America.products %}
             
             <div class="america-col-4">
-            <h3>America Socks</h3>
+            
               <a class="shop-now" href="{{ product.url }}">
               <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
               <p>{{ product.title | escape  }}</p></a>                              

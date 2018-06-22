@@ -392,7 +392,7 @@ sections/product-description-bottom-template.liquid:
   production: 2018-02-27T12:53:06-05:00   8e05b42a15f6a8287bcef519af14b162
 sections/product-details-template.liquid:
   boldDev: 2018-05-01T10:43:03-04:00   8cdfa9b99e3896a3fa06b4861c5e0fcb
-  development: 2018-06-22T15:28:00-04:00   bf49c34b12367ed13cad4f1f86079c05
+  development: 2018-06-22T15:38:28-04:00   09b19fb05054ddcaa1ed6a74b892b7d1
   production: 2018-06-01T12:19:09-04:00   7a2ad9bf72e2648250e4e33efd2e8d8f
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
