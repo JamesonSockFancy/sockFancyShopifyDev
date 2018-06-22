@@ -171,6 +171,8 @@ assets/password-page-background.jpg:
 assets/piggy.png:
   development: 2018-05-31T16:13:45-04:00   f3f44ad91fd8819f152ef2f4f5308c3c
   production: 2018-06-01T12:19:09-04:00   f3f44ad91fd8819f152ef2f4f5308c3c
+assets/piggy.svg:
+  development: 2018-05-30T16:15:29-04:00   a6d6823ca4645d9cdb60f42a14409119
 assets/piggy_2.png:
   development: 2018-06-01T10:16:50-04:00   209e38cf38e40251a44d133399bd2d7f
   production: 2018-06-01T12:19:07-04:00   209e38cf38e40251a44d133399bd2d7f
