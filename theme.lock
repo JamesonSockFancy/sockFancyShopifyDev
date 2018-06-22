@@ -234,7 +234,7 @@ assets/zendesk-embeddable.js:
   development: 2018-04-16T11:34:06-04:00   2241cec5637b5d288e343c040ac9486f
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
-  development: 2018-05-25T15:43:19-04:00   5370776df5ccd87c45f724647ded13b7
+  development: 2018-06-22T14:07:34-04:00   18aa5824bf2d747d21a1326defe9ec96
   production: 2018-06-12T11:52:05-04:00   18aa5824bf2d747d21a1326defe9ec96
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
@@ -245,7 +245,7 @@ layout/password.liquid:
   development: 2018-04-16T11:34:06-04:00   cc50890197f3c5f704a1bb3681be7678
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
-  development: 2018-05-30T16:15:29-04:00   92cd05c11d121f04ce0042fbdb8f6e58
+  development: 2018-06-22T14:07:32-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
   production: 2018-06-19T16:40:29-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
 layout/theme.shogun.landing.liquid:
   development: 2018-05-25T15:43:04-04:00   bb356351819700d1af9718dd3762cc52
@@ -288,7 +288,7 @@ sections/blog-template.liquid:
   production: 2018-03-29T11:03:07-04:00   b650f07d4fb1a78602d93aebd8b07cbf
 sections/cart-template.liquid:
   boldDev: 2018-03-22T11:49:31-04:00   451801ba427420f23e153a7be95b86fe
-  development: 2018-05-25T15:43:16-04:00   bea20a47ce51e56d8dd89a32765f3a9f
+  development: 2018-06-22T14:07:32-04:00   1fe26dbc10ff7c9624d4a3ae811280a4
   production: 2018-06-07T17:11:40-04:00   1fe26dbc10ff7c9624d4a3ae811280a4
 sections/collection-list.liquid:
   boldDev: 2018-03-22T11:49:31-04:00   50ac21c0f9101a5e2f4873a44431e8a1
@@ -352,7 +352,7 @@ sections/header.liquid:
   production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-05-25T15:43:13-04:00   d1d57c6d0719250746c3ec838c18d323
+  development: 2018-06-22T14:07:31-04:00   3835c8dab4bc04ce60de17d4ed81682e
   production: 2018-06-07T11:33:24-04:00   3835c8dab4bc04ce60de17d4ed81682e
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
@@ -396,7 +396,7 @@ sections/product-details-template.liquid:
   production: 2018-06-01T12:19:09-04:00   7a2ad9bf72e2648250e4e33efd2e8d8f
 sections/product-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   4cbe56322657f5e066ebcd704e354988
-  development: 2018-05-15T12:40:09-04:00   bd1c1c78e2302890bceaba3d7914b155
+  development: 2018-06-22T14:07:31-04:00   c4d12d83fa35cdf67ad0a86437e96431
   production: 2018-05-10T16:55:23-04:00   bd1c1c78e2302890bceaba3d7914b155
 sections/search-template.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   d3de24f6c2600ef154d6c93ab703513d
@@ -696,7 +696,7 @@ templates/customers/login.liquid:
   production: 2018-05-09T16:16:27-04:00   75caf2e937ed9b90450cb1b9f71d25dc
 templates/customers/order.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   7685510b988fb269c079e8642f5f2247
-  development: 2018-05-25T15:43:15-04:00   f9ef7d029eb58a56c66978015287b2f5
+  development: 2018-06-22T14:07:30-04:00   4daa8d538149c83463a6adcea73b1ec0
   production: 2018-06-05T11:39:37-04:00   4daa8d538149c83463a6adcea73b1ec0
 templates/customers/register.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   8788f89267b98acc41e358d9ed13b939
@@ -712,7 +712,7 @@ templates/gift_card.liquid:
   production: 2018-02-27T12:53:13-05:00   46aadc768db240195955e924e253b246
 templates/index.liquid:
   boldDev: 2018-05-01T10:42:38-04:00   fbfe1023243767406471e4aec280aa62
-  development: 2018-04-23T12:28:41-04:00   fbfe1023243767406471e4aec280aa62
+  development: 2018-06-22T14:07:29-04:00   0dbbc869d57235b09db142cafb9f6050
   production: 2018-06-07T16:30:44-04:00   0dbbc869d57235b09db142cafb9f6050
 templates/list-collections.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   6c951a94c4d7b8b9e36c0e655df45ed5
@@ -780,7 +780,7 @@ templates/product.details.liquid:
   production: 2018-06-07T16:36:44-04:00   01375adb58fb2322a1a6acdf251bf52e
 templates/product.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e4f2084b08761730ae2c86fa3d221112
-  development: 2018-05-01T10:17:41-04:00   d7ccd0366d59d6e450dcfe1a0a51b1b9
+  development: 2018-06-22T14:07:29-04:00   320c894d571ccb96d737775a842b9934
   production: 2018-06-07T16:43:59-04:00   320c894d571ccb96d737775a842b9934
 templates/product.shogun.custom.liquid:
   boldDev: 2018-03-29T09:58:23-04:00   b86413170e83c14e3a6ba3638caff034
@@ -788,7 +788,7 @@ templates/product.shogun.custom.liquid:
   production: 2018-03-23T12:02:33-04:00   b86413170e83c14e3a6ba3638caff034
 templates/product.subscription.liquid:
   boldDev: 2018-04-05T12:05:41-04:00   4c84650a99df4e63f9206fbcedfb8eb3
-  development: 2018-05-25T15:43:06-04:00   43a7f283b4b2a6520cb85cf6f6a0cb2d
+  development: 2018-06-22T14:07:30-04:00   d640ab1c5635c26a37c39371c89d8c3c
   production: 2018-06-07T16:43:58-04:00   d640ab1c5635c26a37c39371c89d8c3c
 templates/search.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   d8bfdd344b4a35a7ba9c6efc1c870203
