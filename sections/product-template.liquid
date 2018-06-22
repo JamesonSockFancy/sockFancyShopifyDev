@@ -182,6 +182,7 @@
     {% endif %}
     </div>
     
+    <div> <p>American Socks</p>
     {% for tag in product.tags %}
       {% if product.tags contains 'america' %}
         <ul>
@@ -194,6 +195,8 @@
         </ul>
       {% endif %}
     {% endfor %}
+    </div>
+    
 
     {% if section.settings.display_related_products %}
       {% capture limit %}{{ section.settings.products_per_row | plus: 1 }}{% endcapture %}
