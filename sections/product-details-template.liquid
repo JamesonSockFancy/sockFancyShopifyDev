@@ -18,14 +18,14 @@
     
     <div> <p>American Socks</p>
       {% if product.tags contains 'america' %}
-        <ul>
+        
           {% for product in collections.America.products %}
-            <li>
+            <div>
               <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
               <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
-            </li>  
+            </div>  
           {% endfor %}
-        </ul>
+        
       {% endif %}
 
     </div>
