@@ -16,23 +16,6 @@
     </div> {% endcomment %}
   </div>
     
-    <div class="america-socks-row"> 
-      {% if product.tags contains 'america' %}
-        
-          {% for product in collections.America.products %}
-            
-            <div class="america-col-4">
-              <a class="shop-now" href="{{ product.url }}">
-              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
-              <p>{{ product.title | escape  }}</p></a>                              
-            </div>  
-          {% endfor %}
-        
-      {% endif %}
-
-    </div>
-
-
   <div class="sixteen columns">
     <div class="product-{{ product.id }}">
 
@@ -228,6 +211,20 @@
   
 
 {% comment %} end of first main {% endcomment %}
+      {% if product.tags contains 'america' %}
+          <div class="america-socks-row"> 
+          {% for product in collections.America.products %}
+            
+            <div class="america-col-4">
+            <h3>America Socks</h3>
+              <a class="shop-now" href="{{ product.url }}">
+              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+              <p>{{ product.title | escape  }}</p></a>                              
+            </div>  
+          {% endfor %}
+          </div>
+      {% endif %}
+
 </div>
   <div class="subscribe-save">
     <h2 style="width: 100%;text-align: center;color: #ffffff;padding-top: 35px;" >WHY SUBSCRIBE & SAVE?</h2>
