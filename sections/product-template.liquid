@@ -185,7 +185,7 @@
     {% for tag in product.tags %}
       {% if product.tags contains 'america' %}
         <ul>
-          {% for product in collections.america.products %}
+          {% for product in collections.America.products %}
             <li>
               <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
               <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
