@@ -15,8 +15,8 @@
       {% include "product-breadcrumb" %}
     </div> {% endcomment %}
   </div>
+    
     <div> <p>American Socks</p>
-    {% for tag in product.tags %}
       {% if product.tags contains 'america' %}
         <ul>
           {% for product in collections.America.products %}
@@ -27,7 +27,7 @@
           {% endfor %}
         </ul>
       {% endif %}
-    {% endfor %}
+
     </div>
 
 
