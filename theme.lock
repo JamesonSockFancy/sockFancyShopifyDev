@@ -250,7 +250,7 @@ layout/theme.liquid:
   production: 2018-06-19T16:40:29-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
 layout/theme.shogun.landing.liquid:
   development: 2018-05-25T15:43:04-04:00   bb356351819700d1af9718dd3762cc52
-  production: 2018-06-26T12:50:54-04:00   a8dc314e50a4b232937cc87e4a65414f
+  production: 2018-07-05T16:14:40-04:00   4b0682238713f31f32c8953cdc35b075
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
   development: 2018-04-16T11:34:06-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -626,7 +626,7 @@ snippets/social-meta-info.liquid:
 snippets/sock_specs.liquid:
   boldDev: 2018-05-01T10:43:07-04:00   50a09f5b259920a90385c5249dc8788f
   development: 2018-06-01T11:00:01-04:00   937269eceffe8d8232de7e454a0205ae
-  production: 2018-06-01T12:19:06-04:00   937269eceffe8d8232de7e454a0205ae
+  production: 2018-07-05T16:14:40-04:00   46b209d9bbf5e4907de5644233235208
 snippets/sockfancy-limited-edition.liquid:
   boldDev: 2018-05-07T10:52:31-04:00   4af71342a182f031e6e146af01cb9e39
   development: 2018-05-10T16:44:24-04:00   4af71342a182f031e6e146af01cb9e39
