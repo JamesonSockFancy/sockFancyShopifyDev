@@ -269,7 +269,9 @@ BOLD.bms_ro_loader = {
       var is_gift = form['properties[is_gift]'].checked;
 
       // var gift_from = form['properties[To]'].value;
-      var gift_msg = form['properties[Gift Message]'].value;
+      // Set the gift message, but strip out line breaks, trim whitespace and condense any double-spaces to a single space
+      var gift_msg = form['properties[Gift Message]'].value.split('\n').join(' ').split('\r').join(' ').trim();
+      while(gift_msg.indexOf('  ') > -1){ gift_msg = gift_msg.replace('  ', ' ')}
 
       var note;
       if(is_gift){
@@ -286,6 +288,10 @@ BOLD.bms_ro_loader = {
   },
   verifyRequiredSelections:function(form){
     if(!form.id || !form.id.value) {
+      return false;
+    }
+    //If none of the payment options are selected, return false
+    if(!form.querySelector('input[name="properties[is_prepaid]"]:checked')){
       return false;
     }
     var total_recurrences_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[total_recurrences]')
@@ -331,6 +337,51 @@ BOLD.bms_ro_loader = {
       is_prepaid_field.value = 'on';
       BOLD.helpers.triggerChange(is_prepaid_on_radio);
     }
+  },
+  updateGiftRemainingCharacters:function(message_textarea){
+    var maxlength = {{ settings.bms_gift_message_max_length | default: 250 | json }};
+    var current = message_textarea.value.length;
+    var remaining = maxlength - current;
+
+    // On the off-chance that the field has too many characters, truncate
+    if(remaining <0){
+      message_textarea.value = message_textarea.value.substr(0, maxlength)
+      remaining = 0
+    }
+
+    var warning_element = message_textarea.warning_element;
+    if(!warning_element){
+      warning_element =  message_textarea.warning_element = document.createElement('span');
+      warning_element.className = 'gift-message-character-count-warning';
+      {% if settings.bms_gift_message_warning_location == 'below' %}
+      message_textarea.parentElement.appendChild(warning_element);
+      {% else %}
+      message_textarea.parentElement.insertBefore(warning_element, message_textarea);
+      {% endif %}
+    }
+    var warning_template = {{ 'bold.gift_subscriptions.text_area_length_warning_html' | t | json }};
+    {% raw %}warning_element.innerHTML = warning_template.replace('{{ remaining }}', remaining).replace('{{ max }}', maxlength);{% endraw %}
+
+    if(warning_element.classList){
+      var usage = (maxlength-remaining)/maxlength;
+      if(usage < 0.5){
+        warning_element.classList.remove('message_half')
+        warning_element.classList.remove('message_threequarters')
+        warning_element.classList.remove('message_ninetenths')
+      } else if(usage < 0.75){
+        warning_element.classList.add('message_half')
+        warning_element.classList.remove('message_threequarters')
+        warning_element.classList.remove('message_ninetenths')
+      } else if(usage < 0.9){
+        warning_element.classList.remove('message_half')
+        warning_element.classList.add('message_threequarters')
+        warning_element.classList.remove('message_ninetenths')
+      } else {
+        warning_element.classList.remove('message_half')
+        warning_element.classList.remove('message_threequarters')
+        warning_element.classList.add('message_ninetenths')}
+    }
+
   },
   ensureGiftHasDuration:function(form){
     var is_gift_checkbox = form['properties[is_gift]'];
@@ -530,6 +581,10 @@ BOLD.bms_ro_loader = {
       form['properties[is_prepaid]'].value = '';
       form['properties[prepaid_length_id]'].value = '';
 
+      //Also clear the name of these fields, since having them exist-but-empty may cause buggy behaviour
+      form.querySelector('input[name="properties[is_prepaid]"]:checked').name='';
+      form['properties[prepaid_length_id]'].name = '';
+
       {% if settings.bms_ro_gift_requires_sub_length %}
       //If it's a not a gift, clear total_recurrences
       if(!is_gift){
@@ -537,6 +592,7 @@ BOLD.bms_ro_loader = {
       }
       {% else %}
       BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
+      form['properties[is_gift]'].name = ''
       {% endif %}
     } else {
       var single_recurring = document.createElement('input');
@@ -577,6 +633,7 @@ BOLD.bms_ro_loader = {
     cartIdInput.value = BOLD.helpers.getCookie('cart');
 
     cashierForm.appendChild(cartIdInput);
+    cashierForm.appendChild(document.querySelector('.landing-site-ref'));
     document.body.appendChild(cashierForm);
     cashierForm.submit();
 

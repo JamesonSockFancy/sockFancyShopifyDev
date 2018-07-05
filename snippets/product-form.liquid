@@ -15,6 +15,7 @@
         data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
       {% endif %}
       data-product-id="{{ product.id }}">
+      <input type="hidden" name="bold_cart_params[landing_site_ref]" class="landing-site-ref" value="{{ cart.attributes.landing_site_ref }}">
 
 {% include 'bms-subscription-product-lookup-and-json', output_form_fields: true %}
 

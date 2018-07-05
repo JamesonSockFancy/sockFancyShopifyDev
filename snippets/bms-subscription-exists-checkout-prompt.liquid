@@ -5,6 +5,7 @@
 
   <p class="subscription_page_existing_sub_message_html">{{ 'bold.existing_subscription.subscription_page_existing_sub_message_html' | t }}</p>
   <form class="direct-to-checkout" enctype="multipart/form-data" method="post" action="/cart">
+    <input type="hidden" name="bold_cart_params[landing_site_ref]" class="landing-site-ref" value="{{ cart.attributes.landing_site_ref }}">
     <div class="existing_subscription_checkout_button">
       <button class="custom-subscription-submit" name="checkout" type="submit">
         <span class="custom-subscription-submit-text">{{ 'bold.existing_subscription.subscription_page_checkout_html' | t }}</span>

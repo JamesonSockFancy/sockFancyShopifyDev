@@ -481,6 +481,9 @@
       "subscription_page_after_checkout_html": "<header><h3>Your selection<\/h3> <p>{{ subscription_title }}<\/p><\/header>",
       "product_page_existing_sub_header_html": "Free shipping with your subscription!",
       "product_page_existing_sub_message_html": "This pair of socks will arrive with the first order in your subscription"
+    },
+    "gift_subscriptions": {
+      "text_area_length_warning_html": "{{ remaining }} of {{ max }} characters remaining"
     }
   }
 }

@@ -5,8 +5,8 @@
     <label for="is_gift_toggle"></label>
     <div class="expanded-text-body gift-details">
       {% comment %}<input type="text" placeholder="{{ 'bold.recurring_orders.gift_message_to_placeholder_html' | t }}" name="properties[To]" /> {% endcomment %}
-      
-      <textarea placeholder="{{ 'bold.recurring_orders.gift_message_placeholder_html' | t }}" name="properties[Gift Message]" ></textarea>
+
+      <textarea placeholder="{{ 'bold.recurring_orders.gift_message_placeholder_html' | t }}" name="properties[Gift Message]" onkeyup="BOLD.bms_ro_loader.updateGiftRemainingCharacters(this)" maxlength="{{ settings.bms_gift_message_max_length | default: 250 }}"></textarea>
     </div>
   </header>
 </div>

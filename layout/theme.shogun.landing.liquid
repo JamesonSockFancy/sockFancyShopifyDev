@@ -11,19 +11,18 @@ This file can be re-written at any time.
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
   
 <head>
-  
-      <script
+<script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>  
       <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
-        <!-- End Google Tag Manager -->
-        <script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
+  <!-- End Google Tag Manager -->
+          <script>
            dataLayer = [] ;
         </script>
     <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
@@ -100,6 +99,7 @@ This file can be re-written at any time.
 {% include 'bms-save-subscription-product-group-ids' %}
 <script src="{{ 'bms-custom-ro-loader.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'bms-ajax-subscription-page.js' | asset_url }}" type="text/javascript" defer></script>
+{% if settings.bms_enable_promo_code %}<script src="{{ 'bms-free-gifts.js' | asset_url }}" type="text/javascript" defer></script>{% endif %}
 {%- include 'bold-ro-init' -%}
 {%- include 'bms-ro-custom-template' -%}
 {%- endif -%}
@@ -188,7 +188,40 @@ This file can be re-written at any time.
 
     {{ 'lity.css' | asset_url | stylesheet_tag }}
     {{ 'lity.js' | asset_url | script_tag }}
-
+    
+    {% comment %} fomo tag {% endcomment %}
+    <script type="text/javascript" src="https://www.usefomo.com/api/v1/fr8SxFhhdDxBL2pKXhG-7w/load.js" async></script>
+    <script>
+    window['friendbuy'] = window['friendbuy'] || [];
+    window['friendbuy'].push(['site', 'site-f7faf493-www.sockfancy.com']);
+    window['friendbuy'].push(['track', 'customer',
+        {
+            id: '{{ customer.id }}', //INSERT CUSTOMER ID PARAMETER
+            email: '{{ customer.email }}', //INSERT CUSTOMER EMAIL PARAMETER
+            first_name: '{{ customer.first_name }}', //INSERT CUSTOMER FIRST NAME PARAMETER
+            last_name: '{{ customer.last_name }}' //INSERT CUSTOMER LAST NAME PARAMETER
+        }
+    ]);
+    (function (f, r, n, d, b, y) {
+        b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+    })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
+    </script>
+    <!-- Pinterest Tag -->
+      <script>
+      !function(e){if(!window.pintrk){window.pintrk = function () {
+      window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+      n=window.pintrk;n.queue=[],n.version="3.0";var
+      t=document.createElement("script");t.async=!0,t.src=e;var
+      r=document.getElementsByTagName("script")[0];
+      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+        pintrk('load', '2618285542740', {em: '{{ customer.email }}'});
+        pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+      src="https://ct.pinterest.com/v3/?tid=2618285542740&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- end Pinterest Tag -->
   
 </head>
 
@@ -216,7 +249,7 @@ This file can be re-written at any time.
   {{ content_for_layout }}
   
   <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
-<script>
+  <script>
        let productDatalayer = {{ product | json }};
        let prodCollections = {{ product.collections | json }};
        $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/product_datalayer.js", 

@@ -3354,6 +3354,28 @@
         "label": "Show a subscription duration for pay-per-month gifts?"
       },
       {
+        "id": "bms_gift_message_max_length",
+        "type": "number",
+        "label": "Max. characters for gift messages",
+        "default": 250
+      },
+      {
+        "id": "bms_gift_message_warning_location",
+        "type": "select",
+        "label": "Position of character count\/warning for gift messages",
+        "default": "below",
+        "options": [
+          {
+            "value": "above",
+            "label": "Above"
+          },
+          {
+            "value": "below",
+            "label": "Below"
+          }
+        ]
+      },
+      {
         "id": "bms_enable_promo_code",
         "type": "checkbox",
         "label": "Enable free-product promo code box?",

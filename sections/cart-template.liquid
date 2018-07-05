@@ -13,6 +13,7 @@
     </div>
   {% else %}
     <form action="/cart" method="post" id="cart_form">
+      <input type="hidden" name="bold_cart_params[landing_site_ref]" class="landing-site-ref" value="{{ cart.attributes.landing_site_ref }}">
       <div class="section clearfix">
         <div class="ten columns cart_items">
           <h4 class="title">{{ 'cart.general.products' | t }}</h4>

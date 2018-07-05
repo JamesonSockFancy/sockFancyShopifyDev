@@ -2120,3 +2120,28 @@ $(document)
     banner_image.init();
 
 });
+
+function getUrlParameter(name) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+$(function(){
+  var param = getUrlParameter('ref') || getUrlParameter('source') || getUrlParameter('r');
+  if(param){
+    $.ajax({
+      url: '/cart/update.js',
+      type: 'post',
+      dataType: 'json',
+      data: {
+        attributes: {
+          'landing_site_ref': param
+            }
+        }
+    })
+
+    $('.landing-site-ref').val(param);
+  }
+})
