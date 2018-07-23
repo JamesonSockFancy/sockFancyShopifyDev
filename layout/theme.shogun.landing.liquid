@@ -14,15 +14,15 @@ This file can be re-written at any time.
 <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>  
-      <!-- Google Tag Manager -->
+      crossorigin="anonymous"></script>    
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
   <!-- End Google Tag Manager -->
-          <script>
+        <script>
            dataLayer = [] ;
         </script>
     <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
@@ -249,56 +249,6 @@ This file can be re-written at any time.
   {{ content_for_layout }}
   
   <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
-  <script>
-       let productDatalayer = {{ product | json }};
-       let prodCollections = {{ product.collections | json }};
-       $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/product_datalayer.js", 
-       function( data, textStatus, jqxhr ) {
-         console.log( "product datalayer" );
-         console.log( textStatus );
-         console.log( jqxhr.status );
-         console.log( "Load was performed." );});
-       </script>
-<script>
-     let cartDatalayer = {{ cart | json }};
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/cart_datalayer.js", 
-     function( data, textStatus, jqxhr ) {
-       console.log( "cart datalayer" );
-       console.log( textStatus );
-       console.log( jqxhr.status );
-       console.log( "Load was performed." );
-       });
-       </script>
-<script>        
-       let searchTerms = '{{ search.terms }}';        
-       $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/search_datalayer.js", 
-       function( data, textStatus, jqxhr ) {          
-         console.log( "search datalayer" );           
-         console.log( textStatus );           
-         console.log( jqxhr.status );           
-         console.log( "Load was performed." );        
-         });    
-         </script>
-<script>
-     let atcProduct = {{ product | json }};    
-     let atcCollections = {{ product.collections | json }};    
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/add_to_cart_datalayer.js", 
-     function( data, textStatus, jqxhr ) {      console.log( "add to cart datalayer" );       
-      console.log( textStatus );       
-      console.log( jqxhr.status );      
-      console.log( "Load was performed." );});  
-     </script>
-<script>  
-     let collectionDatalayer = {{ collection | json }};        
-     let collectionDatalayerId = '{{ collection.id }}';        
-     let collectionDatalayerTitle = '{{ collection.title }}';     
-     $.getScript( "https://shopifygtm.herokuapp.com/shopify_datalayers/collection_datalayer.js", 
-     function( data, textStatus, jqxhr ) {      
-       console.log( "collection datalayer" );       
-       console.log( textStatus );       
-       console.log( jqxhr.status );       
-       console.log( "Load was performed." );});  
-     </script>
   <style type="text/css">
     body, html {
       width: 100% !important;

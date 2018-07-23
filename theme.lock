@@ -236,7 +236,7 @@ assets/zendesk-embeddable.js:
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
   development: 2018-06-22T14:07:34-04:00   18aa5824bf2d747d21a1326defe9ec96
-  production: 2018-06-12T11:52:05-04:00   18aa5824bf2d747d21a1326defe9ec96
+  production: 2018-07-20T15:35:45-04:00   cc573c8357ff23a0eb466a1f2a87e3c0
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
   development: 2018-05-25T15:43:05-04:00   03ebcc1a0c6ffff6ef17ffe35e896ad1
@@ -250,7 +250,7 @@ layout/theme.liquid:
   production: 2018-06-19T16:40:29-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
 layout/theme.shogun.landing.liquid:
   development: 2018-05-25T15:43:04-04:00   bb356351819700d1af9718dd3762cc52
-  production: 2018-07-05T16:14:40-04:00   4b0682238713f31f32c8953cdc35b075
+  production: 2018-07-20T15:39:44-04:00   a8dc314e50a4b232937cc87e4a65414f
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
   development: 2018-04-16T11:34:06-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -503,7 +503,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-05-25T15:43:08-04:00   3de26be24361e2b68acbf274a6846526
-  production: 2018-05-30T12:39:44-04:00   3de26be24361e2b68acbf274a6846526
+  production: 2018-07-12T17:47:17-04:00   7f58237cadca2ca3979963e0e64a9363
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122
@@ -754,7 +754,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-05-25T15:43:07-04:00   4e532a92e292d1a9dbbad69cfb070ec8
-  production: 2018-07-04T12:32:52-04:00   d375f4e26811abdf49fb7a836a509df7
+  production: 2018-07-20T15:39:45-04:00   dcaeef3e92b9bfcdc144baa17175f283
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
