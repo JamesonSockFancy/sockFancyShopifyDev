@@ -5,6 +5,7 @@ assets/77ecc960973800bc72474ed1798c32e9.js:
   production: 2018-02-27T12:53:07-05:00   b2f291522f093f0b3f512656f2a7c122
 assets/Arrows.svg:
   development: 2018-07-23T15:59:59-04:00   f7cc6148f85f399679eb438726828e92
+  production: 2018-07-23T17:05:21-04:00   f7cc6148f85f399679eb438726828e92
 assets/BuzzFeed.png:
   boldDev: 2018-05-01T11:08:54-04:00   36ec2242bd0447b75836a473aa9dcd7d
   development: 2018-04-16T11:33:58-04:00   36ec2242bd0447b75836a473aa9dcd7d
@@ -15,6 +16,7 @@ assets/CNN.png:
   production: 2018-03-29T11:07:15-04:00   e774b0ef0d4d34e5fe44a5bca6ae9f3a
 assets/Customize.svg:
   development: 2018-07-23T16:13:36-04:00   c07c3deaa32c9a2b44b60683fb5da0c8
+  production: 2018-07-23T17:05:20-04:00   c07c3deaa32c9a2b44b60683fb5da0c8
 assets/Full-Shot-2016_no_bg_6pk_b.png:
   boldDev: 2018-05-01T11:08:57-04:00   eac87a499d941491e13dacd1ad352dbd
   development: 2018-04-16T11:33:58-04:00   eac87a499d941491e13dacd1ad352dbd
@@ -41,8 +43,10 @@ assets/Mashable.png:
   production: 2018-03-29T11:06:47-04:00   516ee036f0c7394fadcb412da2ca7df2
 assets/Package.svg:
   development: 2018-07-23T16:15:12-04:00   b9cbf82c47718c66467a597a8543edc7
+  production: 2018-07-23T17:05:18-04:00   b9cbf82c47718c66467a597a8543edc7
 assets/Plane.svg:
   development: 2018-07-23T15:59:53-04:00   e5536b3df2d235fa51f122711782a849
+  production: 2018-07-23T17:05:19-04:00   e5536b3df2d235fa51f122711782a849
 assets/Refer A Friend.jpg:
   development: 2018-05-15T15:21:13-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
   production: 2018-05-16T14:41:03-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
@@ -51,8 +55,10 @@ assets/Refer-A-Friend.jpg:
   production: 2018-05-16T14:41:04-04:00   1693e8a2cd03179a4e4c95ee6f1d37cd
 assets/Smile.svg:
   development: 2018-07-23T15:59:52-04:00   cca957cd0cfe7ac3adbe2a167ee36978
+  production: 2018-07-23T17:05:21-04:00   cca957cd0cfe7ac3adbe2a167ee36978
 assets/Socks.svg:
   development: 2018-07-23T16:15:11-04:00   1048d00f387283d53842b21f1d1e542f
+  production: 2018-07-23T17:05:16-04:00   1048d00f387283d53842b21f1d1e542f
 assets/airplane.png:
   boldDev: 2018-05-01T11:09:00-04:00   8769667b3c3fb8267bf3c4a47eed9512
   development: 2018-04-16T11:33:59-04:00   8769667b3c3fb8267bf3c4a47eed9512
@@ -74,7 +80,7 @@ assets/bms-custom-ro-loader.js.liquid:
   production: 2018-06-29T14:50:26-04:00   92c1354c50a5df5e3f71b7415329de11
 assets/bms-custom-styles.scss.liquid:
   development: 2018-07-23T16:47:42-04:00   08026c711fc2a324979b2cf14a940845
-  production: 2018-06-29T14:50:45-04:00   7fa3c0eadcb5ad6182ac4294aef57894
+  production: 2018-07-23T17:05:19-04:00   08026c711fc2a324979b2cf14a940845
 assets/bms-free-gifts.js.liquid:
   development: 2018-05-25T15:43:12-04:00   aacf2744eaa636f5a8217f486efaf3ef
   production: 2018-05-24T12:02:36-04:00   aacf2744eaa636f5a8217f486efaf3ef
@@ -87,7 +93,7 @@ assets/bms-randomize-subscription-product.js.liquid:
   production: 2018-05-24T15:45:21-04:00   72ceb8018e264b853c4b48710f7aaa49
 assets/bms-styles.css.liquid:
   development: 2018-07-23T16:47:41-04:00   86f2995b023cd8a32f5706bed08a820e
-  production: 2018-05-17T16:31:55-04:00   5bfa9c56d37bf4512007a1d383503e07
+  production: 2018-07-23T17:05:16-04:00   86f2995b023cd8a32f5706bed08a820e
 assets/bold-checkout-options.js:
   boldDev: 2018-05-01T10:42:42-04:00   1cd192033fae68dbb310fbf280b80426
   development: 2018-05-25T15:43:01-04:00   f2d705fcee585523bcd22d76a9d9a563
@@ -262,7 +268,7 @@ layout/theme.liquid:
   production: 2018-06-19T16:40:29-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
 layout/theme.shogun.landing.liquid:
   development: 2018-07-23T15:59:58-04:00   dfdb834e89d536badfa36016d0e80dca
-  production: 2018-07-20T15:39:44-04:00   a8dc314e50a4b232937cc87e4a65414f
+  production: 2018-07-23T17:05:18-04:00   dfdb834e89d536badfa36016d0e80dca
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
   development: 2018-04-16T11:34:06-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -366,7 +372,7 @@ sections/header.liquid:
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
   development: 2018-07-23T16:03:22-04:00   0e1660aed7cdad29a34702313aec86f9
-  production: 2018-06-07T11:33:24-04:00   3835c8dab4bc04ce60de17d4ed81682e
+  production: 2018-07-23T17:05:17-04:00   0e1660aed7cdad29a34702313aec86f9
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
   development: 2018-04-16T11:33:57-04:00   b5589867dcbdb95fad1dcbd43524b25a
@@ -515,7 +521,7 @@ snippets/bold-checkout-loader.liquid:
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-07-12T17:47:11-04:00   7f4c68e3a3d8769f3ab5533e40d83728
-  production: 2018-07-12T17:47:17-04:00   7f58237cadca2ca3979963e0e64a9363
+  production: 2018-07-23T17:05:17-04:00   7f4c68e3a3d8769f3ab5533e40d83728
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
   development: 2018-04-16T11:34:07-04:00   3989c41f82d7a9a92fef1d8f2a367122
@@ -766,7 +772,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-07-23T16:00:00-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
-  production: 2018-07-20T15:39:45-04:00   dcaeef3e92b9bfcdc144baa17175f283
+  production: 2018-07-23T17:05:20-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
