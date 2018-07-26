@@ -375,7 +375,7 @@ sections/header.liquid:
   production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-07-26T15:42:19-04:00   f5949ddee5b2ff391d542f23a58ce281
+  development: 2018-07-26T15:44:06-04:00   42775b2b325ff62c179df4a77b6fba38
   production: 2018-07-23T17:05:17-04:00   0e1660aed7cdad29a34702313aec86f9
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
