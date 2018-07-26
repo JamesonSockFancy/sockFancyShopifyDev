@@ -6,6 +6,8 @@ assets/77ecc960973800bc72474ed1798c32e9.js:
 assets/Arrows.svg:
   development: 2018-07-23T15:59:59-04:00   f7cc6148f85f399679eb438726828e92
   production: 2018-07-23T17:05:21-04:00   f7cc6148f85f399679eb438726828e92
+assets/Blue_bg-live.jpg:
+  development: 2018-07-26T12:13:05-04:00   2f2f93e4639a806c038e98336b0411f9
 assets/BuzzFeed.png:
   boldDev: 2018-05-01T11:08:54-04:00   36ec2242bd0447b75836a473aa9dcd7d
   development: 2018-04-16T11:33:58-04:00   36ec2242bd0447b75836a473aa9dcd7d
@@ -37,6 +39,8 @@ assets/Instagram_Shop.jpg:
   boldDev: 2018-05-01T11:08:52-04:00   897a0fac401a972aa951bfb8780c0d9f
   development: 2018-04-16T11:33:59-04:00   897a0fac401a972aa951bfb8780c0d9f
   production: 2018-03-29T11:07:07-04:00   897a0fac401a972aa951bfb8780c0d9f
+assets/Legs-live.png:
+  development: 2018-07-26T12:13:05-04:00   f8b279248137c6520fd274aecfbdcd2a
 assets/Mashable.png:
   boldDev: 2018-05-01T11:08:55-04:00   516ee036f0c7394fadcb412da2ca7df2
   development: 2018-04-16T11:33:59-04:00   516ee036f0c7394fadcb412da2ca7df2
@@ -57,7 +61,7 @@ assets/Smile.svg:
   development: 2018-07-23T15:59:52-04:00   cca957cd0cfe7ac3adbe2a167ee36978
   production: 2018-07-23T17:05:21-04:00   cca957cd0cfe7ac3adbe2a167ee36978
 assets/Socks.svg:
-  development: 2018-07-23T16:15:11-04:00   1048d00f387283d53842b21f1d1e542f
+  development: 2018-07-26T12:13:04-04:00   37c5e0ead9dfbdc8555597743ea3967e
   production: 2018-07-23T17:05:16-04:00   1048d00f387283d53842b21f1d1e542f
 assets/airplane.png:
   boldDev: 2018-05-01T11:09:00-04:00   8769667b3c3fb8267bf3c4a47eed9512
@@ -253,7 +257,7 @@ assets/zendesk-embeddable.js:
   development: 2018-04-16T11:34:06-04:00   2241cec5637b5d288e343c040ac9486f
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
-  development: 2018-07-23T16:00:03-04:00   cc573c8357ff23a0eb466a1f2a87e3c0
+  development: 2018-07-26T12:13:07-04:00   9d799e5e0ee9988083dd75e8f1594141
   production: 2018-07-20T15:35:45-04:00   cc573c8357ff23a0eb466a1f2a87e3c0
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
