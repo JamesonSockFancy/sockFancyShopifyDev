@@ -96,7 +96,7 @@ assets/bms-randomize-subscription-product.js.liquid:
   development: 2018-05-25T15:43:05-04:00   72ceb8018e264b853c4b48710f7aaa49
   production: 2018-05-24T15:45:21-04:00   72ceb8018e264b853c4b48710f7aaa49
 assets/bms-styles.css.liquid:
-  development: 2018-07-26T16:02:28-04:00   4b63918573716a2225aaac84e4d3b790
+  development: 2018-07-26T16:57:35-04:00   ce7531ed80733d1b1a2dbf83f7044a9b
   production: 2018-07-23T17:05:16-04:00   86f2995b023cd8a32f5706bed08a820e
 assets/bold-checkout-options.js:
   boldDev: 2018-05-01T10:42:42-04:00   1cd192033fae68dbb310fbf280b80426
@@ -375,7 +375,7 @@ sections/header.liquid:
   production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-07-26T15:58:28-04:00   479894bfe4a64e11ffe5edd8b2b4ab59
+  development: 2018-07-26T16:57:35-04:00   e0b6df44da5ee0f05601f8227a9e8165
   production: 2018-07-23T17:05:17-04:00   0e1660aed7cdad29a34702313aec86f9
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
