@@ -120,7 +120,7 @@ BOLD.BMS_Randomizer.prototype = {
       return setTimeout(function(){ this.setRandomId(collection, qty, hisAndHers, retries) }.bind(this), 750)
     }
     var initial_offset = (this.buffer * qty) + Math.floor(this.buffer * (qty-1) * 0.5 );
-    var trailing_offset = (this.buffer * qty);
+    var trailing_offset = Math.max(this.buffer * qty, qty);
 
     var starting_index = this.rollRandomNumber(initial_offset, product_list.length - trailing_offset);
     if(hisAndHers && !this.selectionIsFiftyFifty(product_list, starting_index, qty) && (retries || 0) < 20 ){
@@ -132,7 +132,6 @@ BOLD.BMS_Randomizer.prototype = {
 
     var starting_id = this.getProductId(product_list[starting_index])
     this.random_id_field.value = starting_id;
-    console.log('Begin on:', starting_id);
     return starting_id;
   },
   rollRandomNumber:function(min,max){
@@ -159,7 +158,6 @@ BOLD.BMS_Randomizer.prototype = {
       //Unisex socks could count as either his or hers - adjust the threshold of how many of each are required appropriately
       //Example: if 1 unisex 'wildcard' sock is in the mix for a 6-pack, the remaining products should be a 2-3 split (so both his and hers must be >= 2)
       var threshold = Math.floor((qty - unisex_count) * 0.5)
-      console.log('Fitty-fitty:', (his_count >= threshold && hers_count >= threshold) );
       return (his_count >= threshold && hers_count >= threshold)
     }
 
@@ -209,10 +207,13 @@ BOLD.BMS_Randomizer.prototype = {
     /* Save all the variant IDs (in order!) to associate them with the right collection */
     var pageObj = this.product_pages;
     var pageArr = pageObj[collection] = (pageObj[collection] || [])
-    pageArr[page] = evt.products;
+
+    var products = evt.products.filter(function(prod){ return prod.variants.filter(function(variant){ return variant.available }).length })
+
+    pageArr[page] = products;
     this.generateProductArray(collection);
 
-    BOLD.helpers.triggerEvent('BMS-Random.products.loaded', { products:evt.products, collection:collection, page:page})
+    BOLD.helpers.triggerEvent('BMS-Random.products.loaded', { products:products, collection:collection, page:page})
     this.makeRandomSelecton()
   },
   onInputChanged:function(evt){
