@@ -87,7 +87,7 @@ assets/bms-custom-ro-loader.js.liquid:
   development: 2018-07-23T16:00:00-04:00   92c1354c50a5df5e3f71b7415329de11
   production: 2018-06-29T14:50:26-04:00   92c1354c50a5df5e3f71b7415329de11
 assets/bms-custom-styles.scss.liquid:
-  development: 2018-07-23T16:47:42-04:00   08026c711fc2a324979b2cf14a940845
+  development: 2018-08-06T15:42:05-04:00   82eff042c893c0717a98afb64e6c529b
   production: 2018-07-23T17:05:19-04:00   08026c711fc2a324979b2cf14a940845
 assets/bms-free-gifts.js.liquid:
   development: 2018-05-25T15:43:12-04:00   aacf2744eaa636f5a8217f486efaf3ef
@@ -246,7 +246,7 @@ assets/soldout.png:
   development: 2018-04-16T11:34:05-04:00   6a7697db19e17aae7568e216c2b365af
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
-  development: 2018-06-22T16:27:43-04:00   c67e8fa3a9d8e80fb5471c82a699a343
+  development: 2018-08-06T15:42:06-04:00   a42e999ba9d8adef207c488b1bb78f37
   production: 2018-06-22T16:53:08-04:00   c67e8fa3a9d8e80fb5471c82a699a343
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
@@ -375,7 +375,7 @@ sections/gallery.liquid:
   production: 2018-02-27T12:53:05-05:00   83367edcb8edc12cbd4b9eda870f55ff
 sections/header.liquid:
   boldDev: 2018-05-02T13:42:00-04:00   c0c000b22a8f177ebe001bbb86ddf40f
-  development: 2018-05-09T16:02:59-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
+  development: 2018-08-06T15:42:05-04:00   40837b0052cab72772c535aca016b11a
   production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
