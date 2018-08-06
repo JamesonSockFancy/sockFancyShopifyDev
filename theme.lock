@@ -65,6 +65,8 @@ assets/Smile.svg:
 assets/Socks.svg:
   development: 2018-07-26T12:13:04-04:00   37c5e0ead9dfbdc8555597743ea3967e
   production: 2018-07-23T17:05:16-04:00   1048d00f387283d53842b21f1d1e542f
+assets/SubOptions.jpg:
+  development: 2018-08-06T15:14:16-04:00   91c4ad903e1aa13090c4793b61453be0
 assets/airplane.png:
   boldDev: 2018-05-01T11:09:00-04:00   8769667b3c3fb8267bf3c4a47eed9512
   development: 2018-04-16T11:33:59-04:00   8769667b3c3fb8267bf3c4a47eed9512
@@ -377,7 +379,7 @@ sections/header.liquid:
   production: 2018-05-10T12:20:50-04:00   b3b6f4d9eda8dd8acd8ee42b34d09585
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-08-06T13:38:17-04:00   9d6282ac36e603941b6dcba7338262df
+  development: 2018-08-06T15:14:17-04:00   a42ac904b29852fd1c90b833be47f067
   production: 2018-07-23T17:05:17-04:00   0e1660aed7cdad29a34702313aec86f9
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
