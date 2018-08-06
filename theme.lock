@@ -100,7 +100,7 @@ assets/bms-randomize-subscription-product.js.liquid:
   development: 2018-08-01T12:58:35-04:00   5fe20e9d0eaa938244714eab05ed7695
   production: 2018-07-25T13:39:01-04:00   5fe20e9d0eaa938244714eab05ed7695
 assets/bms-styles.css.liquid:
-  development: 2018-08-06T16:51:14-04:00   1bf5e739f71aac6cde944f373a9bd39a
+  development: 2018-08-06T16:52:48-04:00   d7111f28e66c60277fe68733cd2919fb
   production: 2018-07-23T17:05:16-04:00   86f2995b023cd8a32f5706bed08a820e
 assets/bold-checkout-options.js:
   boldDev: 2018-05-01T10:42:42-04:00   1cd192033fae68dbb310fbf280b80426
