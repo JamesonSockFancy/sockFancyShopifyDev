@@ -8,6 +8,8 @@ assets/Arrows.svg:
   production: 2018-07-23T17:05:21-04:00   f7cc6148f85f399679eb438726828e92
 assets/Blue_bg-live.jpg:
   development: 2018-07-26T12:13:05-04:00   2f2f93e4639a806c038e98336b0411f9
+assets/Blue_bg.jpg:
+  development: 2018-08-06T17:00:13-04:00   865272fa4ac86274de5a4c0feaef0815
 assets/BuzzFeed.png:
   boldDev: 2018-05-01T11:08:54-04:00   36ec2242bd0447b75836a473aa9dcd7d
   development: 2018-04-16T11:33:58-04:00   36ec2242bd0447b75836a473aa9dcd7d
@@ -261,7 +263,7 @@ assets/zendesk-embeddable.js:
   development: 2018-04-16T11:34:06-04:00   2241cec5637b5d288e343c040ac9486f
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
-  development: 2018-07-26T12:13:07-04:00   9d799e5e0ee9988083dd75e8f1594141
+  development: 2018-08-06T17:00:15-04:00   2330af6b1c4289a2e6d8f3243800a5ab
   production: 2018-07-20T15:35:45-04:00   cc573c8357ff23a0eb466a1f2a87e3c0
 config/settings_schema.json:
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
