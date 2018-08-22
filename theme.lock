@@ -284,7 +284,7 @@ layout/theme.liquid:
   production: 2018-06-19T16:40:29-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
 layout/theme.shogun.landing.liquid:
   development: 2018-08-01T12:58:35-04:00   e8a895144c029d95f172cadf23c8912f
-  production: 2018-08-21T20:13:54-04:00   a8dc314e50a4b232937cc87e4a65414f
+  production: 2018-08-22T11:27:36-04:00   fa73e5659c6a7e6d45a0eae0446b237f
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
   development: 2018-04-16T11:34:06-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -788,7 +788,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-07-23T16:00:00-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
-  production: 2018-08-21T20:13:56-04:00   dcaeef3e92b9bfcdc144baa17175f283
+  production: 2018-08-22T11:27:37-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
