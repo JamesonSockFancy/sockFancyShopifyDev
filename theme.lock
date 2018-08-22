@@ -339,7 +339,7 @@ assets/zendesk-embeddable.js:
   noshowDev: 2018-07-26T11:18:02-04:00   2241cec5637b5d288e343c040ac9486f
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
-  development: 2018-08-22T16:53:26-04:00   969c959a1e838d0904560236e84c6fa6
+  development: 2018-08-22T16:59:12-04:00   a74fb71221b2716f789e3bb267805438
   noshowDev: 2018-08-22T12:43:53-04:00   207203481a2f691b1377d05e13ffea12
   production: 2018-08-16T10:47:09-04:00   db0f34238455e4be2d068f757cd3b9f8
 config/settings_schema.json:
@@ -1062,7 +1062,7 @@ templates/product.subscription.liquid:
   noshowDev: 2018-08-22T13:05:13-04:00   d640ab1c5635c26a37c39371c89d8c3c
   production: 2018-06-07T16:43:58-04:00   d640ab1c5635c26a37c39371c89d8c3c
 templates/product.subscription_new.liquid:
-  development: 2018-08-22T16:53:11-04:00   39a4b0ecc98bbe3f4e7b093606cc7eca
+  development: 2018-08-22T16:59:10-04:00   614f59ca629d801f31bb809369936a18
   noshowDev: 2018-08-16T12:06:22-04:00   39a4b0ecc98bbe3f4e7b093606cc7eca
   production: 2018-08-07T09:37:55-04:00   a07891d150cc7e5372e3ef6a46d09398
 templates/search.liquid:
