@@ -26,7 +26,9 @@ BOLD.BMS_Randomizer.prototype = {
         'subscription-mens-limited-edition',
         'subscription-mens-crew-only',
         'subscription-womens-limited-edition',
-        'subscription-womens-crew-only'
+        'subscription-womens-crew-only',
+        'subscription-womens-no-show',
+        'subscription-mens-no-show'
       ]
     this.product_pages = {  /* Key: Collection handle; Values: Array of product arrays with type & variant IDs */ }
     this.product_lookup={ /* Key: Collection handle; Values: Array of products with type & variant IDs, a concatination of the above */ }
@@ -90,11 +92,27 @@ BOLD.BMS_Randomizer.prototype = {
     }
     collection_handle += size.toLowerCase().replace(' & ', '-')
 
-    var type = form['product-option-group-1'].value;
+    var type = form['product-option-group-3'].value;
     if(!type){
       return null;
     }
-    collection_handle += (type.toLowerCase().indexOf('crew') > -1 ? '-crew-only' : '-limited-edition');
+
+    {% comment %} collection_handle += (type.toLowerCase().indexOf('crew') > -1 ? '-crew-only' : '-limited-edition');  {% endcomment %}
+
+
+
+   if(type.toLowerCase().indexOf('crew') > -1) {
+      collection_handle += '-crew-only';
+    } else if(type.toLowerCase().indexOf('show') > -1) {
+      collection_handle += '-no-show'
+    } else {
+      collection_handle += '-limited-edition'
+    }
+
+  {% comment %} console.log('type.toLowerCase()', type.toLowerCase()); {% endcomment %}
+
+
+
     return collection_handle;
   },
   determineSelectedQuantity:function(){
@@ -113,6 +131,7 @@ BOLD.BMS_Randomizer.prototype = {
     return size.toLowerCase() === 'his & hers'
   },
   setRandomId:function(collection, qty, hisAndHers, retries){
+
     /* Given a collection handle, pick a random sock and set it.  Modify the buffer based on qty */
     var product_list = this.product_lookup[collection];
     if(!product_list){
@@ -120,7 +139,7 @@ BOLD.BMS_Randomizer.prototype = {
       return setTimeout(function(){ this.setRandomId(collection, qty, hisAndHers, retries) }.bind(this), 750)
     }
     var initial_offset = (this.buffer * qty) + Math.floor(this.buffer * (qty-1) * 0.5 );
-    var trailing_offset = Math.max(this.buffer * qty, qty);
+    var trailing_offset = Math.max(this.buffer * qty, qty-1);
 
     var starting_index = this.rollRandomNumber(initial_offset, product_list.length - trailing_offset);
     if(hisAndHers && !this.selectionIsFiftyFifty(product_list, starting_index, qty) && (retries || 0) < 20 ){
@@ -133,6 +152,7 @@ BOLD.BMS_Randomizer.prototype = {
     var starting_id = this.getProductId(product_list[starting_index])
     this.random_id_field.value = starting_id;
     return starting_id;
+
   },
   rollRandomNumber:function(min,max){
     var spread = max - min;
@@ -235,3 +255,175 @@ BOLD.helpers.debounce = function debounce(debounced_function, wait, identifier){
   }
 };
 var rndprd = new BOLD.BMS_Randomizer(document.querySelector('.custom-subscription-form'));
+
+
+{% comment %} bms mdr inclusions {% endcomment %}
+
+
+    $(function() {
+
+      if($(window).width() > 425) {
+        var warningOffset = 110;
+        var nextOptionoffset = -115;
+      } else {
+        var warningOffset = 10;
+        var nextOptionoffset = 0;
+      }
+
+      var scrollPoint, scrollTo;
+
+
+      $('.custom-subscription-new .swatch-label').click(function() {
+          var wrapper = $(this).closest('.section_wrapper');
+          var selection = $(this).attr('for');
+          scrollTo = wrapper.data('order') + 1;
+
+          if(wrapper.hasClass('allow_scroll') == true) {
+
+            if(wrapper.data('option-name') == "Payment") {
+
+              if(selection == 'prepaid-no') {
+                scrollPoint = $('.section_wrapper[data-option-name="Gift"]').position().top + nextOptionoffset;                            
+              } else {
+                scrollPoint = $('.section_wrapper[data-option-name="Length"]').position().top + nextOptionoffset;  
+              }
+
+            } else if(wrapper.data('option-name') == "Length") {
+              scrollPoint = $('.section_wrapper[data-option-name="Gift"]').position().top + nextOptionoffset; 
+            } else {
+              scrollPoint = $('.section_wrapper[data-order="' + scrollTo + '"]').position().top + nextOptionoffset;
+            }
+
+            wrapper.removeClass('allow_scroll');
+            scrollPage(scrollPoint)
+          }
+
+          wrapper.removeClass('warning');
+      });
+
+
+      $('.custom-subscription-new .atc_clone_wrapper').click(function(e) {
+        e.preventDefault();
+
+        $('.validate_swatches').each(function() {
+          var displayWarning = true;
+
+          $('input[type="radio"]', this).each(function() {
+            if($(this).is(':checked')) {
+              displayWarning = false;
+            }
+          });
+          if(displayWarning == true) {
+            $(this).parents('.section_wrapper').addClass('warning');
+          } else {
+            $(this).parents('.section_wrapper').removeClass('warning');
+          }
+        }); 
+
+        if (email != '') {
+          $('.section_wrapper[data-option-name="Gift"]').removeClass('warning');
+          $('.email_warning').hide();
+        }
+
+        if($('.warning').length > 0) {
+
+          var firstWarning = $('.warning').first().data('order');
+
+          //since the order of the sections in the dom isnt the same as what shows on the page, run through all warnings and check their order attribute
+          $('.warning').each(function() {
+            if($(this).data('order') < firstWarning) {
+              firstWarning = $(this).data('order');
+            }
+          });
+
+          scrollPoint = $('.warning[data-order="' + firstWarning + '"]').position().top - warningOffset;
+          scrollPage(scrollPoint);
+
+        } else {
+          var checkout = true;
+
+          if($('#is_gift_toggle').is(':checked')) {
+            var email = $('#gift_email').val();
+            var isEmailValid;
+
+            if (email != '') {
+              $('.section_wrapper[data-option-name="Gift"]').removeClass('warning');
+              $('.email_warning').hide();
+              isEmailValid = validateEmail(email);
+
+              if(isEmailValid == true) {
+                $('#mc-embedded-subscribe-form').find('#mce-EMAIL').val(email);
+                $('.section_wrapper[data-option-name="Gift"]').removeClass('warning');
+                $('.email_warning').hide();
+
+                $('#mc-embedded-subscribe-form').submit();
+
+                console.log('running email thing');
+
+                {% comment %} $("#mc-embedded-subscribe-form").submit(function (e) {
+                  $.post('https://sockfancy.us5.list-manage.com/subscribe/post?u=0880ab629bbc5d04580cb298c&amp;id=6db76a6903', {
+                      EMAIL: $("#mce-EMAIL").val()
+                  }).success(function (data) {
+                    $('.atc_org_wrapper').click();
+                    console.log('success');
+                  });
+                  e.preventDefault()
+                }); {% endcomment %}
+
+              } else {
+                $('.section_wrapper[data-option-name="Gift"]').addClass('warning');
+                scrollPoint = $('.section_wrapper[data-option-name="Gift"]').position().top - warningOffset;
+                scrollPage(scrollPoint);
+                $('.email_warning').show();
+                checkout = false;
+              }
+            } else {
+              $('.atc_org_wrapper button').click(); 
+            }
+          } else {
+            $('.atc_org_wrapper button').click(); 
+          }
+
+        }
+      });
+
+
+      function validateEmail(email) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(email).toLowerCase());
+      }
+
+      function scrollPage(scrollPoint) {
+          $('html, body').animate({
+              scrollTop: scrollPoint
+          }, 500);
+      }
+
+
+
+      $("#mc-embedded-subscribe-form").submit(function(e){
+          e.preventDefault();
+          submitSubscribeForm($("#mc-embedded-subscribe-form"));
+      });
+
+      function submitSubscribeForm($form) {
+              $.ajax({
+                  type: "GET",
+                  url: $form.attr("action"),
+                  data: $form.serialize(),
+                  cache: false,
+                  dataType: "jsonp",
+                  jsonp: "c",
+                  contentType: "application/json; charset=utf-8",
+
+                  error: function(error){},
+
+                  success: function(data){
+                    $('.atc_org_wrapper button').click(); 
+                  }
+              });
+          }
+
+
+    });
+

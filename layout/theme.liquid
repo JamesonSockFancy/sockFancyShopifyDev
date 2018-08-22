@@ -292,5 +292,28 @@
       {% endif %}
     {% endif %}
 
-     </body>
+  <div id="overlay"></div>
+
+  <script>
+
+$('.bms_info_modal .close, .bms_sizing_modal .close, #overlay').click(function() {
+  $('#overlay, .bms_info_modal, .bms_sizing_modal').hide();
+});
+
+
+$('.style_link').click(function() {
+  $('#overlay, .bms_info_modal').show();
+});
+
+$('.size_chart_link').click(function() {
+  $('#overlay, .bms_sizing_modal').show();
+});
+
+
+  </script>
+
+  </body>
 </html>
+
+
+

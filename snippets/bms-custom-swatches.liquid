@@ -9,23 +9,25 @@
 {%- if option.name == 'Limited Edition' -%}
   {%- include 'sockfancy-limited-edition' with option -%}
 {%- else -%}
-<header>
-  <h3 class="option-title">{{ option.name }}</h3>
-</header>
-<div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="{% if option.name == 'Size' %}2{% else %}{{ option.values.size }}{% endif %}">
-  {%-if product.selected_variant-%}
-    {%-assign pre_select = true-%}
-  {%-endif-%}
-  {%-for value in option.values-%}
-  {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
-  {%-if pre_select and option.selected_value == value-%}
-    {%-assign is_checked = true-%}
-  {%-else-%}
-    {%-assign is_checked = false-%}
-  {%-endif-%}
+  <header>
+    <h3 class="option-title">{{ option.name }}</h3>
+  </header>
+  <div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="{% if option.name == 'Size' %}2{% else %}{{ option.values.size }}{% endif %}">
+    {%-if product.selected_variant-%}
+      {%-assign pre_select = true-%}
+    {%-endif-%}
+    {%-for value in option.values-%}
+    {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
+    {%-if pre_select and option.selected_value == value-%}
+      {%-assign is_checked = true-%}
+    {%-else-%}
+      {%-assign is_checked = false-%}
+    {%-endif-%}
+    {% unless value contains 'His & Hers' %}
 
-  {%-include 'bms-swatch-element', option:option, value:value, input_id: input_id, default_checked: is_checked-%}
-  {%-endfor-%}
-</div>
+    {%-include 'bms-swatch-element', option:option, value:value, input_id: input_id, default_checked: is_checked-%}
+    {% endunless %}
+    {%-endfor-%}
+  </div>
 {%- endif -%}
 {%-endfor-%}

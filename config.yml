@@ -10,3 +10,7 @@ boldDev:
   password: cc51317a6f5ad798883b40eb932781e8
   theme_id: "8163524635"
   store: sockfancyapp.myshopify.com
+noshowDev:
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "32666386535"
+  store: sockfancyapp.myshopify.com

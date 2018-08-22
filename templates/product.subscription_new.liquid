@@ -1,13 +1,157 @@
-{%- include 'bold-ro' -%}
-{% comment %}
-  The contents of the product.liquid template can be found in /sections/product-template.liquid
-{% endcomment %}
+<script type="text/javascript">
+    var dataLayer = dataLayer || [];
+      dataLayer.push({
+      'PageType':'ProductPage',
+      'email': '',
+                    });
+</script>
+<div class="container main content main-wrapper subscription-wrapper product-{{ product.id }}">
+  <div class="custom-subscription custom-subscription-top custom-subscription-new">
+    <div class="container">
+      <div class="subscription-description">
+        <div class="subscription-image">
+          <img class="product-image" src="{{ product.featured_image | img_url: '745x' }}" alt="A few of the exciting designs that you could receive in your subscription">
+        </div>
+        {{ product.description }}
+      </div>
 
-{% section 'product-template' %}
-<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" 
-data-name="{{ product.title | escape }}" 
-data-url="{{ shop.url }}{{ product.url }}" 
-data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
-data-description="{{ product.description | escape }}"></div>
+      <div class="subscription-selections">
+        {% include 'bms-custom-subscription-flow-new' %}
+      </div>
 
 
+
+    </div>
+
+    <div class="bottom_icon_wrapper">
+        <div class="icon_wrapper">
+            <img src="{{ 'plane2.png' | file_url }}" />
+            <div>Free Shipping Worldwide</div>
+        </div>
+        <div class="icon_wrapper">
+            <img src="{{ 'arrows2.png' | file_url }}" />
+            <div>Exchange or cancel anytime</div>
+        </div>
+        <div class="icon_wrapper">
+            <img src="{{ 'thumb2.png' | file_url }}" />
+            <div>100% Satisfication Guaranteed</div>
+        </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="container custom-subscription custom-subscription-bottom">
+    <div class="container">
+      <div class="subscription-info reviews">
+        {% include 'sockfancy-subscription-yotpo-reviews' %}
+      </div>
+
+      <div class="subscription-info promo-banner">
+        <div class="container">
+          <div class="satisfaction-guarantee">
+            {% include 'sockfancy-satisfaction-guarantee' %}
+          </div>
+          <div class="shipping-summary">
+            {% include 'sockfancy-shipping-blurb' %}
+          </div>
+        </div>
+      </div>
+
+      <div class="subscription-info composition">
+        {% if variation %}
+          {% include 'sockfancy-what-we-are-made-of' %}
+        {% else %}
+          {% include 'sockfancy-tech-specs' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'bms-randomize-subscription-product' %}
+
+
+
+
+<div class="bms_info_modal">
+
+  <div class="info_modal_top">
+    <img class="left_img" src="{{ 'left_img.jpg' | file_url }}">
+    <img class="right_img" src="{{ 'right_img.jpg' | file_url }}">
+    <div class="close">X</div>
+  </div>
+
+  <div class="info_modal_middle">
+
+    <div class="left_info col">
+      <div class="img"></div>
+      <ul>
+        <li class="bold">Crew Socks</li>
+        <li>Mid-calf length</li>
+        <li>No-slip 2" cuff</li>
+        <li>Reinforced heel & toe</li>
+        <li>Quality combed cotton</li>
+      </ul>
+    </div>
+
+    <div class="right_info col">
+      <div class="img"></div>
+      <ul>
+        <li class="bold">No-Show Socks</li>
+        <li>Sits below the ankle</li>
+        <li>No-slip silicone heel</li>
+        <li>Arch grip for support</li>
+        <li>Quality combed cotton</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <div class="info_modal_bottom">
+    <div class="img"></div>
+    <p><span class="uppercase bold">The Mix </span>subscription will include either a crew sock, a no-show, or both depending on the quantity selected.</p>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="bms_sizing_modal">
+    <img src="{{  'sizing_img.jpg' | file_url }}" />
+    <div class="close">X</div>
+    <div class="sizing_modal_footer">
+        <h3>Sock Sizing</h3>
+        
+        <table>
+            <tr>
+                <td>Show Size</td>
+                <td>Men's</td>
+                <td>Women's</td>
+            </tr>
+            <tr>
+                <td>US Men's</td>
+                <td>8 - 14</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>US Womens's</td>
+                <td>-</td>
+                <td>5 - 11</td>                
+            </tr>       
+            <tr>
+                <td>European</td>
+                <td>41 - 49</td>
+                <td>38 - 43</td>                
+            </tr>       
+                   
+        </table>
+        <p>Returns: if you're not 100% satsified with your order return your unworn socks to us within 30 days and we'll send you a fresh pair.</p>
+        <p>If you have any additonal questions someone from our customer experience team will be happpy to assist.  Get in touch with us at info@sockfancy.com</p>
+        
+    </div>
+    
+</div>

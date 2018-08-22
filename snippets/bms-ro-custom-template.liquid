@@ -7,8 +7,10 @@
    for(var v=0; v<base_product.variants.length; v++){
      var base_variant = base_product.variants[v];
      var subscription_variant = BOLD.bms_ro_swap.getSubscriptionVariants(subscription_product, base_product, base_variant)[0];
-     BOLD.common.Shopify.variants[base_variant.id].group_id = BOLD.common.Shopify.variants[subscription_variant.id].group_id;
-     BOLD.common.Shopify.variants[base_variant.id].price = BOLD.common.Shopify.variants[subscription_variant.id].price;
+     if(subscription_variant){
+       BOLD.common.Shopify.variants[base_variant.id].group_id = BOLD.common.Shopify.variants[subscription_variant.id].group_id;
+       BOLD.common.Shopify.variants[base_variant.id].price = BOLD.common.Shopify.variants[subscription_variant.id].price;
+     }
    }
 
  }

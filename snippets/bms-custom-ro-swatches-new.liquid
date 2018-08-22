@@ -1,0 +1,21 @@
+<header>
+  <h3 class="option-title">{{ 'bold.recurring_orders.payment_title_html' | t }}</h3>
+</header>
+<input type="hidden" name="properties[group_id]" value="{{ product.selected_or_first_available_variant.metafields.bold_rp.rp_group_id }}" />
+<input type="hidden" name="properties[frequency_num]" value="1" />
+<input type="hidden" name="properties[frequency_type]" value="3" />
+<input type="hidden" name="properties[frequency_type_text]" value="Month" />
+<input type="hidden" name="properties[prepaid_length_id]" value="" />
+{%- if product.selected_variant -%}
+  {%- assign enable_default_checked = true -%}
+{%- endif -%}
+
+<div class="swatch-wrapper swatch-{{ 'payment option' | handle }} validate_swatches" data-option="{{ option.name }}">
+  {%- assign no_text = 'bold.recurring_orders.payment_monthly_html' | t -%}
+  {%- assign yes_text = 'bold.recurring_orders.payment_prepaid_html' | t -%}
+  {%- include 'bms-swatch-element', input_name:'properties[is_prepaid]', option:'prepaid', title: no_text, value: '', input_id: 'prepaid-no', default_checked: enable_default_checked -%}
+  {%- include 'bms-swatch-element', input_name:'properties[is_prepaid]', option:'prepaid', title: yes_text, value: 'on', input_id: 'prepaid-yes', toggle: true -%}
+
+  {%- include 'bms-custom-sub-length', prepaid_sub: true -%}
+  {% if settings.bms_ro_gift_requires_sub_length %}{%- include 'bms-custom-sub-length', prepaid_sub: false -%}{% endif %}
+</div>

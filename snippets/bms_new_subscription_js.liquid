@@ -1,0 +1,52 @@
+<script>
+
+    $('.atc_wrapper').click(function() {
+      console.log('clicked');
+      $('.validate_swatches').each(function() {
+        var displayWarning = true;
+
+        $('input[type="radio"]', this).each(function() {
+          if($(this).is(':checked')) {
+            displayWarning = false;
+          }
+        });
+        if(displayWarning == true) {
+          $(this).parents('.section_wrapper').addClass('warning');
+        } else {
+          $(this).parents('.section_wrapper').removeClass('warning');
+        }
+      }); 
+
+      if($('.warning').length > 0) {
+        var scrollPoint;
+        if($(window).width() > 425) {
+          scrollPoint = $('.warning').first().position().top - 200;
+        } else {
+          scrollPoint = $('.warning').first().position().top - 100;
+        }
+
+        $('html, body').animate({
+            scrollTop: scrollPoint
+        }, 1000);
+      }
+    });
+
+    $('.swatch-label').click(function() {
+        var wrapper = $(this).parents('.section_wrapper');
+
+        wrapper.removeClass('warning');
+
+        if(wrapper.hasClass('allow_scroll')) {
+          var scrollTo = wrapper.data('order') + 1;
+          var scrollPoint = $('.section_wrapper[data-order='" + scrollTo + "']').position().top;
+
+          wrapper.removeClass('allow_scroll');
+          $('html, body').animate({
+            scrollTop: scrollPoint
+          }, 1000);
+        }
+
+    });
+
+
+  </script>

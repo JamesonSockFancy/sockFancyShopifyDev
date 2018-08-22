@@ -1,0 +1,51 @@
+<script type="application/json" class="product-json" data-product-id="{{ product.id }}" data-product-handle="{{ product.handle }}">
+{{- product | json -}}
+</script>
+{%-include 'bms-ro-group-id-output'-%}
+<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+{%-for option in product.options_with_values-%}
+{%-assign input_name =  'product-option-group-' | append: forloop.index -%}
+
+
+<div class="section_wrapper allow_scroll"
+    {% if option.name == "Size" %}
+    data-order='1'
+    {% elsif option.name == "Style" %}
+    data-order='2'
+    {% elsif option.name == "Quantity" %}
+    data-order='3'
+    {% endif %}
+
+ data-option-name="{{ option.name }}">
+    {%- if option.name == 'Style' -%}
+    {%- include 'sockfancy-styles' with option -%}
+    {%- else -%}
+    <header>
+    
+    {%- if option.name == 'Size' -%}
+    <h3 class="option-title">Size & Gender</h3><span class="modal_link size_chart_link">Size Chart</span>
+    {% else %}
+    <h3 class="option-title">{{ option.name }}</h3>
+    {% endif %}
+    
+    </header>
+    <div class="swatch-wrapper swatch-{{ option.name | handle }} validate_swatches" data-option="{{ option.name }}" data-value-count="{% if option.name == 'Size' %}2{% else %}{{ option.values.size }}{% endif %}">
+    {%-if product.selected_variant-%}
+        {%-assign pre_select = true-%}
+    {%-endif-%}
+    {%-for value in option.values-%}
+
+    {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
+    {%-if pre_select and option.selected_value == value-%}
+        {%-assign is_checked = true-%}
+    {%-else-%}
+        {%-assign is_checked = false-%}
+    {%-endif-%}
+    {% unless value contains 'His & Hers' %}
+        {%-include 'bms-swatch-element', option:option, value:value, input_id: input_id, default_checked: is_checked-%}
+    {% endunless %}
+    {%-endfor-%}
+    </div>
+    {%- endif -%}
+</div>
+{%-endfor-%}

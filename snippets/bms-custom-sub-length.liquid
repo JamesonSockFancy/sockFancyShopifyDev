@@ -1,3 +1,5 @@
+<div class="section_wrapper expanded-text-body allow_scroll" data-option-name="Length" >
+
 <header class="{% if prepaid_sub %}expanded-text-body prepaid-duration{% else %}monthly-gift-duration{% endif %}">
   <h3 class="option-title">{{ 'bold.recurring_orders.subscription_duration_title_html' | t }}</h3>
 </header>
@@ -21,4 +23,6 @@
   {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_9, value: '9', input_id: 'subscription-length-9-gift' -%}
   {%- include 'bms-swatch-element', input_name:'monthly_gift_recurrences', option:'monthly_gift_duration', title: monthly_title_12, value: '12', input_id: 'subscription-length-12-gift' -%}
   {%- endif -%}
+</div>
+
 </div>

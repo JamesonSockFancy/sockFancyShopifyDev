@@ -1,5 +1,37 @@
+
 <input type="radio" id="{{ input_id }}" class="{% if for_variant %}variant-option{% endif %} {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="{{ input_name }}" value="{{ value }}" {% if default_checked %}checked{% endif %} />
 <label for="{{ input_id }}" class="swatch-label swatch-{{ option.name | default: option }}">
+
+  {% if img %}
+  <div class="img_wrapper">
+    <div class="reg_img"></div>
+    <div class="hover_img"></div>
+  </div>
+  {% endif %}
+
   <span class="swatch-label-title">{{ title | default: value }}</span>
   {% include 'sockfancy-swatch-subtitle-lookup', option:option, value:value %}
 </label>
+
+
+
+<style>
+
+.swatch-radio[value="{{ value }}"]+label .img_wrapper .reg_img {
+  background-image:url('{{ img | file_url }}');
+}
+
+.swatch-radio[value="{{ value }}"]+label .img_wrapper .hover_img {
+  background-image:url('{{ img_hover | file_url }}'); 
+  display:none;
+}
+
+.swatch-radio[value="{{ value }}"]:checked+label .img_wrapper .reg_img {
+  display:none;
+}
+
+.swatch-radio[value="{{ value }}"]:checked+label .img_wrapper .hover_img {
+  display:block;
+}
+
+</style>

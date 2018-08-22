@@ -271,6 +271,12 @@ BOLD.bms_ro_loader = {
       // var gift_from = form['properties[To]'].value;
       // Set the gift message, but strip out line breaks, trim whitespace and condense any double-spaces to a single space
       var gift_msg = form['properties[Gift Message]'].value.split('\n').join(' ').split('\r').join(' ').trim();
+      var gift_email = form['properties[EMAIL]'].value;
+      
+      if(gift_email) {
+        gift_msg += '\n\n email: ' + gift_email;
+      }
+
       while(gift_msg.indexOf('  ') > -1){ gift_msg = gift_msg.replace('  ', ' ')}
 
       var note;
@@ -354,7 +360,7 @@ BOLD.bms_ro_loader = {
       warning_element =  message_textarea.warning_element = document.createElement('span');
       warning_element.className = 'gift-message-character-count-warning';
       {% if settings.bms_gift_message_warning_location == 'below' %}
-      message_textarea.parentElement.appendChild(warning_element);
+      {% comment %} message_textarea.parentElement.appendChild(warning_element); {% endcomment %}
       {% else %}
       message_textarea.parentElement.insertBefore(warning_element, message_textarea);
       {% endif %}
@@ -604,6 +610,7 @@ BOLD.bms_ro_loader = {
     //If the subscription is not a gift, remove gift-related properties
     if(!is_gift){
       form['properties[Gift Message]'].value = '';
+      form['properties[EMAIL]'].value = '';
     }
 
 

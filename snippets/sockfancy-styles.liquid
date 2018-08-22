@@ -1,0 +1,55 @@
+<header class="has-toggle">
+  <h3 class="option-title">{{ 'bold.recurring_orders.styles_title_html' | t }}</h3><span class="modal_link style_link">Style Guide</span>
+  <input class="text-toggle" type="checkbox" id="limited-edition-text-toggle" />
+  <label for="limited-edition-text-toggle" class="toggle">
+    {% comment %} <span class="expanded-text-trigger">{{ 'bold.recurring_orders.limited_edition_expand_html' | t }}</span> {% endcomment %}
+  </label>
+  <p class="expanded-text-body">{{ 'bold.recurring_orders.limited_edition_description_html' | t }} <label for="limited-edition-text-toggle" class="text-toggle-collapse">{{ 'bold.recurring_orders.limited_edition_collapse_html' | t }}</label></p>
+</header>
+
+<div class="swatch-wrapper validate_swatches swatch-{{ 'limited edition' | handle }}" data-option="{{ option.name }}" data-value-count="{{ option.values.size }}">
+  {% assign crew_text = 'bold.recurring_orders.special_crew' | t %}
+  {% assign noshow_text = 'bold.recurring_orders.special_noshow' | t %}
+  {% assign both_text = 'bold.recurring_orders.special_both' | t %}
+
+  {% assign crew_img = 'bold.recurring_orders.special_crew_img' | t %}
+  {% assign noshow_img = 'bold.recurring_orders.special_noshow_img' | t %}
+  {% assign both_img = 'bold.recurring_orders.special_both_img' | t %}
+
+  {% assign crew_img_hover = 'bold.recurring_orders.special_crew_img_hover' | t %}
+  {% assign noshow_img_hover = 'bold.recurring_orders.special_noshow_img_hover' | t %}
+  {% assign both_img_hover = 'bold.recurring_orders.special_both_img_hover' | t %}  
+
+  {%-if product.selected_variant-%}
+    {%-assign pre_select = true-%}
+  {%-endif-%}
+  {%-for value in option.values-%}
+  {%-assign input_id =  product.handle | append: '-' | append: option.name | append: '-' | append: value | handle-%}
+  {%-if pre_select and option.selected_value == value-%}
+    {%-assign is_checked = true-%}
+  {%-else-%}
+    {%-assign is_checked = false-%}
+  {%-endif-%}
+
+
+
+  {%- assign value_replace_check = value | downcase -%}
+
+  {%- if value_replace_check == 'no show' -%}
+    {%- assign custom_title = noshow_text -%}
+    {%- assign custom_img = noshow_img -%}
+    {%- assign custom_img_hover = noshow_img_hover -%}    
+  {%- elsif value_replace_check == 'true' or value_replace_check == 'on' or value_replace_check contains 'yes' or value_replace_check contains 'sure' or value_replace_check contains 'all' or value_replace_check contains 'both' -%}
+    {%- assign custom_title = both_text -%}
+    {%- assign custom_img = both_img -%}
+    {%- assign custom_img_hover = both_img_hover -%}    
+  {%- else -%}
+    {%- assign custom_title = crew_text -%}
+    {%- assign custom_img = crew_img -%}
+    {%- assign custom_img_hover = crew_img_hover -%}    
+  {%- endif -%}
+
+  {%-include 'bms-swatch-element', img:custom_img, img_hover:custom_img_hover title:custom_title, option:option, value:value, input_id: input_id, default_checked: is_checked -%}
+  {%-endfor-%}
+
+</div>

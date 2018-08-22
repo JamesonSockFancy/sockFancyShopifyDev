@@ -1,0 +1,23 @@
+<div class="section_wrapper" data-option-name="Checkout">
+    <div class="subscription-summary">
+    <header>
+        <h3>{{ 'bold.recurring_orders.summary_header_html' | t }}</h3>
+    </header>
+    <p class="subscription-summary-text"></p>
+    {% if cart.item_count > 0 %}
+    <p class="prepaid_subscription_alert">{{ 'bold.recurring_orders.prepaid_subscription_will_cause_cart_clear_html' | t: count: cart.item_count }}</p>
+    {% endif %}
+    </div>
+    <div class="atc_wrapper atc_org_wrapper">
+    <button type="submit" class="custom-subscription-submit">
+    <span class="custom-subscription-submit-text">{{ 'bold.recurring_orders.add_to_cart_html' | t }}</span>
+    </button>
+    </div>
+
+    <div class="atc_wrapper atc_clone_wrapper">
+    <button class="custom-subscription-submit">
+    <span class="custom-subscription-submit-text">{{ 'bold.recurring_orders.add_to_cart_html' | t }}</span>
+    </button>
+    </div>
+
+</div>
