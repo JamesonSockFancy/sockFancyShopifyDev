@@ -427,7 +427,7 @@
       "gift_title": "Gift Option",
       "gift_message_prompt_html": "Personalize your gift with a free message!",
       "gift_message_placeholder_html": "Enter your message here. (Be sure to enter who the gift is from!)",
-      "gift_email_placeholder_html": "Recipient email * (Don't worry, we won't spoil the surprise.)",
+      "gift_email_placeholder_html": "Recipient email",
       "gift_message_to_placeholder_html": "TO",
       "limited_edition_title_html": "Limited Edition Socks?",
       "styles_title_html": "Styles",

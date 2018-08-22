@@ -14,7 +14,7 @@ This file can be re-written at any time.
 <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>  
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,9 +22,19 @@ This file can be re-written at any time.
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
   <!-- End Google Tag Manager -->
-              <script>
+                <script>
            dataLayer = [] ;
         </script>
+
+  <!-- NoFollow -->
+  {% if handle == 'subscription' %}
+   <meta name="robots" content="noindex">
+  {% endif %}
+  {% if template == 'collection' %}
+   <meta name="robots" content="noindex">
+  {% endif %}
+  <!-- End NoFollow -->  
+    
     <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
