@@ -1,4 +1,4 @@
-<header>
+{% comment %} <header>
   <h2>See what people are saying!</h2>
 </header>
 <div class="yotpo yotpo-main-widget"
@@ -9,4 +9,4 @@
     data-url="{{ shop.url }}{{ product.url }}"
     data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
     data-description="{{ product.description | escape }}">
-</div>
+</div> {% endcomment %}
