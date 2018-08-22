@@ -281,7 +281,7 @@ layout/password.liquid:
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   development: 2018-06-22T14:07:32-04:00   a8e1f57af15dd6d807f25c3951b1ec4d
-  production: 2018-08-22T12:29:04-04:00   1907cea7698fc1ab91fe08d0ae9553cf
+  production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
   development: 2018-08-01T12:58:35-04:00   e8a895144c029d95f172cadf23c8912f
   production: 2018-08-22T11:27:36-04:00   fa73e5659c6a7e6d45a0eae0446b237f
