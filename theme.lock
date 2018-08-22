@@ -87,6 +87,7 @@ assets/Smile.svg:
   noshowDev: 2018-07-26T11:17:54-04:00   cca957cd0cfe7ac3adbe2a167ee36978
   production: 2018-07-23T17:05:21-04:00   cca957cd0cfe7ac3adbe2a167ee36978
 assets/Socks.svg:
+  development: 2018-07-26T12:13:04-04:00   37c5e0ead9dfbdc8555597743ea3967e
   noshowDev: 2018-07-26T11:17:54-04:00   1048d00f387283d53842b21f1d1e542f
   production: 2018-08-07T09:38:00-04:00   37c5e0ead9dfbdc8555597743ea3967e
 assets/SubOptions.jpg:
@@ -687,7 +688,7 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-07-30T15:59:34-04:00   b98938cd38d59ceb52fe37f6b385ae25
+  development: 2018-08-09T11:07:21-04:00   c2390c4d23292941047944336493cae4
   noshowDev: 2018-08-09T11:07:28-04:00   929231e4decedbfde22fdb35a49ab474
   production: 2018-08-09T11:07:31-04:00   cdf9d513866e487c74eac21b24bb2ec2
 snippets/bold-product.liquid:
