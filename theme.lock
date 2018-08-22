@@ -345,7 +345,7 @@ assets/zendesk-embeddable.js:
   noshowDev: 2018-07-26T11:18:02-04:00   2241cec5637b5d288e343c040ac9486f
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
-  development: 2018-08-22T16:59:12-04:00   a74fb71221b2716f789e3bb267805438
+  development: 2018-08-22T17:13:23-04:00   e4c217a2d01bb53d03ead6402a777cc5
   noshowDev: 2018-08-22T17:04:23-04:00   a74fb71221b2716f789e3bb267805438
   production: 2018-08-22T17:12:54-04:00   80f4aea8108b2571231ad299ab8f6e2b
 config/settings_schema.json:
@@ -363,7 +363,7 @@ layout/theme.liquid:
   noshowDev: 2018-08-22T17:04:12-04:00   fc5a664626e4a2d75a98738989017af6
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
-  development: 2018-08-22T16:53:17-04:00   0fa3b766cab2c0b2131d6cb7a5b2b3bf
+  development: 2018-08-22T17:37:07-04:00   28f178d7ec1afc4c100674e076d58816
   noshowDev: 2018-08-22T17:04:13-04:00   0fa3b766cab2c0b2131d6cb7a5b2b3bf
   production: 2018-08-22T16:08:27-04:00   5ef8697e5942e11bca3bf9bd46a6b6d4
 locales/de.json:
@@ -373,7 +373,7 @@ locales/de.json:
   production: 2018-03-29T11:03:07-04:00   c8755f2c8e0a8f63d43629ba51ecb660
 locales/en.default.json:
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
-  development: 2018-08-22T16:53:14-04:00   959d1dd6c012fa1afd61d24980c9858d
+  development: 2018-08-22T17:37:07-04:00   ced0aec4a5fc99b973b9d287496ec12c
   noshowDev: 2018-08-20T15:03:35-04:00   959d1dd6c012fa1afd61d24980c9858d
   production: 2018-06-29T14:51:56-04:00   1f91eff37354b9cbeafc7f9df60e0ef0
 locales/es.json:
@@ -586,7 +586,7 @@ snippets/bms-check-for-existing-subscription.liquid:
   noshowDev: 2018-07-26T11:18:02-04:00   220ea40179fc7d598ede13251cf060f0
   production: 2018-06-19T11:14:23-04:00   220ea40179fc7d598ede13251cf060f0
 snippets/bms-custom-gift-subscription-new.liquid:
-  development: 2018-08-22T16:53:13-04:00   1617fc72ad0074cc815e6f340f91d821
+  development: 2018-08-22T17:37:08-04:00   331003cae896f7e37910dea1d1cca670
   noshowDev: 2018-08-22T13:36:46-04:00   1617fc72ad0074cc815e6f340f91d821
 snippets/bms-custom-gift-subscription.liquid:
   boldDev: 2018-05-01T10:42:25-04:00   fe8cbada0ae775345d4f32ec407f0259
@@ -615,7 +615,7 @@ snippets/bms-custom-sub-length.liquid:
   noshowDev: 2018-08-02T16:12:45-04:00   3779402201a6a40ea57741cd73a8ff33
   production: 2018-05-09T16:16:32-04:00   fa3fa9a7e56bc55a06b1942597b203b5
 snippets/bms-custom-subscription-flow-new.liquid:
-  development: 2018-08-22T16:53:10-04:00   4b1fea7cd709f22da8e8d4307a6254c3
+  development: 2018-08-22T17:37:09-04:00   1c03842bd432e84cb4bce77f5bdde21a
   noshowDev: 2018-08-03T15:08:13-04:00   4b1fea7cd709f22da8e8d4307a6254c3
 snippets/bms-custom-subscription-flow.liquid:
   boldDev: 2018-04-06T16:40:09-04:00   94dc7d09db0acef28c3fd2baf2f057f5
@@ -1019,7 +1019,7 @@ templates/page.no-title.liquid:
   production: 2018-02-27T12:53:14-05:00   a81eea23d593e4da9e6e7ff031de1ca6
 templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
-  development: 2018-07-23T16:00:00-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
+  development: 2018-08-22T17:37:08-04:00   dcaeef3e92b9bfcdc144baa17175f283
   noshowDev: 2018-08-22T17:04:14-04:00   b8c0419f44dfd19bd839e9fc2bd44b33
   production: 2018-08-22T16:08:28-04:00   dcaeef3e92b9bfcdc144baa17175f283
 templates/page.shogun.landing.liquid:
@@ -1068,7 +1068,7 @@ templates/product.subscription.liquid:
   noshowDev: 2018-08-22T13:05:13-04:00   d640ab1c5635c26a37c39371c89d8c3c
   production: 2018-06-07T16:43:58-04:00   d640ab1c5635c26a37c39371c89d8c3c
 templates/product.subscription_new.liquid:
-  development: 2018-08-22T16:59:10-04:00   614f59ca629d801f31bb809369936a18
+  development: 2018-08-22T17:37:09-04:00   8d120c18ed60de2ac863ea608d4004ec
   noshowDev: 2018-08-22T17:04:16-04:00   614f59ca629d801f31bb809369936a18
   production: 2018-08-07T09:37:55-04:00   a07891d150cc7e5372e3ef6a46d09398
 templates/search.liquid:
