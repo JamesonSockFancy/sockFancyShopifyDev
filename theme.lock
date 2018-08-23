@@ -880,7 +880,7 @@ snippets/sockfancy-styles.liquid:
 snippets/sockfancy-subscription-yotpo-reviews.liquid:
   boldDev: 2018-03-22T15:06:35-04:00   261cafea61771145d877a0884f2484f2
   development: 2018-04-18T13:00:51-04:00   261cafea61771145d877a0884f2484f2
-  noshowDev: 2018-07-26T11:18:05-04:00   261cafea61771145d877a0884f2484f2
+  noshowDev: 2018-08-22T17:48:15-04:00   45b741e13894a6fb1047bd8779519e5a
   production: 2018-04-13T14:00:35-04:00   261cafea61771145d877a0884f2484f2
 snippets/sockfancy-swatch-subtitle-lookup.liquid:
   boldDev: 2018-04-06T11:18:44-04:00   4ede78eef15ee42dce81df76f3f653e9

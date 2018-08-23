@@ -14,3 +14,7 @@ noshowDev:
   password: cc51317a6f5ad798883b40eb932781e8
   theme_id: "32666386535"
   store: sockfancyapp.myshopify.com
+noshowProd:
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "32805093479"
+  store: sockfancyapp.myshopify.com
