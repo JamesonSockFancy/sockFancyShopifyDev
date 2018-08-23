@@ -587,7 +587,6 @@
 
 <script>
     BOLD.common.eventEmitter.on('BOLD_RECURRING_ORDERS_widget_loaded', function (response) {
-      console.log(response)
       var product_info = response.data.product_json;
         var discountPrice = product_info.secondary_discount && product_info.secondary_discount.unformatted_discount_price ? product_info.secondary_discount.unformatted_discount_price : product_info.unformatted_discount_price;
         response.data.form.querySelector('.ro_discount_price').innerHTML = Shopify.formatMoney(discountPrice, {{ shop.money_format | json }});

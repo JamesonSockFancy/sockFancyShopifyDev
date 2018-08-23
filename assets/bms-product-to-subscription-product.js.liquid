@@ -53,8 +53,6 @@ BOLD.bms_ro_swap = {
     //Option2: Quantity (1 Pair, 2 Pairs, 6 Pack)
     //Option3: Limited edition (Crew Only, All Styles)
 
-{% comment %} console.log('sub_prod', sub_prod); {% endcomment %}
-
     return sub_prod.variants.filter(function(variant){
       var opt1 = variant.option1.toLowerCase();
       var opt2 = variant.option2.toLowerCase();

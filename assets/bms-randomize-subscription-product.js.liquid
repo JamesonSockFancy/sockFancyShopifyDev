@@ -109,10 +109,6 @@ BOLD.BMS_Randomizer.prototype = {
       collection_handle += '-limited-edition'
     }
 
-  {% comment %} console.log('type.toLowerCase()', type.toLowerCase()); {% endcomment %}
-
-
-
     return collection_handle;
   },
   determineSelectedQuantity:function(){
@@ -357,8 +353,6 @@ var rndprd = new BOLD.BMS_Randomizer(document.querySelector('.custom-subscriptio
                 $('.email_warning').hide();
 
                 $('#mc-embedded-subscribe-form').submit();
-
-                console.log('running email thing');
 
                 {% comment %} $("#mc-embedded-subscribe-form").submit(function (e) {
                   $.post('https://sockfancy.us5.list-manage.com/subscribe/post?u=0880ab629bbc5d04580cb298c&amp;id=6db76a6903', {
