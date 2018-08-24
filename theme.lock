@@ -250,6 +250,8 @@ assets/ie.css.liquid:
   noshowDev: 2018-07-26T11:17:57-04:00   875b882a8e987611d1c1f528f8c7eed6
   noshowProd: 2018-08-21T20:14:01-04:00   875b882a8e987611d1c1f528f8c7eed6
   production: 2018-02-27T12:53:08-05:00   875b882a8e987611d1c1f528f8c7eed6
+assets/inc-5000-blog.png:
+  development: 2018-08-24T12:24:44-04:00   fb174bd230936d796660cd627b4185d8
 assets/jquery.cart.min.js:
   boldDev: 2018-03-22T11:49:34-04:00   14b6455b559d83db52ccc2188a462deb
   development: 2018-04-16T11:34:02-04:00   14b6455b559d83db52ccc2188a462deb
@@ -573,7 +575,7 @@ sections/featured-text.liquid:
   production: 2018-02-27T12:53:05-05:00   34b00777106fcb7efc4fee901ad40ea3
 sections/footer-v2.liquid:
   boldDev: 2018-05-01T10:43:05-04:00   ea28a47d7914e10066f9374b6e27d422
-  development: 2018-05-25T15:43:02-04:00   d08e7af95473396eac5dfac44b3a04c8
+  development: 2018-08-24T12:19:16-04:00   5708511d0fcc13db52c9e9b68e143aae
   noshowDev: 2018-07-26T11:17:50-04:00   d08e7af95473396eac5dfac44b3a04c8
   noshowProd: 2018-08-21T20:13:54-04:00   d08e7af95473396eac5dfac44b3a04c8
   production: 2018-05-21T10:09:22-04:00   d08e7af95473396eac5dfac44b3a04c8
@@ -1292,7 +1294,7 @@ templates/product.subscription.liquid:
   noshowProd: 2018-08-23T09:43:46-04:00   16abc4948127bb1b6d052242514ee5cb
   production: 2018-06-07T16:43:58-04:00   d640ab1c5635c26a37c39371c89d8c3c
 templates/product.subscription_new.liquid:
-  development: 2018-08-22T17:37:09-04:00   8d120c18ed60de2ac863ea608d4004ec
+  development: 2018-08-24T15:18:20-04:00   dd0000894f1ac1282029a62486bf4ee0
   noshowDev: 2018-08-22T17:39:43-04:00   8d120c18ed60de2ac863ea608d4004ec
   noshowProd: 2018-08-23T09:43:47-04:00   8d120c18ed60de2ac863ea608d4004ec
   production: 2018-08-07T09:37:55-04:00   a07891d150cc7e5372e3ef6a46d09398
