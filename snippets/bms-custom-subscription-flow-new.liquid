@@ -20,7 +20,7 @@
 </div>
 
 
-{% comment %} <div class="yotpo bottomLine"
+<div class="yotpo bottomLine"
     data-appkey="Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB"
     data-domain="{{shop.permanent_domain | escape }}"
     data-product-id="{{ product.id }}"
@@ -30,7 +30,7 @@
     data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
     data-description="{{ product.description | escape }}"
     data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
-</div> {% endcomment %}
+</div> 
 {% include 'bms-check-for-existing-subscription' %}
 {% unless cart_includes_subscription %}
 <form method="post" id="main-product-form" enctype="multipart/form-data" class="custom-subscription-form no_ro_widget product_form" action="/cart/add" data-money-format="{{ shop.money_format }}">
