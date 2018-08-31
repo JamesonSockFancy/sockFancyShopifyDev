@@ -2210,7 +2210,7 @@
     "bms_gift_message_max_length": 250,
     "bms_gift_message_warning_location": "below",
     "bms_enable_promo_code": false,
-    "bold_ro_prepaid_expires": true,
+    "bold_ro_prepaid_expires": false,
     "bms_randomizer_buffer": 0,
     "custom_sock_page": "custom-socks",
     "bulk_order_page": "gift-bulk-sock-subscriptions",

@@ -1492,9 +1492,11 @@ optionChanged = function(evt){
 };
 toggleOptions = function(product, selections, form){
 
+  var flip_options_2_and_3 = product.options[1] === 'Quantity'
+
   var option1 = form['product-option-group-1'];
-  var option2 = form['product-option-group-2'];
-  var option3 = form['product-option-group-3'];
+  var option2 = flip_options_2_and_3 ? form['product-option-group-3'] : form['product-option-group-2'];
+  var option3 = flip_options_2_and_3 ? form['product-option-group-2'] : form['product-option-group-3'];
 
   //Assume choices are in descending order of importance
   var selections_array = [];
@@ -1511,7 +1513,10 @@ toggleOptions = function(product, selections, form){
       //Find a variant that matches both the first selection and has this value
       for(var v=0; v<product.variants.length; v++){
         var variant = product.variants[v];
-        if(variant.option1 == selections_array[0] && variant.option2 == radio_value){
+        if(!variant.available){
+          continue
+        }
+        if(variant.option1 == selections_array[0] && (flip_options_2_and_3 ? variant.option3 : variant.option2) == radio_value){
           matching_variant = true;
           break;
         }
@@ -1531,8 +1536,12 @@ toggleOptions = function(product, selections, form){
         var matching_variant = false;
         //Find a variant that matches both the first two selections and has this value
         for(var v=0; v<product.variants.length; v++){
+
           var variant = product.variants[v];
-          if( (!selections_array[0] || variant.option1 == selections_array[0]) && (!selections_array[1] || variant.option2 == selections_array[1]) && variant.option3 == radio_value){
+          if(!variant.available){
+            continue
+          }
+          if( (!selections_array[0] || variant.option1 == selections_array[0]) && (!selections_array[1] || (flip_options_2_and_3 ? variant.option3 : variant.option2) == selections_array[1]) && (flip_options_2_and_3 ? variant.option2 : variant.option3) == radio_value){
             matching_variant = true;
             break;
           }
