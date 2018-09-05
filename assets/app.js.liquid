@@ -1040,7 +1040,7 @@ var cart = {
           }
           var line_id = index + 1;
           cart_items_html += '<li class="cart_item">' +
-          '<p class="mm-counter">' +
+          '<p class="mm-counter" style="display: none;">' +
           '<span class="icon-minus minus"></span>' +
           '<input type="number" min="0" class="quantity" name="updates[]" id="updates_' + item.id + '" value="' + item.quantity +'"  data-line-id="' + line_id +'" readonly />' +
           '<span class="icon-plus plus"></span>' +

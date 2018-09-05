@@ -125,7 +125,7 @@
       {% else %}
         {% for item in cart.items %}
           <li class="cart_item {% if forloop.last %}last_cart_item{% endif %}">
-            <p class="mm-counter">
+            <p class="mm-counter" style="display: none;">
               <span class="icon-minus minus"></span><input type="number" min="0" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" readonly /><span class="icon-plus plus"></span>
             </p>
             <a href="{{ item.url }}">
