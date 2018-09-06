@@ -1,5 +1,5 @@
 <div class="container main content main-wrapper">
-  <div class="sixteen columns clearfix collection_nav">
+  <div class="sixteen columns clearfix collection_nav" style="margin-bottom: 0em;">
     <h1 class="center">{{ 'customer.login.title' | t }}</h1>
     <div class="feature_divider"></div>
   </div>
@@ -10,12 +10,6 @@
 
       {% form 'customer_login' %}
         {{ form.errors | default_errors }}
-
-        {% if settings.show_account_login_notification %}
-        <div class="login-notification {% if form.errors %}login-notification-error{% endif %}">
-          {{ 'bold.recurring_orders.login_prompt_html' | t }}
-        </div>
-        {% endif %}
 
         <label for="customer_email" class="login">{{ 'customer.login.email' | t }}</label>
         <input type="email" value="" name="customer[email]" id="customer_email" class="large" size="30"  autocorrect="off" autocapitalize="off" tabindex="1" />
@@ -45,8 +39,6 @@
             {{ 'bold.recurring_orders.oldsub_prompt_html' | t }}
           </div>
         {% endif %}
-
-        <a class="join_btn button" href="https://oldsite.sockfancy.com/my-account">MANAGE YOUR SUBSCRIPTION</a>
 
       {% endform %}
 
