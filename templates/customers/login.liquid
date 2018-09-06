@@ -5,9 +5,8 @@
   </div>
 
   <div class="clearfix" id="customer">
-    <br class="clear" />
-    <br class="clear" />
-    <div class="six columns offset-by-five animated fadeInUp" id="login_form">
+
+    <div class="six columns offset-by-five animated fadeInUp" id="login_form"> 
 
       {% form 'customer_login' %}
         {{ form.errors | default_errors }}
@@ -40,6 +39,15 @@
             {{ 'customer.login.new_customer_label' | t }} {{ 'customer.login.sign_up_html' | t | customer_register_link }}
           </p>
         {% endunless %}
+
+        {% if settings.show_account_login_notification %}
+          <div class="oldsub-notification {% if form.errors %}oldsub-notification-error{% endif %}">
+            {{ 'bold.recurring_orders.oldsub_prompt_html' | t }}
+          </div>
+        {% endif %}
+
+        <a class="join_btn button" href="https://oldsite.sockfancy.com">MANAGE YOUR SUBSCRIPTION</a>
+
       {% endform %}
 
       {% if shop.checkout.guest_login %}
@@ -75,7 +83,9 @@
               <input class="btn action_button" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
               <span class="note">{{ 'customer.recover_password.or' | t }} <a href="#" onclick="hideRecoverPasswordForm()">{{ 'customer.recover_password.cancel' | t }}</a></span>
             </div>
+          
           {% endform %}
+
         </div>
       </div>
     </div>

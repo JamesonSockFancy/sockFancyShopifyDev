@@ -842,6 +842,22 @@ div.login-notification{
   }
 }
 
+  div.oldsub-notification{
+  border: 3px solid darkgoldenrod;
+  border-radius: 8px;
+  background: lightgoldenrodyellow;
+  padding:1em 2em 0;
+  margin-bottom:1em;
+  margin-top: 50px;
+  &.oldsub-notification-error{
+    background:mistyrose;
+    border-color:darkred;
+    &>p:nth-of-type(1){
+      font-weight:bold;
+    }
+  }
+} 
+
 span.ro-sock-size__select-wrapper{
   position:relative;
   &:after {
