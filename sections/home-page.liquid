@@ -100,7 +100,7 @@
         data-background-color="transparent" 
         data-mode="manual" 
         data-type="both" 
-        data-review-ids="62403772,58011675,58010631,59597388,59597410,58014119,59597469,58010833,59597485" 
+        data-review-ids="58013659,58010635,58011418,58011698,58015627,64071557" 
         data-show-bottomline="1" 
         data-show-navigation="1">&nbsp;
         </div>
@@ -237,3 +237,11 @@
     ]
 }
 {% endschema %}
+
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    $zopim(function() {
+        $zopim.livechat.bubble.hide();
+  });
+}
+</script>
