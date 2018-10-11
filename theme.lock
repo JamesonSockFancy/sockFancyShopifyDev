@@ -174,7 +174,7 @@ assets/bms-randomize-subscription-product.js.liquid:
   noshowProd: 2018-08-22T14:05:16-04:00   cc1a91f331b860afcd4d648bfa7e4b39
   production: 2018-07-25T13:39:01-04:00   5fe20e9d0eaa938244714eab05ed7695
 assets/bms-styles.css.liquid:
-  development: 2018-08-23T16:30:03-04:00   f3d2afae3d4de7673e709c01c493f4ba
+  development: 2018-10-11T12:08:07-04:00   08a0a281e1563c51427f0b91d0a02375
   noshowDev: 2018-08-22T17:04:18-04:00   f39ec5cbaa3dfb917e0d1a4a1a2bbfbc
   noshowProd: 2018-09-19T12:03:46-04:00   08a0a281e1563c51427f0b91d0a02375
   production: 2018-08-07T09:37:57-04:00   f3d2afae3d4de7673e709c01c493f4ba
@@ -399,9 +399,9 @@ assets/soldout.png:
   noshowProd: 2018-08-21T20:14:04-04:00   6a7697db19e17aae7568e216c2b365af
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
-  development: 2018-08-06T15:42:06-04:00   a42e999ba9d8adef207c488b1bb78f37
+  development: 2018-10-11T12:08:06-04:00   fc872ae88aa3f7843b27f6297cb009d9
   noshowDev: 2018-08-22T17:04:13-04:00   a42e999ba9d8adef207c488b1bb78f37
-  noshowProd: 2018-08-21T20:14:04-04:00   a42e999ba9d8adef207c488b1bb78f37
+  noshowProd: 2018-09-19T16:53:18-04:00   fc872ae88aa3f7843b27f6297cb009d9
   production: 2018-08-07T09:37:54-04:00   a42e999ba9d8adef207c488b1bb78f37
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
@@ -439,14 +439,14 @@ layout/password.liquid:
   noshowProd: 2018-08-21T20:14:05-04:00   cc50890197f3c5f704a1bb3681be7678
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
-  development: 2018-08-22T16:53:16-04:00   fc5a664626e4a2d75a98738989017af6
+  development: 2018-10-11T12:08:06-04:00   f72b04f8835ac4e39ee61162a4569925
   noshowDev: 2018-08-22T17:04:12-04:00   fc5a664626e4a2d75a98738989017af6
-  noshowProd: 2018-09-19T11:59:26-04:00   fc5a664626e4a2d75a98738989017af6
+  noshowProd: 2018-10-11T12:25:13-04:00   f72b04f8835ac4e39ee61162a4569925
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
-  development: 2018-09-06T09:39:11-04:00   60437ef5c28bbf6a471bb71650b624c1
+  development: 2018-10-11T12:08:04-04:00   a27fd705de9f527e229d518eb644abf4
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
-  noshowProd: 2018-09-05T10:54:48-04:00   60437ef5c28bbf6a471bb71650b624c1
+  noshowProd: 2018-10-11T12:25:14-04:00   a27fd705de9f527e229d518eb644abf4
   production: 2018-08-22T16:08:27-04:00   5ef8697e5942e11bca3bf9bd46a6b6d4
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -600,7 +600,7 @@ sections/header.liquid:
   production: 2018-08-07T09:38:00-04:00   40837b0052cab72772c535aca016b11a
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-08-22T16:53:17-04:00   044f0896b7c4bae5d1f1b6626d252bd1
+  development: 2018-10-11T12:08:05-04:00   c638821da8fecb52774cf28d687be5b1
   noshowDev: 2018-08-22T17:04:12-04:00   044f0896b7c4bae5d1f1b6626d252bd1
   noshowProd: 2018-09-19T13:03:27-04:00   c638821da8fecb52774cf28d687be5b1
   production: 2018-08-07T09:47:56-04:00   044f0896b7c4bae5d1f1b6626d252bd1
@@ -855,9 +855,9 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-08-30T10:36:05-04:00   4af746301f4363dc127dfd8a7b0562aa
+  development: 2018-09-20T12:05:25-04:00   e078f36b2d02a29e14023837bae07d04
   noshowDev: 2018-08-22T17:04:15-04:00   c2390c4d23292941047944336493cae4
-  noshowProd: 2018-08-31T11:55:02-04:00   4af746301f4363dc127dfd8a7b0562aa
+  noshowProd: 2018-10-11T12:25:14-04:00   e078f36b2d02a29e14023837bae07d04
   production: 2018-08-09T11:07:31-04:00   cdf9d513866e487c74eac21b24bb2ec2
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
@@ -1128,9 +1128,9 @@ templates/collection.sub-collections.liquid:
   production: 2018-02-27T12:53:13-05:00   f1a77a45fb9f72ebd76d90b7e648770d
 templates/customers/account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   e10fda1bcda1b6623f1ae59fded32c99
-  development: 2018-05-25T15:43:15-04:00   a1f1ea0a0df409f2d96e115460a12d91
+  development: 2018-10-11T12:08:07-04:00   60189153b40f9a813bf1227f6515c095
   noshowDev: 2018-07-26T11:18:05-04:00   a1f1ea0a0df409f2d96e115460a12d91
-  noshowProd: 2018-08-21T20:14:08-04:00   a1f1ea0a0df409f2d96e115460a12d91
+  noshowProd: 2018-09-19T16:44:24-04:00   60189153b40f9a813bf1227f6515c095
   production: 2018-05-17T16:39:10-04:00   a1f1ea0a0df409f2d96e115460a12d91
 templates/customers/activate_account.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   63579e0acf06a1645e760f01b508bc7a
@@ -1146,7 +1146,7 @@ templates/customers/addresses.liquid:
   production: 2018-02-27T12:53:13-05:00   c6f4c646cb8087161f827bd68b612487
 templates/customers/login.liquid:
   boldDev: 2018-03-22T11:49:38-04:00   4c29025a69aaf9338d43f7124efe0b5e
-  development: 2018-09-06T11:59:40-04:00   144adfb235da8e3735e1cf66a16cdb1f
+  development: 2018-10-11T12:08:06-04:00   c7276f51291cd4badd3fd947059dc83f
   noshowDev: 2018-07-26T11:18:05-04:00   75caf2e937ed9b90450cb1b9f71d25dc
   noshowProd: 2018-09-06T17:11:52-04:00   c7276f51291cd4badd3fd947059dc83f
   production: 2018-05-09T16:16:27-04:00   75caf2e937ed9b90450cb1b9f71d25dc
@@ -1238,7 +1238,7 @@ templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-08-22T17:37:08-04:00   dcaeef3e92b9bfcdc144baa17175f283
   noshowDev: 2018-08-22T17:39:42-04:00   dcaeef3e92b9bfcdc144baa17175f283
-  noshowProd: 2018-08-30T11:18:15-04:00   dcaeef3e92b9bfcdc144baa17175f283
+  noshowProd: 2018-10-10T14:09:27-04:00   dcaeef3e92b9bfcdc144baa17175f283
   production: 2018-08-22T16:08:28-04:00   dcaeef3e92b9bfcdc144baa17175f283
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
