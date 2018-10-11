@@ -252,11 +252,11 @@
           </li>
         {% endif %}
         {% if shop.customer_accounts_enabled %}
-          {% unless customer %}
+
             <li class="join-now">
               <a href="/products/{{ settings.bms_smart_subscription_product }}" title="join now">Subscribe</a>
             </li>
-          {% endunless %}
+
           <li class="header-account">
             <a href="/account" title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}">{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}{% endif %}</a>
           </li>
