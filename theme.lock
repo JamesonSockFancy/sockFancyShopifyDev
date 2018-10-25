@@ -399,9 +399,9 @@ assets/soldout.png:
   noshowProd: 2018-08-21T20:14:04-04:00   6a7697db19e17aae7568e216c2b365af
   production: 2018-04-13T14:00:32-04:00   6a7697db19e17aae7568e216c2b365af
 assets/styles.scss.liquid:
-  development: 2018-10-11T13:16:51-04:00   5123a31c700b32825738c039795047dd
+  development: 2018-10-25T11:16:59-04:00   1b48272285bfdd57d6183885d8ad02c3
   noshowDev: 2018-08-22T17:04:13-04:00   a42e999ba9d8adef207c488b1bb78f37
-  noshowProd: 2018-10-11T12:57:59-04:00   5123a31c700b32825738c039795047dd
+  noshowProd: 2018-10-19T11:55:26-04:00   1b48272285bfdd57d6183885d8ad02c3
   production: 2018-08-07T09:37:54-04:00   a42e999ba9d8adef207c488b1bb78f37
 assets/subscription_bg.jpg:
   boldDev: 2018-05-01T11:08:53-04:00   667895fe7ca892079d200cb03d891232
@@ -444,9 +444,9 @@ layout/theme.liquid:
   noshowProd: 2018-10-11T12:25:13-04:00   f72b04f8835ac4e39ee61162a4569925
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
-  development: 2018-10-11T12:08:04-04:00   a27fd705de9f527e229d518eb644abf4
+  development: 2018-10-25T11:16:57-04:00   686dc80c03632df2d8c4e860b3f0a2f0
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
-  noshowProd: 2018-10-11T12:25:14-04:00   a27fd705de9f527e229d518eb644abf4
+  noshowProd: 2018-10-25T12:28:56-04:00   686dc80c03632df2d8c4e860b3f0a2f0
   production: 2018-08-22T16:08:27-04:00   5ef8697e5942e11bca3bf9bd46a6b6d4
 locales/de.json:
   boldDev: 2018-04-12T16:21:53-04:00   c8755f2c8e0a8f63d43629ba51ecb660
@@ -594,15 +594,15 @@ sections/gallery.liquid:
   production: 2018-02-27T12:53:05-05:00   83367edcb8edc12cbd4b9eda870f55ff
 sections/header.liquid:
   boldDev: 2018-05-02T13:42:00-04:00   c0c000b22a8f177ebe001bbb86ddf40f
-  development: 2018-10-11T13:16:50-04:00   2995577b560eb990419778cedb627d39
+  development: 2018-10-25T11:16:57-04:00   9eda59e003fa3128bcbb186bf6b517d5
   noshowDev: 2018-08-22T17:04:17-04:00   80ea715759d6642fb06bd813095b17d5
   noshowProd: 2018-10-11T14:11:44-04:00   9eda59e003fa3128bcbb186bf6b517d5
   production: 2018-08-07T09:38:00-04:00   40837b0052cab72772c535aca016b11a
 sections/home-page.liquid:
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
-  development: 2018-10-11T12:08:05-04:00   c638821da8fecb52774cf28d687be5b1
+  development: 2018-10-25T11:16:58-04:00   8b2aac16bcfa4f0c5599186fd62fa26a
   noshowDev: 2018-08-22T17:04:12-04:00   044f0896b7c4bae5d1f1b6626d252bd1
-  noshowProd: 2018-09-19T13:03:27-04:00   c638821da8fecb52774cf28d687be5b1
+  noshowProd: 2018-10-25T12:28:56-04:00   8b2aac16bcfa4f0c5599186fd62fa26a
   production: 2018-08-07T09:47:56-04:00   044f0896b7c4bae5d1f1b6626d252bd1
 sections/image-text.liquid:
   boldDev: 2018-03-22T11:49:32-04:00   b5589867dcbdb95fad1dcbd43524b25a
@@ -855,9 +855,9 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-09-20T12:05:25-04:00   e078f36b2d02a29e14023837bae07d04
+  development: 2018-10-22T12:22:54-04:00   dbcba301ba1e5bfb5cf145403f6442bb
   noshowDev: 2018-08-22T17:04:15-04:00   c2390c4d23292941047944336493cae4
-  noshowProd: 2018-10-11T12:25:14-04:00   e078f36b2d02a29e14023837bae07d04
+  noshowProd: 2018-10-25T12:28:57-04:00   dbcba301ba1e5bfb5cf145403f6442bb
   production: 2018-08-09T11:07:31-04:00   cdf9d513866e487c74eac21b24bb2ec2
 snippets/bold-product.liquid:
   boldDev: 2018-03-22T11:49:37-04:00   3989c41f82d7a9a92fef1d8f2a367122
@@ -1068,9 +1068,9 @@ snippets/sockfancy-styles.liquid:
   noshowProd: 2018-08-22T12:08:02-04:00   bdc9d9d8f2a66e1cd34f3990930a3ea0
 snippets/sockfancy-subscription-yotpo-reviews.liquid:
   boldDev: 2018-03-22T15:06:35-04:00   261cafea61771145d877a0884f2484f2
-  development: 2018-04-18T13:00:51-04:00   261cafea61771145d877a0884f2484f2
+  development: 2018-10-25T11:16:58-04:00   8f2fd99767db2bba912a763700e8f2fa
   noshowDev: 2018-08-22T17:48:15-04:00   45b741e13894a6fb1047bd8779519e5a
-  noshowProd: 2018-08-21T20:14:08-04:00   261cafea61771145d877a0884f2484f2
+  noshowProd: 2018-10-19T11:55:26-04:00   8f2fd99767db2bba912a763700e8f2fa
   production: 2018-04-13T14:00:35-04:00   261cafea61771145d877a0884f2484f2
 snippets/sockfancy-swatch-subtitle-lookup.liquid:
   boldDev: 2018-04-06T11:18:44-04:00   4ede78eef15ee42dce81df76f3f653e9
@@ -1238,7 +1238,7 @@ templates/page.shogun.default.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-08-22T17:37:08-04:00   dcaeef3e92b9bfcdc144baa17175f283
   noshowDev: 2018-08-22T17:39:42-04:00   dcaeef3e92b9bfcdc144baa17175f283
-  noshowProd: 2018-10-10T14:09:27-04:00   dcaeef3e92b9bfcdc144baa17175f283
+  noshowProd: 2018-10-24T16:45:42-04:00   dcaeef3e92b9bfcdc144baa17175f283
   production: 2018-08-22T16:08:28-04:00   dcaeef3e92b9bfcdc144baa17175f283
 templates/page.shogun.landing.liquid:
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
