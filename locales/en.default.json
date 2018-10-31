@@ -489,7 +489,7 @@
       "promo_offer_message": "Congratulations!  You will be receiving a free gift with your first shipment! (Limit 1 per mailing address)",
       "promo_offer_invalid_html": "<strong>Invalid Promo Code<\/strong><br\/><em>Note: Coupon codes are entered at checkout<\/em>",
       "login_prompt_html": "If you'd like to create a new subscription, get started by creating a new account below. <\/p>\n<p> For any assistance, please email us at <a href=\"mailto:info@sockfancy.com\" title=\"Contact us via email\">info@sockfancy.com<\/a>. Thanks!",
-      "oldsub_prompt_html": "<h4>Did you create a subscription before<strong> May 18, 2018 </strong>?</h4> <p> All subscriptions created before <strong>May 18, 2018<\/strong>  will continue as normal. However, if you need to view or make changes to your existing subscription, <a href=\"https:\/\/oldsite.sockfancy.com\/my-account\/\" title=\"old site account page\" target=\"_blank\">click here<\/a>. <\/p>\n<p>"
+      "oldsub_prompt_html": "<h4>Did you create a subscription before<strong> May 18, 2018 <\/strong>?<\/h4> <p> All subscriptions created before <strong>May 18, 2018<\/strong>  will continue as normal. However, if you need to view or make changes to your existing subscription, <a href=\"https:\/\/oldsite.sockfancy.com\/my-account\/\" title=\"old site account page\" target=\"_blank\">click here<\/a>. <\/p>\n<p>"
     },
     "existing_subscription": {
       "subscription_page_existing_sub_header_html": "Looks like you've already got a subscription in your cart!",

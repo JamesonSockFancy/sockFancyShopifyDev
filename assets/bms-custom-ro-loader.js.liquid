@@ -491,7 +491,10 @@ BOLD.bms_ro_loader = {
       return;
     }
   },
-  loadSubscriptionData:function(groupID, variant, product){
+  loadSubscriptionData:function(groupID, variant, product, failure_retry){
+    //On failure, wait a few seconds and try again.
+    //On each subsequent failure, increase the timout before trying again
+    failure_retry = failure_retry || 2000;
     if(!groupID){
       BOLD.bms_ro_loader.hideRecurringFields();
     }
@@ -502,6 +505,14 @@ BOLD.bms_ro_loader = {
     BOLD.helpers.get(url, function(group_data){
       BOLD.bms_ro_loader.loaded_group_data[group_data.group_id] = group_data;
       BOLD.helpers.triggerEvent('BMS.ro_loader.group_data_loaded', {group_data:BOLD.bms_ro_loader.loaded_group_data[groupID], variant:variant, product:product } );
+    }, function(err){
+      // If at first we dont succeed... try, try again!
+      // Double the failure_retry each time we have to retry to retry quickly after hiccups and not overwhelm devices in an outage
+      console.error(err);
+      setTimeout(function(){
+         BOLD.bms_ro_loader.loadSubscriptionData(groupID, variant, product, failure_retry*2);
+      }, failure_retry)
+     
     });
   },
   hideRecurringFields:function(form){
