@@ -38,6 +38,8 @@ BOLD.Swatch = function(group_name, value, checked, title, subtitle, onchange){
     this.onChange = onchange;
     var label_title = this.label_title = title || value;
 
+
+
     this.input = new BOLD.DOMElement('input',
     {
       id:this.id,
@@ -81,6 +83,7 @@ BOLD.Swatch.prototype = {
 }
 
 BOLD.SwatchGroup = function(title, group_name){
+
   this.fieldset = new BOLD.DOMElement('fieldset', {className:'swatch-set'});
 
   this.title = new BOLD.DOMElement('legend', {className:'option-title'})
@@ -241,6 +244,11 @@ BOLD.bms_ro_loader = {
     var product = data.product;
     var form = data.form;
 
+    var target = $(data.field);
+    var parentWrapper = $(data.field).parents('.section_wrapper');
+
+    BOLD.bms_ro_loader.autoScrollToNextSection(target);
+    BOLD.bms_ro_loader.conditional_processes(target, parentWrapper, form, current_variant);
 
     BOLD.bms_ro_loader.updateGroupId(form, current_variant, product)
     // BOLD.bms_ro_loader.ensureGiftIsPrepaid(form);
@@ -251,6 +259,9 @@ BOLD.bms_ro_loader = {
     var total_recurrences_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[total_recurrences]')
     if(BOLD.helpers.ieRadioGroupFix(form,'properties[is_prepaid]').value == 'on'){
       total_recurrences = total_recurrences_field.value;
+      if(total_recurrences == 1){
+        total_recurrences = false;
+      }
     }
     BOLD.bms_ro_loader.updateSubscriptionSummary(form, current_variant, total_recurrences, prepaid_discount);
     BOLD.bms_ro_loader.enableCheckoutButton(form);
@@ -261,12 +272,139 @@ BOLD.bms_ro_loader = {
     //Update the cart note if we changed a gift field
     (target_name.indexOf('gift') > -1 || target_name.indexOf('from') > -1) && BOLD.bms_ro_loader.giftNoteToCartNote(form);
   },
+  conditional_processes:function(target, parentWrapper, form, variant){
+
+
+    if(target.attr('id') == 'sock-subscription-gift-yes') {
+      $('[data-option-name="Gift"]').show();
+      $('.swatch-subscription-duration label').hide();
+      $('[for="subscription-length-3-prepaid"], [for="subscription-length-6-prepaid"], [for="subscription-length-12-prepaid"]').show();
+    }
+
+    if(target.attr('id') == 'sock-subscription-gift-no') {
+      $('[data-option-name="Gift"]').hide();
+      $('.swatch-subscription-duration label').hide();
+      $('[for="subscription-length-1-prepaid"], [for="subscription-length-3-prepaid"], [for="subscription-length-12-prepaid"]').show();
+    }
+
+
+    if(target.attr('id') == 'recurring_gift_yes' || target.attr('id') == 'recurring_gift_no') {
+      $('.gift_renewal_swatch_wrapper').removeClass('gift_warning');
+      if( $('.gift_warning').length == 0 ) {
+        parentWrapper.removeClass('warning');
+      }
+    } else {
+      parentWrapper.removeClass('warning');
+    }
+    if(target.hasClass('swatch-Quantity')) {
+      BOLD.bms_ro_loader.changePlanSwatchPrice(form, variant);
+    }
+  },
+  autoScrollToNextSection:function(target){
+
+    //Quick check: Don't scroll to empty or hidden elements
+    var target_element = target[0];
+    if(!target || target.type == 'hidden'){
+      return;
+    }
+
+    if($(window).width() > 425) {
+      var warningOffset = 110;
+      var nextOptionoffset = -115;
+    } else {
+      var warningOffset = 10;
+      var nextOptionoffset = 0;
+    }
+
+    //handles the autoscroll funcitonality on label click
+    var wrapper = target.closest('.section_wrapper');
+    var selection = target.next().attr('for');
+    var scrollPoint;
+
+    console.log('scrollTo', scrollTo);
+
+
+    //scroll to next section
+    if(wrapper.hasClass('allow_scroll') == true) {
+      scrollTo = wrapper.data('order') + 1;
+
+      //if next scroll point would be length
+      if(scrollTo == '5') {
+
+        //if length section is hidden, go to gift
+        if($('[data-option-name="Length"]').is(":hidden")) {
+          scrollTo++;
+        }
+      }
+
+      //if next scroll point would be gift
+      if(scrollTo == '6') {
+
+        //if gift section is hidden, go to checkout section
+        if($('[data-option-name="Gift"]').is(":hidden")) {
+          scrollTo++;
+        }
+      }
+
+      scrollPoint = $('.section_wrapper[data-order="' + scrollTo + '"]').position().top + nextOptionoffset;
+
+    console.log('scrollPoint', scrollPoint);
+
+
+      wrapper.removeClass('allow_scroll');
+      BOLD.bms_ro_loader.scrollPage(scrollPoint);
+
+    }
+  },
+  changePlanSwatchPrice:function(form, variant){
+
+    if(!variant){
+      //Not ready to update the plan prices yet
+      return;
+    }
+    //handles the change of 'select your plan' pricing
+    //Yes, I'm hard-coding an assumption that quantity is in option position #2
+    var quantity = parseInt(variant.option2);
+
+    var each_price = variant.price / quantity;
+
+    // What recurring discount will we offer at each level?
+    var prepay_discounts_multipliers = {};
+    if(variant.recurring_group_data){
+      prepay_discounts_multipliers = variant.recurring_group_data.prepaid.lengths.reduce(function(acc, obj){
+        acc[obj.length] = (100 - obj.discount) * 0.01;
+        return acc;
+      },{});
+    }
+
+    $('label.swatch-duration').each(function() {
+      var monthInterval = parseInt($(this).prev().attr('value'));
+      var addDurationUnit = false;
+
+      if(monthInterval == 12) {
+        var durationUnit = 'year';
+      } else if(monthInterval == 1) {
+        var durationUnit = 'month';
+      } else {
+        var durationUnit = 'month';
+        addDurationUnit = true;
+      }
+
+
+      var planPricingText = '$' + Math.round(monthInterval * each_price * quantity * (prepay_discounts_multipliers[monthInterval] || 1)) * 0.01 + '/' + (addDurationUnit ? monthInterval + '-' : '') + durationUnit ;
+
+      $('.plan_price', this).text(planPricingText);
+    });
+
+    $('.plan_price').show();
+
+  },
   giftNoteToCartNote:function(form){
     BOLD.helpers.get('/cart.js', function(cart){
       var gift_delimiter = {% if settings.bms_enable_cart_notes %}'---GIFT MESSAGE---'{% else %}''{% endif %}
       var current_note = cart.note || '';
       var non_gift_note = {% if settings.bms_enable_cart_notes %}(current_note.split(gift_delimiter)[0] || '').trim(){% else %}''{% endif %};
-      var is_gift = form['properties[is_gift]'].checked;
+      var is_gift = form['sock-subscription-gift-yes'];
 
       // var gift_from = form['properties[To]'].value;
       // Set the gift message, but strip out line breaks, trim whitespace and condense any double-spaces to a single space
@@ -280,7 +418,7 @@ BOLD.bms_ro_loader = {
       while(gift_msg.indexOf('  ') > -1){ gift_msg = gift_msg.replace('  ', ' ')}
 
       var note;
-      if(is_gift){
+      if(is_gift.checked){
         note = non_gift_note + (non_gift_note ? '\n\n' : '') + gift_delimiter + gift_msg;
       } else {
         note = non_gift_note;
@@ -293,6 +431,10 @@ BOLD.bms_ro_loader = {
     })
   },
   verifyRequiredSelections:function(form){
+
+    // renabling the add to cart button as we need it to validate selections, and add styling and scroll to first warning
+    $('.custom-subscription-submit').removeAttr('disabled');
+
     if(!form.id || !form.id.value) {
       return false;
     }
@@ -306,10 +448,103 @@ BOLD.bms_ro_loader = {
     }
     return true;
   },
+  new_validation_check:function() {
+    var scrollPoint, scrollTo, warnings, emailWarning = false;
+
+    if($(window).width() > 425) {
+      var warningOffset = 110;
+      var nextOptionoffset = -115;
+    } else {
+      var warningOffset = 10;
+      var nextOptionoffset = 0;
+    }
+
+    //check each visisble swatch group to see if selection is made
+    $('.swatch-wrapper').each(function() {
+      var displayWarning = true;
+
+      if($(this).parents('.section_wrapper').is(":visible")) {
+        $('input[type="radio"]', this).each(function() {
+          if($(this).is(':checked')) {
+            displayWarning = false;
+          }
+        });
+
+        if(displayWarning == true) {
+          $(this).parents('.section_wrapper').addClass('warning');
+        }
+      }
+    });
+
+    //validate email input
+    $('#gift_email, .gift_renewal_swatch_wrapper, .gift-details textarea').removeClass('gift_warning');
+
+    if( $('[data-option-name="Gift"]').is(":visible") ) {
+      if( $('.gift-details textarea, .gift-details textarea').val() == '' ) {
+        emailWarning = true;
+        $('.gift-details textarea').addClass('gift_warning');
+      }
+
+      if( $('#gift_email').val() == '' ) {
+        emailWarning = true;
+        $('#gift_email').addClass('gift_warning');
+      } else {
+        var email = $('#gift_email').val();
+        if( !BOLD.bms_ro_loader.validateEmail(email) ) {
+          $('#gift_email').addClass('gift_warning');
+          emailWarning = true;
+        }
+      }
+
+      if( $('.gift_renewal_swatch_wrapper input').is(":checked") == false ) {
+        emailWarning = true;
+        $('.gift_renewal_swatch_wrapper').addClass('gift_warning');
+      }
+
+    }
+
+    if( emailWarning == true ) {
+      $('.gift-details textarea').parents('.section_wrapper').addClass('warning');
+    } else {
+      $('.gift-details textarea').parents('.section_wrapper').removeClass('warning');
+    }
+
+    warnings = $('.section_wrapper.warning');
+
+    if(warnings.length > 0) {
+        var firstWarning = warnings.first().data('order');
+
+        //since the order of the sections in the dom isnt the same as what shows on the page, run through all warnings and check their order attribute
+        warnings.each(function() {
+          if($(this).data('order') < firstWarning) {
+            firstWarning = $(this).data('order');
+          }
+        });
+
+        scrollPoint = $('.warning[data-order="' + firstWarning + '"]').position().top - warningOffset;
+        BOLD.bms_ro_loader.scrollPage(scrollPoint);
+        return false;
+    } else {
+        return true;
+    }
+
+  },
+  scrollPage:function(scrollPoint) {
+    if(scrollPoint < 0){
+      return;
+    }
+      $('html, body').animate({
+          scrollTop: scrollPoint
+      }, 500);
+  },
+  validateEmail:function(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  },
   enableCheckoutButton:function(form){
     var submit_buttons = form.querySelectorAll('[type="submit"]');
     for(var s=0; s<submit_buttons.length; s++){
-      submit_buttons[s].disabled = !BOLD.bms_ro_loader.verifyRequiredSelections(form);
+      {% comment %} submit_buttons[s].disabled = !BOLD.bms_ro_loader.verifyRequiredSelections(form); {% endcomment %}
     }
   },
   updateGroupId:function(form, current_variant, product){
@@ -330,7 +565,7 @@ BOLD.bms_ro_loader = {
     form['properties[group_id]'].value = group_id;
   },
   ensureGiftIsPrepaid:function(form){
-    var is_gift_checkbox = form['properties[is_gift]'];
+     var is_gift_checkbox = form['sock-subscription-gift-yes'];
     var is_prepaid_field = form['properties[is_prepaid]'];
 
     if(typeof is_prepaid_field.value === 'undefined'){
@@ -390,7 +625,7 @@ BOLD.bms_ro_loader = {
 
   },
   ensureGiftHasDuration:function(form){
-    var is_gift_checkbox = form['properties[is_gift]'];
+    var is_gift_checkbox = form['sock-subscription-gift-yes'];
     var gift_clone = form['is_gift_tracker'];
     gift_clone.checked = is_gift_checkbox.checked;
 
@@ -417,16 +652,24 @@ BOLD.bms_ro_loader = {
     var price = variant.price * (1-discount);
 
     var description = ''
-    if(form['properties[is_gift]'].checked && recurrences){
+    if(form['sock-subscription-gift-yes'].checked && recurrences){
       var formatted_price =  Shopify.formatMoney(recurrences * price, {{ 'bold.recurring_orders.summary_money_format_html' | t | json }} );
       description = {{ 'bold.recurring_orders.summary_prepaid_gift_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_prepaid_gift_description_middle_html' | t | json  }} + recurrences + {{ 'bold.recurring_orders.summary_prepaid_gift_description_end_html' | t | json }};
     }
     else if(recurrences){
       var formatted_price =  Shopify.formatMoney(recurrences * price, {{ 'bold.recurring_orders.summary_money_format_html' | t | json }} );
-      description = {% unless settings.bold_ro_prepaid_expires %}'<label for="tooltip-toggle__subscription-legal" class="tooltip-link">' + {% endunless %}{{ 'bold.recurring_orders.summary_prepaid_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_prepaid_description_middle_html' | t | json  }} + recurrences + {{ 'bold.recurring_orders.summary_prepaid_description_end_html' | t | json }}{% unless settings.bold_ro_prepaid_expires %}+'</label>'{% endunless %};
+      var price_wihout_currency = formatted_price.split(' ');
+      price_wihout_currency = price_wihout_currency[0]
+
+      {% comment %} description = {% unless settings.bold_ro_prepaid_expires %}'<label for="tooltip-toggle__subscription-legal" class="tooltip-link">' + {% endunless %}{{ 'bold.recurring_orders.summary_prepaid_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_prepaid_description_middle_html' | t | json  }} + '$0/month for ' + recurrences + {{ 'bold.recurring_orders.summary_prepaid_description_end_html' | t | json }}{% unless settings.bold_ro_prepaid_expires %}+'</label>'{% endunless %}; {% endcomment %}
+      description = {{ 'bold.recurring_orders.summary_prepaid_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_prepaid_description_middle_html' | t | json  }} + '$0/month for ' + recurrences + {{ 'bold.recurring_orders.summary_prepaid_description_end_html' | t | json }};
+
     } else {
       var formatted_price = Shopify.formatMoney(price, {{ 'bold.recurring_orders.summary_money_format_html' | t | json }} );
-      description = {{ 'bold.recurring_orders.summary_ongoing_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_ongoing_description_middle_html' | t | json  }} + formatted_price + {{ 'bold.recurring_orders.summary_ongoing_description_end_html' | t | json }}
+      var price_wihout_currency = formatted_price.split(' ');
+      price_wihout_currency = price_wihout_currency[0]
+
+      description = {{ 'bold.recurring_orders.summary_ongoing_description_beginning_html' | t | json }} + formatted_price + {{ 'bold.recurring_orders.summary_ongoing_description_middle_html' | t | json  }} + price_wihout_currency + {{ 'bold.recurring_orders.summary_ongoing_description_end_html' | t | json }}
     }
 
     if(form['properties[_first_pick_name]']){
@@ -435,16 +678,18 @@ BOLD.bms_ro_loader = {
     }
 
     var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
+    var is_renewing_gift_field = BOLD.helpers.ieRadioGroupFix(form, 'gift_renewal_swatch_group')
 
 
-    if(form['properties[is_gift]'].checked {% unless settings.bms_ro_gift_requires_sub_length %} && form['properties[is_prepaid]'].value {% endunless %} ){
+    if(form['sock-subscription-gift-yes'].checked && is_renewing_gift_field.value !== "yes" {% unless settings.bms_ro_gift_requires_sub_length %} && form['properties[is_prepaid]'].value {% endunless %} ){
       description += {{ 'bold.recurring_orders.subscription_expires_html' | t | json }};
+
     } else if(is_prepaid_field.value) {
       description += {% if settings.bold_ro_prepaid_expires %}{{ 'bold.recurring_orders.subscription_expires_html' | t | json }}{% else %}'<label for="tooltip-toggle__subscription-legal" class="tooltip-link">' + {{ 'bold.recurring_orders.subscription_auto_renews_html' | t | json }} + '</label><input type="checkbox" id="tooltip-toggle__subscription-legal" class="tooltip-toggle"/><label  for="tooltip-toggle__subscription-legal" class="tooltip"><span>' + {{ 'bold.recurring_orders.subscription_renewing_tooltip_html' | t | json }}.split({% raw %}'{{ months }}'{% endraw %}).join(recurrences || 1) + '<\/span></label>'{% endif %};
+
     } else {
       description += '<label for="tooltip-toggle__subscription-legal" class="tooltip-link">' + {{ 'bold.recurring_orders.subscription_ongoing_html' | t | json }} + '</label><input type="checkbox" id="tooltip-toggle__subscription-legal" class="tooltip-toggle"/><label for="tooltip-toggle__subscription-legal" class="tooltip"><span>' + {{ 'bold.recurring_orders.subscription_renewing_tooltip_html' | t | json }}.split({% raw %}'{{ months }}'{% endraw %}).join(recurrences || 1) + '<\/span></label>';
     }
-
     description_element.innerHTML = description;
   },
   updatePrepaidData:function(form, current_variant, product){
@@ -453,7 +698,7 @@ BOLD.bms_ro_loader = {
     }
     var prepaid_id_field = form['properties[prepaid_length_id]'];
     var is_prepaid, total_recurrences, discount = 0;
-    var is_prepaid_field = form['properties[is_prepaid]']
+    var is_prepaid_field = form['properties[is_prepaid]'];
 
     if(typeof is_prepaid_field.value === 'undefined'){
       is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
@@ -479,6 +724,8 @@ BOLD.bms_ro_loader = {
         discount = 1 - current_variant.recurring_group_data.discount_percentage;
       }
     }
+
+
     var prepaid_subscription_alert = form.querySelector('.prepaid_subscription_alert');
     prepaid_subscription_alert && (prepaid_subscription_alert.style.display = is_prepaid ? 'block' : '');
     return discount;
@@ -523,6 +770,7 @@ BOLD.bms_ro_loader = {
   },
   printSubscriptionData:function(target_element, group_id){
     var group_data = BOLD.bms_ro_loader.loaded_group_data[group_id];
+
     if(!group_data){
       BOLD.bms_ro_loader.loadSubscriptionData(group_id);
       return;
@@ -587,18 +835,29 @@ BOLD.bms_ro_loader = {
     evt.preventDefault();
     var form = evt.target;
 
+    {% comment %}
     if(!BOLD.bms_ro_loader.verifyRequiredSelections(form)){
+      return false;
+    }
+    {% endcomment %}
+
+    if(!BOLD.bms_ro_loader.new_validation_check(form)){
       return false;
     }
 
     var is_prepaid_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[is_prepaid]')
     var is_prepaid = is_prepaid_field.value;
-    var is_gift = form['properties[is_gift]'].checked;
+
+    var total_recurrences_field = BOLD.helpers.ieRadioGroupFix(form, 'properties[total_recurrences]')
+    total_recurrences = parseInt(total_recurrences_field.value)
 
 
     //If the subscription is not prepaid, remove prepaid-related properties
-    if(!is_prepaid){
-      form['properties[is_prepaid]'].value = '';
+    if(!is_prepaid || total_recurrences == 1 || !total_recurrences){
+      var checkedRecurrenceField = form.querySelector('[name="properties[total_recurrences]"]:checked')
+      checkedRecurrenceField.value = '';
+      checkedRecurrenceField.name = '';
+      is_prepaid_field.value = '';
       form['properties[prepaid_length_id]'].value = '';
 
       //Also clear the name of these fields, since having them exist-but-empty may cause buggy behaviour
@@ -607,12 +866,12 @@ BOLD.bms_ro_loader = {
 
       {% if settings.bms_ro_gift_requires_sub_length %}
       //If it's a not a gift, clear total_recurrences
-      if(!is_gift){
+      if(!is_gift.checked){
         BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]').value='';
       }
       {% else %}
       BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
-      form['properties[is_gift]'].name = ''
+      is_gift.name = ''
       {% endif %}
     } else {
       var single_recurring = document.createElement('input');
@@ -621,15 +880,23 @@ BOLD.bms_ro_loader = {
       single_recurring.value = '1';
       form.appendChild(single_recurring);
     }
+
+    var is_gift = form['sock-subscription-gift-yes'].checked;
     //If the subscription is not a gift, remove gift-related properties
-    if(!is_gift){
+    if(is_gift){
+      form['properties[_prepaid_start_date]'].value = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    }
+    else{
       form['properties[Gift Message]'].value = '';
       form['properties[EMAIL]'].value = '';
+      $('.prepaid_start_date').val('');
     }
 
+    if( $('#recurring_gift_no').is(':checked') ) {
+        $('.custom-subscription-form').append('<input class="" id="" name="properties[is_gift]" value="true" type="hidden">')
+    }
 
     var formData = new FormData(form);
-
 
     //Submit and redirect to Cashier
     //If it's a prepaid subscription, empty cart first
@@ -643,7 +910,6 @@ BOLD.bms_ro_loader = {
     }
   },
   redirectToCashier:function(response){
-
     var cashierForm = document.createElement('form');
     cashierForm.setAttribute('action', '/apps/checkout/begin-checkout?shop=' + Shopify.shop + '&' + googleAnalyticsGetParamString());
     cashierForm.setAttribute('method', 'post');
@@ -667,12 +933,13 @@ BOLD.bms_ro_loader = {
     var custom_recurring_forms = document.querySelectorAll('form.custom-subscription-form');
     for(var f=0; f<custom_recurring_forms.length; f++){
       var form = custom_recurring_forms[f];
+
       form.removeEventListener('submit', BOLD.bms_ro_loader.recurringFormSubmit);
       form.addEventListener('submit', BOLD.bms_ro_loader.recurringFormSubmit);
     }
   },
   decorateRecurringFormInputs:function(option_change_function){
-    var forms = document.querySelectorAll('form.custom-subscription-form');
+  var forms = document.querySelectorAll('form.custom-subscription-form');
     for(var f=0; f<forms.length;f++){
       var form = forms[f];
       for(var i=0; i<form.length;i++){

@@ -1,6 +1,9 @@
 
-<input type="radio" id="{{ input_id }}" class="{% if for_variant %}variant-option{% endif %} {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="{{ input_name }}" value="{{ value }}" {% if default_checked %}checked{% endif %} />
+<input data-quantity="{{ value | remove: ' Pair' | remove:' Pair' | remove: ' Pack' | remove: 's' }}" type="radio" id="{{ input_id }}" class="{% if for_variant %}variant-option{% endif %} {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="{{ input_name }}" value="{{ value }}" {% if default_checked %}checked{% endif %} />
 <label for="{{ input_id }}" class="swatch-label swatch-{{ option.name | default: option }}">
+  {% if input_id == 'subscription-length-12-prepaid' %}
+    <img class="best_value_img 12_month" src="{{ 'best_value.png' | file_url }}" />  
+  {% endif %}
 
   {% if img %}
   <div class="img_wrapper">
@@ -18,8 +21,9 @@
 <style>
 
 .swatch-radio[value="{{ value }}"]+label .img_wrapper .reg_img {
-  background-image:url('{{ img | file_url }}');
+  background-image:url('{{ img | file_url }}'); 
 }
+
 
 .swatch-radio[value="{{ value }}"]+label .img_wrapper .hover_img {
   background-image:url('{{ img_hover | file_url }}'); 

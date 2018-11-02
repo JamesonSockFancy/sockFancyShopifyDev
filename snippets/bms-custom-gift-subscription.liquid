@@ -1,12 +1,56 @@
-<div class="gift-selection">
-  <header class="has-toggle">
-    <h3>{{ 'bold.recurring_orders.subscription_is_gift_html' | t }}</h3>
-    <input class="slider-toggle text-toggle" id="is_gift_toggle" type="checkbox" name="properties[is_gift]" value="on" />
-    <label for="is_gift_toggle"></label>
-    <div class="expanded-text-body gift-details">
-      {% comment %}<input type="text" placeholder="{{ 'bold.recurring_orders.gift_message_to_placeholder_html' | t }}" name="properties[To]" /> {% endcomment %}
+  <div class="section_wrapper" data-order='6' data-option-name="Gift">
+    <header><h3>{{ 'bold.recurring_orders.gift_title' | t }}</h3></header>
+    <div class="gift-selection">
+        <div class="expanded-text-body gift-details">
 
-      <textarea placeholder="{{ 'bold.recurring_orders.gift_message_placeholder_html' | t }}" name="properties[Gift Message]" onkeyup="BOLD.bms_ro_loader.updateGiftRemainingCharacters(this)" maxlength="{{ settings.bms_gift_message_max_length | default: 250 }}"></textarea>
+          <div class="gift_info_wrapper gift_section">
+            <h4>Gift message & email</h4> 
+            <textarea placeholder="{{ 'bold.recurring_orders.gift_message_placeholder_html' | t }}" name="properties[Gift Message]" onkeyup="BOLD.bms_ro_loader.updateGiftRemainingCharacters(this)" maxlength="{{ settings.bms_gift_message_max_length | default: 250 }}"></textarea>
+            <div class="gift_message_warning">Please enter a gift message</div>
+            
+            <div class="email_wrapper">
+              <input placeholder="{{ 'bold.recurring_orders.gift_email_placeholder_html' | t }}" type="text" value="" name="properties[EMAIL]" class="" id="gift_email">
+              <div class="email_warning">Please enter valid email</div>
+            </div>
+            <p>Don't worry, we won't spoil the surprise.  We'll email your recipeint to let them know they've been gifted after your gift has been delivered.</p>
+          </div>
+
+          <div class="gift_timing_wrapper gift_section">
+            <h4>Gift Timing</h4>
+            <p>Choose when your first order will ship.</p>
+            <div id="datepicker_wrapper"> 
+
+
+              <div id="datepicker"></div>
+              {% comment %} <input type="date" name="date" id="date" value=""  /> {% endcomment %}
+              <div class="help_title"><i class="fas fa-info-circle"></i><span>Help</span></div>
+
+              <p>The date selected will be when the first order is shipped.  Please allow <strong>5-10 business days for US</strong> (domestic) delivery and <strong>2-3 weeks for orders outside the US</strong>.</p>
+              <p>Expited shipping options available at checkout.</p>
+            </div>
+
+          </div>
+
+          <input class="prepaid_start_date" type="hidden" value="" name="properties[_prepaid_start_date]" >
+
+          <div class="gift_renewal_wrapper gift_section">
+            <h4>Gift renewal</h4> 
+            <div class="gift_renewal_content">
+              <div class="gift_renewal_text">Keep the celebration going?  Auto-renew your gift after the initial subscription period ends?  Cancel at any time</div>
+              <div class="gift_renewal_swatch_wrapper">
+                <input type="radio" id="recurring_gift_yes" class="swatch-radio" name="gift_renewal_swatch_group" value="yes">
+                <label for="recurring_gift_yes" class="swatch-Style">
+                  <span class="">yes</span>
+                </label>
+
+                <input type="radio" id="recurring_gift_no" class="swatch-radio" name="gift_renewal_swatch_group" value="no">
+                <label for="recurring_gift_no" class="swatch-Style">
+                  <span class="">no</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
     </div>
-  </header>
 </div>

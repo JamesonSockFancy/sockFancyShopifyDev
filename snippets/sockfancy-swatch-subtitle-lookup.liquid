@@ -4,19 +4,21 @@
 {%- assign lowercase_option_name = option.name | default: option | downcase -%}
 {%- assign lowercase_value = value | downcase -%}
 {%- assign subtitle = false -%}
+{%- assign eachPrice = '' -%}
+
 {%- case lowercase_option_name -%}
  {%- when 'size' -%}
    {%- case lowercase_value -%}
      {%- when 'mens' -%}
-       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mens' | t -%}
+       {%- assign subtitle = 'subscription.swatch_subtitles.subtitle_for_mens' | t -%}
      {%- when 'men' -%}
-       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mens' | t -%}
+       {%- assign subtitle = 'subscription.swatch_subtitles.subtitle_for_mens' | t -%}
     {%- when 'womens' -%}
-       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_womens' | t -%}
+       {%- assign subtitle = 'subscription.swatch_subtitles.subtitle_for_womens' | t -%}
     {%- when 'women' -%}
-       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_womens' | t -%}
+       {%- assign subtitle = 'subscription.swatch_subtitles.subtitle_for_womens' | t -%}
     {%- when 'his & hers' -%}
-       {%- assign subtitle = 'bold.recurring_orders.subtitle_for_mixed' | t -%}
+       {%- assign subtitle = 'subscription.swatch_subtitles.subtitle_for_mixed' | t -%}
     {%- endcase -%}
 
   {%- when 'quantity' -%}
@@ -26,21 +28,43 @@
       {%- assign monthly_price = variant.price -%}
     {%- else if product -%}
       {%- for variant in product.variants -%}
+
+        {%- if forloop.index == 1 -%}
+          {% assign regularPrice = variant.price | times: 1.0 %}
+        {% endif %}
+
         {%- if variant.option1 == value or variant.option2 == value or variant.option3 == value -%}
-          {%- assign monthly_price = variant.price -%}
+          {%- assign quantity_value = value | remove: ' Pair' | remove:' Pair' | remove: ' Pack' | remove: 's' | times: 1 -%}
+          {%- if quantity_value == 1 -%}
+            {%- assign monthly_price = variant.price -%}
+            {%- assign subtitle = monthly_price | money_without_trailing_zeros | append: '/pair' -%}
+            {% assign eachPrice = monthly_price | money_without_trailing_zeros | remove: '$' %}
+          {% else %}
+            {%- assign monthly_price = variant.price | divided_by: quantity_value -%}
+            {%- assign percentDifference = regularPrice | minus: monthly_price | divided_by: regularPrice | times: 100 | ceil -%}
+            {%- assign percentSavings = 'You save ' | append: percentDifference | append: '%' -%}
+            {%- assign priceEach = monthly_price | money_without_trailing_zeros | prepend: '(' | append: '/e)' -%}
+            {% capture subtitle %}{{ percentSavings }} {{ priceEach }}{% endcapture %}
+            {% assign eachPrice = monthly_price | money_without_trailing_zeros | remove: '$' %}
+          {%- endif -%}
           {%- break -%}
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
-    {%- assign subtitle = monthly_price | money_without_trailing_zeros | append: '/month' -%}
 
   {%- when 'duration' -%}
-    {%- if value contains '12' -%}
-      {%- assign subtitle =  'bold.recurring_orders.subtitle_for_12_month_prepaid' | t -%}
-    {%- endif -%}
+    {% assign numeric_value = value | split: ' ' | first | times: 1 %}
+    {% assign text_variable = 'subscription.swatch_subtitles.' | append: numeric_value | append: '_month_subtitle' %}
+    {% assign subtitle = text_variable | t %}
 
 {%- endcase -%}
+  {% comment %} <p>{{lowercase_option_name}}</p>
+  <p>{{lowercase_value}}</p> {% endcomment %}
+
+{%- if lowercase_option_name == 'duration' -%}
+  <span class="plan_price"></span>
+{%- endif -%}
 
 {%- if subtitle -%}
-<span class="swatch-subtitle">{{ subtitle }}</span>
+<span {% if eachPrice != '' %} data-eachPrice="{{ eachPrice }}" {% endif %} class="swatch-subtitle">{{ subtitle }}</span>
 {%- endif -%}

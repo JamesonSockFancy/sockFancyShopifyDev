@@ -46,12 +46,14 @@
 
     <!-- font awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 
     {% include 'social-meta-info' %}
 
     {% if collection.previous_product %}
       <link rel="prev" href="{{ collection.previous_product }}">
-    {% endif %}
+    {% endif %} 
     {% if collection.next_product %}
       <link rel="next" href="{{ collection.next_product }}">
     {% endif %}
@@ -61,6 +63,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+
 
     <!-- Stylesheets for Parallax 3.3.4 -->
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
@@ -216,9 +219,38 @@
       t=document.createElement("script");t.async=!0,t.src=e;var
       r=document.getElementsByTagName("script")[0];
       r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
-        pintrk('load', '2618285542740', {em: '{{ customer.email }}'});
+        pintrk('load', '2618285542740', {em: '{{ customer.email }}'}); 
         pintrk('page');
 </script>
+
+
+
+
+    {{ 'jquery-ui.min.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery-ui.structure.min.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery-ui.theme.min.css' | asset_url | stylesheet_tag }} 
+    {{ 'jquery-ui.min.js' | asset_url | script_tag }}
+
+    {% comment %} <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    {{ 'jquery.ui.datepicker.mobile.css' | asset_url | stylesheet_tag }}
+
+
+    <script>
+      //reset type=date inputs to text
+      $( document ).bind( "mobileinit", function(){
+        $.mobile.page.prototype.options.degradeInputs.date = true;
+      });	
+    </script>
+
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    {{ 'jQuery.ui.datepicker.js' | asset_url | script_tag }}
+    {{ 'jquery.ui.datepicker.mobile.js' | asset_url | script_tag }} {% endcomment %}
+
+
+
+
 <noscript>
 <img height="1" width="1" style="display:none;" alt=""
       src="https://ct.pinterest.com/v3/?tid=2618285542740&pd[em]=<hashed_email_address>&noscript=1" />
@@ -312,10 +344,45 @@ $('.style_link').click(function() {
 
 $('.size_chart_link').click(function() {
   $('#overlay, .bms_sizing_modal').show();
-});
+}); 
 
+
+  $( function() {
+    
+    if( window.innerWidth > 480 ) {
+      $( "#datepicker" ).datepicker(
+        {
+          minDate: 0,
+          beforeShowDay: $.datepicker.noWeekends,
+          selectOtherMonths: true, 
+          nextText: '<i class="fas fa-chevron-right"></i>',
+          prevText: '<i class="fas fa-chevron-left"></i>',
+          dateFormat: "yy-mm-dd",
+          dayNamesMin: [ "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" ]
+        }
+      );
+    } else {
+      $( "#datepicker" ).datepicker(
+        {
+          minDate: 0,
+          beforeShowDay: $.datepicker.noWeekends,
+          selectOtherMonths: true, 
+          nextText: '<i class="fas fa-chevron-right"></i>',
+          prevText: '<i class="fas fa-chevron-left"></i>',
+          dateFormat: "yy-mm-dd",
+          dayNamesMin: [ "S", "M", "T", "W", "T", "S", "S" ]
+        }
+      );
+    }
+
+  });
+
+  
 
   </script>
+
+
+
 
   </body>
 </html>

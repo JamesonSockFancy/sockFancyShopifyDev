@@ -22,3 +22,7 @@ prelaunchDelay:
   password: cc51317a6f5ad798883b40eb932781e8
   theme_id: "32944652391"
   store: sockfancyapp.myshopify.com
+DelayFeature:
+  password: cc51317a6f5ad798883b40eb932781e8
+  theme_id: "32952451175"
+  store: sockfancyapp.myshopify.com

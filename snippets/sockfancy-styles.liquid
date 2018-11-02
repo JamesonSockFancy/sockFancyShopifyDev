@@ -7,7 +7,7 @@
   <p class="expanded-text-body">{{ 'bold.recurring_orders.limited_edition_description_html' | t }} <label for="limited-edition-text-toggle" class="text-toggle-collapse">{{ 'bold.recurring_orders.limited_edition_collapse_html' | t }}</label></p>
 </header>
 
-<div class="swatch-wrapper validate_swatches swatch-{{ 'limited edition' | handle }}" data-option="{{ option.name }}" data-value-count="{{ option.values.size }}">
+<div class="swatch-wrapper swatch-{{ 'limited edition' | handle }}" data-option="{{ option.name }}" data-value-count="{{ option.values.size }}">
   {% assign crew_text = 'bold.recurring_orders.special_crew' | t %}
   {% assign noshow_text = 'bold.recurring_orders.special_noshow' | t %}
   {% assign both_text = 'bold.recurring_orders.special_both' | t %}
