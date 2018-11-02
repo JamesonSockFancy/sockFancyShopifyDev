@@ -390,10 +390,12 @@ BOLD.bms_ro_loader = {
         addDurationUnit = true;
       }
 
-
-      var planPricingText = '$' + Math.round(monthInterval * each_price * quantity * (prepay_discounts_multipliers[monthInterval] || 1)) * 0.01 + '/' + (addDurationUnit ? monthInterval + '-' : '') + durationUnit ;
-
-      $('.plan_price', this).text(planPricingText);
+    if(form['sock-subscription-gift-no'].checked) {
+      var planPricingText = '$' + Math.round(monthInterval * each_price * quantity * (prepay_discounts_multipliers[monthInterval] || 1)) * 0.01 + '/' + (addDurationUnit ? monthInterval + '-' : '') + durationUnit;    
+    } else {
+      var planPricingText = '$' + Math.round(monthInterval * each_price * quantity * (prepay_discounts_multipliers[monthInterval] || 1)) * 0.01;
+    }
+    $('.plan_price', this).text(planPricingText); 
     });
 
     $('.plan_price').show();

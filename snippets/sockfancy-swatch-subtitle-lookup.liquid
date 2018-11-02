@@ -54,9 +54,8 @@
 
   {%- when 'duration' -%}
     {% assign numeric_value = value | split: ' ' | first | times: 1 %}
-    {% assign text_variable = 'subscription.swatch_subtitles.' | append: numeric_value | append: '_month_subtitle' %}
+    {% assign text_variable = 'subscription.swatch_subtitles.' | append: numeric_value | append: '_month_subtitle'  %}
     {% assign subtitle = text_variable | t %}
-
 {%- endcase -%}
   {% comment %} <p>{{lowercase_option_name}}</p>
   <p>{{lowercase_value}}</p> {% endcomment %}
