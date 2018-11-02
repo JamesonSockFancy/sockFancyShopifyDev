@@ -179,7 +179,7 @@ assets/airplane.png:
   production: 2018-03-29T11:06:14-04:00   8769667b3c3fb8267bf3c4a47eed9512
 assets/app.js.liquid:
   DelayFeature: 2018-10-31T15:13:03-04:00   cc50f10fe4058bcff7d27f420a489395
-  development: 2018-09-06T09:39:13-04:00   1a9d9bd925cc672717f50910bed71556
+  development: 2018-11-02T12:52:41-04:00   cc50f10fe4058bcff7d27f420a489395
   noshowDev: 2018-07-31T12:00:50-04:00   af1dbb136fd3661f0df8408992e41a05
   noshowProd: 2018-09-05T11:07:07-04:00   1a9d9bd925cc672717f50910bed71556
   prelaunchDelay: 2018-10-26T15:28:01-04:00   1a9d9bd925cc672717f50910bed71556
@@ -201,22 +201,23 @@ assets/bms-ajax-subscription-page.js.liquid:
   prelaunchDelay: 2018-10-26T15:28:02-04:00   83e5d03073a5aee3a8b61f464cccdff3
   production: 2018-04-13T14:00:33-04:00   83e5d03073a5aee3a8b61f464cccdff3
 assets/bms-custom-ro-loader.js.liquid:
-  DelayFeature: 2018-10-31T15:12:27-04:00   7766cd2b2ea3046bf14c88daa399f116
+  DelayFeature: 2018-11-01T14:42:37-04:00   3f38faebf1ea33ec019834499073e57a
   boldDev: 2018-05-02T12:38:09-04:00   fc31935c6d16e9d79d8c507e90104b71
-  development: 2018-08-31T09:50:42-04:00   557959a161573d9bfdfdef679628d0a2
+  development: 2018-11-02T12:52:35-04:00   f61e75d168952488e94606dd655284b6
   noshowDev: 2018-08-22T13:40:23-04:00   2611b6a916b3db1247ac32180ca2f8b9
   noshowProd: 2018-08-30T11:55:03-04:00   557959a161573d9bfdfdef679628d0a2
   prelaunchDelay: 2018-10-31T16:38:21-04:00   c7efa524f42fc36ecbaa70763710ee3e
   production: 2018-06-29T14:50:26-04:00   92c1354c50a5df5e3f71b7415329de11
 assets/bms-custom-styles.scss.liquid:
   DelayFeature: 2018-10-31T15:11:25-04:00   f5ab1b8b52134f392cfb4d289d5a9582
-  development: 2018-09-06T12:01:29-04:00   201060c354e14759fe0def3eb12b5af6
+  development: 2018-11-02T12:52:47-04:00   f5ab1b8b52134f392cfb4d289d5a9582
   noshowDev: 2018-08-22T17:04:18-04:00   765066e6b44b569148aded7ef2c264f3
   noshowProd: 2018-09-06T12:42:28-04:00   201060c354e14759fe0def3eb12b5af6
   prelaunchDelay: 2018-10-26T15:28:02-04:00   201060c354e14759fe0def3eb12b5af6
   production: 2018-08-07T09:37:59-04:00   82eff042c893c0717a98afb64e6c529b
 assets/bms-double-check-if-cart-includes-subscription.js:
   DelayFeature: 2018-10-31T15:12:24-04:00   abe4f3df0b3e95a65709d0017733f0a2
+  development: 2018-11-02T12:52:35-04:00   abe4f3df0b3e95a65709d0017733f0a2
 assets/bms-free-gifts.js.liquid:
   DelayFeature: 2018-10-31T15:05:12-04:00   aacf2744eaa636f5a8217f486efaf3ef
   development: 2018-05-25T15:43:12-04:00   aacf2744eaa636f5a8217f486efaf3ef
@@ -234,14 +235,14 @@ assets/bms-product-to-subscription-product.js.liquid:
   production: 2018-05-11T17:14:39-04:00   c5f8a371addf55aeac54d358a589c1b7
 assets/bms-randomize-subscription-product.js.liquid:
   DelayFeature: 2018-10-31T15:12:51-04:00   80750593d2e1b3879d896bddfc669fd4
-  development: 2018-08-23T16:30:00-04:00   cc1a91f331b860afcd4d648bfa7e4b39
+  development: 2018-11-02T12:52:45-04:00   80750593d2e1b3879d896bddfc669fd4
   noshowDev: 2018-08-14T18:24:21-04:00   2fa02656f7c663458b573077922c1638
   noshowProd: 2018-08-22T14:05:16-04:00   cc1a91f331b860afcd4d648bfa7e4b39
   prelaunchDelay: 2018-10-26T15:28:03-04:00   cc1a91f331b860afcd4d648bfa7e4b39
   production: 2018-07-25T13:39:01-04:00   5fe20e9d0eaa938244714eab05ed7695
 assets/bms-styles.css.liquid:
   DelayFeature: 2018-10-31T15:12:23-04:00   512eb34c523a4d9a45ca9304a5e3416f
-  development: 2018-10-11T12:08:07-04:00   08a0a281e1563c51427f0b91d0a02375
+  development: 2018-11-02T12:52:42-04:00   512eb34c523a4d9a45ca9304a5e3416f
   noshowDev: 2018-08-22T17:04:18-04:00   f39ec5cbaa3dfb917e0d1a4a1a2bbfbc
   noshowProd: 2018-09-19T12:03:46-04:00   08a0a281e1563c51427f0b91d0a02375
   prelaunchDelay: 2018-10-26T15:28:03-04:00   08a0a281e1563c51427f0b91d0a02375
@@ -349,14 +350,19 @@ assets/inc-5000-blog.png:
   prelaunchDelay: 2018-10-26T15:28:06-04:00   fb174bd230936d796660cd627b4185d8
 assets/jQuery.ui.datepicker.js:
   DelayFeature: 2018-10-31T15:11:52-04:00   bfac7f425c4bde6995b100c42ddb99cb
+  development: 2018-11-02T12:52:44-04:00   bfac7f425c4bde6995b100c42ddb99cb
 assets/jquery-ui.min.css:
   DelayFeature: 2018-10-31T15:11:32-04:00   0769e9f7b371e1fec06d8a54d710dc73
+  development: 2018-11-02T12:52:38-04:00   0769e9f7b371e1fec06d8a54d710dc73
 assets/jquery-ui.min.js:
   DelayFeature: 2018-10-31T15:11:48-04:00   16d5c2be282c364a45364a42ad52ff68
+  development: 2018-11-02T12:52:37-04:00   16d5c2be282c364a45364a42ad52ff68
 assets/jquery-ui.structure.min.css:
   DelayFeature: 2018-10-31T15:11:53-04:00   c7253e7d94d4ff09498a1bafdb0221f9
+  development: 2018-11-02T12:52:40-04:00   c7253e7d94d4ff09498a1bafdb0221f9
 assets/jquery-ui.theme.min.css:
   DelayFeature: 2018-10-31T15:12:54-04:00   7797f78804e4d457a96d492de7e1980d
+  development: 2018-11-02T12:52:43-04:00   7797f78804e4d457a96d492de7e1980d
 assets/jquery.cart.min.js:
   DelayFeature: 2018-10-31T15:05:15-04:00   14b6455b559d83db52ccc2188a462deb
   boldDev: 2018-03-22T11:49:34-04:00   14b6455b559d83db52ccc2188a462deb
@@ -375,8 +381,10 @@ assets/jquery.currencies.min.js:
   production: 2018-03-29T11:03:29-04:00   b6c9dc6f9c9b59ba9d9f3d4c1a617f17
 assets/jquery.ui.datepicker.mobile.css:
   DelayFeature: 2018-10-31T15:11:34-04:00   aee7f5bc0f6e95b099c980b0e07d8125
+  development: 2018-11-02T12:52:46-04:00   aee7f5bc0f6e95b099c980b0e07d8125
 assets/jquery.ui.datepicker.mobile.js:
   DelayFeature: 2018-10-31T15:12:46-04:00   c664168fb7c2752a8b633cc8cf9f1daf
+  development: 2018-11-02T12:52:36-04:00   c664168fb7c2752a8b633cc8cf9f1daf
 assets/lity.css:
   DelayFeature: 2018-10-31T15:05:15-04:00   4a7f6d38c291e7170161a27c607b396c
   boldDev: 2018-05-01T10:42:57-04:00   4a7f6d38c291e7170161a27c607b396c
@@ -612,14 +620,14 @@ layout/password.liquid:
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   DelayFeature: 2018-10-31T15:12:12-04:00   cba7f232a1fcbfc11306d92dcea046f9
-  development: 2018-10-11T12:08:06-04:00   f72b04f8835ac4e39ee61162a4569925
+  development: 2018-11-02T12:52:45-04:00   cba7f232a1fcbfc11306d92dcea046f9
   noshowDev: 2018-08-22T17:04:12-04:00   fc5a664626e4a2d75a98738989017af6
   noshowProd: 2018-10-11T12:25:13-04:00   f72b04f8835ac4e39ee61162a4569925
   prelaunchDelay: 2018-10-26T15:28:12-04:00   f72b04f8835ac4e39ee61162a4569925
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
   DelayFeature: 2018-10-31T15:05:22-04:00   b23ee9ec7bfd1ff99f070c399216433e
-  development: 2018-10-25T11:16:57-04:00   686dc80c03632df2d8c4e860b3f0a2f0
+  development: 2018-11-02T12:52:41-04:00   f307e67bac6dd75271c8ebceb3ce46e4
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
   noshowProd: 2018-10-25T12:28:56-04:00   686dc80c03632df2d8c4e860b3f0a2f0
   prelaunchDelay: 2018-10-31T16:38:20-04:00   9b07d9d58c8a596ee58d3ae7b716237e
@@ -633,9 +641,9 @@ locales/de.json:
   prelaunchDelay: 2018-10-26T15:28:12-04:00   c8755f2c8e0a8f63d43629ba51ecb660
   production: 2018-03-29T11:03:07-04:00   c8755f2c8e0a8f63d43629ba51ecb660
 locales/en.default.json:
-  DelayFeature: 2018-10-31T15:12:54-04:00   a20eccb59cf7173a6c1ef2251dddda57
+  DelayFeature: 2018-11-01T14:41:39-04:00   a20eccb59cf7173a6c1ef2251dddda57
   boldDev: 2018-05-01T17:08:53-04:00   1b90780af4e440c2807b4ef26bacb8e0
-  development: 2018-09-06T12:10:52-04:00   062d1f1c691a293928b0f4ff0aa2e556
+  development: 2018-11-02T12:52:38-04:00   a20eccb59cf7173a6c1ef2251dddda57
   noshowDev: 2018-08-22T17:39:43-04:00   ced0aec4a5fc99b973b9d287496ec12c
   noshowProd: 2018-09-06T12:42:28-04:00   062d1f1c691a293928b0f4ff0aa2e556
   prelaunchDelay: 2018-10-26T15:28:12-04:00   c52ac68020d2b3b85de9b1a1e6b457bc
@@ -982,9 +990,9 @@ snippets/bms-custom-gift-subscription-new.liquid:
   noshowProd: 2018-08-23T09:43:45-04:00   331003cae896f7e37910dea1d1cca670
   prelaunchDelay: 2018-10-26T15:28:13-04:00   331003cae896f7e37910dea1d1cca670
 snippets/bms-custom-gift-subscription.liquid:
-  DelayFeature: 2018-10-31T15:12:29-04:00   2b3e218703c93f8b9afd09e63aed2805
+  DelayFeature: 2018-11-01T14:42:43-04:00   3d4a53f6d5b94257bb28ca2970c21402
   boldDev: 2018-05-01T10:42:25-04:00   fe8cbada0ae775345d4f32ec407f0259
-  development: 2018-07-23T15:59:54-04:00   aab4618ec3183938dcff38232bd49f81
+  development: 2018-11-02T12:52:47-04:00   2b3e218703c93f8b9afd09e63aed2805
   noshowDev: 2018-07-26T11:18:03-04:00   aab4618ec3183938dcff38232bd49f81
   noshowProd: 2018-08-21T20:14:06-04:00   aab4618ec3183938dcff38232bd49f81
   prelaunchDelay: 2018-10-26T15:28:13-04:00   aab4618ec3183938dcff38232bd49f81
@@ -998,7 +1006,7 @@ snippets/bms-custom-ro-swatches-new.liquid:
 snippets/bms-custom-ro-swatches.liquid:
   DelayFeature: 2018-10-31T15:11:37-04:00   5edb062cb8358f9d5392748752bfce7f
   boldDev: 2018-05-01T12:29:29-04:00   6f96ef093fac2aabde9d83657d25ff6d
-  development: 2018-05-25T15:43:08-04:00   3d9d00f7335a955e192fd888b879f237
+  development: 2018-11-02T12:52:38-04:00   5edb062cb8358f9d5392748752bfce7f
   noshowDev: 2018-07-26T11:18:03-04:00   3d9d00f7335a955e192fd888b879f237
   noshowProd: 2018-08-21T20:14:06-04:00   3d9d00f7335a955e192fd888b879f237
   prelaunchDelay: 2018-10-26T15:28:13-04:00   3d9d00f7335a955e192fd888b879f237
@@ -1020,7 +1028,7 @@ snippets/bms-custom-ro-widget.liquid:
 snippets/bms-custom-sub-length.liquid:
   DelayFeature: 2018-10-31T15:11:47-04:00   073e62f07c99e1f5d9b734c514224ad6
   boldDev: 2018-05-01T13:16:36-04:00   02131faa8d9a3f90effe11d3aa366c32
-  development: 2018-08-22T16:53:14-04:00   3779402201a6a40ea57741cd73a8ff33
+  development: 2018-11-02T12:52:47-04:00   073e62f07c99e1f5d9b734c514224ad6
   noshowDev: 2018-08-02T16:12:45-04:00   3779402201a6a40ea57741cd73a8ff33
   noshowProd: 2018-08-22T12:07:17-04:00   3779402201a6a40ea57741cd73a8ff33
   prelaunchDelay: 2018-10-26T15:28:13-04:00   3779402201a6a40ea57741cd73a8ff33
@@ -1034,7 +1042,7 @@ snippets/bms-custom-subscription-flow-new.liquid:
 snippets/bms-custom-subscription-flow.liquid:
   DelayFeature: 2018-10-31T15:11:49-04:00   7eb92cfa7743a6057a0a6f5897054e5b
   boldDev: 2018-04-06T16:40:09-04:00   94dc7d09db0acef28c3fd2baf2f057f5
-  development: 2018-08-27T10:14:05-04:00   705057301a021b06931af6106f8a34b3
+  development: 2018-11-02T12:52:44-04:00   7eb92cfa7743a6057a0a6f5897054e5b
   noshowDev: 2018-08-22T17:44:41-04:00   e737b7051ac81faba0dd141550d882d9
   noshowProd: 2018-08-31T11:55:01-04:00   705057301a021b06931af6106f8a34b3
   prelaunchDelay: 2018-10-26T15:28:13-04:00   705057301a021b06931af6106f8a34b3
@@ -1048,7 +1056,7 @@ snippets/bms-custom-subscription-summary-and-submit-new.liquid:
 snippets/bms-custom-subscription-summary-and-submit.liquid:
   DelayFeature: 2018-10-31T15:12:33-04:00   b19b5ada07c50aacff3ade68aa381931
   boldDev: 2018-04-12T13:09:44-04:00   fec0be53e3e73b124586c2aea847c6b4
-  development: 2018-04-18T12:57:11-04:00   fec0be53e3e73b124586c2aea847c6b4
+  development: 2018-11-02T12:52:42-04:00   b19b5ada07c50aacff3ade68aa381931
   noshowDev: 2018-07-28T10:15:28-04:00   fec0be53e3e73b124586c2aea847c6b4
   noshowProd: 2018-08-21T20:14:06-04:00   fec0be53e3e73b124586c2aea847c6b4
   prelaunchDelay: 2018-10-26T15:28:13-04:00   fec0be53e3e73b124586c2aea847c6b4
@@ -1062,7 +1070,7 @@ snippets/bms-custom-swatches-new.liquid:
 snippets/bms-custom-swatches.liquid:
   DelayFeature: 2018-10-31T15:11:22-04:00   ca2647b24e94a249d468654c8e95489d
   boldDev: 2018-05-01T10:45:54-04:00   efe54a96dd09c3d48877d6bc1fdf456f
-  development: 2018-08-22T16:53:13-04:00   e11715fa263523b6ddba6b0fefceaeda
+  development: 2018-11-02T12:52:43-04:00   ca2647b24e94a249d468654c8e95489d
   noshowDev: 2018-08-22T12:58:59-04:00   e11715fa263523b6ddba6b0fefceaeda
   noshowProd: 2018-08-22T14:04:45-04:00   e11715fa263523b6ddba6b0fefceaeda
   prelaunchDelay: 2018-10-26T15:28:13-04:00   e11715fa263523b6ddba6b0fefceaeda
@@ -1126,9 +1134,9 @@ snippets/bms-subscription-product-lookup-and-json.liquid:
   prelaunchDelay: 2018-10-26T15:28:14-04:00   3c930261fa8207d7dc4cbba5ceb64081
   production: 2018-05-29T12:19:01-04:00   3c930261fa8207d7dc4cbba5ceb64081
 snippets/bms-swatch-element.liquid:
-  DelayFeature: 2018-10-31T15:22:27-04:00   b061a1f2533b1be9f75ccf495b813b91
+  DelayFeature: 2018-11-01T14:42:55-04:00   0529240a772da838aabfb6be04295550
   boldDev: 2018-04-10T15:14:40-04:00   a78b597a678d3c25b2fdf1a1ec302453
-  development: 2018-08-22T16:53:15-04:00   5b6154a59189f9573a05c34238540f1e
+  development: 2018-11-02T12:52:36-04:00   b061a1f2533b1be9f75ccf495b813b91
   noshowDev: 2018-07-28T09:13:01-04:00   5b6154a59189f9573a05c34238540f1e
   noshowProd: 2018-08-22T12:07:38-04:00   5b6154a59189f9573a05c34238540f1e
   prelaunchDelay: 2018-10-26T15:28:14-04:00   5b6154a59189f9573a05c34238540f1e
@@ -1166,15 +1174,15 @@ snippets/bold-checkout-customer.liquid:
 snippets/bold-checkout-loader.liquid:
   DelayFeature: 2018-10-31T15:05:24-04:00   be44686dbe621618883e8ef0305e0cca
   boldDev: 2018-03-29T09:58:32-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
-  development: 2018-04-23T12:28:45-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
+  development: 2018-11-02T12:52:36-04:00   be44686dbe621618883e8ef0305e0cca
   noshowDev: 2018-07-26T11:18:03-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
   noshowProd: 2018-10-25T14:09:04-04:00   be44686dbe621618883e8ef0305e0cca
   prelaunchDelay: 2018-10-26T15:28:14-04:00   be44686dbe621618883e8ef0305e0cca
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
-  DelayFeature: 2018-10-31T15:12:03-04:00   2464b5d221e33ffddca338ba6d9ab01a
+  DelayFeature: 2018-11-02T09:29:26-04:00   a60ab21beaaefc40264a9300329c70aa
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
-  development: 2018-10-22T12:22:54-04:00   dbcba301ba1e5bfb5cf145403f6442bb
+  development: 2018-11-02T09:29:13-04:00   9ecc3fe296d136792bf3d1b5e57d596b
   noshowDev: 2018-08-22T17:04:15-04:00   c2390c4d23292941047944336493cae4
   noshowProd: 2018-10-25T12:28:57-04:00   dbcba301ba1e5bfb5cf145403f6442bb
   prelaunchDelay: 2018-10-29T17:40:39-04:00   8a91d87d2e65c84f87342302b73604d2
@@ -1452,7 +1460,7 @@ snippets/sockfancy-shipping-blurb.liquid:
   production: 2018-05-08T12:06:49-04:00   f1da11fa9aa625409e42798e29655bcc
 snippets/sockfancy-styles.liquid:
   DelayFeature: 2018-10-31T15:12:12-04:00   3e2e0b2a081ae24fa3894e61a3564913
-  development: 2018-08-22T16:53:20-04:00   bdc9d9d8f2a66e1cd34f3990930a3ea0
+  development: 2018-11-02T12:52:40-04:00   3e2e0b2a081ae24fa3894e61a3564913
   noshowDev: 2018-08-15T13:54:35-04:00   bdc9d9d8f2a66e1cd34f3990930a3ea0
   noshowProd: 2018-08-22T12:08:02-04:00   bdc9d9d8f2a66e1cd34f3990930a3ea0
   prelaunchDelay: 2018-10-26T15:28:16-04:00   bdc9d9d8f2a66e1cd34f3990930a3ea0
@@ -1467,7 +1475,7 @@ snippets/sockfancy-subscription-yotpo-reviews.liquid:
 snippets/sockfancy-swatch-subtitle-lookup.liquid:
   DelayFeature: 2018-10-31T15:12:28-04:00   28b7def123c7c9dbad13af8461482f13
   boldDev: 2018-04-06T11:18:44-04:00   4ede78eef15ee42dce81df76f3f653e9
-  development: 2018-04-18T13:00:58-04:00   4ede78eef15ee42dce81df76f3f653e9
+  development: 2018-11-02T12:52:44-04:00   28b7def123c7c9dbad13af8461482f13
   noshowDev: 2018-07-26T11:18:05-04:00   4ede78eef15ee42dce81df76f3f653e9
   noshowProd: 2018-08-21T20:14:08-04:00   4ede78eef15ee42dce81df76f3f653e9
   prelaunchDelay: 2018-10-26T15:28:16-04:00   4ede78eef15ee42dce81df76f3f653e9
@@ -1762,7 +1770,7 @@ templates/product.subscription.liquid:
   production: 2018-06-07T16:43:58-04:00   d640ab1c5635c26a37c39371c89d8c3c
 templates/product.subscription_new.liquid:
   DelayFeature: 2018-10-31T15:12:20-04:00   6bf49a12cc63e03634b692b0d2106613
-  development: 2018-08-27T10:14:05-04:00   36d132e2b8c1fbca4d4c42408293cfa5
+  development: 2018-11-02T12:52:39-04:00   6bf49a12cc63e03634b692b0d2106613
   noshowDev: 2018-08-22T17:39:43-04:00   8d120c18ed60de2ac863ea608d4004ec
   noshowProd: 2018-08-31T11:55:01-04:00   36d132e2b8c1fbca4d4c42408293cfa5
   prelaunchDelay: 2018-10-26T15:28:18-04:00   36d132e2b8c1fbca4d4c42408293cfa5

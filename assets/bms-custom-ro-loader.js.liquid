@@ -871,7 +871,7 @@ BOLD.bms_ro_loader = {
       }
       {% else %}
       BOLD.helpers.ieRadioGroupFix(form,'properties[total_recurrences]');
-      is_gift.name = ''
+      {% comment %} is_gift.name = '' {% endcomment %}
       {% endif %}
     } else {
       var single_recurring = document.createElement('input');
