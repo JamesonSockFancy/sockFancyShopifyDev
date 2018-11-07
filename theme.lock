@@ -714,7 +714,7 @@ layout/theme.liquid:
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
   DelayFeature: 2018-11-06T09:17:00-05:00   40c6cf48f8c37d096777153f08813bcc
-  SwatchUpdate: 2018-11-06T10:41:57-05:00   40c6cf48f8c37d096777153f08813bcc
+  SwatchUpdate: 2018-11-07T13:23:12-05:00   52d82d7a22058ea9345a5984aaf3a17c
   development: 2018-11-02T12:52:41-04:00   f307e67bac6dd75271c8ebceb3ce46e4
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
   noshowProd: 2018-10-25T12:28:56-04:00   686dc80c03632df2d8c4e860b3f0a2f0
