@@ -54,8 +54,11 @@
 
   {%- when 'duration' -%}
     {% assign numeric_value = value | split: ' ' | first | times: 1 %}
-    {% assign text_variable = 'subscription.swatch_subtitles.' | append: numeric_value | append: '_month_subtitle'  %}
-    {% assign subtitle = text_variable | t %}
+    {% assign text_variable = 'subscription.swatch_subtitles.' | append: numeric_value | append: '_month_subtitle_html'  %}
+
+    {% assign gift_text_variable = 'subscription.swatch_subtitles.gift_' | append: numeric_value | append: '_month_subtitle_html' | t  %}
+    {% assign no_gift_text_variable = 'subscription.swatch_subtitles.no_gift_' | append: numeric_value | append: '_month_subtitle_html' | t %}
+
 {%- endcase -%}
   {% comment %} <p>{{lowercase_option_name}}</p>
   <p>{{lowercase_value}}</p> {% endcomment %}
@@ -64,6 +67,15 @@
   <span class="plan_price"></span>
 {%- endif -%}
 
-{%- if subtitle -%}
-<span {% if eachPrice != '' %} data-eachPrice="{{ eachPrice }}" {% endif %} class="swatch-subtitle">{{ subtitle }}</span>
+{%- if subtitle or no_gift_text_variable or gift_text_variable -%}
+<span  {% if eachPrice != '' %} data-eachPrice="{{ eachPrice }}" {% endif %} class="swatch-subtitle">
+
+    {%- if lowercase_option_name == 'duration' -%} 
+      <span class="gift_text_variable">{{ gift_text_variable }}</span>
+      <span class="no_gift_text_variable">{{ no_gift_text_variable }}</span>
+    {% else %}
+      {{ subtitle }}
+    {% endif %}
+
+</span>
 {%- endif -%}

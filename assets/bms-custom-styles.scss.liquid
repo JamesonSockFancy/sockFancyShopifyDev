@@ -537,9 +537,12 @@ $mobile-cutoff:480px;
         width:100%;
       }
       cursor: pointer;
-      span:not(.plan_price){
-        color:inherit;
+      span:not(.plan_price):not(.gift_text_variable):not(.no_gift_text_variable) {
         display:inline-block;
+      }
+      
+      span {
+        color:inherit;
         width:100%;
         text-align: center;
         font-size:inherit;
@@ -547,12 +550,13 @@ $mobile-cutoff:480px;
           font-weight: bold;
           text-transform: uppercase;
         }
-        &.swatch-subtitle{
+        &.swatch-subtitle, &.gift_text_variable, &.no_gift_text_variable{
           font-style: italic;
           font-weight: normal;
           text-transform: none;
-        }
+        }        
       }
+
     }
     &:checked+label{
       background:#24cadc;
@@ -601,7 +605,7 @@ $mobile-cutoff:480px;
         width:100%;
       }
       cursor: pointer;
-      span:not(.plan_price){
+      span:not(.plan_price):not(.gift_text_variable):not(.no_gift_text_variable){
         color:inherit;
         display:inline-block;
         width:100%;
@@ -1829,7 +1833,7 @@ label.tooltip-link{
 
 }
 
-.swatch-subtitle {
+.swatch-subtitle, .gift_text_variable, .no_gift_text_variable {
   font-size: 12px !important;
   font-style: normal;
 }
@@ -1956,7 +1960,10 @@ label{
 }
 
 .ui-icon {
-  text-indent: initial !important;
+  text-indent: initial !important; 
   height:25px !important;
 }
 
+.gift_text_variable, .no_gift_text_variable {
+  display:none;
+}

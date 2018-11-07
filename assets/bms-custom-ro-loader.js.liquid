@@ -247,6 +247,8 @@ BOLD.bms_ro_loader = {
     var target = $(data.field);
     var parentWrapper = $(data.field).parents('.section_wrapper');
 
+    console.log('update form data');
+
     BOLD.bms_ro_loader.autoScrollToNextSection(target);
     BOLD.bms_ro_loader.conditional_processes(target, parentWrapper, form, current_variant);
 
@@ -274,17 +276,22 @@ BOLD.bms_ro_loader = {
   },
   conditional_processes:function(target, parentWrapper, form, variant){
 
+    console.log('conditional_processes');
 
     if(target.attr('id') == 'sock-subscription-gift-yes') {
       $('[data-option-name="Gift"]').show();
       $('.swatch-subscription-duration label').hide();
       $('[for="subscription-length-3-prepaid"], [for="subscription-length-6-prepaid"], [for="subscription-length-12-prepaid"]').show();
+      $('.gift_text_variable').show();
+      $('.no_gift_text_variable').hide();
     }
 
     if(target.attr('id') == 'sock-subscription-gift-no') {
       $('[data-option-name="Gift"]').hide();
       $('.swatch-subscription-duration label').hide();
       $('[for="subscription-length-1-prepaid"], [for="subscription-length-3-prepaid"], [for="subscription-length-12-prepaid"]').show();
+      $('.gift_text_variable').hide();
+      $('.no_gift_text_variable').show();
     }
 
 
@@ -321,9 +328,6 @@ BOLD.bms_ro_loader = {
     var selection = target.next().attr('for');
     var scrollPoint;
 
-    console.log('scrollTo', scrollTo);
-
-
     //scroll to next section
     if(wrapper.hasClass('allow_scroll') == true) {
       scrollTo = wrapper.data('order') + 1;
@@ -347,9 +351,6 @@ BOLD.bms_ro_loader = {
       }
 
       scrollPoint = $('.section_wrapper[data-order="' + scrollTo + '"]').position().top + nextOptionoffset;
-
-    console.log('scrollPoint', scrollPoint);
-
 
       wrapper.removeClass('allow_scroll');
       BOLD.bms_ro_loader.scrollPage(scrollPoint);
@@ -886,7 +887,14 @@ BOLD.bms_ro_loader = {
     var is_gift = form['sock-subscription-gift-yes'].checked;
     //If the subscription is not a gift, remove gift-related properties
     if(is_gift){
-      form['properties[_prepaid_start_date]'].value = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+
+      var selectedDate = $('#datepicker').datepicker( "getDate" );
+      var today = new Date();
+
+      if( selectedDate > today ) {
+        form['properties[_prepaid_start_date]'].value = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+      }
+
     }
     else{
       form['properties[Gift Message]'].value = '';

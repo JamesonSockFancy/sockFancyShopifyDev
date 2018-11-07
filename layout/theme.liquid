@@ -367,7 +367,7 @@ $('.size_chart_link').click(function() {
           minDate: 0,
           beforeShowDay: $.datepicker.noWeekends,
           selectOtherMonths: true, 
-          nextText: '<i class="fas fa-chevron-right"></i>',
+          nextText: '<i class="fas fa-chevron-right"></i>', 
           prevText: '<i class="fas fa-chevron-left"></i>',
           dateFormat: "yy-mm-dd",
           dayNamesMin: [ "S", "M", "T", "W", "T", "S", "S" ]
@@ -375,8 +375,15 @@ $('.size_chart_link').click(function() {
       );
     }
 
+
   });
 
+
+$(window).load(function() {
+    console.log('date picker', $('#datepicker').datepicker( "getDate" ));
+    var today = new Date();
+    console.log('today', today);
+});
   
 
   </script>
