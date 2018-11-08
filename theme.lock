@@ -763,7 +763,7 @@ assets/zendesk-embeddable.js:
   production: 2018-02-27T19:28:24-05:00   2241cec5637b5d288e343c040ac9486f
 config/settings_data.json:
   DelayFeature: 2018-10-31T15:05:29-04:00   efe9d4bfbd0068fbc7ac878abfe5ddb9
-  SwatchMath: 2018-11-08T09:12:02-05:00   efe9d4bfbd0068fbc7ac878abfe5ddb9
+  SwatchMath: 2018-11-08T11:23:01-05:00   042036cb578a9b9cdc0bf7e9cba768c3
   SwatchUpdate: 2018-11-06T10:42:04-05:00   efe9d4bfbd0068fbc7ac878abfe5ddb9
   development: 2018-08-31T09:50:49-04:00   efe9d4bfbd0068fbc7ac878abfe5ddb9
   noshowDev: 2018-08-22T17:13:25-04:00   e4c217a2d01bb53d03ead6402a777cc5
@@ -792,7 +792,7 @@ layout/password.liquid:
   production: 2018-03-23T12:03:04-04:00   cc50890197f3c5f704a1bb3681be7678
 layout/theme.liquid:
   DelayFeature: 2018-10-31T15:12:12-04:00   cba7f232a1fcbfc11306d92dcea046f9
-  SwatchMath: 2018-11-08T09:11:55-05:00   f744ecc95a6d8f4c71dfcd7fd9549c79
+  SwatchMath: 2018-11-08T13:23:55-05:00   4b7f9370c3db157112d206b04608b7f1
   SwatchUpdate: 2018-11-06T15:12:55-05:00   f744ecc95a6d8f4c71dfcd7fd9549c79
   development: 2018-11-02T12:52:45-04:00   cba7f232a1fcbfc11306d92dcea046f9
   noshowDev: 2018-08-22T17:04:12-04:00   fc5a664626e4a2d75a98738989017af6
@@ -801,7 +801,7 @@ layout/theme.liquid:
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
   DelayFeature: 2018-11-06T09:17:00-05:00   40c6cf48f8c37d096777153f08813bcc
-  SwatchMath: 2018-11-08T09:11:55-05:00   5f00a83ecaf205a3f82dba6e6092da6e
+  SwatchMath: 2018-11-08T11:48:52-05:00   02da141a0bd93d3028e86707f560fdac
   SwatchUpdate: 2018-11-07T13:23:12-05:00   52d82d7a22058ea9345a5984aaf3a17c
   development: 2018-11-02T12:52:41-04:00   f307e67bac6dd75271c8ebceb3ce46e4
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
@@ -1321,7 +1321,7 @@ snippets/bms-custom-subscription-flow-new.liquid:
   prelaunchDelay: 2018-10-26T15:28:13-04:00   3a83199f43d03a032df48f25e49b0d2a
 snippets/bms-custom-subscription-flow.liquid:
   DelayFeature: 2018-10-31T15:11:49-04:00   7eb92cfa7743a6057a0a6f5897054e5b
-  SwatchMath: 2018-11-08T09:11:57-05:00   7eb92cfa7743a6057a0a6f5897054e5b
+  SwatchMath: 2018-11-08T11:48:53-05:00   1de46d1784710edfd02c4ceff3ef1bd6
   SwatchUpdate: 2018-11-06T10:41:58-05:00   7eb92cfa7743a6057a0a6f5897054e5b
   boldDev: 2018-04-06T16:40:09-04:00   94dc7d09db0acef28c3fd2baf2f057f5
   development: 2018-11-02T12:52:44-04:00   7eb92cfa7743a6057a0a6f5897054e5b

@@ -43,12 +43,12 @@
       </header>
       <div class="swatch-wrapper swatch-{{ option.name | handle }}" data-option="{{ option.name }}" data-value-count="2">
 
-        <input type="radio" id="sock-subscription-gift-no" class="swatch-gift {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="gift_trigger_group" value="{{ value }}" {% if default_checked %}checked{% endif %} />
+        <input type="radio" id="sock-subscription-gift-no" class="swatch-gift {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="gift_trigger_group" value="no" {% if default_checked %}checked{% endif %} />
         <label for="sock-subscription-gift-no" class="swatch-label ">
           <span class="swatch-label-title">No, for me</span>
         </label>
 
-        <input type="radio" id="sock-subscription-gift-yes" class="swatch-gift gift-yes {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="gift_trigger_group" value="{{ value }}" {% if default_checked %}checked{% endif %} />
+        <input type="radio" id="sock-subscription-gift-yes" class="swatch-gift gift-yes {%if toggle %}text-toggle{% endif %} swatch-radio swatch-{{ option.name | default: option }}" name="gift_trigger_group" value="yes" {% if default_checked %}checked{% endif %} />
         <label for="sock-subscription-gift-yes" class="swatch-label">
           <span class="swatch-label-title">Yes, a gift</span>
         </label>

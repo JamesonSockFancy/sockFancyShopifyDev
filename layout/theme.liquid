@@ -26,7 +26,7 @@
    <meta name="robots" content="noindex">
   {% endif %}
   <!-- End NoFollow -->  
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
@@ -330,6 +330,36 @@
     {% endif %}
 
   <div id="overlay"></div>
+
+  <script>
+      var vars = [], hash;
+      var query = document.URL.split('?')[1];
+        if(query != undefined){
+          query = query.split('&');
+          for(var i = 0; i < query.length; i++){
+            hash = query[i].split('=');
+            vars.push(hash[1]);
+            populateRadios();
+          }
+        };
+      function populateRadios() {
+        console.log("populateRadios")
+        $("input[type=radio]").each(function() {
+          console.log("populateRadiosCheck")
+          $('input[name="' + hash[0] + '"][value="' + hash[1] + '"]').click();
+        }
+      );
+      };
+</script>
+<script>
+     if(document.getElementById("sock-subscription-gift-yes").checked == true) {
+      $('[data-option-name="Gift"]').show();
+      $('.swatch-subscription-duration label').hide();
+      $('[for="subscription-length-3-prepaid"], [for="subscription-length-6-prepaid"], [for="subscription-length-12-prepaid"]').show();
+      $('.gift_text_variable').show();
+      $('.no_gift_text_variable').hide();
+    }
+</script>
 
   <script>
 
