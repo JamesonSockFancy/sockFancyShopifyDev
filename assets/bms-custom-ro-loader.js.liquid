@@ -368,7 +368,6 @@ BOLD.bms_ro_loader = {
     var quantity = parseInt(variant.option2);
 
     var each_price = variant.price / quantity;
-
     // What recurring discount will we offer at each level?
     var prepay_discounts_multipliers = {};
     if(variant.recurring_group_data){
@@ -376,6 +375,15 @@ BOLD.bms_ro_loader = {
         acc[obj.length] = (100 - obj.discount) * 0.01;
         return acc;
       },{});
+    } else {
+      var waitForData = function(evt){
+        if(evt.data.variant.id==variant.id){
+          variant.recurring_group_data = evt.data.group_data;
+          BOLD.bms_ro_loader.changePlanSwatchPrice(form, variant)
+          BOLD.commen.eventEmitter.off('BMS.ro_loader.group_data_loaded', waitForData)
+        }
+      }
+      BOLD.common.eventEmitter.on('BMS.ro_loader.group_data_loaded', waitForData);
     }
 
     $('label.swatch-duration').each(function() {
@@ -893,6 +901,8 @@ BOLD.bms_ro_loader = {
 
       if( selectedDate > today ) {
         form['properties[_prepaid_start_date]'].value = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+      } else {
+        $('.prepaid_start_date').attr('name', '_prepaid_start_date');
       }
 
     }
@@ -900,6 +910,7 @@ BOLD.bms_ro_loader = {
       form['properties[Gift Message]'].value = '';
       form['properties[EMAIL]'].value = '';
       $('.prepaid_start_date').val('');
+      $('.prepaid_start_date').attr('name', '_prepaid_start_date');
     }
 
     if( $('#recurring_gift_no').is(':checked') ) {

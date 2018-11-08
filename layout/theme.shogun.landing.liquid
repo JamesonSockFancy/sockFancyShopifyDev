@@ -11,7 +11,7 @@ This file can be re-written at any time.
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
   
 <head>
-         <script
+           <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous">
@@ -23,7 +23,7 @@ This file can be re-written at any time.
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
   <!-- End Google Tag Manager -->
-            <script>
+              <script>
         dataLayer = [] ;
         </script>
   <style>.async-hide { opacity: 0 !important} </style>
@@ -333,7 +333,7 @@ $('.size_chart_link').click(function() {
           minDate: 0,
           beforeShowDay: $.datepicker.noWeekends,
           selectOtherMonths: true, 
-          nextText: '<i class="fas fa-chevron-right"></i>',
+          nextText: '<i class="fas fa-chevron-right"></i>', 
           prevText: '<i class="fas fa-chevron-left"></i>',
           dateFormat: "yy-mm-dd",
           dayNamesMin: [ "S", "M", "T", "W", "T", "S", "S" ]
@@ -341,8 +341,15 @@ $('.size_chart_link').click(function() {
       );
     }
 
+
   });
 
+
+$(window).load(function() {
+    console.log('date picker', $('#datepicker').datepicker( "getDate" ));
+    var today = new Date();
+    console.log('today', today);
+});
   
 
   </script>
