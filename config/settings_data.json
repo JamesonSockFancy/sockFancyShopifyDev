@@ -2520,7 +2520,7 @@
           "menu_top_padding": 5,
           "content_top_padding": 120,
           "promo_text": "<p>🎄&nbsp;Introducing&mdash; Buy Now, Ship Later!&nbsp;🎄<\/p>",
-          "announcement_link": "shopify:\/\/products\/sock-subscription",
+          "announcement_link": "https:\/\/sockfancy.com\/products\/sock-subscription?gift_trigger_group=yes",
           "promo_home_page": false
         }
       },
