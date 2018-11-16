@@ -252,7 +252,7 @@ assets/airplane.png:
 assets/app.js.liquid:
   DelayFeature: 2018-10-31T15:13:03-04:00   cc50f10fe4058bcff7d27f420a489395
   SF1_0_4: 2018-11-12T10:21:32-05:00   229f0d3cddb9d4e6e2c0d9c2dfb2289c
-  SwatchMath: 2018-11-08T09:11:43-05:00   cc50f10fe4058bcff7d27f420a489395
+  SwatchMath: 2018-11-16T16:12:55-05:00   229f0d3cddb9d4e6e2c0d9c2dfb2289c
   SwatchUpdate: 2018-11-06T10:41:44-05:00   cc50f10fe4058bcff7d27f420a489395
   development: 2018-11-02T12:52:41-04:00   cc50f10fe4058bcff7d27f420a489395
   noshowDev: 2018-07-31T12:00:50-04:00   af1dbb136fd3661f0df8408992e41a05
@@ -284,7 +284,7 @@ assets/bms-ajax-subscription-page.js.liquid:
 assets/bms-custom-ro-loader.js.liquid:
   DelayFeature: 2018-11-06T15:59:08-05:00   c1e92d141195eb85ebf780c09072f977
   SF1_0_4: 2018-11-12T10:21:35-05:00   7bbc6bdd1cab970dc42c125e99b9682c
-  SwatchMath: 2018-11-08T09:13:55-05:00   6f30e917d9fce2c0e0963a50e091b2ac
+  SwatchMath: 2018-11-16T16:12:59-05:00   7bbc6bdd1cab970dc42c125e99b9682c
   SwatchUpdate: 2018-11-08T15:34:23-05:00   bed852159671903c2f4dd00b34034a5e
   boldDev: 2018-05-02T12:38:09-04:00   fc31935c6d16e9d79d8c507e90104b71
   development: 2018-11-02T14:27:44-04:00   48fb2dbc2e091ffef793a51d96e063eb
@@ -351,6 +351,7 @@ assets/bms-styles.css.liquid:
   production: 2018-08-07T09:37:57-04:00   f3d2afae3d4de7673e709c01c493f4ba
 assets/bms.custom-cart-fields.js:
   SF1_0_4: 2018-11-12T10:21:29-05:00   67461b8995d86d6245f3d599b0e64276
+  SwatchMath: 2018-11-16T16:12:55-05:00   67461b8995d86d6245f3d599b0e64276
 assets/bold-checkout-options.js:
   DelayFeature: 2018-10-31T15:05:13-04:00   f2d705fcee585523bcd22d76a9d9a563
   SF1_0_4: 2018-11-12T10:15:52-05:00   f2d705fcee585523bcd22d76a9d9a563
@@ -859,7 +860,7 @@ config/settings_data.json:
 config/settings_schema.json:
   DelayFeature: 2018-10-31T15:05:28-04:00   c41e41a604af1be2904ecabea2ffe1ee
   SF1_0_4: 2018-11-12T10:21:25-05:00   dbe58cbf7c577fef6dea414d59dbb5a4
-  SwatchMath: 2018-11-08T09:12:02-05:00   c41e41a604af1be2904ecabea2ffe1ee
+  SwatchMath: 2018-11-16T16:12:58-05:00   dbe58cbf7c577fef6dea414d59dbb5a4
   SwatchUpdate: 2018-11-06T10:42:03-05:00   c41e41a604af1be2904ecabea2ffe1ee
   boldDev: 2018-05-02T13:53:19-04:00   90e03857c279527402ea167c484f0f6a
   development: 2018-07-23T15:59:56-04:00   c41e41a604af1be2904ecabea2ffe1ee
@@ -881,7 +882,7 @@ layout/password.liquid:
 layout/theme.liquid:
   DelayFeature: 2018-10-31T15:12:12-04:00   cba7f232a1fcbfc11306d92dcea046f9
   SF1_0_4: 2018-11-12T10:21:17-05:00   4f6d4af883bd0b91f733f6fd247975aa
-  SwatchMath: 2018-11-08T13:23:55-05:00   4b7f9370c3db157112d206b04608b7f1
+  SwatchMath: 2018-11-16T16:12:57-05:00   4f6d4af883bd0b91f733f6fd247975aa
   SwatchUpdate: 2018-11-08T15:32:23-05:00   4b7f9370c3db157112d206b04608b7f1
   development: 2018-11-02T12:52:45-04:00   cba7f232a1fcbfc11306d92dcea046f9
   noshowDev: 2018-08-22T17:04:12-04:00   fc5a664626e4a2d75a98738989017af6
@@ -890,8 +891,8 @@ layout/theme.liquid:
   production: 2018-08-22T13:46:09-04:00   b17379785c34fa8be1fcfffc6dfd7ffc
 layout/theme.shogun.landing.liquid:
   DelayFeature: 2018-11-06T09:17:00-05:00   40c6cf48f8c37d096777153f08813bcc
-  SF1_0_4: 2018-11-12T10:54:11-05:00   35fc9a26fcb573abdbc5f93d4b6a1f79
-  SwatchMath: 2018-11-08T11:48:52-05:00   02da141a0bd93d3028e86707f560fdac
+  SF1_0_4: 2018-11-16T16:25:37-05:00   24c96e4154457da0b8aec72ce872d3d9
+  SwatchMath: 2018-11-16T16:12:56-05:00   24c96e4154457da0b8aec72ce872d3d9
   SwatchUpdate: 2018-11-07T13:48:08-05:00   5f00a83ecaf205a3f82dba6e6092da6e
   development: 2018-11-02T12:52:41-04:00   f307e67bac6dd75271c8ebceb3ce46e4
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
@@ -1175,8 +1176,8 @@ sections/header.liquid:
   production: 2018-08-07T09:38:00-04:00   40837b0052cab72772c535aca016b11a
 sections/home-page.liquid:
   DelayFeature: 2018-10-31T15:05:04-04:00   8b2aac16bcfa4f0c5599186fd62fa26a
-  SF1_0_4: 2018-11-12T10:15:43-05:00   8b2aac16bcfa4f0c5599186fd62fa26a
-  SwatchMath: 2018-11-08T09:11:36-05:00   8b2aac16bcfa4f0c5599186fd62fa26a
+  SF1_0_4: 2018-11-16T16:25:38-05:00   ba8cfece878dd5348a68c00d11118e2a
+  SwatchMath: 2018-11-16T16:21:08-05:00   ba8cfece878dd5348a68c00d11118e2a
   SwatchUpdate: 2018-11-06T10:41:37-05:00   8b2aac16bcfa4f0c5599186fd62fa26a
   boldDev: 2018-05-02T14:19:34-04:00   c26f5505c37f9cd845550c760ca005cc
   development: 2018-10-25T11:16:58-04:00   8b2aac16bcfa4f0c5599186fd62fa26a
@@ -1404,7 +1405,7 @@ snippets/bms-custom-gift-subscription.liquid:
 snippets/bms-custom-ro-swatches-new.liquid:
   DelayFeature: 2018-10-31T15:05:23-04:00   305d6cca5191b1a537f469898319f95b
   SF1_0_4: 2018-11-12T10:19:55-05:00   9b5680f7f4b18f78b09fd55940ebda95
-  SwatchMath: 2018-11-08T09:11:56-05:00   305d6cca5191b1a537f469898319f95b
+  SwatchMath: 2018-11-16T16:12:55-05:00   9b5680f7f4b18f78b09fd55940ebda95
   SwatchUpdate: 2018-11-06T10:41:58-05:00   305d6cca5191b1a537f469898319f95b
   development: 2018-08-22T16:53:19-04:00   305d6cca5191b1a537f469898319f95b
   noshowDev: 2018-07-28T09:42:09-04:00   305d6cca5191b1a537f469898319f95b
@@ -1413,7 +1414,7 @@ snippets/bms-custom-ro-swatches-new.liquid:
 snippets/bms-custom-ro-swatches.liquid:
   DelayFeature: 2018-10-31T15:11:37-04:00   5edb062cb8358f9d5392748752bfce7f
   SF1_0_4: 2018-11-12T10:20:38-05:00   57b129f1384f35babd302fbc40f04799
-  SwatchMath: 2018-11-08T09:11:56-05:00   5edb062cb8358f9d5392748752bfce7f
+  SwatchMath: 2018-11-16T16:12:58-05:00   57b129f1384f35babd302fbc40f04799
   SwatchUpdate: 2018-11-06T10:41:58-05:00   5edb062cb8358f9d5392748752bfce7f
   boldDev: 2018-05-01T12:29:29-04:00   6f96ef093fac2aabde9d83657d25ff6d
   development: 2018-11-02T12:52:38-04:00   5edb062cb8358f9d5392748752bfce7f
@@ -1650,7 +1651,7 @@ snippets/bold-checkout-customer.liquid:
 snippets/bold-checkout-loader.liquid:
   DelayFeature: 2018-10-31T15:05:24-04:00   be44686dbe621618883e8ef0305e0cca
   SF1_0_4: 2018-11-15T16:10:19-05:00   04f816cf783cc905708c05f99f84c436
-  SwatchMath: 2018-11-08T09:11:57-05:00   be44686dbe621618883e8ef0305e0cca
+  SwatchMath: 2018-11-16T16:12:57-05:00   04f816cf783cc905708c05f99f84c436
   SwatchUpdate: 2018-11-06T10:41:59-05:00   be44686dbe621618883e8ef0305e0cca
   boldDev: 2018-03-29T09:58:32-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
   development: 2018-11-02T12:52:36-04:00   be44686dbe621618883e8ef0305e0cca
@@ -1660,8 +1661,8 @@ snippets/bold-checkout-loader.liquid:
   production: 2018-04-20T14:03:53-04:00   f8fdf47d27ccf9700fc20e8c2f6104f2
 snippets/bold-common.liquid:
   DelayFeature: 2018-11-02T15:21:27-04:00   9f3dd31b7b0ebd5b7e3056d590a681fe
-  SF1_0_4: 2018-11-12T14:32:28-05:00   bcde208427ad8ea85a74dc122b21ffcc
-  SwatchMath: 2018-11-08T09:14:31-05:00   2464b5d221e33ffddca338ba6d9ab01a
+  SF1_0_4: 2018-11-16T16:25:38-05:00   dbcd33cbcdb406653b3082575128c275
+  SwatchMath: 2018-11-12T14:32:23-05:00   dbcd33cbcdb406653b3082575128c275
   SwatchUpdate: 2018-11-08T15:32:23-05:00   2464b5d221e33ffddca338ba6d9ab01a
   boldDev: 2018-05-01T10:43:23-04:00   059f937a5dadca64bacdc421dd703a4e
   development: 2018-11-02T15:21:14-04:00   c46170b51d691254b84b2d71a7351b9e
@@ -2362,7 +2363,7 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   DelayFeature: 2018-10-31T15:05:27-04:00   dcaeef3e92b9bfcdc144baa17175f283
   SF1_0_4: 2018-11-14T15:06:16-05:00   d375f4e26811abdf49fb7a836a509df7
-  SwatchMath: 2018-11-08T09:12:01-05:00   dcaeef3e92b9bfcdc144baa17175f283
+  SwatchMath: 2018-11-16T16:12:54-05:00   d375f4e26811abdf49fb7a836a509df7
   SwatchUpdate: 2018-11-06T10:42:03-05:00   dcaeef3e92b9bfcdc144baa17175f283
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
   development: 2018-08-22T17:37:08-04:00   dcaeef3e92b9bfcdc144baa17175f283
@@ -2373,7 +2374,7 @@ templates/page.shogun.default.liquid:
 templates/page.shogun.landing.liquid:
   DelayFeature: 2018-10-31T15:05:27-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   SF1_0_4: 2018-11-14T15:44:49-05:00   4c95e2453640d56ac70e2c896f75d590
-  SwatchMath: 2018-11-08T09:12:01-05:00   f44efeeb63b8d4740f7fe2f88a5d19eb
+  SwatchMath: 2018-11-16T16:12:56-05:00   4c95e2453640d56ac70e2c896f75d590
   SwatchUpdate: 2018-11-06T10:42:03-05:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   development: 2018-05-16T16:57:13-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
