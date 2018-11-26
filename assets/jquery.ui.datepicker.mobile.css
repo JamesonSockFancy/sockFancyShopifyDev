@@ -20,7 +20,7 @@ div.hasDatepicker {
 	position:absolute;
 	top: .6em;
 	margin-top: 0;
-	text-indent: -9999px;
+	/* text-indent: -9999px; */
 	-webkit-border-radius: 1em;
 	border-radius: 1em;
 	vertical-align: middle;
