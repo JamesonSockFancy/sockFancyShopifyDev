@@ -375,7 +375,7 @@ assets/bms-randomize-subscription-product.js.liquid:
 assets/bms-styles.css.liquid:
   DelayFeature: 2018-10-31T15:12:23-04:00   512eb34c523a4d9a45ca9304a5e3416f
   SF1_0_4: 2018-11-12T10:15:52-05:00   512eb34c523a4d9a45ca9304a5e3416f
-  SF1_0_5: 2018-11-26T18:51:19-05:00   08976b46e8079346e749b8d8a763a044
+  SF1_0_5: 2018-11-27T15:50:35-05:00   f79e0a9397f1be2061c8e787ffdfbf49
   SwatchMath: 2018-11-08T09:11:45-05:00   512eb34c523a4d9a45ca9304a5e3416f
   SwatchUpdate: 2018-11-06T10:41:46-05:00   512eb34c523a4d9a45ca9304a5e3416f
   development: 2018-11-27T15:25:05-05:00   f79e0a9397f1be2061c8e787ffdfbf49
@@ -615,6 +615,7 @@ assets/jquery.ui.datepicker.mobile.js:
   SwatchUpdate: 2018-11-06T10:41:50-05:00   c664168fb7c2752a8b633cc8cf9f1daf
   development: 2018-11-02T12:52:36-04:00   c664168fb7c2752a8b633cc8cf9f1daf
 assets/light-green-square-md.png:
+  SF1_0_5: 2018-11-27T15:50:35-05:00   a206a876fce3195df0dc4caf6edbb112
   development: 2018-11-27T15:20:11-05:00   a206a876fce3195df0dc4caf6edbb112
 assets/lity.css:
   DelayFeature: 2018-10-31T15:05:15-04:00   4a7f6d38c291e7170161a27c607b396c
@@ -972,7 +973,7 @@ layout/password.liquid:
 layout/theme.liquid:
   DelayFeature: 2018-10-31T15:12:12-04:00   cba7f232a1fcbfc11306d92dcea046f9
   SF1_0_4: 2018-11-12T10:21:17-05:00   4f6d4af883bd0b91f733f6fd247975aa
-  SF1_0_5: 2018-11-26T18:51:17-05:00   fe275c1d7ccd09b22ea4a6ff85fb828c
+  SF1_0_5: 2018-11-27T15:50:33-05:00   538ba2c27e8cf721f067a5bf23a19c40
   SwatchMath: 2018-11-16T16:12:57-05:00   4f6d4af883bd0b91f733f6fd247975aa
   SwatchUpdate: 2018-11-08T15:32:23-05:00   4b7f9370c3db157112d206b04608b7f1
   development: 2018-11-27T15:25:04-05:00   538ba2c27e8cf721f067a5bf23a19c40
@@ -983,10 +984,10 @@ layout/theme.liquid:
 layout/theme.shogun.landing.liquid:
   DelayFeature: 2018-11-06T09:17:00-05:00   40c6cf48f8c37d096777153f08813bcc
   SF1_0_4: 2018-11-16T16:25:37-05:00   24c96e4154457da0b8aec72ce872d3d9
-  SF1_0_5: 2018-11-27T15:17:29-05:00   9770ae997a915e8bde3ab32aac5f316b
+  SF1_0_5: 2018-11-27T15:50:36-05:00   f76cb4948c3b409680628c7c0c46bbae
   SwatchMath: 2018-11-16T16:12:56-05:00   24c96e4154457da0b8aec72ce872d3d9
   SwatchUpdate: 2018-11-07T13:48:08-05:00   5f00a83ecaf205a3f82dba6e6092da6e
-  development: 2018-11-26T15:25:45-05:00   808e2717239e8dd4ad58dd45d75190b7
+  development: 2018-11-27T15:42:42-05:00   f76cb4948c3b409680628c7c0c46bbae
   noshowDev: 2018-08-22T17:39:44-04:00   28f178d7ec1afc4c100674e076d58816
   noshowProd: 2018-10-25T12:28:56-04:00   686dc80c03632df2d8c4e860b3f0a2f0
   prelaunchDelay: 2018-10-31T16:38:20-04:00   9b07d9d58c8a596ee58d3ae7b716237e
@@ -1531,7 +1532,7 @@ snippets/bms-custom-gift-subscription-new.liquid:
 snippets/bms-custom-gift-subscription.liquid:
   DelayFeature: 2018-11-01T14:42:43-04:00   3d4a53f6d5b94257bb28ca2970c21402
   SF1_0_4: 2018-11-12T10:16:03-05:00   3d4a53f6d5b94257bb28ca2970c21402
-  SF1_0_5: 2018-11-26T18:51:18-05:00   f8e87fa5f4db41da5fb9218df7c1f185
+  SF1_0_5: 2018-11-27T15:50:34-05:00   b4c426a8057a0b2ddf0d911887bb359f
   SwatchMath: 2018-11-08T09:11:56-05:00   3d4a53f6d5b94257bb28ca2970c21402
   SwatchUpdate: 2018-11-06T10:41:58-05:00   3d4a53f6d5b94257bb28ca2970c21402
   boldDev: 2018-05-01T10:42:25-04:00   fe8cbada0ae775345d4f32ec407f0259
@@ -2590,11 +2591,11 @@ templates/page.no-title.liquid:
 templates/page.shogun.default.liquid:
   DelayFeature: 2018-10-31T15:05:27-04:00   dcaeef3e92b9bfcdc144baa17175f283
   SF1_0_4: 2018-11-14T15:06:16-05:00   d375f4e26811abdf49fb7a836a509df7
-  SF1_0_5: 2018-11-27T15:17:32-05:00   dcaeef3e92b9bfcdc144baa17175f283
+  SF1_0_5: 2018-11-27T15:50:34-05:00   b8c0419f44dfd19bd839e9fc2bd44b33
   SwatchMath: 2018-11-16T16:12:54-05:00   d375f4e26811abdf49fb7a836a509df7
   SwatchUpdate: 2018-11-06T10:42:03-05:00   dcaeef3e92b9bfcdc144baa17175f283
   boldDev: 2018-03-29T09:58:22-04:00   d375f4e26811abdf49fb7a836a509df7
-  development: 2018-11-26T16:35:08-05:00   d375f4e26811abdf49fb7a836a509df7
+  development: 2018-11-27T15:42:42-05:00   b8c0419f44dfd19bd839e9fc2bd44b33
   noshowDev: 2018-08-22T17:39:42-04:00   dcaeef3e92b9bfcdc144baa17175f283
   noshowProd: 2018-10-25T13:36:47-04:00   d375f4e26811abdf49fb7a836a509df7
   prelaunchDelay: 2018-10-26T15:28:18-04:00   dcaeef3e92b9bfcdc144baa17175f283
@@ -2602,7 +2603,7 @@ templates/page.shogun.default.liquid:
 templates/page.shogun.landing.liquid:
   DelayFeature: 2018-10-31T15:05:27-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   SF1_0_4: 2018-11-14T15:44:49-05:00   4c95e2453640d56ac70e2c896f75d590
-  SF1_0_5: 2018-11-27T15:17:30-05:00   f44efeeb63b8d4740f7fe2f88a5d19eb
+  SF1_0_5: 2018-11-27T15:50:36-05:00   ac22a917e175c2e61ba9a176398e1334
   SwatchMath: 2018-11-16T16:12:56-05:00   4c95e2453640d56ac70e2c896f75d590
   SwatchUpdate: 2018-11-06T10:42:03-05:00   f44efeeb63b8d4740f7fe2f88a5d19eb
   boldDev: 2018-03-29T09:58:22-04:00   f44efeeb63b8d4740f7fe2f88a5d19eb
