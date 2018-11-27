@@ -12,7 +12,7 @@
               <input placeholder="{{ 'bold.recurring_orders.gift_email_placeholder_html' | t }}" type="text" value="" name="properties[EMAIL]" class="" id="gift_email">
               <div class="email_warning">Please enter valid email</div>
             </div>
-            <p>Don't worry, we won't spoil the surprise.  We'll email your recipeint to let them know they've been gifted after your gift has been delivered.</p>
+            <p>Don't worry, we won't spoil the surprise.  We'll email your recipient to let them know they've been gifted after your gift has been delivered.</p>
           </div>
 
           <div class="gift_timing_wrapper gift_section">
@@ -24,7 +24,7 @@
               <div id="datepicker"></div>
               {% comment %} <input type="date" name="date" id="date" value=""  /> {% endcomment %}
               <div class="help_title"><i class="fas fa-info-circle"></i><span>Help</span></div>
-              <p><span class="green">GREEN</span> = Holiday Shipping Deadline</p>
+              <p><span><img src="{{ 'light-green-square-md.png' | asset_img_url: '40x' }}"/></span> = Domestic/US Holiday Shipping Deadline</p>
               <p class="delayDate">To ensure your first shipment arrives by Dec. 25th, select a date anytime before 12/17/18</p>
               <p>The date selected will be when the first order is shipped.  Please allow <strong>5-10 business days for US</strong> (domestic) delivery and <strong>2-3 weeks for orders outside the US</strong>.</p>
               {% comment %} <p>Expited shipping options available at checkout.</p> {% endcomment %}
