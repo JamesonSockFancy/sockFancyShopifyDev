@@ -11,7 +11,7 @@ This file can be re-written at any time.
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
   
 <head>
-                    <script
+                      <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous">
@@ -23,7 +23,7 @@ This file can be re-written at any time.
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
   <!-- End Google Tag Manager -->
-                        <script>
+                          <script>
         dataLayer = [] ;
         </script>
   <style>.async-hide { opacity: 0 !important} </style>
@@ -342,14 +342,34 @@ $('.size_chart_link').click(function() {
   $('#overlay, .bms_sizing_modal').show();
 }); 
 
+var holydays = ['12/17/2018'];
+
+function highlightDays(date) {
+    for (var i = 0; i < holydays.length; i++) {
+        if (new Date(holydays[i]).toString() == date.toString()) {
+            return [true, 'highlight'];
+        }
+    }
+    return [true, ''];
+
+}
+
+function setCustomDate(date) {
+    var clazz = "";
+    var arr1 = highlightDays(date);
+    if (arr1[1] != "") clazz = arr1[1];
+    var arr3 = $.datepicker.noWeekends(date);
+
+    return [(!arr3[0]) ? false : true, clazz];
+}
+ 
 
   $( function() {
-    
     if( window.innerWidth > 480 ) {
       $( "#datepicker" ).datepicker(
         {
           minDate: 0,
-          beforeShowDay: $.datepicker.noWeekends,
+          beforeShowDay: setCustomDate,
           selectOtherMonths: true, 
           nextText: '<i class="fas fa-chevron-right"></i>',
           prevText: '<i class="fas fa-chevron-left"></i>',
@@ -361,7 +381,7 @@ $('.size_chart_link').click(function() {
       $( "#datepicker" ).datepicker(
         {
           minDate: 0,
-          beforeShowDay: $.datepicker.noWeekends,
+          beforeShowDay: setCustomDate,
           selectOtherMonths: true, 
           nextText: '<i class="fas fa-chevron-right"></i>', 
           prevText: '<i class="fas fa-chevron-left"></i>',
