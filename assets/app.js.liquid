@@ -1016,6 +1016,10 @@ var cart = {
     if(window.BOLD && BOLD.common && BOLD.common.cartDoctor){
       cart = BOLD.common.cartDoctor.fix(cart);
     }
+    
+    if(window.BOLD && BOLD.BMS && BOLD.BMS.Sockfancy && BOLD.BMS.Sockfancy.fixMore){
+      cart = BOLD.BMS.Sockfancy.fixMore(cart);
+    }
 
 
     $cartBtn = $(".cart-button span");
@@ -1118,7 +1122,7 @@ var cart = {
       }
     }
   }
-  $.getJSON('/cart.js', refreshCart);
+  $(function(){ jQuery.getJSON('/cart.js', refreshCart); })
 
 //Document ready
 $(function() {

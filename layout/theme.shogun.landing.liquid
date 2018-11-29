@@ -11,7 +11,7 @@ This file can be re-written at any time.
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
   
 <head>
-               <script
+                      <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous">
@@ -23,7 +23,7 @@ This file can be re-written at any time.
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KQVXW33');</script>
   <!-- End Google Tag Manager -->
-                  <script>
+                          <script>
         dataLayer = [] ;
         </script>
   <style>.async-hide { opacity: 0 !important} </style>
@@ -40,7 +40,7 @@ This file can be re-written at any time.
    <meta name="robots" content="noindex">
   {% endif %}
   <!-- End NoFollow -->  
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Ut2s0FduIjO8mBVZDtbHh3nprNtysYyWQTPI6MtB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
@@ -100,6 +100,7 @@ This file can be re-written at any time.
       {{ "customer_area.js"  | shopify_asset_url | script_tag }}
     {% endif %}
 
+    {{ 'bms.custom-cart-fields.js' | asset_url | script_tag }}
     {{ 'app.js' | asset_url | script_tag }}
 
     <!--[if lte IE 8]>
@@ -298,6 +299,35 @@ This file can be re-written at any time.
   
   <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
 <script>
+      var vars = [], hash;
+      var query = document.URL.split('?')[1];
+        if(query != undefined){
+          query = query.split('&');
+          for(var i = 0; i < query.length; i++){
+            hash = query[i].split('=');
+            vars.push(hash[1]);
+            populateRadios();
+          }
+        };
+      function populateRadios() {
+        console.log("populateRadios")
+        $("input[type=radio]").each(function() {
+          console.log("populateRadiosCheck")
+          $('input[name="' + hash[0] + '"][value="' + hash[1] + '"]').click();
+        }
+      );
+      };
+</script>
+<script>
+     if(document.getElementById("sock-subscription-gift-yes").checked == true) {
+      $('[data-option-name="Gift"]').show();
+      $('.swatch-subscription-duration label').hide();
+      $('[for="subscription-length-3-prepaid"], [for="subscription-length-6-prepaid"], [for="subscription-length-12-prepaid"]').show();
+      $('.gift_text_variable').show();
+      $('.no_gift_text_variable').hide();
+    }
+</script>
+<script>
 
 $('.bms_info_modal .close, .bms_sizing_modal .close, #overlay').click(function() {
   $('#overlay, .bms_info_modal, .bms_sizing_modal').hide();
@@ -312,14 +342,34 @@ $('.size_chart_link').click(function() {
   $('#overlay, .bms_sizing_modal').show();
 }); 
 
+var holydays = ['12/17/2018'];
+
+function highlightDays(date) {
+    for (var i = 0; i < holydays.length; i++) {
+        if (new Date(holydays[i]).toString() == date.toString()) {
+            return [true, 'highlight'];
+        }
+    }
+    return [true, ''];
+
+}
+
+function setCustomDate(date) {
+    var clazz = "";
+    var arr1 = highlightDays(date);
+    if (arr1[1] != "") clazz = arr1[1];
+    var arr3 = $.datepicker.noWeekends(date);
+
+    return [(!arr3[0]) ? false : true, clazz];
+}
+ 
 
   $( function() {
-    
     if( window.innerWidth > 480 ) {
       $( "#datepicker" ).datepicker(
         {
           minDate: 0,
-          beforeShowDay: $.datepicker.noWeekends,
+          beforeShowDay: setCustomDate,
           selectOtherMonths: true, 
           nextText: '<i class="fas fa-chevron-right"></i>',
           prevText: '<i class="fas fa-chevron-left"></i>',
@@ -331,7 +381,7 @@ $('.size_chart_link').click(function() {
       $( "#datepicker" ).datepicker(
         {
           minDate: 0,
-          beforeShowDay: $.datepicker.noWeekends,
+          beforeShowDay: setCustomDate,
           selectOtherMonths: true, 
           nextText: '<i class="fas fa-chevron-right"></i>', 
           prevText: '<i class="fas fa-chevron-left"></i>',

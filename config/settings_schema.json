@@ -3410,6 +3410,11 @@
         "label": "Show migration prompt on account login page?",
         "default": true,
         "info": "You can change the wording of the notification by editing your theme's language settings: "
+      },
+      {
+        "id": "bms_remove_prepaid_subscriptions",
+        "type": "checkbox",
+        "label": "Automatically remove prepaid subscriptions from cart when customer returns from checkout?"
       }
     ]
   }

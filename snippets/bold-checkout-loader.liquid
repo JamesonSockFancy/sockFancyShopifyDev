@@ -255,12 +255,18 @@
         pushToCashier: function pushToCashier(event) {
             event.preventDefault();
             var request = new XMLHttpRequest();
-            request.open('GET', '/cart.js', true);
+            request.open('GET', '/cart.js?tmp=' + Date.now(), true);
 
             request.onload = function() {
               if (request.status >= 200 && request.status < 400) {
                 // Success!
                 var cart = JSON.parse(request.responseText);
+
+                //If items are empty redirect back to the cart
+                if(cart.items.length == 0) {
+                    return window.location.href = '/cart';
+                }
+
                 cart.items.forEach(function(element) {
                     delete element.product_description;
                     //Pull the DOM version for best results
@@ -268,6 +274,11 @@
                         element.quantity = document.getElementById("updates_" + element.key).value;
                     }
                 });
+
+                if(document.getElementById("CartSpecialInstructions")) {
+                    //If the cart note exists, grab it's value
+                    cart.note = document.getElementById("CartSpecialInstructions").value;
+                }
 
                 var cartObj = JSON.stringify(cart);
 
@@ -300,7 +311,7 @@
             document.addEventListener('click', BOLD.checkout.listenerFn, {"capture":true});
         },
         disable: function disable() {
-            document.removeEventListener('click', BOLD.checkout.listenerFn);
+            document.removeEventListener('click', BOLD.checkout.listenerFn, {"capture":true});
         }
     };
     (function () {
