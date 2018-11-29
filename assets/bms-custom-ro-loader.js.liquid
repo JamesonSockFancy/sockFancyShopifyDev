@@ -282,6 +282,7 @@ BOLD.bms_ro_loader = {
       $('[data-option-name="Gift"]').show();
       $('.swatch-subscription-duration label').hide();
       $('[for="subscription-length-3-prepaid"], [for="subscription-length-6-prepaid"], [for="subscription-length-12-prepaid"]').show();
+      document.getElementById('subscription-length-1-prepaid').checked = false;
       $('.gift_text_variable').show();
       $('.no_gift_text_variable').hide();
     }
@@ -291,6 +292,7 @@ BOLD.bms_ro_loader = {
       $('.swatch-subscription-duration label').hide();
       $('[for="subscription-length-1-prepaid"], [for="subscription-length-3-prepaid"], [for="subscription-length-12-prepaid"]').show();
       $('.gift_text_variable').hide();
+      document.getElementById('subscription-length-6-prepaid').checked = false;
       $('.no_gift_text_variable').show();
     }
 
@@ -422,9 +424,11 @@ BOLD.bms_ro_loader = {
       var gift_msg = form['properties[Gift Message]'].value.split('\n').join(' ').split('\r').join(' ').trim();
       var gift_email = form['properties[EMAIL]'].value;
 
+      {% if settings.bms_include_email_with_gift_note %}
       if(gift_email) {
         gift_msg += '\n\n email: ' + gift_email;
       }
+      {% endif %}
 
       while(gift_msg.indexOf('  ') > -1){ gift_msg = gift_msg.replace('  ', ' ')}
 
@@ -495,7 +499,7 @@ BOLD.bms_ro_loader = {
       //   emailWarning = true;
       //   $('.gift-details textarea').addClass('gift_warning');
       // }
-      
+
       if( $('#gift_email').val() == '' ) {
         // emailWarning = true;
         // $('#gift_email').addClass('gift_warning');
